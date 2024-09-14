@@ -1,0 +1,125 @@
+\documentclass[12pt]{paper}
+\usepackage[french]{babel}
+\usepackage[
+a4paper,
+margin=2cm,
+nomarginpar,% We don't want any margin paragraphs
+]{geometry}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools,}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+% theorems
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Th\'eor\`eme}
+\newtheorem{Sol}{Solution}
+\newtheorem*{Sol*}{Solution}
+\theoremstyle{definition}
+\newtheorem{ex}{Exercice}
+
+
+% corps
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rnn}{\mathbb{R}^{2n}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+% domain
+\newcommand{\D}{\mathbb{D}}
+
+
+% date
+\usepackage{advdate}
+\AdvanceDate[1]
+
+% plots
+\usepackage{pgfplots}
+
+% for calligraphic C
+\usepackage{calrsfs}
+
+% euro
+\usepackage{lmodern,textcomp}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Première G5}
+\fancyhead[C]{\textbf{Suites arithmétiques 1}}
+\fancyhead[R]{\today}
+
+
+\begin{ex}[Prêt à taux d'intérêt fixe]
+	Un étudiant souhaite faire un prêt de $60 \ 000$€ 	 à taux d'intérêt fixe à une banque.
+	
+	La banque lui propose un prêt à long terme, maximum $25$ ans, avec un taux d'intérêt annuel de $6{,}53 \%$.
+	À la fin de chaque année, l'étudiant doit alors payer à la banque $6{,}53 \%$ de la somme initiale en plus.
+	
+	\begin{enumerate}
+		\item Combien d'intérêts a-t-il cumulé au total à la fin de la $n$-ième année ?
+		
+		\item Donner la somme totale à reverser à la banque à la fin de la $n$-ième année pour rembourser le prêt.
+		
+		\item Après $25$ ans, combien d'argent l'étudiant doit-il rembourser au total ?
+		
+		\item À partir de combien d'années la valeur à rembourser est-elle supérieure au double de la valeur initiale empruntée ?
+		
+		\item Est-il plus avantageux de prendre, pour la même somme d'argent empruntée, un taux d'intérêt de $6{,}53\%$ sur $15$ ans ou $10\%$ sur $10$ ans ?
+		
+	\end{enumerate}
+	
+	\emph{Données : $6 \times 653 = 3918$, \qquad $3918 \times 15 = 58 \ 770.$}
+\end{ex}
+
+
+\begin{ex}[Raison et terme initial]
+
+	Écrire le terme de rang $n \in \N$ des suites suivantes.
+	
+	\begin{enumerate}
+		\item La suite $u$ de raison $-3$ et de terme initial $2$.
+		\item La suite $v$ de raison $2\pi$ et de terme initial $-\frac23$.
+		\item La suite $w$ de raison $0$ et de terme initial $-1$.
+	\end{enumerate}
+	
+\end{ex}
+
+\begin{ex}
+
+Nommer et donner le terme de rang $n \in \N$ des suites $\star$, $\bullet$, et $\square$ suivantes données graphiquement.
+
+\begin{center}
+\begin{tikzpicture}[>=stealth, scale=1.1]
+	\begin{axis}[xmin = 0, xmax=4.9, xtick={ 0,1,2, 3, 4,5}, ymin=-2, ymax=5, ytick={-1,0,1,2, 3,4}, axis x line=middle, axis y line=middle, axis line style=->, xlabel={$n$}, ylabel={}, grid=both]
+		\addplot[black, thick, only marks, mark=*] coordinates {(0,1) (1,1.5) (2,2) (3,2.5) (4,3)};
+		
+		\addplot[black, thick, only marks, mark=star] coordinates {(1, 4.5) (2,2.5) (3,0.5) (4,-1.5)};
+		
+		\addplot[black, thick, only marks, mark=square] coordinates {(0,4) (1,4) (2,4) (3,4) (4,4)};
+	\end{axis}
+
+\end{tikzpicture}
+\end{center}
+
+\end{ex}
+
+\begin{ex}
+	Soient $u, v$, et $w$ trois suites arithmétiques données par
+		\[ u(n ) = 3n + 4, \qquad v(n) = 2n -10, \qquad w(n) = 34 - n, \qquad \text{ pour } n \in \N.\]
+	\begin{enumerate}
+		\item Donner les variations de $u$ et de $w$ ainsi que leur terme initial.
+		\item À partir de quel rang la suite $u$ est-elle plus grande ou égale à la suite $w$ ?
+		\item À partir de quel rang la suite $w$ est-elle négative ou nulle ?
+		\item La suite $v$ peut-elle être plus grande ou égale à la suite $u$ pour certains rangs $n\in\N$ ?
+	\end{enumerate}
+\end{ex}
+
+
+\end{document}
