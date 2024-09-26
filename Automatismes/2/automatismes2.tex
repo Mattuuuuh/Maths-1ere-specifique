@@ -1,0 +1,93 @@
+\documentclass[14pt]{beamer}
+\usepackage[french]{babel}
+
+
+\usetheme{CambridgeUS}
+\usecolortheme{rose}
+\beamertemplatenavigationsymbolsempty
+
+\usepackage{array}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+
+% corps
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rnn}{\mathbb{R}^{2n}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+% domain
+\newcommand{\D}{\mathbb{D}}
+
+
+% date
+\usepackage{advdate}
+\AdvanceDate[1]
+
+\begin{document}
+
+\section{Automatismes n°1}
+
+\subsection{Raison}
+
+\begin{frame}
+	
+	Soit $u$ la suite donnée, pour tout $n\in\N$, par
+		\[ u(n) = 4n+1. \]
+	Calculer $u(n+1) - u(n)$.
+
+\end{frame}
+
+\subsection{Récurrence}
+
+\begin{frame}
+	Soit $u$ une suite arithmétique de raison $4$ et de terme de rang $8$ donné par
+		\[ u(8) = -13. \]
+	Calculer $u(10)$.
+
+\end{frame}
+
+\subsection{Substitution}
+
+\begin{frame}
+
+	Soit $u$ la suite donnée, pour tout $n\in\N$, par
+		\[ u(n) = 4n+1, \]
+	et $v$ la suite définie par, pour tout $n\in\N$, 
+		\[ v(n) = u(2n-3). \]
+	Écrire $v(n)$ en fonction de $n$.	
+\end{frame}
+
+%\begin{frame}
+%
+%	Soit $u$ la suite donnée, pour tout $n\in\N$, par
+%		\[ u(n) = 4n+1, \]
+%	et $w$ la suite définie par, pour tout $n\in\N$, 
+%		\[ w(n) = u(-n^2+1). \]
+%	Donner le terme de rang $n$ de $v$ en fonction de $n$.	
+%
+%\end{frame}
+
+\subsection{Inégalités}
+
+\begin{frame}
+
+	Soient $u$ et $v$ les suites données, pour tout $n\in\N$, par
+		\begin{align*}
+			u(n) &= 4n+1, & v(n) &= -6n+\dfrac34
+		\end{align*}
+	Donner l'\emph{ensemble} des rangs $n$ vérifiants
+		\[ u(n) \leq v(n). \]
+\end{frame}
+
+
+
+
+\end{document}
