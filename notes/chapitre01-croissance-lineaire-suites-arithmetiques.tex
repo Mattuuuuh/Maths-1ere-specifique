@@ -5,6 +5,7 @@
 
 	\section{Suites arithmétiques}
 
+	\subsection{Définitions}
 
 	\dfn{Suite}{
 		Une suite $u$ est une fonction qui à tout entier naturel $n \in \N$ associe un réel
@@ -50,6 +51,7 @@
 		L'écriture \eqref{eq:2} est utile pour calculer les terms successifs d'une suite.
 	}
 	
+	
 	\ex{}{
 		Soit $u$ la suite de terme initial $u(0) = -2$ et de raison $3$.
 		
@@ -66,6 +68,12 @@
 		Le théorème \ref{thm:lili} démontrera cette conjecture.
 	}{}
 	
+	\exe{}{
+		Soit $u$ une suite arithmétique de raison $7$ et de terme de rang $61$ donné par
+			\[ u(61) = -15.\]
+		Calculer $u(63)$.	
+	}{}
+	
 	\ex{}{
 		La suite donnée, pour tout $n\in\N$, par
 			\[ u(n) = 3n - 2 \]
@@ -73,6 +81,23 @@
 		En effet, on vérifie que, pour tout $n\in \N$,
 			\[ u(n+1) - u(n) = 3(n+1) - 2 - (3n - 2) = 3n + 3 - 2 - 3n + 2 = 3.\]
 		Elle est donc arithmétique de raison $3$.
+	}{}
+	
+	\exe{}{
+		La suite donnée, pour tout $n\in\N$, par
+			\[ \zeta(n) = - n\sqrt{2} + 2\pi \]
+		est-elle arithmétique ?
+		
+		Si oui, donner sa raison et son terme initial. Sinon, justifier.
+	}{}
+	
+	\exe{}{
+		Soit $\beta$ la suite donnée, pour tout $n\in\N$, par
+			\[ \beta(n) = 3n^3 + \tau, \]
+		où $\tau$ est une constante réelle située dans l'intervalle $]1 ; 2[$.
+		
+		La suite $\beta$ est-elle arithmétique ?		
+		Si oui, donner sa raison et son terme initial. Sinon, justifier.
 	}{}
 	
 	\nt{
@@ -93,6 +118,20 @@
 			& $u$ est \emph{décroissante} dès que $r < 0$.
 		\end{cases*}\]
 	}
+	
+	\exe{}{
+		Les suites suivantes sont-elles croissantes, décroissantes, ou constantes ? 
+		
+		\begin{enumerate}
+			\item La suite de raison 3 et de terme initial -8.
+			\item La suite de raison 0 et de terme initial 3.
+			\item La suite $f$ donnée par $f(n) = 3n - 1$ pour tout $n\in\N$.
+			\item La suite $g$ donnée par $g(n) = \dfrac1{-4}n + 0$ pour tout $n\in\N$.
+		\end{enumerate}
+	
+	}{}
+	
+	\subsection{Théorèmes fondamentaux}
 	
 	\thm{}{
 		Soit une suite arithmétique $u$ de terme initial $u(0)\in\R$ et de raison $r \in \R$.
@@ -174,6 +213,7 @@
 		Nous voilà rassurés.
 	}
 
+	\subsection{Problèmes de seuil}
 
 	\nt{
 		Savoir résoudre les inégalités sur les entiers sert à répondre aux questions du type
@@ -196,7 +236,8 @@
 		Pour $u$ une suite donnée par, pour tout $n\in\N$,
 			\[ u(n) = 3918n + 60 000. \]
 		À partir de quel rang $N\in\N$ la suite $u$ dépasse-t-elle deux fois sa valeur initiale ?
-	}
+	}{}
+	
 	\pf{Solution}{
 		On cherche à trouver le premier rang $N\in\N$ tel que
 			\[ u(N) \geq 2u(0). \]
@@ -213,10 +254,155 @@
 		Pour $u$ une suite donnée par, pour tout $n\in\N$,
 			\[ u(n) = -43n +450. \]
 		À partir de quel rang $N\in\N$ la suite $u$ devient-elle négative ou nulle ?
-	}
+	}{}
 	
 	\exe{}{
 		Donner l'ensemble des $n\in\N$ vérifiants l'inégalité suivante.
 			\[ -\dfrac47 n + 9 \leq 3. \]
-	}
+	}{}
+	
 	\textbf{Attention : multiplier par un nombre strictement négatif change le sens des inégalités.}
+	
+	\subsection{Lecture graphique}
+	
+	On peut représenter une suite en deux dimensions en notant, pour chaque rang $n\in\N$, sa valeur dans un graphe.
+	
+		\ex{}{
+		On note les points de la suite $t$ dans le repère ci-après.
+		Un point en coordonnées $(n,y)$ signifie que
+			\[ t(n) = y. \]
+		$t(n)$ est l'ordonnée du point d'abscisse $n$ (sa hauteur dans le graphe).
+		
+		\begin{center}
+		\begin{tikzpicture}[>=stealth, scale=1.1]
+			\begin{axis}[xmin = 0, xmax=4.9, xtick={ 0,1,2, 3, 4,5}, ymin=-2, ymax=5, ytick={-1,0,1,2, 3,4}, axis x line=middle, axis y line=middle, axis line style=->, xlabel={$n$}, ylabel={}, grid=both]
+				\addplot[black, thick, only marks, mark=*] coordinates {(0,2) (1,1) (2,0) (3,-1)};
+			\end{axis}
+		\end{tikzpicture}
+		\end{center}
+		
+		On lit alors :
+			\begin{align*}
+				& t(0) = 2, & t(1) = 1 & t(2) = 0 & t(3) = -1 &
+			\end{align*}
+		En \emph{sachant} que $t$ est arithmétique, on peut lire sa raison et son terme initial et déduire que $t(n) = 2 - n$ pour tout $n\in\N$.
+		
+		Si on ne sait pas que $t$ est arithmétique, on ne peut pas le déduire des informations données.
+	}{}
+	
+	\exe{}{
+		Nommer et donner le terme de rang $n \in \N$ des suites $\star$, $\bullet$, et $\square$ suivantes données graphiquement.
+		\begin{center}
+		\begin{tikzpicture}[>=stealth, scale=1.1]
+			\begin{axis}[xmin = 0, xmax=4.9, xtick={ 0,1,2, 3, 4,5}, ymin=-2, ymax=5, ytick={-1,0,1,2, 3,4}, axis x line=middle, axis y line=middle, axis line style=->, xlabel={$n$}, ylabel={}, grid=both]
+				\addplot[black, thick, only marks, mark=*] coordinates {(0,1) (1,1.5) (2,2) (3,2.5) (4,3)};
+				
+				\addplot[black, thick, only marks, mark=star] coordinates {(1, 4.5) (2,2.5) (3,0.5) (4,-1.5)};
+				
+				\addplot[black, thick, only marks, mark=square] coordinates {(0,4) (1,4) (2,4) (3,4) (4,4)};
+			\end{axis}
+		\end{tikzpicture}
+		\end{center}
+	}{ex:graph-1}
+	
+	
+	\str{
+		En ne connaissant pas le terme initial d'une suite, on peut quand même le déduire si on a au moins deux points à disposition.
+		C'est le cas de la suite $\star$ de l'exercice \ref{ex:graph-1}. 
+		En effet, sa raison est $-2$ et sa valeur en $1$ est $\star(1) = 4.5$.
+		
+		Le théorème \ref{thm:lili} s'applique toujours, même en posant $P$ sa valeur initiale, inconnue pour l'instant.
+		On a alors
+			\[ \star(n) = -2n + P, \]
+		valable pour tout $n\in\N$, et donc en particulier en $n=1$.
+		Ceci implie l'identité suivante, qu'on résoud pour $P$.
+			\[ -2 + P = \star(1) = 4.5, \]
+		d'où $P = 6.5$.
+	}
+	
+	\nt{
+		Dans l'exemple de la suite $\star$ de l'exercice \ref{ex:graph-1}, il est également possible de revenir en arrière en utilisant l'équation \eqref{eq:2}.
+		Il faut faire attention à soustraire la raison : on a, pour tout $n\in\R$ et en notant $r$ la raison d'une suite arithmétique $u$, 
+			\[ u(n) = u(n+1) - r. \]
+		Ici, $\star(0) = \star(1) - (-2) = 4.5 + 2 = 6.5$.
+		
+		On remerciera les mathématiques de nous donner le même résultat que ci-dessus.
+	}
+	
+	\nt{
+		Remarquons qu'une suite arithmétique suit la trace d'une droite. On comparera les définitions
+			\begin{align*} & f(x) = ax + b & \text{et} && u(n) = rn + b. & \end{align*}
+		
+		Il n'est donc pas surprenant qu'il suffise de deux valeurs (distinctes) d'une suite arithmétique pour connaître sa raison et son terme initial, et donc son expression générale.
+		En effet, il suffit de deux points d'une droite pour la connaître complètement.	
+	}
+	
+		
+	\exe{}{
+		Nommer et donner le terme de rang $n \in \N$ des suites $\star$, $\bullet$, et $\square$ suivantes données graphiquement.
+		\begin{center}
+		\begin{tikzpicture}[>=stealth, scale=1.1]
+			\begin{axis}[xmin = 12, xmax=16.9, xtick={ 12,13,14,15, 16}, ymin=-2, ymax=5, ytick={-1,0,1,2, 3,4}, axis x line=middle, axis y line=middle, axis line style=->, xlabel={$n$}, ylabel={}, grid=both]
+				\addplot[black, thick, only marks, mark=*] coordinates {(12,3) (13,2.5) (14,2) (15,1.5) (16,1)};
+				
+				\addplot[black, thick, only marks, mark=star] coordinates {(12,-1) (13,1) (14,3) (15,5)};
+				
+				\addplot[black, thick, only marks, mark=square] coordinates {(14,4) (15,1)};
+			\end{axis}
+		\end{tikzpicture}
+		\end{center}
+		\textbf{Attention : les rangs commencent à $12$ dans le graphe ci-dessus.}
+	}{}
+	
+	
+		\exe{}{
+		Nommer et donner le terme de rang $n \in \N$ des suites $\star$, $\bullet$, et $\square$ suivantes données graphiquement.
+		\begin{center}
+		\begin{tikzpicture}[>=stealth, scale=1.1]
+			\begin{axis}[xmin = 101, xmax=114.9, xtick={ 101,104,107,110,113}, ymin=-2, ymax=5, ytick={-1,0,1,2, 3,4}, axis x line=middle, axis y line=middle, axis line style=->, xlabel={$n$}, ylabel={}, grid=both]
+				\addplot[black, thick, only marks, mark=*] coordinates {(101,3) (113,3)};
+				
+				\addplot[black, thick, only marks, mark=star] coordinates {(110,0) (113,4)};
+				
+				\addplot[black, thick, only marks, mark=square] coordinates {(101,2) (113,-1)};
+			\end{axis}
+		\end{tikzpicture}
+		\end{center}
+		\textbf{Attention : les rangs commencent à $101$ et vont de $3$ en $3$ dans le graphe ci-dessus. Il manque des points aux suites $\bullet$ et $\square$.}
+	}{ex:graph-3}
+	
+	\pf{Solution pour la suite $\square$}{
+		On résoud l'exercice \ref{ex:graph-3} pour la suite $\square$.
+		
+		Posons d'avance
+			\begin{align}\label{eq:sqr-expr} \square(n) = rn + b, \end{align}
+		où $r$ est la raison de la suite, et $b$ son terme initial à trouver.
+		
+		La suite $\square$ étant arithmétique, on a la relation suivante
+			\begin{align*}
+				\square(113) = \square(101) + 12 r & \iff -1 = 2 + 12r 
+			\end{align*}
+		qui nous donne $r = -\dfrac14$.
+		
+		En connaissant le terme de rang $101$, on a donc l'égalité suivante.
+			\[ -\dfrac14 \cdot 100 + b = \square(101) = 2, \]
+		d'où $b=27$.
+	}
+	
+	\pf{Seconde solution pour la suite $\square$}{
+		Par analogie avec les droites, il est possible de résoudre pour $r$ et $b$ de l'expression \eqref{eq:sqr-expr} en posant un système de deux équations à deux inconnues.
+		
+		Les points $(101;2)$ et $(113;-1)$ se traduisent par les égalités suivantes.		
+		\begin{align*}
+			\begin{cases*} \square(101) = 2, \\ \square(113) = -1. \end{cases*} 
+			&& \iff &&
+			\begin{cases*} 101r + b = 2, \\ 113r + b = -1. \end{cases*} 
+		\end{align*}
+		En soustrayant la première équation à la deuxième, on retrouve la relation
+			\[ 12r = -3,\]
+		et on conclut de la même manière.
+	
+	}
+	
+
+	
