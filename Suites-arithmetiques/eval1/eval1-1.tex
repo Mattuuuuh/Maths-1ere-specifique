@@ -1,0 +1,180 @@
+\documentclass[12pt]{paper}
+\usepackage[french]{babel}
+\usepackage[
+a4paper,
+margin=2cm,
+nomarginpar,% We don't want any margin paragraphs
+]{geometry}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools,}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+\usepackage{enumitem}
+
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+% theorems
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Th\'eor\`eme}
+\newtheorem{Sol}{Solution}
+\newtheorem*{Sol*}{Solution}
+\theoremstyle{definition}
+\newtheorem{ex}{Exercice}
+\newtheorem{definition}{Définition}
+
+
+% corps
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rnn}{\mathbb{R}^{2n}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+% domain
+\newcommand{\D}{\mathbb{D}}
+
+
+% date
+\usepackage{advdate}
+\AdvanceDate[0]
+
+% plots
+\usepackage{pgfplots}
+
+% for calligraphic C
+\usepackage{calrsfs}
+
+% euro
+\usepackage{lmodern,textcomp}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Première G2}
+\fancyhead[C]{\textbf{Évaluation -- Suites arithmétiques}}
+\fancyhead[R]{\today}
+
+\begin{definition}\label{def:1}
+	Soit $u$ une suite. On dit que $u$ est \emph{arithmétique} dès que, pour tout $n\in\N$,
+		\begin{align}\label{eq:def}
+			u(n+1) - u(n) = r,
+		\end{align}
+	où $r\in\R$ est la \emph{raison} de la suite. La raison est fixe et ne dépend pas de $n$.
+\end{definition}
+	
+
+\section*{Exercice d'application (5pts)}
+
+\begin{ex}
+	Un professeur hésite entre louer un appartement ou l'acheter.
+	D'une part, le loyer mensuel de l'appartement est de $700$€, avec un coût initial (la caution) fixé à deux loyers, soit $1\ 400$€.
+	D'autre part, à l'achat, cet appartement coûte $140 \ 000$€.
+	
+	Dans la première alternative, lorsque l'appartement est loué, on dénote par $u(n)$ le montant total payé en euros par le locataire après $n$ mois (et ceci pour tout $n\in\N$).
+	Ainsi par exemple, après $1$ mois, un seul loyer a été payé en plus de la caution initiale. D'où $u(1) = 2 \ 100$.
+	\begin{enumerate}
+		\item Donner le terme initial $u(0)$.
+		\item Donner $u(2)$, le montant payé par le locataire après $2$ mois.
+		\item Justifier avec des mots le caractère arithmétique de la suite $u$. Quelle est sa raison ?
+		\item Pour tout $n\in\N$, donner $u(n)$ en fonction de $n$ sans justifier.
+		\item À partir de combien de mois le locataire aura-t-il payé plus que le coût de l'appartement à l'achat ?
+	\end{enumerate}
+\end{ex}
+
+\section*{Exercices théoriques (12pts)}
+
+\begin{ex}
+	Compléter l'énoncé du théorème \ref{thm:1} vu en cours. Ne pas écrire sur le sujet.
+\end{ex}
+
+\begin{theorem}[Lili-Faustine]\label{thm:1}
+	
+	Une suite $u$ est arithmétique de raison $r\in\R$ et de terme initial $b\in\R$ si et seulement si le terme de rang $n\in\N$ de $u$ s'écrit
+		\[ u(n) = \stackrel{?}{\underline{\hspace{2cm}}}.\]
+		
+\end{theorem}
+
+\begin{ex}
+	Soit $u$ une suite arithmétique de raison $-5$ et telle que
+		\[u(10) = 21. \]
+	\begin{enumerate}
+		\item Donner les $4$ premiers éléments dans l'ordre croissant de l'ensemble $\N$ de la définition \ref{def:1}.
+		\item Écrire l'équation \eqref{eq:def} de la définition \ref{def:1} avec $r=-5$ pour $n=10$.
+		\item En déduire la valeur de $u(11)$.
+		\item Écrire l'équation \eqref{eq:def} de la définition \ref{def:1} avec $r=-5$ pour $n=9$.
+		\item En déduire la valeur de $u(9)$.
+	\end{enumerate}
+\end{ex}
+
+
+\begin{ex}
+	Soit $\phi$ une suite arithmétique donnée par, pour tout $n\in\N$,
+		\[ \phi(n) = -3n + 10. \]
+	Pour chacune des suites $a, b,$ et $c$ ci-après, 
+		\begin{enumerate}[leftmargin=2cm, label=\roman*)]
+			\item écrire le terme de rang $n$ de la suite \textbf{en fonction de n} ; 
+			\item  \textbf{justifier} si la suite est arithmétique ou non à l'aide de la définition \ref{def:1} ou en citant le théorème \ref{thm:1} ; et
+			\item si la suite est arithmétique : donner sa \textbf{raison} et son \textbf{terme initial}.
+		\end{enumerate}
+		\vspace{5pt}
+		\begin{enumerate}[leftmargin=1cm]
+			\item La suite $a$ définie par $a(n) = \phi\left(\dfrac13n+3\right)$ pour tout $n\in\N$.
+			\item La suite $b$ définie par $b(n) = \phi(-2n+3)$ pour tout $n\in\N$.
+			\item La suite $c$ définie par $c(n) = \phi(n)^2$ pour tout $n\in\N$.
+		\end{enumerate}
+\end{ex}
+
+\begin{ex}
+	Soient $A$ et $B$ deux suites arithmétiques données par
+		\[ A(n) = \dfrac13n - 3, \qquad B(n) = 12 - \dfrac12n, \qquad \text{ pour tout } n \in \N.\]
+	\begin{enumerate}
+		\item Donner les variations de $A$ et de $B$.
+		\item À partir de quel rang la suite $A$ est-elle plus grande ou égale à la suite $B$ ?
+		\item Donner l'\emph{ensemble} des rangs $n\in\N$ pour lesquels $B(n)$ est  supérieure ou égale à $10$.
+	\end{enumerate}
+\end{ex}
+
+\section*{Lecture graphique (3pts)}
+
+\begin{ex}
+	Écrire, en fonction de $n$, le terme de rang $n \in \N$ des suites arithmétiques $\bullet, \square,$ et $\star$ données graphiquement ci-dessous.
+
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1.1]
+		\begin{axis}[xmin = 0, xmax=4.9, xtick={ 0,1,2, 3, 4,5}, ymin=-2, ymax=5, ytick={-1,0,1,2, 3,4}, axis x line=middle, axis y line=middle, axis line style=->, xlabel={$n$}, ylabel={}, grid=both]
+			\addplot[black, thick, only marks, mark=*] coordinates {(0,3) (1,2) (2,1) (3,0) (4,-1)};
+			
+			\addplot[black, thick, only marks, mark=star] coordinates {(2,-1) (3,4)};
+			
+			\addplot[black, thick, only marks, mark=square] coordinates {(0,2) (1,0) (2,-2)};
+			
+			%\addplot[black, thick, only marks, mark=triangle] coordinates {(0,1) (4,3)};
+		\end{axis}
+	
+	\end{tikzpicture}
+	\end{center}
+\end{ex}
+
+\section*{Approfondissement (bonus : 2pts)}
+
+\begin{ex}
+	Soit $v$ une suite arithmétique de raison $r$.
+	
+	Considérons la suite $S$ définie par, pour tout $n\in\N$,
+		\[ S(n) = v(0) + v(1) + v(2) + \dots + v(n-2) + v(n-1) + v(n). \]
+	La suite $S$ est-elle arithmétique ?
+\end{ex}
+
+%\begin{ex}
+%	Soit $u$ une suite arithmétique de raison $r$ et de terme initial $b$.
+%	En admettant que pour tout $n\in\N$ on ait 
+%		\[ 0 + 1 + 2 + \dots + (n-1) + n = \dfrac{n(n+1)}2, \]
+%	exprimer la somme
+%		\[ u(0) + u(1) + u(2) + \dots + u(n-1) + u(n) \]
+%	en fonction de $n, r,$ et $b$.
+%\end{ex}
+
+\end{document}
