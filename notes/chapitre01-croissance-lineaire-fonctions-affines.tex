@@ -34,6 +34,13 @@ Un fonction affine, quant à elle, n'a pas cette restriction : elle peut prendre
 		\[ f(x) = 5x + 3 \qquad \text{ pour tout } x\in\R. \]
 }{}
 
+\nt{
+	Comme pour les suites arithmétiques, les fonctions affines vérifient
+		\[ f(x+1) - f(x) = a(x+1) + b - (ax + b) = a, \]
+	pour n'importe quel $x\in\R$ (et donc en particulier pour $x\in\N$ entier naturel, comme dans l'équation \eqref{eq:1}).
+
+}
+
 \dfn{Repère et point}{
 	On définit le plan, espace en deux dimension, par un ensemble de couples $(x,y)$ où $x,y\in\R$ sont deux réels.
 	En d'autres termes, c'est l'ensemble
@@ -126,7 +133,12 @@ Un fonction affine, quant à elle, n'a pas cette restriction : elle peut prendre
 	\end{tikzpicture}
 	\end{center}
 
-}{}
+}{ex:droite}
+
+\nt{
+	À partir de la représentation de la droite de l'exemple \ref{ex:droite}, on peut extraire deux points, $(0;6)$ et $(1,7)$ et appliquer la lecture graphique en tant que suite arithmétique.
+	 Le terme initial est $6$ et la raison $1$, ce qui donne $u(n) = n + 6$ pour tout $n\in\N$, à comparer avec la fonction $f(x) = x+6$ pour tout $x\in\R$.
+}
 
 \ex{}{
 	Donner deux points distincts appartenant à la droite suivante.
@@ -205,7 +217,7 @@ Un fonction affine, quant à elle, n'a pas cette restriction : elle peut prendre
 	Remarquons cependant qu'une droite est déterminée entièrement par la valeur des deux paramètres $a$ et $b$ de la définition \ref{def:droite}.
 	Or, deux équations distinctes suffisent à déterminer la solution d'un système linéaire à deux inconnues.
 	
-	Ceci se généralise sans peine. Par exemple, pour trouver une parabole de la forme $f(x)=ax^2 + bx + c$, il suffit de trois informations.
+	Ceci se généralise sans peine. Par exemple, pour trouver une parabole de la forme $f(x)=ax^2 + bx + c$, il suffit de trois informations distinctes.
 }
 
 \exe{}{
@@ -239,11 +251,6 @@ Un fonction affine, quant à elle, n'a pas cette restriction : elle peut prendre
 		\[ b = y_A - \dfrac{y_A - y_B}{x_A - x_B} x_A = \dfrac{x_A y_B - x_B y_A}{x_A-x_B}. \]
 }
 
-\exe{}{
-	Calculer $a$ et $b$ de l'exemple \ref{ex:systeme-affine} à l'aide des formules ci-dessus et comparer avec les valeurs obtenues.
-	
-	Décrire entièrement la droite contenant les points $(-1;-10)$ et $(1;30)$.
-}{}
 
 \thm{}{
 	Soit $(d)$ une droite donnée par	
@@ -254,7 +261,27 @@ Un fonction affine, quant à elle, n'a pas cette restriction : elle peut prendre
 		\begin{align*}
 			a = \dfrac{y_A - y_B}{x_A - x_B} && \text{et} && b = \dfrac{x_A y_B - x_B y_A}{x_A-x_B}. 
 		\end{align*}
+}{thm:param-affine}
+
+
+\exe{}{
+	Calculer $a$ et $b$ de l'exemple \ref{ex:systeme-affine} à l'aide des formules ci-dessus et comparer avec les valeurs obtenues.
 }{}
+\exe{}{
+	Décrire entièrement la droite contenant les points $(-1;-10)$ et $(1;30)$.
+}{}
+
+
+\nt{
+	Considérons une droite $(d)$ associée à une fonction affine $f(x) = ax+b$, $x\in\R$.
+	Le théorème \ref{thm:param-affine} dit que, pour $x_1, x_2 \in\R$ deux réels distincts,
+		\[ a = \dfrac{f(x_1) - f(x_2)}{x_1 - x_2}. \]
+	Remarquons que, si on pose $x_2 = n \in \N$ un entier naturel, et $x_1 = n+1$, on retrouve
+		\[ a = f(n+1) - f(n), \]
+	non sans rappeler la définition de la raison d'une suite (voir \eqref{eq:1}).
+	
+	L'importance du théorème est que les réels $x_1$ et $x_2$ ne sont pas nécessairement entiers, et pas nécessairement à distance $1$ l'un de l'autre.
+}
 
 \subsection{Lecture graphique}
 
