@@ -18,8 +18,7 @@ nomarginpar,% We don't want any margin paragraphs
 
 \theoremstyle{plain}
 \newtheorem{theorem}{Th\'eor\`eme}
-\newtheorem{Sol}{Solution}
-\newtheorem*{Sol*}{Solution}
+\newtheorem*{sol}{Solution}
 \theoremstyle{definition}
 \newtheorem{ex}{Exercice}
 
@@ -49,14 +48,32 @@ nomarginpar,% We don't want any margin paragraphs
 % euro
 \usepackage{lmodern,textcomp}
 
+
+% SOLUTION SWITCH
+\newif\ifsolutions
+				\solutionstrue
+				%\solutionsfalse
+
+\ifsolutions
+	\newcommand{\exe}[2]{
+		\begin{ex} #1  \end{ex}
+		\begin{sol} #2 \end{sol}
+	}
+\else
+	\newcommand{\exe}[2]{
+		\begin{ex} #1  \end{ex}
+	}
+	
+\fi
+
 \begin{document}
 \pagestyle{fancy}
 \fancyhead[L]{Première G5}
-\fancyhead[C]{\textbf{Suites arithmétiques 1}}
+\fancyhead[C]{\textbf{Suites arithmétiques 1 \ifsolutions -- Solutions \fi}}
 \fancyhead[R]{\today}
 
 
-\begin{ex}[Prêt à taux d'intérêt fixe]
+\exe{
 	Un étudiant souhaite faire un prêt de $60 \ 000$€ 	 à taux d'intérêt fixe à une banque.
 	
 	La banque lui propose un prêt à long terme, maximum $25$ ans, avec un taux d'intérêt annuel de $6{,}53 \%$.
@@ -76,10 +93,29 @@ nomarginpar,% We don't want any margin paragraphs
 	\end{enumerate}
 	
 	\emph{Données : $6 \times 653 = 3918$, \qquad $3918 \times 15 = 58 \ 770.$}
-\end{ex}
+}{
+	\begin{enumerate}
+		\item $3918n$
+		\item $u(n) = 60 000 + 3918n$
+		\item $u(25) = 157 950$
+		\item 
+			\begin{align*}
+			u(n) \geq 120 000 \iff 60 000 + 3918n \geq 120 000 \iff n \geq \frac{60 000}{3918} \approx 15{,}31
+			\end{align*}
+			Le premier entier naturel supérieur à $15{,}31$ est $16$.
+		\item On compare uniquement les intérêts car la valeur à rembourser reste fixe.
+		D'une part on a 
+			\[ 0,0653 \times 60 000 \times 15  = 58 770, \]
+		et d'autre part
+			\[ 0,1 \times 60 000 \times 10 = 60 000. \]
+		Le premier prêt est donc plus avantageux.
+	\end{enumerate}
 
 
-\begin{ex}[Raison et terme initial]
+}
+
+
+\exe{
 
 	Écrire le terme de rang $n \in \N$ des suites suivantes.
 	
@@ -89,10 +125,17 @@ nomarginpar,% We don't want any margin paragraphs
 		\item La suite $w$ de raison $0$ et de terme initial $-1$.
 	\end{enumerate}
 	
-\end{ex}
+}{
+	Pour tout $n\in\N$, on a
+	\begin{enumerate}
+		\item $u(n) = -3n + 2$
+		\item $v(n) = 2\pi n - \frac23$
+		\item $w(n) = -1$
+	\end{enumerate}
 
-\begin{ex}
+}
 
+\exe{
 Nommer et donner le terme de rang $n \in \N$ des suites $\star$, $\bullet$, et $\square$ arithmétiques données graphiquement.
 
 \begin{center}
@@ -108,9 +151,18 @@ Nommer et donner le terme de rang $n \in \N$ des suites $\star$, $\bullet$, et $
 \end{tikzpicture}
 \end{center}
 
-\end{ex}
+}{
 
-\begin{ex}
+	Pour tout $n\in\N$, on a
+	\begin{enumerate}
+		\item $\star(n) = 6,5 - 2n$
+		\item $\bullet(n) = 1 + \dfrac12 n$
+		\item $\star(n) = 4$
+	\end{enumerate}
+
+}
+
+\exe{
 	Soient $u, v$, et $w$ trois suites arithmétiques données par
 		\[ u(n ) = 3n + 4, \qquad v(n) = 2n -10, \qquad w(n) = 34 - n, \qquad \text{ pour } n \in \N.\]
 	\begin{enumerate}
@@ -119,7 +171,30 @@ Nommer et donner le terme de rang $n \in \N$ des suites $\star$, $\bullet$, et $
 		\item À partir de quel rang la suite $w$ est-elle négative ou nulle ?
 		\item La suite $v$ peut-elle être plus grande ou égale à la suite $u$ pour certains rangs $n\in\N$ ?
 	\end{enumerate}
-\end{ex}
+}{
+
+	\begin{enumerate}
+		\item $u$ est croissante de terme initial $4$, $w$ est décroissante de terme initial $34$.
+		\item 
+			\begin{align*}
+			u(n) \geq w(n) \iff 3n + 4 \geq 34 - n \iff n \geq \dfrac{15}{2} = 7{,}5.
+			\end{align*}
+			Donc le premier rang vérifiant cette inégalité est $n=8$.
+		\item 
+			\begin{align*}
+				w(n) \leq 0 \iff 34 -n \leq 0 \iff n \geq 34
+			\end{align*}
+		Le premier tel rang est donc $n=34$.
+		\item Soit $n\in\N$ in rang vérifiant
+			\[ v(n) \geq u(n). \]
+		Cette inégalité est équivalente à
+		 	\[ v(n) \geq u(n) \iff 2n -10 \geq 3n+4 \iff n \leq -14, \]
+		 ce qu'aucun entier naturel ne peut vérifier. Il n'existe donc aucun rang $n\in\R$ où $v$ est supérieure à $u$.
+	\end{enumerate}
+
+
+
+}
 
 
 \end{document}

@@ -1,0 +1,157 @@
+\documentclass[12pt]{paper}
+\usepackage[french]{babel}
+\usepackage[
+a4paper,
+margin=2cm,
+nomarginpar,% We don't want any margin paragraphs
+]{geometry}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools,}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+% theorems
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Th\'eor\`eme}
+\newtheorem*{sol}{Solution}
+\theoremstyle{definition}
+\newtheorem{ex}{Exercice}
+
+
+% corps
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rnn}{\mathbb{R}^{2n}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+% domain
+\newcommand{\D}{\mathbb{D}}
+
+
+% date
+\usepackage{advdate}
+\AdvanceDate[1]
+
+% plots
+\usepackage{tikz}
+\usepackage{multicol}
+
+% for calligraphic C
+\usepackage{calrsfs}
+
+% euro
+\usepackage{lmodern,textcomp}
+
+
+% SOLUTION SWITCH
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+
+\ifsolutions
+	\newcommand{\exe}[2]{
+		\begin{ex} #1  \end{ex}
+		\begin{sol} #2 \end{sol}
+	}
+\else
+	\newcommand{\exe}[2]{
+		\begin{ex} #1  \end{ex}
+	}
+	
+\fi
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Première G2}
+\fancyhead[C]{\textbf{Fonctions affines \ifsolutions -- Solutions \fi}}
+\fancyhead[R]{\today}
+
+\exe{
+	Un vase droit, de base carrée de $5$cm de côté, a une hauteur de $20$cm.
+	On y dépose une couche initial de sable de $2$cm
+	
+	\begin{enumerate}
+		\item Quel est le volume du vase ?
+		\item Quel est le volume de la couche initiale de sable ?
+	\end{enumerate}
+	
+	On note $x$ la hauteur supplémentaire de sable que l'on rajoute.
+	\begin{enumerate}
+		\item À quel intervalle appartient $x$ ?
+		\item Exprimer, en fonction de $x$, le volume total $V(x)$ de sable dans le vase.
+		\item Calculer $V(0), V(3),$ et $V(18)$.
+		\item Quelle hauteur de sable a été rajoutée si le volume total est de $335 \text{cm}^3$ ?
+		\item Quelle hauteur minimale de sable a été rajoutée si le volume total dépasse $440 \text{cm}^3$ ?
+	\end{enumerate}
+}{}
+
+\exe{ \hspace{1cm} \\
+	\begin{multicols}{2}
+		\begin{center}
+		\begin{tikzpicture}[scale=0.8]
+		% real line
+		\draw[black, thick] (0,0) -- (7,0);
+		\draw[black,thick] (7,0) -- (7,7);
+		\draw[black,thick] (7,7) -- (2,7);
+		\draw[black,thick] (2,7)--(2,2);
+		\draw[black, thick](2,2)--(0,2);
+		\draw[black,thick](0,2)--(0,0);
+		
+		\draw[black,thick, dotted](2,0)--(2,2);
+		
+		\draw[<->, thick] (2,-.2) -- (7,-.2) node [midway, below] {$5$} ;
+		\draw[<->, thick] (0,-.2) -- (2,-.2) node [midway, below] {$x$} ;
+		\draw[<->, thick] (-.2,0) -- (-.2,2) node [midway, left] {$x$} ;
+		\draw[<->, thick] (7.2,0) -- (7.2,7) node [midway, right] {$12$} ;
+	\end{tikzpicture}
+	\end{center}
+	
+	Considérons la figure ci-contre. La longueur du côté du carré de gauche doit rester inférieure à la longueur du rectangle de droite.
+	\begin{enumerate}
+		\item À quel intervalle appartient $x$ ?
+		\item Exprimer le périmètre de la figure en fonction de $x$. Est-ce une fonction affine ? Si oui, donner son coefficient directeur de son ordonnée à l'origine.
+		\item Donner l'ensemble des valeurs de $x$ pour lesquelles le périmètre est supérieur ou égal à $50$.
+	\end{enumerate}
+	
+	\end{multicols}
+}
+{}
+
+\exe{
+	Soit $(d)$ un droite, courbe de la fonction
+		\[ f(x) = ax + b, \]
+	et soient $A(x_A,y_A)$ et $B(x_B,y_B)$ deux points distincts appartenant à la droite.
+	
+	Montrer que 
+		\[ a  = \dfrac{y_B - y_A}{x_B-x_A}. \]
+}{}
+
+\exe{
+	Soit $(d)$ une droite du plan donnée par
+		\[ (d) = \{ (x,y) \text{ tq. } x,y\in\R, \text{et }  y=3x+4 \} \] 
+	et $(d')$ une droite parallèle à $(d)$ et passant par le point $(1;-4)$.
+	Décrire $(d')$ : quelle équation tout point $(x,y)$ vérifie-t-il si et seulement s'il appartient à $(d')$ ?
+}{}
+
+\exe{
+	Soient 
+		\begin{align*}
+		(d) &= \{ (x,y) \text{ tq. } x,y\in\R, \text{et }  y=3x+4 \} \\
+		(d') &= \{ (x,y) \text{ tq. } x,y\in\R, \text{et }  y=-x-7 \}
+		\end{align*}
+	\begin{enumerate}
+		\item Donner le point d'intersection des deux droite : l'élément de l'ensemble $(d) \cap (d')$.
+		\item Donner les variations de $(d)$ et de $(d')$.
+		\item Pour quelles valeurs de $x\in\R$ la droite $(d)$ est-elle au-dessus de $(d')$ ?	
+	\end{enumerate}
+}{}
+
+
+\end{document}
