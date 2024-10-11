@@ -1,0 +1,196 @@
+\documentclass[12pt]{paper}
+\usepackage[french]{babel}
+\usepackage[
+a4paper,
+margin=2cm,
+nomarginpar,% We don't want any margin paragraphs
+]{geometry}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools,multicol}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+\usepackage{enumitem}
+
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+% theorems
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Th\'eor\`eme}
+\newtheorem{Sol}{Solution}
+\newtheorem*{Sol*}{Solution}
+\theoremstyle{definition}
+\newtheorem{ex}{Exercice}
+\newtheorem{definition}{Définition}
+
+
+% corps
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rnn}{\mathbb{R}^{2n}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+% domain
+\newcommand{\D}{\mathbb{D}}
+
+
+% date
+\usepackage{advdate}
+\AdvanceDate[1]
+
+% plots
+\usepackage{pgfplots, tikz}
+
+% for calligraphic C
+\usepackage{calrsfs}
+
+% euro
+\usepackage{lmodern,textcomp}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Première G5}
+\fancyhead[C]{\textbf{Évaluation -- Suites arithmétiques}}
+\fancyhead[R]{\today}
+
+\begin{definition}\label{def:1}
+	Soit $u$ une suite. On dit que $u$ est \emph{arithmétique} dès que, pour tout $n\in\N$,
+		\begin{align}\label{eq:def}
+			u(n+1) - u(n) = r,
+		\end{align}
+	où $r\in\R$ est la \emph{raison} de la suite. La raison est fixe et ne dépend pas de $n$.
+\end{definition}
+	
+
+\section*{Exercice d'application (5pts)}
+
+\begin{ex}
+	Le mathématicien français Abraham de Moivre, alors âgé de plus que 80 ans, étudia dans les années 1750 la durée de son sommeil ; il remarqua que celle-ci augmentait de façon inquiétante.
+	Il prit donc note chaque jour de son heure de coucher et de réveil et compara avec une valeur initiale : la nuit $0$, il dormit $8$ heures.
+	
+	Au fil des jours, il compta que son temps de sommeil augmentait chaque nuit de $15$ minutes, soit $\frac14$ d'heure.
+	En notant $v(n)$ la durée de son sommeil en heures lors de sa $n$-ième nuit, il put alors calculer la nuit de la mort : celle où il dormirait $24$ heures.
+	\begin{enumerate}
+		\item Donner le terme initial $v(0)$.
+		\item Donner $v(4)$, la durée de son sommeil en heures lors de la $4$-ème nuit.
+		\item Pourquoi la suite $v$ est-elle arithmétique ? Quelle est sa raison ?
+		\item Pour tout $n\in\N$, donner $v(n)$ en fonction de $n$ sans justifier.
+		\item Quelle nuit Abraham de Moivre mourut-t-il ?
+	\end{enumerate}
+\end{ex}
+
+\section*{Exercices théoriques (12pts)}
+
+\begin{ex}
+	Compléter l'énoncé du théorème \ref{thm:1} vu en cours. Il n'est pas nécessaire de tout réécrire.
+\end{ex}
+
+\begin{theorem}[de Kylian]\label{thm:1}
+	
+	Une suite $u$ est arithmétique de raison $r\in\R$ et de terme initial $b\in\R$ si et seulement si le terme de rang $n\in\N$ de $u$ s'écrit
+		\[ u(n) = \dots\dots\dots.\]
+		
+\end{theorem}
+
+\begin{ex}
+	Soit $u$ une suite arithmétique de raison $-7$ et telle que
+		\[u(61) = 30. \]
+	\begin{enumerate}
+		\item Qu'est-ce que l'ensemble $\N$ ? Donner ses $4$ premiers éléments (dans l'ordre croissant).
+		\item Écrire l'équation \eqref{eq:def} de la définition \ref{def:1} avec $r=-7$ et $n=61$.
+		\item En déduire la valeur de $u(62)$.
+	\end{enumerate}
+\end{ex}
+
+\begin{ex}
+	Soit $\gamma$ une suite arithmétique donnée par, pour tout $n\in\N$,
+		\[ \gamma(n) = 4 -8n . \]
+	On définit les suites $A$ et $B$ suivantes, dépendantes de $\gamma$.
+		\[ A(n) = \gamma\left(\dfrac12n+1\right) \qquad \text{ et } \qquad B(n) = \gamma(n^2 - 1), \qquad \text{ pour tout }n\in\N. \]
+		
+	\newpage
+	Pour chacune des suites $A$ et $B$, 
+		\begin{enumerate}[leftmargin=2cm, label=\roman*)]
+			\item écrire le terme de rang $n$ de la suite \textbf{en substituant dans l'expression de} $\boldsymbol{\gamma}$ ; 
+			\item  \textbf{justifier} si la suite est arithmétique ou non à l'aide de la définition \ref{def:1} ou en citant le théorème \ref{thm:1} ; 
+		\end{enumerate}
+\end{ex}
+
+\begin{ex}
+	Soient $S$ et $T$ deux suites arithmétiques données par
+		\[ S(n) = \dfrac{1}{4}n + \dfrac{23}2, \qquad T(n) = 15 - \dfrac{1}{3}n, \qquad \text{ pour tout } n \in \N.\]
+	\begin{enumerate}
+		\item Donner les variations de $S$ et de $T$.
+		\item Donner l'\emph{ensemble} des rangs $n\in\N$ pour lesquels la suite $S$ est inférieure ou égale à la suite $T$.
+	\end{enumerate}
+\end{ex}
+
+\section*{Lecture graphique (3pts)}
+
+\begin{ex}
+	Écrire, en fonction de $n$, le terme de rang $n \in \N$ des suites arithmétiques $\bullet, \square,$ et $\star$ données graphiquement ci-dessous.
+
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1.1]
+		\begin{axis}[xmin = 0, xmax=4.9, xtick={ 0,1,2, 3, 4,5}, ymin=-2, ymax=5, ytick={-2, -1,0,1,2, 3,4}, axis x line=middle, axis y line=middle, axis line style=->, xlabel={$n$}, ylabel={}, grid=both]
+			\addplot[black, thick, only marks, mark=*] coordinates {(0,1) (1,1.5) (2,2) (3,2.5) (4,3)};
+			
+			%\addplot[black, thick, only marks, mark=star] coordinates {(2,4) (3,-1)};
+			
+			\addplot[black, thick, only marks, mark=square] coordinates {(0,4) (1,1) (2,-2)};
+			
+			%\addplot[black, thick, only marks, mark=triangle] coordinates {(0,1) (4,3)};
+		\end{axis}
+	
+	\end{tikzpicture}
+	\end{center}
+\end{ex}
+
+\section*{Approfondissement (bonus : 2pts)}
+
+%\begin{ex}
+%	Soit $v$ une suite arithmétique de raison $r$.
+%	
+%	Considérons la suite $S$ définie par, pour tout $n\in\N$,
+%		\[ S(n) = v(0) + v(1) + v(2) + \dots + v(n-2) + v(n-1) + v(n). \]
+%	La suite $S$ est-elle arithmétique ?
+%\end{ex}
+
+\begin{ex}
+	\, \\
+	
+	
+	\begin{multicols}{2}
+	\begin{center}
+	\begin{tikzpicture}[scale=0.5]
+		\foreach \r in {0, ..., 10} {
+			\draw[black,thick] (0,\r) -- (10,\r);
+			\draw[black, thick] (\r,0) -- (\r, 10);
+		}
+		
+		\draw[decoration={brace},decorate]
+  			(0,10.2) -- node[above] {$n$} (10,10.2);
+		\draw[decoration={brace, mirror},decorate]
+  			(10.2,0) -- node[right] {$n$} (10.2,10);
+  			
+		\draw[->] (-0.5, 1.5) -- (1.5,-0.5) node[below] {$1$};
+		\draw[->] (-0.5, 2.5) -- (2.5,-.5) node[below] {$2$};
+		\draw[->] (-0.5, 3.5) -- (3.5,-.5) node[right=12pt, below] {$3$ $\cdots$};
+	
+	\end{tikzpicture}
+	\end{center}
+	
+	
+	Pour $n\in\N, n \geq 2$, on considère le carré $n \times n$ ci-contre, découpé en $n^2$ carrés unités.
+	En comptant les carrés sur chaque diagonale, démontrer que
+		\[ 1 + 2 + 3 + \dots + (n-2) + (n-1) = \dfrac{n(n-1)}2. \]
+	\vspace{2cm}
+		
+	\end{multicols}
+\end{ex}
+
+\end{document}
