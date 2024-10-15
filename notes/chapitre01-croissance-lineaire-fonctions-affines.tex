@@ -3,7 +3,7 @@
 
 \section{Fonctions affines}
 
-\subsection{Définitions}
+\subsection{Définitions et lecture graphique}
 
 La notion de fonctions affines généralise celle de suite arithmétique.
 Un suite est définie comme une fonction associant à tout entier naturel $n\in\N$ un nombre réel.
@@ -16,7 +16,7 @@ Un fonction affine, quant à elle, n'a pas cette restriction : elle peut prendre
 }{}
 
 
-\exe{}{
+\ex{}{
 	On considère une suite arithmétique $u$ telle que
 		\[ u(0) = 3, \qquad\text{ et }\qquad u(1) = 8.\]
 	Le chapitre $1$ nous permet de donner le terme de rang $n\in\N$ pour tout $n$ de la suite.
@@ -98,13 +98,15 @@ Un fonction affine, quant à elle, n'a pas cette restriction : elle peut prendre
 	correspond à l'ensemble des points du plan dont l'abscisse est égale à l'ordonnée.
 	
 	Ainsi, $(3;3) \in (d)$ et $(-\sqrt{2}; -\sqrt{2}) \in (d)$, mais $(3;4) \notin (d)$.
-	On peut facilement dessiner la droite à partir de deux points.
+	La droite est donc l'ensemble des points en rouge ci-dessous.
 	
 		\begin{center}
 		\begin{tikzpicture}[>=stealth, scale=1.2]
 		\begin{axis}[xmin = -4, xmax=4, ymin=-4, ymax=4, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both]
 		
 			\addplot[red, thick, domain =-3:3, samples=2] {x}  node[above=3pt, left] {$(d)$};
+			\addplot[red, thick, dotted, domain =-4:-3, samples=2] {x} ;
+			\addplot[red, thick, dotted, domain =3:4, samples=2] {x};
 		
 			
 		\end{axis}
@@ -120,13 +122,15 @@ Un fonction affine, quant à elle, n'a pas cette restriction : elle peut prendre
 	correspond à l'ensemble des points du plan dont l'ordonnée est égale à l'abscisse plus $6$.
 	
 	Ainsi, $(3;9) \in (d)$ et $(-\sqrt{2}; -\sqrt{2}+6) \in (d)$, mais $(6;0) \notin (d)$.
-	On peut facilement dessiner la droite à partir de deux points.
+	De la même manière, la droite est donc l'ensemble des points en rouge ci-dessous.
 	
 		\begin{center}
 		\begin{tikzpicture}[>=stealth, scale=1.2]
 		\begin{axis}[xmin = -4, xmax=4, ymin=2, ymax=10, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both]
 		
 			\addplot[red, thick, domain =-3:3, samples=2] {x+6}  node[above=3pt, left] {$(d)$};
+			\addplot[red, thick, dotted, domain =-4:-3, samples=2] {x+6} ;
+			\addplot[red, thick, dotted, domain =3:4, samples=2] {x+6};
 		
 			
 		\end{axis}
@@ -140,7 +144,7 @@ Un fonction affine, quant à elle, n'a pas cette restriction : elle peut prendre
 	 Le terme initial est $6$ et la raison $1$, ce qui donne $u(n) = n + 6$ pour tout $n\in\N$, à comparer avec la fonction $f(x) = x+6$ pour tout $x\in\R$.
 }
 
-\ex{}{
+\exe{}{
 	Donner deux points distincts appartenant à la droite suivante.
 		\[ (d) = \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = 2x-1 \}. \]
 	Représenter la droite dans un repère.
@@ -163,6 +167,33 @@ Un fonction affine, quant à elle, n'a pas cette restriction : elle peut prendre
 		\[ (x,y) \in (d) \qquad\iff\qquad y = f(x). \]
 }{thm:prop-fond}
 
+\cor{}{
+	Soit $(d)$ une droite et $f(x) = ax+b$ sa fonction affine associée.
+	Alors
+		\[ (d) = \{ \left(x, f(x)\right) \text{ tq. } x \in \R \}. \]
+	Pour lire l'image $f(x)$ de n'importe quel $x\in\R$, il suffit donc de prendre l'unique $y\in\R$ tel que le point $(x,y) \in (d)$ appartienne à la droite.
+}
+{}
+
+\ex{}{
+	
+	Soit $f$ la fonction associée à la droite ci-dessous. 
+	Alors $f(-110) = 1012$.
+	
+	\begin{center}
+		\begin{tikzpicture}[>=stealth, scale=1.2]
+		\begin{axis}[xmin = -125, xmax=-100, ymin=1005, ymax=1020, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both]
+		
+			\addplot[red, thick, domain =-125:-105, samples=2] {-(1/2)*x+957}  node[above=10pt] {$(d)$};
+			\addplot[red, thick, dotted, domain =-105:-100, samples=2] {-(1/2)*x+957};
+			\addplot[black, mark=*, mark size = 1] (-110,1012) node[left=10pt] {$(-110;1012)$};
+		
+			
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+
+}{ex:ant-image}
 
 \nt{
 	Soit $(d)$ une droite et $f$ sa fonction affine associée :
@@ -173,7 +204,7 @@ Un fonction affine, quant à elle, n'a pas cette restriction : elle peut prendre
 	Ainsi, d'après la propriété fondamentale, le point $(0 ; b)$ appartient à la droite $(d)$.
 	C'est en fait le seul point de la droite à abscisse nulle. 
 	
-	Le paramètre $b$ est par conséquent l'ordonnée du point d'abscisse nulle ou, autrement dit, l'\emph{ordonnée à l'origine} de l'axe des abscisse.
+	Le paramètre $b$ est par conséquent l'ordonnée du point d'abscisse nulle ou, autrement dit, l'\emph{ordonnée à l'origine} de l'axe des abscisses.
 }
 
 \ex{}{
@@ -217,11 +248,16 @@ Un fonction affine, quant à elle, n'a pas cette restriction : elle peut prendre
 	Remarquons cependant qu'une droite est déterminée entièrement par la valeur des deux paramètres $a$ et $b$ de la définition \ref{def:droite}.
 	Or, deux équations distinctes suffisent à déterminer la solution d'un système linéaire à deux inconnues.
 	
-	Ceci se généralise sans peine. Par exemple, pour trouver une parabole de la forme $f(x)=ax^2 + bx + c$, il suffit de trois informations distinctes.
+	Ceci se généralise sans peine. Par exemple, pour trouver une parabole dont la fonction associée est de la forme $f(x)=ax^2 + bx + c$, il suffit de trois informations distinctes.
 }
 
 \exe{}{
 	Décrire entièrement la droite $(d)$ contenant les points $(3;-4)$ et $(-2;14)$.
+}{}
+
+\exe{}{
+	Vérifier que la fonction affine $f$ de l'exemple \ref{ex:ant-image}, en sachant que l'image de $-112$ par $f$ est $1013$, est bien donnée par $f(x) = -\frac12 x + 957$ pour tout $x\in\R$.
+
 }{}
 
 \exe{Approfondissement}{
@@ -247,7 +283,7 @@ Un fonction affine, quant à elle, n'a pas cette restriction : elle peut prendre
 		y_A - y_B & = a(x_A - x_B) \\
 		a & = \dfrac{y_A - y_B}{x_A - x_B}
 	\end{align*}
-	On peut ensuite substituer pour exprimer $b$ en fonction en fonctions des valeurs sues, mais la formule est moins facile à retenir.
+	On peut ensuite substituer pour exprimer $b$ de façon analogue mais la formule est moins facile à retenir.
 		\[ b = y_A - \dfrac{y_A - y_B}{x_A - x_B} x_A = \dfrac{x_A y_B - x_B y_A}{x_A-x_B}. \]
 }
 
@@ -282,9 +318,6 @@ Un fonction affine, quant à elle, n'a pas cette restriction : elle peut prendre
 	
 	L'importance du théorème est que les réels $x_1$ et $x_2$ ne sont pas nécessairement entiers, et pas nécessairement à distance $1$ l'un de l'autre.
 }
-
-\subsection{Lecture graphique}
-
 
 
 \subsection{Parallélisme et intersection}
