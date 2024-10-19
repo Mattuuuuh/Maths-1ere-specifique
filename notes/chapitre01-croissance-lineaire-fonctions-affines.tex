@@ -321,3 +321,175 @@ Un fonction affine, quant à elle, n'a pas cette restriction : elle peut prendre
 
 
 \subsection{Parallélisme et intersection}
+
+\ex{}{
+	Considérons deux droites $(d)$ et $(d')$ données par
+		\begin{align*}
+			(d) &= \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = 2x+3 \}, \\
+			(d') &= \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = -4x+8 \}.
+		\end{align*}
+	On souhaite trouver les points d'intersection des deux droites, c'est-à-dire décrire l'ensemble
+		\[ (d) \cap (d'). \]
+	Soit $P(x_P;y_P)$ appartenant à l'intersection $(d) \cap (d')$.
+	On extrait deux informations distinctes afin de connaître $x_P$ et $y_P$ :
+		\begin{align*}
+			P \in (d) && \text{et} && P \in (d')
+		\end{align*}
+	La propriété fondamentale \ref{thm:prop-fond} nous donne donc deux équations.
+		\[ \begin{cases*} y_P = 2x_P + 3, \\ y_P = -4x_P + 8. \end{cases*} \]
+	Comme on a bien sûr $y_P = y_P$, on peut écrire
+		\begin{align*}
+			y_P &= y_P \\
+			2x_P + 3 &= -4x_P + 8 \\
+			6x_P &= 5 \\
+			x_P &=  \dfrac56
+		\end{align*}
+	Et par suite $y_P = 2\cdot\dfrac56 + 3 = \dfrac{14}3$.
+	
+	Nous avons donc obtenu que $P\left(\dfrac56 ; \dfrac{14}3\right)$ est l'unique point qui appartient à la fois à $(d)$ et $(d')$, et donc l'unique point d'intersection des droites.
+	Autrement dit, 
+		\[ (d) \cap (d') = \left\{ \left(\dfrac56 ; \dfrac{14}3\right) \right\}. \]
+}{}
+
+\nt{
+	On se rassurera sur le résultat trouvé en vérifiant que le point d'intersection appartient bien aux deux droites ci-dessus.
+		\begin{align*}
+			2x_P + 3 = 2 \cdot \dfrac56 + 3 = \dfrac{14}3 = y_P, \\
+			-4x_P + 8 = -4\cdot\dfrac56 + 8 = \dfrac{14}3 = y_P.
+		\end{align*}
+}
+
+\exe{}{
+	Considérons deux droites $(d)$ et $(d')$ données par
+		\begin{align*}
+			(d) &= \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = 3-x \},
+			(d') &= \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = -2x +12 \}.
+		\end{align*}
+	Déterminer $(d) \cap (d')$, l'ensemble des points appartenant à la fois à $(d)$ et à $(d')$.
+}{}
+
+\exe{}{
+	Considérons deux droites $(d)$ et $(d')$ données par
+		\begin{align*}
+			(d) &= \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = 2x+1 \},
+			(d') &= \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = 2x-2 \}.
+		\end{align*}
+	Montrer que $(d) \cap (d') = \emptyset$, l'ensemble vide.
+}{}
+
+\qs{}{
+	Considérons deux droites $(d)$ et $(d')$ données plus généralement par
+		\begin{align*}
+			(d) &= \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = ax+b \}, \\
+			(d') &= \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = a'x+b' \},
+		\end{align*}
+	où $a,a',b,b' \in \R$ sont les paramètres des droites.
+	
+	On souhaite déterminer $P(x_P;y_P)$ appartenant à l'intersection $(d) \cap (d')$, ce qui se traduit par
+		\[ \begin{cases*} y_P = ax_P + b, \\ y_P = a'x_P + b'. \end{cases*} \]
+	et donc, en suivant le même raisonnement que précédemment,
+		\begin{align*}
+			ax_P + b &= a'x_P + b' \\
+			(a-a')x_P &= b'-b \\
+		\end{align*}
+	Ici il faut faire attention car il n'est pas toujours possible de diviser par $a-a'$ pour trouver $x_P$.
+	
+	Quelles conditions sur $a$ et $a'$ faut-il poser pour s'assurer qu'il existe un unique point d'intersection ?
+}
+
+\exe{}{
+	Considérons deux droites $(d)$ et $(d')$ données par
+		\begin{align*}
+			(d) &= \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = ax+b \}, \\
+			(d') &= \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = a'x+b' \},
+		\end{align*}
+	où $a,a',b,b' \in \R$ sont les paramètres des droites.
+	
+	Si $a=a'$ et $b\neq b'$, montrer que $(d)\cap(d')$ est l'ensemble vide.
+}{}
+
+\nt{
+	Dans les notations ci-dessus, remarquons que si $a=a'$ et $b=b'$, alors les droites ont les mêmes paramètres et ce sont en fait les mêmes droites : $(d) = (d')$.
+	Dans ce cas, l'intersection des droites est la droite $(d)$ toute entière. Elle contient un nombre infini de points.
+}
+
+\thm{}{
+	Considérons deux droites $(d)$ et $(d')$ données par
+		\begin{align*}
+			(d) &= \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = ax+b \}, \\
+			(d') &= \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = a'x+b' \},
+		\end{align*}
+	où $a,a',b,b' \in \R$ sont les paramètres des droites.
+	
+	On distingue alors les cas suivants sur les points d'intersection entre les droites.
+		\begin{enumerate}
+			\item Si $a \neq a'$, il existe un unique point d'intersection.
+			\item Si $a = a'$ et $b\neq b'$, il n'existe aucun point d'intersection.
+			\item Si $a=a'$ et $b=b'$, les droites sont confondues.
+		\end{enumerate}
+}{}
+
+\dfn{Droites parallèles}{
+	Considérons deux droites $(d)$ et $(d')$ données par
+		\begin{align*}
+			(d) &= \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = ax+b \}, \\
+			(d') &= \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = a'x+b' \},
+		\end{align*}
+	où $a,a',b,b' \in \R$ sont les paramètres des droites.
+	
+	Les droites $(d)$ et $(d')$ sont parallèles si et seulement si $a=a'$, c'est-à-dire si et seulement si les coefficients directeurs des fonctions associées sont égaux.
+}{}
+
+\ex{}{
+	Soit $(d)$ une droite donnée par
+		\[ (d) = \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = 2x+3 \}. \]
+	On souhaite déterminer une droite parallèle à $(d)$ et passant par le point $(2;1)$.
+	
+	On s'assure au préalable qu'on ait bien deux informations distinctes, car il faut déterminer les deux paramètres de la fonction $f(x) = ax+b$ associée à la droite à trouver.
+	
+	Le parallélisme à $(d)$ se traduit par l'égalité des coefficients directeurs des fonctions associées :
+		\[ a = 2. \]
+	L'appartenant du point $(2;1)$ donne
+		\[ 1 = f(1) = 2a + b, \]
+	d'où $b= 1 -2a = 1-4 = -3$.
+	
+	En conclusion, $f(x) = 2x - 3$, et la droite recherchée est donnée par (en violet ci-dessous)
+		\[ \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = 2x-3 \}. \]
+		
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1.2]
+		\begin{axis}[xmin = -3.9, xmax=3.9, ymin=-3.9, ymax=3.9, xtick={-3,...,3}, ytick={-3,...,3}, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both]
+		
+			\addplot[red, thick, domain =-4:.7, samples=2] {2*x+3}  node[right=5pt, below=10pt] {$(d)$};
+			\addplot[violet, thick, domain =-3:4, samples=2] {2*x-3}  node[above=3pt, left] {};
+		
+			\addplot[black, mark=*, mark size = 1] (2,1) node[right] {$(2;1)$};
+		
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+
+}{}
+
+\exe{}{
+	Soit $(d)$ une droite donnée par
+		\[ (d) = \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = 4-3x \}. \]
+	Déterminer la droite parallèle à $(d)$ et passant par le point $(-1;2)$.
+}{}
+
+\exe{}{
+	Soit $(d)$ une droite donnée par
+		\[ (d) = \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = 4-3x \}. \]
+	Déterminer la droite parallèle à $(d)$ et passant par le point $(-1;7)$.
+}{}
+
+\exe{}{
+	Soit $(d)$ une droite, et $P\in (d)$ un point lui appartenant.
+	
+	Montrer qu'une droite $(d')$ vérifiant
+		\begin{enumerate}
+			\item $(d')$ est parallèle à $(d)$, et
+			\item $P \in (d')$
+		\end{enumerate}
+	est forcément égale à la droite $(d)$.
+}{}
