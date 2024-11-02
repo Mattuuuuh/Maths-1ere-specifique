@@ -11,15 +11,11 @@
 \usepackage{icomma} % so i don't have to write 1{,}5 instead of 1,5 
 
 \usepackage[tmargin=2cm,rmargin=1in,lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+
+%fonts
 \usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{libertinus,libertinust1math}
 
-%\usepackage{libertine,libertinust1math} % added 2019/11/28
-%\usepackage{mathptmx}
-%\usepackage{stix}
-\usepackage[utf8x]{inputenc}
-\usepackage{lmodern,textcomp}
-
-\usepackage{xfrac}
 \usepackage[makeroom]{cancel}
 \usepackage{mathtools}
 \usepackage{bookmark}
@@ -34,9 +30,7 @@
 \usepackage[most,many,breakable]{tcolorbox}
 \usepackage{xcolor}
 \usepackage{varwidth}
-\usepackage{varwidth}
 \usepackage{etoolbox}
-%\usepackage{authblk}
 \usepackage{nameref}
 \usepackage{multicol,array}
 \usepackage{tikz-cd}
@@ -109,7 +103,7 @@
 %================================
 
 \tcbuselibrary{theorems,skins,hooks}
-\newtcbtheorem[number within=chapter]{Theorem}{Théorème}
+\newtcbtheorem[number within=section]{Theorem}{Théorème}
 {%
 	enhanced,
 	breakable,
