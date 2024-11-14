@@ -53,7 +53,7 @@ nomarginpar,% We don't want any margin paragraphs
 % SOLUTION SWITCH
 \newif\ifsolutions
 				\solutionstrue
-				\solutionsfalse
+				%\solutionsfalse
 
 \ifsolutions
 	\newcommand{\exe}[2]{
@@ -69,7 +69,7 @@ nomarginpar,% We don't want any margin paragraphs
 
 \begin{document}
 \pagestyle{fancy}
-\fancyhead[L]{Première G5}
+\fancyhead[L]{Première G2}
 \fancyhead[C]{\textbf{Fonctions affines \ifsolutions -- Solutions \fi}}
 \fancyhead[R]{\today}
 
@@ -90,8 +90,43 @@ nomarginpar,% We don't want any margin paragraphs
 		\item Quelle hauteur de sable a été rajoutée si le volume total est de $335 \text{cm}^3$ ?
 		\item Quelle hauteur minimale de sable a été rajoutée si le volume total dépasse $440 \text{cm}^3$ ?
 	\end{enumerate}
-}{}
+}{
+	\begin{enumerate}
+		\item On fait base $\times$ hauteur, d'où $5^2 \cdot 20 = 500 cm^3$.
+		\item Idem, la hauteur maintenant étant de $2$cm : $5^2 \cdot 2 = 50cm^3$.
+	\end{enumerate}
+	
+	
+	\begin{enumerate}
+		\item La valeur minimale de $x$ est $0$ (hauteur non nulle), et sa valeur maximale est $18$, car il y a déjà une couche de $2$cm présente.
+		
+		$x$ peut donc prendre toutes les valeurs entre $0$ et $18$ incluses, d'où $x \in [0;18]$.
+		\item La base reste d'aire $5^2 = 25cm^2$, et la hauteur du sable est de $2+x$cm, car il y a déjà une couche de $2$cm présente.
+		
+		D'où $V(x) = 25\cdot(2+x) = 25x + 50$.
+		$V$ est affine.
+		\item $V(0) = 50$ et $V(18) = 500$, ce qui est cohérent avec les valeurs trouvées aux deux premières questions de l'exercice.
+		
+			$V(3) = 25\cdot3 + 50 = 125$.
+		\item On résoud pour $x$ l'équation $V(x) = 335$.
+			\begin{align*}
+				V(x) &= 335 \\
+				25x + 50 &= 335 \\
+				25x &= 285 \\
+				x &= \dfrac{285}{25} = \dfrac{570}{50} = \dfrac{1140}{100} = 11,4.
+			\end{align*}
+		\item On résoud pour $x$ l'inéquation $V(x) \geq 440$.
+			\begin{align*}
+				V(x) &\geq 440 \\
+				25x + 50 &\geq 440 \\
+				25x &\geq 390 \\
+				x &\geq 15,6
+			\end{align*}
+			La hauteur minimale ajoutée est donc $15,6$cm, qui est bien dans l'intervalle de définition de $x$.
+	\end{enumerate}
 
+}
+\newpage
 \exe{ \hspace{1cm} \\
 	\begin{multicols}{2}
 		\begin{center}
@@ -122,7 +157,24 @@ nomarginpar,% We don't want any margin paragraphs
 	
 	\end{multicols}
 }
-{}
+{
+	
+	\begin{enumerate}
+		\item En considérant les valeurs minimales et maximales de $x$, on trouve $x \in [0;12]$.
+		\item Le périmètre est la longueur du pourtour, soit $12 + 5 + 5 + 12 + 2x = 34 + 2x$.
+		
+		La fonction $f(x) = 2x+34$ est affine, de coefficient directeur $2$ et d'ordonnée à l'origine $34$.
+		\item On résoud pour $x$ l'inéquation $f(x) \geq 50$.
+			\begin{align*}
+				f(x) &\geq 50 \\
+				34+2x &\geq 50 \\
+				2x &\geq 16 \\
+				x &\geq 8
+			\end{align*}
+		L'ensemble des valeurs est donc donné par $[8;12]$, car on a toujours $x \leq 12$ d'après la question 1.
+	\end{enumerate}
+
+}
 
 \exe{
 	Soit $(d)$ un droite, courbe de la fonction
@@ -131,14 +183,41 @@ nomarginpar,% We don't want any margin paragraphs
 	
 	Montrer que 
 		\[ a  = \dfrac{y_B - y_A}{x_B-x_A}. \]
-}{}
+}{
+
+	L'appartenance des points à la droite donne les équations suivantes.
+		\[ \begin{cases*}
+			y_A = ax_A + b, \\
+			y_B = ax_B + b.
+		\end{cases*} \]
+	En soustrayant la première équation à la deuxième, on trouve
+		\[ y_B -y_A = (ax_B + b)-(ax_A + b) = a(x_B - x_A). \]
+	D'où $x = \dfrac{y_B - y_A}{x_B-x_A}$.
+
+}
 
 \exe{
 	Soit $(d)$ une droite du plan donnée par
 		\[ (d) = \{ (x,y) \text{ tq. } x,y\in\R, \text{et }  y=3x+4 \} \] 
 	et $(d')$ une droite parallèle à $(d)$ et passant par le point $(1;-4)$.
 	Décrire $(d')$ : quelle équation tout point $(x,y)$ vérifie-t-il si et seulement s'il appartient à $(d')$ ?
-}{}
+}{
+	La fonction $f(x) = ax+b$ associée à la droite $(d')$ vérifie 
+		\[ a =3, \]
+	par parallélisme, et
+		\[ f(1) = -4, \]
+	par appartenance du point $(1;-4)$.
+	
+	La première information donne directement $a$, et donc que $f(x) = 3x + b$, avec $b$ le paramètre restant à déterminer.
+	La deuxième information donne alors
+		\begin{align*}
+			f(1) &= -4 \\
+			3 + b &= -4 \\
+			b = -7
+		\end{align*}
+	En conclusion, 
+		\[ (d') = \{ (x,y) \text{ tq. } x,y\in\R, \text{et }  y=3x-7 \} \] 
+}
 
 \exe{
 	Soient 
@@ -151,7 +230,41 @@ nomarginpar,% We don't want any margin paragraphs
 		\item Donner les variations de $(d)$ et de $(d')$.
 		\item Pour quelles valeurs de $x\in\R$ la droite $(d)$ est-elle au-dessus de $(d')$ ?	
 	\end{enumerate}
-}{}
+}{
+	\begin{enumerate}
+		\item Considérons un point $P \in (d) \cap (d')$ appartenant aux deux droites.
+		Notons $P(x_P; y_P)$ les coordonnées de $P$ qu'on souhaite trouver.
+		
+		Les appartenances donnent les équations suivantes.
+			\[ \begin{cases*}
+				y_P = 3x_P + 4, \\
+				y_P = -x_P - 7
+			\end{cases*} \]
+		L'égalité $y_P = y_P$ étant évidemment vraie, on peut écrire
+			\[ 3x_P + 4 = -x_P - 7, \]
+		qui permet de résoudre pour $x_P$ calmement.
+			\begin{align*}
+				 3x_P + 4 &= -x_P - 7 \\
+				 4x_P &= -11 \\
+				 x_P &= -\dfrac{11}4
+			\end{align*}
+		Pour conclure, on trouve $y_P$ à l'aide d'une des deux équations du système.
+		La deuxième équation, par exemple, donne
+			\[ y_P = -x_P - 7 = \dfrac{11}4 - 7 = -\dfrac{17}4. \]
+			
+		Vérification : on vérifie que $P$ appartienne bien aux droites en calculant $3x_P + 4 = -\dfrac{33}4 + 4 = - \dfrac{17}4 = y_P$, et idem pour l'autre droite.
+		\item $(d)$ est croissante et $(d')$ est décroissante.
+		\item On résoud pour $x \in \R$ l'inéquation $3x+4 \geq -x-7$.
+			\begin{align*}
+				3x+4 &\geq -x - 7 \\
+				4x &\geq -11 \\
+				x &\geq -\dfrac{11}4
+			\end{align*}
+		En conclusion, la droite $(d)$ est au-dessus de $(d')$ pour tout $x\in \left[-\dfrac{11}4 ; +\infty\right[$.
+		
+		Il aurait été possible de conclure sans calculs : en effet, la droite $(d)$ étant croissante, et $(d')$ décroissante, la première domine l'autre pour toutes les valeurs de $x$ après $x_P$, l'abscisse du point d'intersection.
+	\end{enumerate}
+}
 
 
 \end{document}
