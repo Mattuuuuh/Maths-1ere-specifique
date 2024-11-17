@@ -54,7 +54,7 @@ nomarginpar,% We don't want any margin paragraphs
 % SOLUTION SWITCH
 \newif\ifsolutions
 				\solutionstrue
-				\solutionsfalse
+				%\solutionsfalse
 
 \ifsolutions
 	\newcommand{\exe}[2]{
@@ -70,7 +70,7 @@ nomarginpar,% We don't want any margin paragraphs
 
 \begin{document}
 \pagestyle{fancy}
-\fancyhead[L]{Première G2}
+\fancyhead[L]{Première}
 \fancyhead[C]{\textbf{Fonctions affines 2 \ifsolutions -- Solutions \fi}}
 \fancyhead[R]{\today}
 
@@ -88,7 +88,55 @@ nomarginpar,% We don't want any margin paragraphs
 	\end{enumerate}
 	\end{multicols}
 }
-{}
+{
+	On utilise la convention $a, b \in \R$ pour désigner respectivement le coefficient directeur et l'ordonnée à l'origine de la fonction affine $f$.
+	$f(x) = ax+b$ pour tout $x\in\R$.
+
+	\begin{enumerate}
+		\item 
+			D'après le cours,
+			\begin{align*}
+				a = \dfrac{y_A - y_B}{x_A - x_B}, && b = \dfrac{x_A y_B - x_B y_A}{x_A - x_B}.
+			\end{align*}
+		\item 
+			\begin{align*}
+				a = \dfrac{8-7}{2-4} = -\dfrac12, && b = \dfrac{2\cdot7 - 4\cdot8}{2-4} = 9.
+			\end{align*}
+			
+			Visualisation : le point $A$ est à gauche du point $B$ car son abscisse est plus petite, mais est plus haut que le point $B$, car son ordonnée est plus grande. 
+			La droite $(AB)$ doit donc être décroissante, ce qu'on a bien trouvé car $a<0$.
+		\item
+			\begin{align*}
+				a = \dfrac{7-8}{4-2} = -\dfrac12, && b = \dfrac{4\cdot8 - 2\cdot7}{4-2} = 9.
+			\end{align*}
+			
+		Les formules ne dépendent bien sûr pas de l'ordre de $A$ et $B$ car la droite $(AB)$ est égale à la droite $(BA)$.
+					
+		\item
+			\begin{align*}
+				a = \dfrac{-3-(-1)}{-3-(-2)} = 2, && b = \dfrac{(-3)\cdot(-1) - (-3)\cdot(-2)}{-3 - (-2)} = 3.
+			\end{align*}
+			
+		\item
+			\begin{align*}
+				a = \dfrac{5-5}{2-(-10)} = 0, && b = \dfrac{2\cdot5 - 5 \cdot(-10)}{2-(-10)} = 5.
+			\end{align*}
+			
+			Visualisation : les deux points sont à la même hauteur car leurs abscisses sont égales.
+			La droite $(AB)$ est donc constante (ou horizontale), d'où $a=0$, et sa hauteur est celle des points, d'où $b=5$.
+			
+		\item $A(-3;4), B(12;-11)$.
+			\begin{align*}
+				a = \dfrac{4-(-11)}{-3-12} = -1, && b = \dfrac{(-3)\cdot(-11) - 4\cdot12}{-3-12} = 1.
+			\end{align*}
+			
+			Vérification : on vérifie que $A$ et $B$ vérifient bien l'équation $y=f(x) = -x +1$ en remplaçant les valeurs par les coordonnées.
+			Ainsi pour $A$ on a bien $y=4$ à gauche, et $f(-3) = -(-3) + 1 = 4$ à droite.
+			Pour $B$, on a $y=-11$ à gauche, et $f(12) = -12 + 1 = -11$ à droite.
+	\end{enumerate}
+
+
+}
 
 \exe{[Intersection]
 	Pour chacune des paires de fonctions affines $f,g$, calculer l'intersection des droites $\C_f \cap \C_g$.
@@ -103,7 +151,105 @@ nomarginpar,% We don't want any margin paragraphs
 		\item $f(x) = 2x+1, g(x) = 2x+2$ $(x\in\R)$.
 	\end{enumerate}
 	\end{multicols}
-}{}
+}{
+
+	\begin{enumerate}
+		\item $f(x) = 2x + 1, g(x) = -x+1$ $(x\in\R)$.
+			On cherche un point $P(x_P, y_P) \in \R^2$ vérifiant les deux équations
+				\begin{align*}
+					y_P = f(x_P) && \text{ et } && y_P = g(x_P)
+				\end{align*}
+			Comme bien sûr $y_P = y_P$, on peut résoudre l'équation
+				\[ f(x_P) = g(x_P) \]
+			pour trouver $x_P$.
+			Ici, on pose calmement
+				\begin{align*}
+					f(x_P) &= g(x_P) \\
+					2x_P + 1 &= -x_P + 1 \\
+					3x_P &= 0 \\
+					x_P &= 0,
+				\end{align*}
+			ce qui nous fournit $x_P = 0$.
+			Reste plus qu'à utiliser que $y_P = f(x_P) = g(x_P)$ pour calculer $y_P$.
+			
+			D'une part, 
+				\[ f(x_P) = f(0) = 2\cdot0 + 1 = 1. \]
+			D'autre part, on aurait pû calculer
+				\[ g(x_P) = g(0) = -0 + 1 = 1. \]
+			Rien de surprenant à ce qu'on trouve la même valeur $y_P = 1$, car $x_P$ a été trouvé vérifiant $f(x_P) = g(x_P)$.
+			
+			En conclusion, $\C_f \cap \C_g = \{ (0;1) \}$.
+			
+		\item 
+			Similairement,
+			\begin{align*}
+				f(x_P) &= g(x_P) \\
+				-x_P + 1 & = 2x_P + 1 \\
+				x_P &= 0,
+			\end{align*}
+			et $y_P = f(0) = 1$.
+			Sans surprise, $(0;1)$ est à nouveau le point d'intersection de $\C_f$ et de $\C_g$ car se sont les mêmes fonctions que ci-dessus mais échangées.
+		
+		\item 
+			Similairement,
+			\begin{align*}
+				f(x_P) &= g(x_P) \\
+				3 + 7x_P & = 2 \\
+				7x_P &= -1 \\
+				x_P &= \dfrac{-1}7,
+			\end{align*}
+			\[
+				y_P = f(x_P) = 3+7\cdot \dfrac{-1}7  = 2.
+			\]
+			Il aurait été encore plus facile de calculer $g(x_P) = 2$ à la place !
+			
+			En conclusion, $\C_f \cap \C_g = \{ \left(-\dfrac72 ; 2\right) \}$.
+		
+		\item
+			Similairement,
+			\begin{align*}
+				f(x_P) &= g(x_P) \\
+				9-2x_P & = 17-x_P \\
+				-8 &= x_P,
+			\end{align*}
+			\[
+				y_P = f(x_P) = 9-2 \cdot(-8) = 25.
+			\]
+		
+			En conclusion, $\C_f \cap \C_g = \{ (-8;25) \}$.
+		
+		\item 			
+		Similairement,
+			\begin{align*}
+				f(x_P) &= g(x_P) \\
+				2x_P + 1 & = 2x_P + 1 \\
+				0 &= 0,
+			\end{align*}
+			cette équation étant évidemment vraie, tous les $x_P \in \R$ vérifient l'équation.
+			\[
+				y_P = f(x_P) = 2x_P + 1.
+			\]
+			N'importe quel $(x_P ; 2x_P+1) \in \R$ appartient donc à l'intersection des droites.
+			
+			En conclusion, $\C_f \cap \C_g = \{ (x_P ; 2x_P+1) \text{ tq. } x_P \in \R \} = \{ (x_P ; y_P) \in \R^2 \text{ tq. } y_P = 2x_P + 1 \} = \C_f = \C_g$.
+			Il n'est pas surprenant qu'on trouve que toute la droite appartienne à l'intersection, car $f$ et $g$ sont identiques : tous les points de la droite $\C_f$ sont des points d'intersection.
+		
+		
+		\item 
+			Similairement,
+			\begin{align*}
+				f(x_P) &= g(x_P) \\
+				2x_P + 1 & = 2x_P + 2 \\
+				1 &= 2,
+			\end{align*}
+			cette équation étant évidemment fausse, aucun $x_P \in \R$ ne vérifie l'équation.
+			
+			En conclusion, $\C_f \cap \C_g = \emptyset$, l'ensemble vide.
+			En fait, les droites $\C_f$ et $\C_g$ sont parallèles car elles ont le même coefficient directeur $2$.
+			Or les droites ne sont pas égales car leurs ordonnées à l'origine sont différentes, donc il n'y a aucun point d'intersection.
+	\end{enumerate}
+
+}
 
 \exe{[Parallélisme]
 	Pour chacun des couples de point $P$ et fonction affine $f$, trouver la fonction affine $g$ telle que $\C_f$ et $\C_g$ soient parallèles et que $P \in \C_g$.
@@ -117,7 +263,63 @@ nomarginpar,% We don't want any margin paragraphs
 		\item $P=(1;2)$ et $f(x) = -3x + 5$ $(x\in\R)$.
 	\end{enumerate}
 	\end{multicols}
-}{}
+}{
+	On pose $a,b\in\R$ les paramètres de la fonction affine $g(x)=ax+b$, $x\in\R$.
+	\begin{enumerate}
+		\item 
+			L'information de parallélisme donne immédiatement $a=2$.
+			D'où $g(x) = 2x+b$ pour tout $x\in\R$.
+			
+			Reste à trouver $b$ avec l'information d'appartenance.
+			Celle-ci est équivalente à la contrainte
+				\begin{align*}
+					2 &= g(1) \\
+					2 &= 2\cdot1 + b \\
+					b &= 0
+				\end{align*}
+			D'où $g(x) = 2x$ ($x\in\R$) est la fonction affine recherchée.
+		
+		
+		\item 
+			L'information de parallélisme donne immédiatement $a=-1$.
+			D'où $g(x) = -x+b$ pour tout $x\in\R$.
+			
+			Reste à trouver $b$ avec l'information d'appartenance.
+			Celle-ci est équivalente à la contrainte
+				\begin{align*}
+					2 &= g(1) \\
+					2 &= -1 + b \\
+					b &= 3
+				\end{align*}
+			D'où $g(x) = -x+3$ ($x\in\R$) est la fonction affine recherchée.
+			
+		\item 
+			L'information de parallélisme donne immédiatement $a=0$.
+			D'où $g(x) =b$ pour tout $x\in\R$.
+			
+			Reste à trouver $b$ avec l'information d'appartenance.
+			Celle-ci est équivalente à la contrainte
+				\begin{align*}
+					2 &= g(1) \\
+					2 &=  b
+				\end{align*}
+			D'où $g(x) = 2$ ($x\in\R$) est la fonction affine recherchée.
+			
+		\item 
+			L'information de parallélisme donne immédiatement $a=-3$.
+			D'où $g(x) = -3x+b$ pour tout $x\in\R$.
+			
+			Reste à trouver $b$ avec l'information d'appartenance.
+			Celle-ci est équivalente à la contrainte
+				\begin{align*}
+					2 &= g(1) \\
+					2 &= -3\cdot1 + b \\
+					b &= 5
+				\end{align*}
+			D'où $g(x) = -3x+5$ ($x\in\R$) est la fonction affine recherchée.
+	\end{enumerate}
+
+}
 
 
 \exe{[Lecture graphique]
@@ -146,6 +348,30 @@ nomarginpar,% We don't want any margin paragraphs
 		\end{axis}
 	\end{tikzpicture}
 	\end{center}
-}{}
+}{
+	Pour la fonction $f(x) = ax+b (x\in\R)$, on peut par exemple choisir deux points lui appartenant et interpoler linéairement à partir de ces deux points.
+	Par unicité de la droite passant par deux points, l'interpolation trouvée doit nécessairement être $f$.
+	Prenons $A(-4;4)$ et $B(2;-2)$ et calculons les paramètres de la droite $(AB) = \C_f$.
+	
+	\begin{align*}
+		a = \dfrac{4 - (-2)}{-4 - 2} = -1, && b = \dfrac{(-4)\cdot(-2) - 4\cdot2}{-4-2} = 0.
+	\end{align*}
+	
+	\hrule\vspace{10pt}
+	
+	Pour la fonction $g(x) = ax+b (x\in\R)$, on peut faire idem en choisissant de bons points pour faciliter les calculs.
+	Par exemple, $A(0;1)$ et $B(-2;0)$ sont pratiques car il y a beaucoup de zéros qui annulent les expressions.
+	En fait, le point $A$ donne directement l'ordonnée à l'origine $b=1$, mais on peut calculer à l'aide du théorème du cours nonobstant.
+	\begin{align*}
+		a = \dfrac{1-0}{0-(-2)} = \dfrac12, && b = \dfrac{0 \cdot0 - 1 \cdot (-2)}{0-(-2)} = 1.
+	\end{align*}
+	
+	\hrule\vspace{10pt}
+	
+	Pour la fonction $h(x) = ax+b (x\in\R)$, on procède par parallélisme et appartenance.
+	La fonction est constante, donc $a=0$.
+	N'importe quel point lui appartenant a pour ordonnée $b=7$, ce qui conclut.
+
+}
 
 \end{document}
