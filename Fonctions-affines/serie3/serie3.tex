@@ -1,0 +1,339 @@
+\documentclass[12pt]{paper}
+\usepackage[french]{babel}
+\usepackage[
+a4paper,
+margin=2cm,
+nomarginpar,% We don't want any margin paragraphs
+]{geometry}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools,enumitem}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+% theorems
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Th\'eor\`eme}
+\newtheorem*{sol}{Solution}
+\theoremstyle{definition}
+\newtheorem{ex}{Exercice}
+
+
+% corps
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rnn}{\mathbb{R}^{2n}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+% domain
+\newcommand{\D}{\mathbb{D}}
+
+
+% date
+\usepackage{advdate}
+\AdvanceDate[0]
+
+% plots
+\usepackage{tikz}
+\usepackage{multicol}
+\usepackage{pgfplots}
+
+% for calligraphic C
+\usepackage{calrsfs}
+
+% euro
+\usepackage{lmodern,textcomp}
+
+
+% SOLUTION SWITCH
+\newif\ifsolutions
+				\solutionstrue
+				%\solutionsfalse
+
+\ifsolutions
+	\newcommand{\exe}[2]{
+		\begin{ex} #1  \end{ex}
+		\begin{sol} #2 \end{sol}
+	}
+\else
+	\newcommand{\exe}[2]{
+		\begin{ex} #1  \end{ex}
+	}
+	
+\fi
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Première}
+\fancyhead[C]{\textbf{Fonctions affines 3 \ifsolutions -- Solutions \fi}}
+\fancyhead[R]{\today}
+
+\exe{[Interpolation]
+	Pour chacune des paires de points $A,B \in \R^2$ suivantes, calculer les paramètres de la fonction affine $f$ dont la courbe passe par ces deux points.
+	
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $A(x_A;y_A), B(x_B; y_B)$.
+		    \item $A(1; 3), B(4; 5)$
+		
+		    \item $A(0; -2), B(3; 4)$
+		
+		    \item $A(-3; -1), B(-1; 2)$
+		
+		    \item $A(2; 7), B(5; 7)$
+		
+		    \item $A(-4; 6), B(2; -3)$
+
+	\end{enumerate}
+	\end{multicols}
+}
+{
+	On utilise la convention $a, b \in \R$ pour désigner respectivement le coefficient directeur et l'ordonnée à l'origine de la fonction affine $f$.
+	$f(x) = ax+b$ pour tout $x\in\R$.
+
+	\begin{enumerate}
+		\item 
+			D'après le cours,
+			\begin{align*}
+				a = \dfrac{y_A - y_B}{x_A - x_B}, && b = \dfrac{x_A y_B - x_B y_A}{x_A - x_B}.
+			\end{align*}
+		 \item 
+		    \begin{align*}
+		        a &= \frac{3-5}{1-4} = \frac{2}{3}, & b &= \frac{1 \cdot 5 - 4 \cdot 3}{1 - 4} = -\dfrac73.
+		    \end{align*}
+		
+		    \item 
+		    \begin{align*}
+		        a &= \frac{-2 - 4}{0-3} = 2, & b &= \frac{0 \cdot 4 - 3 \cdot (-2)}{0 - 3} = -2.
+		    \end{align*}
+		    
+		    \item
+		    \begin{align*}
+		        a &= \frac{-1 - 2}{-3 - (-1)} = \frac{3}{2}, & b &= \frac{-3 \cdot 2 - (-1) \cdot (-1)}{-3 - (-1)} = \dfrac72.
+		    \end{align*}
+		
+		    \item
+		    \begin{align*}
+		        a &= \frac{7 - 7}{2 - 5} = 0, & b &= \frac{2 \cdot 7 - 5 \cdot 7}{2 - 5} = 7.
+		    \end{align*}
+		
+		    \item
+		    \begin{align*}
+		        a &= \frac{6-(-3)}{-4 - 2} = -\frac{3}{2}, & b &= \frac{-4 \cdot (-3) - 2 \cdot 6}{-4 - 2} = 0.
+		    \end{align*}
+
+	\end{enumerate}
+
+
+}
+
+\exe{[Intersection]
+	Pour chacune des paires de fonctions affines $f,g$, calculer l'intersection des droites $\C_f \cap \C_g$.
+	
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $f(x) = 3-2x, g(x) = -x+1$ $(x\in\R)$.
+		\item $f(x) = -7x -2, g(x) = 4-2x$ $(x\in\R)$.
+		\item $f(x) = 3+7x, g(x) = 7x+3$ $(x\in\R)$.
+		\item $f(x) = x, g(x) = 3$ $(x\in\R)$.
+		\item $f(x) = -123, g(x) = 2x+1$ $(x\in\R)$.
+		\item $f(x) = 284, g(x) = -\dfrac13$ $(x\in\R)$.
+	\end{enumerate}
+	\end{multicols}
+}{
+
+	\begin{enumerate}
+		\item 
+			On cherche un point $P(x_P, y_P) \in \R^2$ vérifiant les deux équations
+				\begin{align*}
+					y_P = f(x_P) && \text{ et } && y_P = g(x_P)
+				\end{align*}
+			Comme bien sûr $y_P = y_P$, on peut résoudre l'équation
+				\[ f(x_P) = g(x_P) \]
+			pour trouver $x_P$.
+			Ici, on pose calmement
+				\begin{align*}
+					f(x_P) &= g(x_P) \\
+					3 - 2x_P &= -x_P + 1 \\
+					x_P &= 2,
+				\end{align*}
+			ce qui nous fournit $x_P = 2$.
+			Reste plus qu'à utiliser que $y_P = f(x_P) = g(x_P)$ pour calculer $y_P$.
+			
+			D'une part, 
+				\[ f(x_P) = f(2) = 3-2\cdot2 = -1. \]
+			D'autre part, on aurait pû calculer
+				\[ g(x_P) = g(2) = -2 + 1 = -1. \]
+			Rien de surprenant à ce qu'on trouve la même valeur $y_P = -1$, car $x_P$ a été trouvé vérifiant $f(x_P) = g(x_P)$.
+			
+			En conclusion, $\C_f \cap \C_g = \{ (2;-1) \}$.
+			
+		\item 
+			Similairement,
+			\begin{align*}
+				f(x_P) &= g(x_P) \\
+				-7x_P -2 & = 4-2x_P \\
+				5x_P &= -6 \\
+				x_P &= -\dfrac65,
+			\end{align*}
+			et $y_P = g\left(-\dfrac65\right) = 4-2\left(-\dfrac65\right) = 4+\dfrac{12}5 = \dfrac{32}5$.
+			
+			Donc $\C_f \cap \C_g = \left\{ \left(-\dfrac65;\dfrac{32}5 \right) \right\}$.
+		
+		
+		\item 
+			On remarque que $f=g$ et donc que les droites associées aux fonctions sont confondues.			
+			Donc $\C_f \cap \C_g = \C_f = \C_g$.
+			
+		\item
+			On pose
+				\begin{align*}
+				f(x_P) &= g(x_P) \\
+				x_P & = 3,
+			\end{align*}
+			ce qui donne ensuite $y_P = f(3) = 3 = g(3)$.
+			
+			Donc $\C_f \cap \C_g = \left\{ \left( 3; 3 \right) \right\}$.
+			
+			
+		\item
+			On pose
+				\begin{align*}
+				f(x_P) &= g(x_P) \\
+				-123 & = 2x_P+1 \\
+				x_P = -62,
+			\end{align*}
+			ce qui donne ensuite $y_P = f(-62) = -123$.
+			
+			Donc $\C_f \cap \C_g = \left\{ \left( -62; -123 \right) \right\}$.
+			
+			
+		\item
+			On pose
+				\begin{align*}
+				f(x_P) &= g(x_P) \\
+				284 & = -\dfrac13,
+			\end{align*}
+			équation évidemment fausse.
+			Il n'existe donc aucun $P \in \C_f \cap \C_g$. 
+			En d'autres termes, $\C_f \cap \C_g = \emptyset$, l'ensemble vide.
+			
+			En fait, les deux fonctions sont constantes et donc en particulier parallèles (les coefficients directeurs sont tous les deux égaux à $0$).
+			Or comme les ordonnées à l'origine des fonctions ne sont pas les mêmes, le théorème du cours nous donne directement le résultat.
+	\end{enumerate}
+
+}
+
+\exe{[Parallélisme]
+	Pour chacun des couples de point $P$ et fonction affine $f$, trouver la fonction affine $g$ telle que $\C_f$ et $\C_g$ soient parallèles et que $P \in \C_g$.
+	
+	
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $P=(-1;-2)$ et $f(x) = \dfrac13 - 8x$ $(x\in\R)$.
+		\item $P=(-3;-4)$ et $f(x) = \dfrac13 x - 7^{8^9}$ $(x\in\R)$.
+		\item $P=(-5;-6)$ et $f(x) = -\dfrac{8}{11}x$ $(x\in\R)$.
+		\item $P=(7;8)$ et $f(x) = -7^{6^{5}}$ $(x\in\R)$.
+	\end{enumerate}
+	\end{multicols}
+}{
+	On pose $a,b\in\R$ les paramètres de la fonction affine $g(x)=ax+b$, $x\in\R$.
+	\begin{enumerate}
+		\item 
+			L'information de parallélisme donne immédiatement $a=-8$.
+			D'où $g(x) = -8x+b$ pour tout $x\in\R$.
+			
+			Reste à trouver $b$ avec l'information d'appartenance.
+			Celle-ci est équivalente à la contrainte
+				\begin{align*}
+					-2 &= g(-1) \\
+					-2 &= -8\cdot(-1) + b \\
+					b &= -10
+				\end{align*}
+			D'où $g(x) = -8x -10$ ($x\in\R$) est la fonction affine recherchée.
+		
+		
+		\item 
+			L'information de parallélisme donne immédiatement $a=\dfrac13$.
+			D'où $g(x) = \dfrac13x+b$ pour tout $x\in\R$.
+			
+			Reste à trouver $b$ avec l'information d'appartenance.
+			Celle-ci est équivalente à la contrainte
+				\begin{align*}
+					-4 &= g(-3) \\
+					-4 &= -1 + b \\
+					b &= -3
+				\end{align*}
+			D'où $g(x) = \dfrac13x-3$ ($x\in\R$) est la fonction affine recherchée.
+			
+		\item 
+			L'information de parallélisme donne immédiatement $a=-\dfrac8{11}$.
+			D'où $g(x)=-\dfrac8{11}x + b$ pour tout $x\in\R$.
+			
+			Reste à trouver $b$ avec l'information d'appartenance.
+			Celle-ci est équivalente à la contrainte
+				\begin{align*}
+					-6 &= g(-5) \\
+					-6 &=  \dfrac{40}{11} + b \\
+					b &= -\dfrac{106}{11}
+				\end{align*}
+			D'où $g(x) = -\dfrac8{11}x -\dfrac{106}{11}$ ($x\in\R$) est la fonction affine recherchée.
+			
+		\item 
+			L'information de parallélisme donne immédiatement $a=0$.
+			D'où $g(x) = b$ pour tout $x\in\R$.
+			
+			Reste à trouver $b$ avec l'information d'appartenance.
+			Celle-ci est équivalente à la contrainte
+				\begin{align*}
+					8 &= g(7) \\
+					b &= 8
+				\end{align*}
+			D'où $g(x) = 8$ ($x\in\R$) est la fonction affine recherchée.
+	\end{enumerate}
+
+}
+
+
+\exe{[Lecture graphique]
+
+	Déterminer les paramètres des fonction affines $f,g,h$ dont les courbes sont représentées ci-dessous.
+
+	\begin{center}
+		\begin{tikzpicture}[>=stealth, scale=1.5]
+		\begin{axis}[xmin = -10, xmax=10, ymin=-10, ymax=10, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {-10, -8, ..., 8, 10}, ytick = {-10, -8, ..., 8, 10}, grid=both]
+		
+			\addplot[red, thick, domain =-9:9, samples=2] {-x/3 + 1}  node[below=6pt] {$(\mathcal{C}_f)$};
+			\addplot[red, thick, dotted, domain =-10:-9, samples=2] {-x/3 + 1} ;
+			\addplot[red, thick, dotted, domain =9:10, samples=2] {-x/3 + 1};
+		
+		
+			\addplot[green, thick, domain =-5:7, samples=2] {3*x/2-2}  node[midway, below=18pt, right=-8pt] {$(\mathcal{C}_g)$};
+			\addplot[green, thick, dotted, domain =-6:-5, samples=2] {3*x/2-2} ;
+			\addplot[green, thick, dotted, domain =7:8, samples=2] {3*x/2-2};
+		
+		
+			\addplot[black, thick, domain =-9:9, samples=2] {-x/6 + 5}  node[above=10pt, left] {$(\mathcal{C}_h)$};
+			\addplot[black, thick, dotted, domain =-10:-9, samples=2] {-x/6 + 5} ;
+			\addplot[black, thick, dotted, domain =9:10, samples=2] {-x/6 + 5};
+		
+			
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}{
+	Les fonctions sont données, pour tout $x\in\R$, par
+	\begin{align*}
+			f(x) = -\dfrac13 x + 1, &&
+			g(x) = \dfrac32 x - 2, &&
+			h(x) = -\dfrac16 x + 5.
+	\end{align*}
+}
+
+\end{document}
