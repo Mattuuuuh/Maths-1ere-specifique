@@ -1,0 +1,38 @@
+\documentclass[14pt]{beamer}
+\usepackage[french]{babel}
+
+
+\usetheme{CambridgeUS}
+\usecolortheme{rose}
+\beamertemplatenavigationsymbolsempty
+
+\usepackage{amsmath,amsfonts,calrsfs}
+
+\theoremstyle{plain}
+\newtheorem*{dfn}{Définition}
+\newtheorem*{thm}{Théorème}
+
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathcal{C}}
+
+\begin{document}
+
+\begin{frame}
+
+\begin{dfn}[Fonction affine]
+	Un fonction $f$ est dite \emph{affine} s'il existe deux paramètres $a,b\in\R$ tels que
+		\[ f(x) = ax + b \qquad \text{ pour tout } x\in\R. \]
+	$a$ est le \emph{coefficient directeur} et $b$ l'\emph{ordonnée à l'origine}.
+\end{dfn}
+
+\begin{thm}[Propriété fondamentale]
+	Soit $f$ une fonction, $\C_f$ sa courbe représentative, et $(x;y)\in\R^2$ un point du plan.
+		\begin{align*}
+			(x;y) \in \C_f && \iff && y = f(x).
+		\end{align*}
+\end{thm}
+
+\end{frame}
+
+\end{document}
