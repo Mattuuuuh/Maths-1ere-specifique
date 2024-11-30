@@ -1,0 +1,122 @@
+\documentclass[12pt]{paper}
+\usepackage[french]{babel}
+\usepackage[
+a4paper,
+margin=2cm,
+nomarginpar,% We don't want any margin paragraphs
+]{geometry}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools,}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+% theorems
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Th\'eor\`eme}
+\newtheorem*{sol}{Solution}
+\theoremstyle{definition}
+\newtheorem{ex}{Exercice}
+
+
+% corps
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rnn}{\mathbb{R}^{2n}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+% domain
+\newcommand{\D}{\mathbb{D}}
+
+
+% date
+\usepackage{advdate}
+\AdvanceDate[1]
+
+% plots
+\usepackage{pgfplots}
+
+% for calligraphic C
+\usepackage{calrsfs}
+
+% euro
+\usepackage{lmodern,textcomp}
+
+
+% SOLUTION SWITCH
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+
+\ifsolutions
+	\newcommand{\exe}[2]{
+		\begin{ex} #1  \end{ex}
+		\begin{sol} #2 \end{sol}
+	}
+\else
+	\newcommand{\exe}[2]{
+		\begin{ex} #1  \end{ex}
+	}
+	
+\fi
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Première G5}
+\fancyhead[C]{\textbf{Suites géométriques 1 \ifsolutions -- Solutions \fi}}
+\fancyhead[R]{\today}
+
+\exe{[Paradoxe de la frontière]
+	
+
+}{}
+
+\exe{[Intérêts sur intérêts]\label{ex:2}
+
+	À l'âge de $17$ ans, une élève décide de placer $200$€ en bourse, qui lui rapportent $10\%$ d'intérêts chaque année.
+	Chaque année, elle replace les intérêts gagnés.
+	
+	On souhaite étudier l'évolution de l'argent placé chaque année après ses $17$ ans inclus.
+	\begin{enumerate}
+		\item Vérifier les premières valeurs du tableau suivantes et le compléter.
+			\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|}\hline
+				Année & 17 & 18 & 19 & 20 & 21 \\ \hline
+				Argent placé (€) & 200 & 220 & 242 & &  \\ \hline
+			\end{tabular}
+			\end{center}
+		\item On appelle $A(n)$ la quantité d'argent placé en l'an $2017+n$, où $n\in \{0 ; 1 ; 2; \dots \}$.
+		Décrire comment obtenir $A(n+1)$ en connaissant $A(n)$, c'est-à-dire comment obtenir la quantité d'argent placé en l'an $2017+(n+1)$ en connaissant la quantité en $2017+n$.
+	\end{enumerate}
+ }{}
+ 
+ 
+ \exe{[Intérêts sur intérêts 2]
+ 
+ 	On reprend l'exercice \ref{ex:2} en prenant en plus en compte l'inflation, qu'on suppose constante à $2\%$ par an.
+ 	Cela signifie que les prix augmentent en moyenne de $2\%$ par an.
+ 	
+ 	Afin de rendre comparables les sommes d'argent dans le temps, on souhaite fixer les prix : au lieu de voir les prix comme augmentant, on voit l'euro comme se dépréciant.
+ 
+	\begin{enumerate}
+		\item Calculer l'évolution réciproque de $+2\%$. 
+		C'est la diminution qu'on appliquera à l'euro chaque année.
+		\item Vérifier les premières valeurs du tableau suivantes et le compléter.
+			\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|}\hline
+				Année & 17 & 18 & 19 & 20 & 21 \\ \hline
+				Argent placé (€, prix fixes) & 200 & 215,69 & 232,60 & &  \\ \hline
+			\end{tabular}
+			\end{center}
+		\item On appelle $B(n)$ la quantité d'argent placé à prix fixes en l'an $2017+n$, où $n\in \{0 ; 1 ; 2; \dots \}$.
+		Décrire comment obtenir $B(n+1)$ en connaissant $B(n)$, c'est-à-dire comment obtenir la quantité d'argent placé en l'an $2017+(n+1)$ en connaissant la quantité en $2017+n$.
+	\end{enumerate}
+ }{}
+
+\end{document}
