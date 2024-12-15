@@ -99,7 +99,6 @@ nomarginpar,% We don't want any margin paragraphs
 	\begin{multicols}{2}
 	\begin{enumerate}
 		\item $f(x) = 2x + 1$
-		\item $f(x) = 1 + 2x$
 		\item $f(x) = - x$
 		\item $f(x) = -42$
 	\end{enumerate}
@@ -147,8 +146,6 @@ nomarginpar,% We don't want any margin paragraphs
 			\item $\{ (x;y) \in \R^2 \text{ tels que } y=x \}$
 			\item $\left\{ (x;y) \in \R^2 \text{ tq. } y = \dfrac95 x + 32 \right\}$
 			\item $\{ (x;y) \in \R^2 \text{ tq. } y=2-x \}$
-			%\item $\{ (x;y) \in \R^2 \text{ tq. } y=42 \}$
-			\item $\{ (x;y) \in \R^2 \text{ tq. } x=2y \}$
 		\end{enumerate}
 		\end{multicols}
 }{}
@@ -159,7 +156,6 @@ nomarginpar,% We don't want any margin paragraphs
 	\begin{multicols}{2}
 	\begin{enumerate}
 		\item Le point $(2;2)$
-		\item Le point $(3 ; 1)$
 		\item Le point $(-2 ; 2)$
 		\item Le point $(0;3)$
 	\end{enumerate}
@@ -175,7 +171,7 @@ nomarginpar,% We don't want any margin paragraphs
 \newpage
 
 \exe{[3pts]
-	Déterminer les paramètres (coefficient directeur $a$ et ordonnée à l'origine $b$) des fonction affines $f,g,h$ dont les courbes sont représentées ci-dessous.
+	Déterminer les paramètres (coefficient directeur $a$ et ordonnée à l'origine $b$) des fonction affines $f,h$ dont les courbes sont représentées ci-dessous.
 	Les droites $\C_f$ et $\C_h$ sont parallèles.
 
 	\begin{center}
@@ -187,9 +183,9 @@ nomarginpar,% We don't want any margin paragraphs
 			\addplot[red, thick, dotted, domain =9:10, samples=2] {-x/2 + 2};
 		
 		
-			\addplot[olive, thick, domain =-5:7, samples=2] {3*x/2-2}  node[pos=.2, left=5pt] {$\mathcal{C}_g$};
-			\addplot[olive, thick, dotted, domain =-6:-5, samples=2] {3*x/2-2} ;
-			\addplot[olive, thick, dotted, domain =7:8, samples=2] {3*x/2-2};
+%			\addplot[olive, thick, domain =-5:7, samples=2] {3*x/2-2}  node[pos=.2, left=5pt] {$\mathcal{C}_g$};
+%			\addplot[olive, thick, dotted, domain =-6:-5, samples=2] {3*x/2-2} ;
+%			\addplot[olive, thick, dotted, domain =7:8, samples=2] {3*x/2-2};
 		
 		
 			\addplot[black, thick, domain =-3:9, samples=2] {-x/2 + 8}  node[above=1pt, pos=.35] {$\mathcal{C}_h$};
@@ -207,12 +203,7 @@ nomarginpar,% We don't want any margin paragraphs
 \exe{[2pts]
 	Soit $f$ la fonction affine sur $[{-3};3]$ donnée par
 		\[ f(x) = -\frac23 x + 3 \qquad \text{ pour tout } x\in[-3 ; 3]. \]
-	\begin{enumerate}
-		\item
 		Déterminer l'expression algébrique de la fonction affine $g$ telle que $\C_g$ soit parallèle à $\C_f$ et passe par $(0;-1)$.
-		\item
-		Déterminer l'expression algébrique de la fonction affine $h$ telle que $\C_h$ soit parallèle à $\C_g$ et passe par $(-3;1)$.
-	\end{enumerate}
 }{}
 
 \subsection*{Bonus (3pts)}
