@@ -14,7 +14,7 @@
 \fancyhead[R]{\today}
 
 \begin{theorem*}{Propriétés des puissances}
-	Soient $a, b, c \in \Z$. On a les relations suivantes.
+	Soient $a, b, c \in \R$. On a les relations suivantes.
 		\begin{gather*}
 			a^{b+c} = a^{b} \times a^{c} \\
 			\left(a^b\right)^c = a^{b \times c} \\
@@ -81,7 +81,7 @@
 	
 	\begin{center}
 	\begin{tikzpicture}[>=stealth, scale=1.5]
-		\begin{axis}[xmin = 0, xmax=4.2, xtick={ 0,1,2, 3, 4,5}, ymin=0, ymax=300, axis x line=middle, axis y line=middle, axis line style=->, ylabel={}, grid=both]
+		\begin{axis}[xmin = 0, xmax=4.2, xtick={ 0,1,2, 3, 4,5}, ymin=0, ymax=300, ytick={0, 30, ..., 300}, axis x line=middle, axis y line=middle, axis line style=->, ylabel={}, grid=both]
 			
 			\addplot[black, thick, only marks, mark=star] coordinates {(0, 130) (1,140) (2,150) (3,160) (4,170)};
 			
