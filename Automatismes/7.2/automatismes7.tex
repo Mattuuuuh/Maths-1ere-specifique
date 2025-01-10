@@ -1,0 +1,84 @@
+\documentclass[14pt]{beamer}
+\usepackage[french]{babel}
+
+
+\usetheme{CambridgeUS}
+\usecolortheme{rose}
+\beamertemplatenavigationsymbolsempty
+
+\usepackage{array}
+\usepackage{amsmath,amsfonts,amsthm,calrsfs,mathtools}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+
+% corps
+\usepackage{calrsfs}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rnn}{\mathbb{R}^{2n}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+% domain
+\newcommand{\D}{\mathbb{D}}
+
+
+% date
+\usepackage{advdate}
+\AdvanceDate[0]
+
+
+\usepackage{pgfplots, subcaption}
+\definecolor{myg}{RGB}{56, 140, 70}
+\definecolor{myb}{RGB}{45, 111, 177}
+\definecolor{myr}{RGB}{199, 68, 64}
+
+\begin{document}
+
+\section{Automatismes n°7}
+
+\begin{frame}
+
+\centering \huge
+Automatismes
+
+\end{frame}
+
+\subsection{Suites géométriques}
+
+\begin{frame}{1}
+    Soit $P$ une suite géométrique de raison $\dfrac43$ et de terme initial
+        \[ P(0) = 3. \]
+    Donner $P(1)$.
+\end{frame}
+
+\begin{frame}{2}
+    On considère une suite géométrique dont les $5$ premiers termes sont donnés ci-dessous.
+    \begin{center}
+    \begin{tabular}{|c|c|c|c|c|c|}\hline
+        Étape & 0 & 1 & 2 & 3 & 4 \\ \hline
+        Temps (min) & 1 & 0,1 & 0,01 & 0,001 & $10^{-4}$ \\ \hline
+    \end{tabular}
+    \end{center}
+    Donner la raison $q\in\R$ de la suite.
+\end{frame}
+
+\begin{frame}{3}
+    Soit $P$ une suite géométrique de raison $\dfrac32$ et de terme initial
+        \[ P(0) = 8. \]
+    Donner $P(3)$.
+\end{frame}
+
+\begin{frame}{4}
+    Soit $P$ une suite géométrique de raison $10$ et de terme initial
+        \[ P(0) = 3. \]
+    Donner $P(100)$ en écriture scientifique.
+\end{frame}
+
+
+\end{document}
