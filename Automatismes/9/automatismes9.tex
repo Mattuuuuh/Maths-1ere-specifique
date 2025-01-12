@@ -1,0 +1,77 @@
+\documentclass[14pt]{beamer}
+\usepackage[french]{babel}
+
+
+\usetheme{CambridgeUS}
+\usecolortheme{rose}
+\beamertemplatenavigationsymbolsempty
+
+\usepackage{array}
+\usepackage{amsmath,amsfonts,amsthm,calrsfs,mathtools}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+
+% corps
+\usepackage{calrsfs}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rnn}{\mathbb{R}^{2n}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+% domain
+\newcommand{\D}{\mathbb{D}}
+
+
+% date
+\usepackage{advdate}
+\AdvanceDate[0]
+
+
+\usepackage{pgfplots, subcaption}
+\definecolor{myg}{RGB}{56, 140, 70}
+\definecolor{myb}{RGB}{45, 111, 177}
+\definecolor{myr}{RGB}{199, 68, 64}
+
+\begin{document}
+
+\section{Automatismes n°8}
+
+\begin{frame}
+
+\centering \huge
+Automatismes
+
+\end{frame}
+
+\subsection{Suites géométriques}
+
+\begin{frame}{1}
+    Soit $P$ une suite géométrique de raison $7$ et de terme initial
+        \[ P(0) = 3. \]
+    Donner $P(1)$.
+\end{frame}
+
+\begin{frame}{2}
+    Soit $f$ une suite géométrique de raison $11$ vérifiant
+        \[ f(12) = 33. \]
+    Donner $f(11)$.
+\end{frame}
+
+\begin{frame}{3}
+	Donner la raison $q$ et le terme initial $v(0)$ de la suite $v$ donnée algébriquement pour tout $n\in\N$ par 
+		\[ v(n) = 3 \times \left( \dfrac47 \right)^n. \]
+\end{frame}
+
+\begin{frame}{4}
+	Donner le terme initial $S(0)$ de la suite $S$ donnée algébriquement pour tout $n\in\N$ par 
+		\[ S(n) = 7 \times \left( \dfrac47 \right)^{3n+1}. \]
+\end{frame}
+
+
+\end{document}
