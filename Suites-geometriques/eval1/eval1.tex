@@ -1,0 +1,126 @@
+% SOLUTION SWITCH
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+				
+\input{../preamble.tex}
+
+
+\AdvanceDate[1]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Première}
+\fancyhead[C]{\textbf{Évaluation blanche : Suites géométriques \ifsolutions -- Solutions \fi}}
+\fancyhead[R]{\today}
+
+\begin{definition*}{Suite géométrique} \label{def:1}
+	Soit $u$ une suite. On dit que $u$ est \emph{géométrique} de raison $q\in\R$ dès que, pour tout $n\in\N$,
+		\begin{align}\label{eq:def}
+			u(n+1) = q \times u(n).
+		\end{align}
+\end{definition*}
+
+\begin{theorem}[label=thm:1]{d'Eden}
+	Considérons une suite $u$ géométrique de raison $q\in\R$ et de terme initial $u(0)$.
+    Alors le terme de rang $n\in\N$ de $u$ s'écrit
+		\[ u(n) = \dots\dots\dots\dots\dots.\]
+		
+\end{theorem}
+
+\exe{[2pts]
+    Compléter le théorème \ref{thm:1} vu en cours.
+}
+
+\exe{[4pts]
+    Soit $v$ une suite géométrique de raison $2$ et telle que
+        \[ v(10) = 4. \]
+    \begin{multicols}{2}
+    \begin{enumerate}
+        \item Calculer $v(11)$.
+        \item Calculer $v(12)$.
+        \item Calculer $v(10)$.
+        \item Calculer $v(9)$.
+    \end{enumerate}
+    \end{multicols}
+}{}
+
+\exe{[6pts]
+	Pour chacune des suites géométriques données algébriquement pour tout $n\in\N$, donner sa raison et son terme initial.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $u(n) = 2 \times 3^n$
+		\item $v(n) = 7 \times \left(\dfrac12 \right)^n$
+		\item $a(n) = 11 \times 5^{2n}$
+		\item $b(n) = 3 \times 5^{2n+3}$
+		\item $c(n) = 10^{-n}$
+		\item $d(n) = \dfrac{4}{7^n}$
+	\end{enumerate}
+	\end{multicols}
+}{}
+
+\exe{[4pts]
+    Un étudiant souhaite étudier la vitesse de son algorithme de recherche par dichotomie.
+    Il se demande, étant donné une suite géométrique $v$ positive et non constante et un seuil $M>0$ : en combien d'étapes puis-je trouver le plus petit entier naturel $N\in\N$ tel que
+        \[ v(N) \geq M ?\]
+    Il commence par évaluer $v(0)$ et $v(768)$ et déduit que le $N$ recherché appartient forcément à l'intervalle $[0 ; 768]$.
+    A chaque étape, une évaluation de $v$ lui permet de diviser en deux l'intervalle dans lequel $N$ se trouve et de continuer avec une des deux moitiés.
+    \begin{center}
+    \begin{tabular}{|c|c|c|c|c|c|}\hline
+        Etape & 0 & 1 & 2 & 3 & 4 \\ \hline
+        Taille de l'intervalle & 768 & 384 & & & \\ \hline
+    \end{tabular}
+    \end{center}
+
+    \begin{enumerate}
+        \item Vérifier les premières valeurs du tableau ci-dessus et le compléter.
+        \item En notant par $I(n)$ la taille de l'intervalle à l'étape $n$, donner l'expression algébrique de $I(n)$.
+        \item Donner le plus petit entier naturel $k\in\N$ tel que
+            \[ I(k) < 1.\]
+        \item Décrire avec des mots ce que $k$ représente.
+        \item Combien d'évaluations de $v$ l'étudiant a-t-il eu besoin de faire pour trouver le $N$ recherché ?
+    \end{enumerate}
+}{}
+
+\newpage
+
+\exe{[4pts]
+	Déterminer le terme inital et la raison des suites géométriques donnés graphiquement ci-dessous.
+
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1.5]
+		\begin{axis}[xmin = 0, xmax=4.2, xtick={ 0,1,2, 3, 4,5}, ymin=0, ymax=10000, ymode=log, log ticks with fixed point, axis x line=middle, axis y line=middle, axis line style=->, ylabel={}, grid=both]
+			
+			\addplot[black, thick, only marks, mark=star] coordinates {(0, 1) (1,10) (2,100) (3,1000) (4,10000)};
+			
+			\addplot[black, thick, only marks, mark=square] coordinates {(0,10 000) (1,10 00) (2,100) (3,10) (4,1)};
+			
+			\addplot[black, thick, only marks, mark=*] coordinates {(0,3) (1,30) (2,300) (3, 3000)};
+		\end{axis}
+	
+	\end{tikzpicture}
+	\end{center}
+}{}
+
+
+
+\subsection*{Bonus (2pts)}
+
+\exe{
+    Considérons la suite $v$ définie par la relation de récurrence suivante, pour tout $n\in\N$.
+    \[
+    \begin{cases}
+        v(0) = 0, \\
+        v(n+1) = 3v(n) + 2.
+    \end{cases}
+    \]
+    \begin{enumerate}
+        \item Montrer que la suite intermédiaire $w$ définie pour tout $n\in\N$ par
+            \[ w(n) = v(n) + 1,\]
+        est géométrique.
+        \item En déduire que, pour tout $n\in\N$,
+            \[ v(n) = 3^n - 1.\]
+    \end{enumerate}
+}
+
+\end{document}
