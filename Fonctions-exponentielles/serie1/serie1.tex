@@ -1,0 +1,313 @@
+% SOLUTION SWITCH
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+				
+\input{../preamble.tex}
+
+
+\AdvanceDate[1]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Première}
+\fancyhead[C]{\textbf{Croissance exponentielle : évolution relative \ifsolutions -- Solutions \fi}}
+\fancyhead[R]{\today}
+
+
+\begin{definition*}{Pourcentage}{}
+	Soient $P, x \in\R$ deux nombres réels positifs ou nuls.
+	Alors
+	  	\begin{center}
+	  	\og $P \%$ de $x$ \fg~= \dots\dots\dots\dots\dots
+	  	\end{center}
+	En particulier,
+	  	\begin{center}
+	  	\og $A \%$ de $B$ \fg~= \og $B \%$ de $A$ \fg.
+	  	\end{center}
+\end{definition*}
+
+\begin{theorem}[label=thm:ev-succ]{Évolutions successives}{}
+	L'évolution d'une valeur correspond à sa multiplication par un coefficient multiplicateur $m$.
+	
+	\begin{enumerate}
+		\item Si $m>1$, $m=1+p$, et l'évolution est une augmentation de $100p \%$.
+		\item Si $m<1$, $m=1-p$, et l'évolution est une diminution de $100p \%$.
+		\item Si $m=1$, la valeur ne change pas.
+	\end{enumerate}
+	
+	Lorsque deux évolutions successives ont lieu, les coefficients sont multipliés entre eux pour obtenir un coefficient multiplicateur global.
+
+	\begin{center}
+	\begin{tikzpicture}
+		% nodes
+		\draw (0,0) ellipse (2cm and .5cm) node {Valeur initiale};
+		
+		\draw (5,0) ellipse (2cm and .5cm) node {Nouvelle valeur};
+		
+		\draw (10,0) ellipse (2cm and .5cm) node {Valeur finale};
+		
+		% vertices
+		\draw[->, thick, myg] (1cm,.6cm) arc (105:75:7) node[midway, above] {$\times m_1$};
+		\draw[->, thick, myg] (6cm,.6cm) arc (105:75:7) node[midway, above] {$\times m_2$};
+		
+		\draw[->, thick, myr] (1cm,-.5cm) arc (-105:-75:15) node[midway, below=5pt] {$\times \dots\dots\dots\dots$};
+	\end{tikzpicture}
+	\end{center}
+\end{theorem}
+
+\begin{theorem}{Évolution réciproque}{}
+	L'évolution réciproque est l'évolution qui permet de revenir à une valeur initale.
+	
+	\begin{center}
+	\begin{tikzpicture}
+		% nodes
+		\draw (0,0) ellipse (2cm and .5cm) node {Valeur initiale};
+		
+		\draw (5,0) ellipse (2cm and .5cm) node {Nouvelle valeur};
+		
+		\draw (10,0) ellipse (2cm and .5cm) node {Valeur initiale};
+		
+		% vertices
+		\draw[->, thick, myg] (1cm,.6cm) arc (105:75:7) node[midway, above] {$\times m_1$};
+		\draw[->, thick, myg] (6cm,.6cm) arc (105:75:7) node[midway, above] {$\times \dots\dots$};
+		
+		\draw[->, thick, myr] (1cm,-.5cm) arc (-105:-75:15) node[midway, below=5pt] {$\times \dots\dots$};
+	\end{tikzpicture}
+	\end{center}
+\end{theorem}
+
+\begin{theorem}{Évolution moyenne}{}
+	Si une valeur de départ subit $n$ évolutions successives, alors on appelle \emph{coefficient multiplicateur moyen} le nombre
+		%\[ M_{\text{Moyen}} = \left( M_{\text{Global}} \right)^{1/n}. \]
+		\[ M_{\text{Moyen}} = \dots\dots\dots\dots\dots\dots\dots \]
+
+	\begin{center}
+	\begin{tikzpicture}[scale=.8]
+		% nodes
+		\draw (0,0) ellipse (2cm and .5cm) node {Valeur $1$};
+		
+		\draw (5,0) ellipse (2cm and .5cm) node {Valeur $2$};
+		
+		\draw (10,0) ellipse (2cm and .5cm) node {Valeur $3$};
+		
+		\draw (15,0) ellipse (2cm and .5cm) node {Valeur $4$};
+		
+		% vertices
+		\draw[->, thick, myg] (1cm,.6cm) arc (105:75:7) node[midway, above] {$\times m_1$};
+		\draw[->, thick, myg] (6cm,.6cm) arc (105:75:7) node[midway, above] {$\times m_2$};
+		\draw[->, thick, myg] (11cm,.6cm) arc (105:75:7) node[midway, above] {$\times m_3$};
+		
+		\draw[->, thick, myr] (1cm,-.5cm) arc (-105:-75:25) node[midway, below] {$\times M_{\text{Global}}$};
+	\end{tikzpicture}
+	\end{center}
+\end{theorem}
+
+\newpage
+
+\exe{
+  Calculer sans calculatrice les valeurs suivantes.
+  \begin{multicols}{2}
+    \begin{enumerate}
+    \item $75\%$ de $60$
+    \item $60\%$ de $75$
+    \item $72\%$ de $25$
+    \item $68\%$ de $20$
+    \item $125\%$ de $40$
+    \item $40\%$ de $125$
+    \end{enumerate}
+  \end{multicols}
+}{
+  \begin{multicols}{2}
+    \begin{enumerate}
+    \item $\dfrac34 \cdot 60 = 3 \cdot \dfrac{60}4 = 3 \cdot 15 = 45$
+    \item $45$
+    \item $\dfrac14 \cdot 72 = 18$
+    \item $\dfrac15 \cdot 68 = \dfrac{136}{10} = 13,6$
+    \item $40 + \dfrac14 \cdot 40 = 50$
+    \item $50$
+    \end{enumerate}
+  \end{multicols}
+}
+
+\exe{
+  Approximer sans calculatrice les valeurs suivantes.
+  \begin{multicols}{2}
+    \begin{enumerate}
+    \item $33\%$ de $150$
+    \item $166\%$ de $180$
+    \item $11\%$ de $90$
+    \item $89\%$ de $81$
+    \item $16,6\%$ de $18$
+    \item $83,4\%$ de $36$
+    \end{enumerate}
+  \end{multicols}
+}{
+  \begin{multicols}{2}
+    \begin{enumerate}
+    \item $\approx \dfrac13 \cdot 150 = 50$
+    \item $\approx 180 + \dfrac23 \cdot 180 = 180 + 120 = 300$
+    \item $\approx \dfrac19 \cdot 90 = 10$
+    \item $\approx 81 - \dfrac19 \cdot 81 = 81 - 9 = 72$
+    \item $\approx \dfrac16 \cdot 18 = 3$
+    \item $\approx 36 - \dfrac16 \cdot 36 = 36 - 6 = 30$
+    \end{enumerate}
+  \end{multicols}
+}
+
+\exe{
+  On estime la biomasse totale des fourmis sur Terre à $12$ millions de tonnes.
+  Ceci serait égal à $20\%$ de la biomasse humaine.
+
+  Estimer la biomasse totale des humains sur Terre en tonnes.
+}{
+	On a la relation
+		\[ \dfrac{\text{biomasse des fourmis}}{\text{biomasse humaine}} = 0,2. \]
+	D'où
+		\[ \text{biomasse humaine} = \dfrac{12 \times 10^6}{0,2} \text{T} = 60 \times 10^6 \text{T}.\] 
+
+}
+
+\exe{
+  Considérons deux tailleurs, l'un à $250$€ et l'autre à $360$€.
+  \begin{enumerate}
+  \item Quelle augmentation de prix faut-il appliquer au premier tailleur pour qu'il ait le prix du second ?
+  \item Quel rabais faut-il appliquer au second tailleur pour qu'il ait le prix du premier ?
+  \end{enumerate}
+}{
+  \begin{enumerate}
+  \item On calcule l'évolution $\dfrac{360}{250}  = 1,44 = 144\%$. Ainsi, le deuxième tailleur vaut $144\%$ du prix du premier : une augmentation de $44\%$ est nécessaire.
+  \item On calcule l'évolution $\dfrac{250}{360}  \approx 0,7 = 70\%$. Le premier tailleur vaut environ $70\%$ du prix du second : une diminution de $30\%$ est nécessaire.
+  \end{enumerate}
+}
+
+\exe{
+        À quelle évolution correspond une augmentation de $20\%$ suivie d'une diminution de $20\%$ ?
+}{
+	Augmenter une quantité $N$ de $20\%$ correspond à la multiplier par $1,2$.
+	Une diminution, elle, multiplie par $0,8$.
+	
+	La quantité finale est donné par 
+		\[ 0,8 \cdot (1,2 \cdot N) = (0,8 \cdot 1,2) \cdot N = 0,96 \cdot N, \]
+	qui correspond à une diminution de $4\%$.
+}
+
+\exe{
+  Si on augmente le prix d'un objet de $150\%$, quel rabais faut-il appliquer pour retrouver le prix initial de l'objet ?
+}{
+	Notons $P$ le prix initial de l'objet.
+	Le prix augmenté vaut donc $1,5 \cdot P$.
+	Pour retrouver $P$, il faut multiplier le prix augmenté par l'inverse de $1,5$, soit $1,5^{-1} = \dfrac23 \approx 0,666 = 66,6\%$.
+	Ceci correspond à une diminution de $33,4\%$.
+}
+
+\exe{
+	
+	Le nombre de visiteurs du Musée du Louvre au cours des années $2015$ à $2018$ sont donnés ci-dessous.
+	\begin{center}
+	\begin{tikzpicture}[scale=.8]
+		% nodes
+		\draw (0,0) ellipse (2cm and .5cm) node {$8,6$ millions};
+		
+		\draw (5,0) ellipse (2cm and .5cm) node {$7,3$ millions};
+		
+		\draw (10,0) ellipse (2cm and .5cm) node {$8,1$ millions};
+		
+		\draw (15,0) ellipse (2cm and .5cm) node {$10,2$ millions};
+		
+		% vertices
+		\draw[->, thick, myg] (1cm,.6cm) arc (105:75:7);
+		\draw[->, thick, myg] (6cm,.6cm) arc (105:75:7);
+		\draw[->, thick, myg] (11cm,.6cm) arc (105:75:7);
+		
+		\draw[->, thick, myr] (1cm,-.5cm) arc (-105:-75:25);
+	\end{tikzpicture}
+	\end{center}
+
+	\begin{enumerate}
+		\item Compléter le schéma en ajoutant les coefficients multiplicateurs.
+		\item Calculer le coefficient multiplicateur moyen et en déduire le taux d'évolution moyen.
+	\end{enumerate}
+
+}{
+
+}
+
+\exe{
+	
+	Le nombre de visiteurs du Musée du Louvre semble augmenter de $6\%$ chaque année.
+	À l'année $0$, on compte $8,6$ millions de visiteurs.
+
+	\begin{enumerate}
+		\item Écrire $V(n)$, le nombre de visiteurs du musée après $n$ années, où $n\in\N$ est un entier naturel.
+		\item Écrire $V(x)$, le nombre de visiteurs du musée après $x$ années, où $x\geq0$ est un nombre réel positif ou nul.
+		\item À partir de quand le nombre de visiteurs dépassera $13,3$ millions ?
+		\item À partir de quand le nombre de visiteurs dépassera $14,78$ millions ?
+	\end{enumerate}
+
+}{
+
+}
+
+
+%\newpage
+%
+%\subsection*{Exercices supplémentaires}
+%
+%
+%\exe{
+%  En $2023$, le prix moyen du gaz naturel facturé aux ménages français s'élève à $115$€ par MWh, toutes taxes comprises (TTC).
+%  En $2022$, le prix était de $96$€.
+%
+%  Calculer le pourcentage d'augmentation du prix entre l'année $2022$ et l'année $2023$.
+%}{
+%	On calcule la proportion $\dfrac{115}{96} \approx 1,20 = 120\%$.
+%	Celle-ci correspond à une augmentation de $20\%$.
+%}
+%
+%\exe{
+%  En $2022$ en France, la consommation de gaz naturel s'établit à $463$ TWh.
+%  En $2021$, celle-ci s'élevait plutôt à $475{,}85$ TWh.
+%
+%  Calculer le pourcentage de diminution de la consommation entre l'année $2021$ et l'année $2022$.
+%}{
+%	On calcule la proportion $\dfrac{463}{475{,}85} \approx 0,973 = 97,3\%$.
+%	Celle-ci correspond à une diminution de $2,7\%$.
+%}
+%
+%\exe{
+%  Si on augmente le prix d'un objet de $100p\%$ ($p\geq0$ réel), quel rabais faut-il appliquer (en fonction de $p$) pour retrouver le prix initial de l'objet ?
+%}{
+%	Soit $N\geq0$ un prix quelconque, et $(1+p)\cdot N$ le prix augmenté de $100p\%$.
+%	
+%	Pour retrouver le prix original, il faut multiplier par $(1+p)^{-1} = \dfrac{1}{1+p}$.
+%	La diminution correspondante est donnée par
+%		\[ 1 - \dfrac{1}{1+p} = \dfrac{p}{1+p}. \]
+%	On comparera avec l'exercice 10, où $p=0,5$, et $\dfrac{p}{1+p} = \dfrac{0,5}{1,5} = \dfrac13 \approx 33,3 \%$.
+%}
+%
+%\exe{
+%    Considérons $p\geq 0$ une proportion et $100p$ le pourcentage associé.
+%    \begin{enumerate}
+%    \item À quelle évolution, en fonction de $p$, correspond une augmentation de $100p\%$ suivie d'une diminution de $100p\%$ ?
+%    \item Quel $p$ choisir pour trouver une diminution finale de $16\%$ ?
+%    \end{enumerate}
+%}{
+%
+%    \begin{enumerate}
+%    \item Soit $N\geq0$ une quantité. Après une augmentation de $100p\%$ puis une diminution de $100p\%$,
+%    		la quantité est donnée par $(1-p) \cdot (1+p) \cdot N = (1-p^2) \cdot N$.
+%    		Ceci correspond à une diminution de $100\left(p^2\right) \%$.
+%    		
+%    		On comparera avec l'exercice 9, où $p=0,2$ et $p^2 = 0,04 = 4\%$.
+%    \item On pose l'égalité suivante
+%    		\[ 100p^2 = 16. \]
+%    	Remarquons que $16$ et $100$ sont tous les deux des carrés parfaits :
+%    		\[ p^2 = \dfrac{16}{100} = \left( \dfrac{4}{10} \right)^2, \]
+%	et donc $p = \dfrac{4}{10} = 40\%$, car $p\geq 0$.
+%	
+%	Vérification : au vu de la question 1, on calcule $0,4^2 = 0,16 = 16\%$.
+%    \end{enumerate}
+%
+%}
+\end{document}
