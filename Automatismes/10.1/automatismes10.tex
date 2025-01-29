@@ -1,0 +1,92 @@
+\documentclass[14pt]{beamer}
+\usepackage[french]{babel}
+
+
+\usetheme{CambridgeUS}
+\usecolortheme{rose}
+\beamertemplatenavigationsymbolsempty
+
+\usepackage{array}
+\usepackage{amsmath,amsfonts,amsthm,calrsfs,mathtools}
+\usepackage{multicol}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+
+% corps
+\usepackage{calrsfs}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rnn}{\mathbb{R}^{2n}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+% domain
+\newcommand{\D}{\mathbb{D}}
+
+
+% date
+\usepackage{advdate}
+\AdvanceDate[0]
+
+
+\usepackage{pgfplots, subcaption}
+\definecolor{myg}{RGB}{56, 140, 70}
+\definecolor{myb}{RGB}{45, 111, 177}
+\definecolor{myr}{RGB}{199, 68, 64}
+
+\begin{document}
+
+\section{Automatismes}
+
+\begin{frame}
+
+\centering \huge
+Automatismes
+
+\end{frame}
+
+\subsection{Suites géométriques}
+
+\begin{frame}{1}
+    Soit $v$ une suite géométrique de raison $\dfrac13$ vérifiant
+        \[ v(0) = 18. \]
+Donner $v(1)$
+\end{frame}
+
+\begin{frame}{2}
+    Soit $P$ une suite géométrique de raison $1$ et de terme initial
+        \[ P(0) = 18. \]
+Donner $P(210)$.
+\end{frame}
+
+\begin{frame}{3}
+    Soit $c(n)$ la suite dont les $5$ premiers termes sont donnés graphiquement ci-dessous.
+    Donner $c(3)$.
+    
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=.9]
+		\begin{axis}[xmin = 0, xmax=4.2, xtick={ 0, ..., 4}, ymin=0, ymax=300, ytick={0, 30, ..., 300}, axis x line=middle, axis y line=middle, axis line style=->, ylabel={}, grid=both]
+			\addplot[black, thick, only marks, mark=square] coordinates {(0,15) (1,30) (2,60) (3, 120) (4, 240)};
+		\end{axis}
+	
+	\end{tikzpicture}
+	\end{center}
+\end{frame}
+
+\begin{frame}{4}
+
+    Soit $u$ donnée algébriquement pour tout $n\in\N$ par
+        \[ u(n) = 2^n. \]
+    Donner le plus petit entier naturel $N\in\N$ tel que
+        \[ u(N) \geq 15. \]
+
+\end{frame}
+
+
+
+\end{document}
