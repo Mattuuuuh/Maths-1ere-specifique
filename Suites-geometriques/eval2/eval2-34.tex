@@ -1,0 +1,114 @@
+% SOLUTION SWITCH
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+				
+\input{../preamble.tex}
+
+
+\AdvanceDate[1]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Première}
+\fancyhead[C]{\textbf{Évaluation ¾ : Suites géométriques \ifsolutions -- Solutions \fi}}
+\fancyhead[R]{\today}
+
+\begin{definition*}{Suite géométrique} \label{def:1}
+	Soit $u$ une suite. On dit que $u$ est \emph{géométrique} de raison $q\in\R$ dès que, pour tout $n\in\N$,
+		\begin{align}\label{eq:def}
+			u(n+1) = q \times u(n).
+		\end{align}
+\end{definition*}
+
+\begin{theorem}[label=thm:1]{de Maya}{}
+	Considérons une suite $u$ géométrique de raison $q\in\R$ et de terme initial $u(0)$.
+    Alors le terme de rang $n\in\N$ de $u$ s'écrit
+		\[ u(n) = \dots\dots\dots\dots\dots.\]
+		
+\end{theorem}
+
+\exe{[2pts]
+    Compléter le théorème \ref{thm:1} vu en cours.
+}
+
+\exe{[4pts]
+    Soit $v$ une suite géométrique de raison $\frac13$ et telle que
+        \[ v(41) = 18. \]
+    \begin{multicols}{2}
+    \begin{enumerate}
+        \item Calculer $v(42)$.
+        \item Calculer $v(43)$.
+        \item Calculer $v(40)$.
+    \end{enumerate}
+    \end{multicols}
+}{}
+
+\exe{[6pts]
+	Pour chacune des suites géométriques données algébriquement pour tout $n\in\N$, donner sa raison et son terme initial.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $u(n) = 7 \times 2^n$
+		\item $a(n) =(0,31)^{n}$
+		\item $b(n) = 3$
+		\item $c(n) = 2^{-n}$
+	\end{enumerate}
+	\end{multicols}
+}{}
+
+
+\exe{[4pts]
+    Jean de Florette élève une population de lapin de la race Romarin.
+    Il étudie le nombre de lapins pendant plusieurs années avant de remarquer que, d'une année à l'autre, la population augmente systématiquement de $50\%$.
+    Il note les premières valeurs obtenues dans le tableau en commençant à l'année $0$ pour simplifier les choses.
+    \begin{center}
+    \begin{tabular}{|c|c|c|c|c|c|}\hline
+        Année & 0 & 1 & 2 & 3 & 4 \\ \hline
+        Population & 256 & 384 & & & \\ \hline
+    \end{tabular}
+    \end{center}
+
+    \begin{enumerate}
+        \item Vérifier les premières valeurs du tableau ci-dessus et le compléter.
+        \item En notant $P(n)$ le nombre de lapins à l'année $n$, écrire l'expression algébrique de $P(n)$.
+        \item Donner $P(20)$ en arrondissant à l'entier le plus proche.
+        \item Trouver le plus petit entier naturel $N\in\N$ tel que
+            \[ P(N) \geq 100~000.\]
+    \end{enumerate}
+}{}
+
+\newpage
+
+\exe{[4pts]
+	Pour chaque suite suivante donnée algébriquement pour tout $n\in\N$, démontrer soit qu'elle est géométrique, soit qu'elle ne l'est pas.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $a(n) = 2^n$
+		\item $b(n) = n^3$
+		\item $c(n) = 7$
+	\end{enumerate} 
+	\end{multicols}
+}{}
+
+
+
+\subsection*{Bonus (2pts)}
+
+\exe{
+    Considérons la suite $v$ définie par la relation de récurrence suivante, pour tout $n\in\N$.
+    \[
+    \begin{cases}
+        v(0) = 0, \\
+        v(n+1) = 5v(n) + 4.
+    \end{cases}
+    \]
+    \begin{enumerate}
+        \item Montrer que la suite intermédiaire $w$ définie pour tout $n\in\N$ par
+            \[ w(n) = v(n) + 1,\]
+        est géométrique.
+        \item En déduire que, pour tout $n\in\N$,
+            \[ v(n) = 5^n - 1.\]
+    \end{enumerate}
+}
+
+\end{document}
