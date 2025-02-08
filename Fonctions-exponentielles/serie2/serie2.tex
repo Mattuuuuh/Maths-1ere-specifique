@@ -1,0 +1,85 @@
+% SOLUTION SWITCH
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+				
+\input{../preamble.tex}
+
+
+\AdvanceDate[2]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Première}
+\fancyhead[C]{\textbf{Fonctions exponentielles 1 \ifsolutions -- Solutions \fi}}
+\fancyhead[R]{\today}
+
+\exe{
+	Calculer sans calculatrice.
+	
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $2^3$
+		\item $8^{1/3}$
+		\item $3^4$
+		\item $81^{1/4}$
+		\item $8^{2/3}$
+		\item $2^{-1}$
+		\item $8^{-2/3}$
+		\item $27^{-2/3}$
+	\end{enumerate}
+	\end{multicols}
+}{}
+
+\exe{
+	Montrer qu'on a environ $2^{10} \approx 10^3$. 
+	On dira que $2^{10}$ a pour \emph{ordre de grandeur} $10^3$ car c'est la puissance de $10$ la plus proche.
+	
+	\begin{enumerate}
+		\item En déduire approximativement l'ordre de grandeur de $2^{20}$ et le nombre de chiffres nécessaires pour écrire le nombre.
+		\item En déduire approximativement l'ordre de grandeur de $2^{35}$ et le nombre de chiffres nécessaires pour écrire le nombre.
+	\end{enumerate}
+}{}
+
+\exe{
+	Approximer à l'aide de la calculatrice en arrondissant à $10^{-2}$ près.
+	
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $70^{1/3}$
+		\item $1000^{1/10}$
+		\item $\dfrac{1}{30^{-1/2}}$
+		\item $2^{\pi}$
+	\end{enumerate}
+	\end{multicols}
+}{}
+
+\exe{
+	Soit $S$ une suite géométrique de terme initial $S(0) = 4$ et de raison $q$ encore inconnue.
+	On rappelle que $S$ s'écrit $S(n) = 4 \times q^{n}$ pour tout $n\in\N$.
+	
+	%\begin{multicols}{2}
+	\begin{enumerate}
+		\item Calculer $q$ si $S(5) = 390,625$.
+		\item Calculer $q$ si $S(10) = 4096$.
+		\item Calculer $q$ si $S(7) = 700$. Arrondir à $10^{-2}$ près.
+		\item Calculer $q$ si $S(13) = 13~521$. Arrondir à $10^{-2}$ près.
+	\end{enumerate}
+	%end{multicols}
+
+}{}
+
+\exe{
+	$g$ est une fonction exponentielle de base $q$ encore inconnue et telle que $g(0) = 350$.
+	On rappelle que $g$ s'écrit $g(x) = 350\times q^x$ pour tout $x\in\R$.
+	
+	\begin{enumerate}
+		%\item Montrer que $g(x)/g(0) = q^x$ pour tout $x\in\R$.
+		\item Si $g(3,4) = 45875200$, que vaut $q$ ?
+		\item Si $g\left(-\dfrac43\right) = 21,875$, que vaut $q$ ?
+		\item Si $g(-4,1) = 15$, que vaut $q$ ? Arrondir à $10^{-4}$ près.
+		\item Si $g(\pi) = \pi$, que vaut $q$ ? Arrondir à $10^{-4}$ près.
+	\end{enumerate}
+}
+
+\end{document}
