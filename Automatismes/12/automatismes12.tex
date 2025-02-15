@@ -1,0 +1,76 @@
+\documentclass[14pt]{beamer}
+\usepackage[french]{babel}
+
+
+\usetheme{CambridgeUS}
+\usecolortheme{rose}
+\beamertemplatenavigationsymbolsempty
+
+\usepackage{array}
+\usepackage{amsmath,amsfonts,amsthm,calrsfs,mathtools}
+\usepackage{multicol}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+\usepackage{eurosym, icomma}
+
+% corps
+\usepackage{calrsfs}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rnn}{\mathbb{R}^{2n}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+% domain
+\newcommand{\D}{\mathbb{D}}
+
+
+% date
+\usepackage{advdate}
+\AdvanceDate[3]
+
+
+\usepackage{pgfplots, subcaption}
+\definecolor{myg}{RGB}{56, 140, 70}
+\definecolor{myb}{RGB}{45, 111, 177}
+\definecolor{myr}{RGB}{199, 68, 64}
+
+\begin{document}
+
+\section{Automatismes}
+
+\begin{frame}
+
+\centering \huge
+Automatismes
+
+\end{frame}
+
+\subsection{Statistiques}
+
+\begin{frame}{1}
+	\centering
+	Un prix initial de $200$\euro\, diminue de $30\%$, quel est le prix final ?
+\end{frame}
+
+\begin{frame}{2}
+	\centering
+	À quelle évolution correspond le coefficient multiplicateur $\times 1,3$ ?
+\end{frame}
+
+\begin{frame}{3}
+	\centering
+	Quel coefficient multiplicateur correspond à une diminution de $35\%$ ? 
+\end{frame}
+
+\begin{frame}{4}
+	\centering
+	Quel coefficient multiplicateur correspond à deux augmentations successives de $10\%$ ?
+\end{frame}
+
+\end{document}
