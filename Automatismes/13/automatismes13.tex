@@ -1,0 +1,96 @@
+\documentclass[14pt]{beamer}
+\usepackage[french]{babel}
+
+
+\usetheme{CambridgeUS}
+\usecolortheme{rose}
+\beamertemplatenavigationsymbolsempty
+
+\usepackage{array}
+\usepackage{amsmath,amsfonts,amsthm,calrsfs,mathtools}
+\usepackage{multicol}
+\usepackage{eurosym}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+
+% corps
+\usepackage{calrsfs}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rnn}{\mathbb{R}^{2n}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+% domain
+\newcommand{\D}{\mathbb{D}}
+
+
+% date
+\usepackage{advdate}
+\AdvanceDate[0]
+
+
+\usepackage{pgfplots, subcaption}
+\definecolor{myg}{RGB}{56, 140, 70}
+\definecolor{myb}{RGB}{45, 111, 177}
+\definecolor{myr}{RGB}{199, 68, 64}
+
+\begin{document}
+
+\section{Automatismes}
+
+\begin{frame}
+
+\centering \huge
+Automatismes
+
+\large
+Calculatrice interdite
+
+\end{frame}
+
+\subsection{Manipulation des puissances}
+
+\begin{frame}{1}
+	\centering
+    Calculer et donner $2^4$.
+\end{frame}
+
+\begin{frame}{2}
+	\centering
+    Donner $5^{-1}$ sous forme de fraction.
+\end{frame}
+
+\begin{frame}{3}
+	\centering
+    Donner la valeur de $16^{1/2}$ à l'aide des égalités ci-dessous.
+
+    \vfill
+    \begin{align*}
+        2^4 &= 16 \\
+        16^2 &= 256 \\
+        16\times \dfrac12 &= 8 \\
+        4^2 &= 16 \\
+        2^3 &= 8
+    \end{align*}
+\end{frame}
+
+\begin{frame}{4}
+	\centering
+    Calculer et la valeur de $343^{2/3}$ à l'aide du tableau ci-dessous.
+
+    \vfill
+    \begin{tabular}{|c|c|c|c|c|c|} \hline
+        Puissance de $7$ & $7^0$ & $7^1$ & $7^2$ & $7^3$ & $7^4$ \\ \hline
+        Valeur & $1$ & $7$ & $49$ & $343$ & $2401$ \\ \hline
+    \end{tabular}
+\end{frame}
+
+
+
+\end{document}
