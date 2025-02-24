@@ -1,0 +1,72 @@
+% SOLUTION SWITCH
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+				
+\input{../preamble.tex}
+
+
+\AdvanceDate[2]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Première}
+\fancyhead[C]{\textbf{Fonctions exponentielles 2 \ifsolutions -- Solutions \fi}}
+\fancyhead[R]{\today}
+
+\exe{
+	Montrer qu'on a environ $6^{8} \approx 10^6$ et $7^6 \approx 10^5$ : ce sont leur \emph{ordre de grandeur}.
+	
+	\begin{enumerate}
+		\item En déduire l'ordre de grandeur de $6^{16}$ et le nombre de chiffres nécessaires pour l'écrire.
+		\item En déduire l'ordre de grandeur de $7^{18}$ et le nombre de chiffres nécessaires pour l'écrire.
+		\item En déduire l'ordre de grandeur de $6^{24} \times 7^{12}$ et le nombre de chiffres nécessaires pour l'écrire.
+	\end{enumerate}
+}{}
+
+\exe{
+	On estime que, dans l'univers, il y a au moins
+		\begin{itemize}
+			\item $10^{11}$ galaxies ; que chacune contient
+			\item $10^{11}$ étoiles ; dont la masse moyenne est de
+			\item $10^{32}$ kilogrammes ; et que chaque gramme de matière contient
+			\item $10^{24}$ atomes.
+		\end{itemize}
+	Estimer le nombre d'atomes dans l'univers observable à partir de ces données.
+}{}
+
+\exe{
+	Soit $S$ est une suite géométrique : $S(n) = S(0) \times q^n$ pour tout $n\in\N$.
+	Donner l'expression algébrique de $S$ (c'est-à-dire trouver $S(0)$ et $q$) en sachant que
+		\begin{align*}
+			S(3) = \dfrac8{27}, && S(4) = \dfrac{32}{81}.
+		\end{align*}
+}{}
+
+\exe{
+	$g$ est une fonction exponentielle : $g(x) = g(0)\times q^x$ pour tout $x\in\R$.
+	Donner l'expression algébrique de $g$ (c'est-à-dire trouver $g(0)$ et $q$) en sachant que
+		\begin{align*}
+			g(2,5) = 204,8 && \text{ et } && g(3) = 819,2.
+		\end{align*}
+}{}
+
+\exe{
+	Soit $S$ est une suite géométrique.
+	Donner l'expression algébrique de $S$ en sachant que
+		\begin{align*}
+			S(4) = 768, && S(7) = 49152.
+		\end{align*}
+}{}
+
+\exe{
+	$g$ est une fonction exponentielle.
+	Donner l'expression algébrique de $g$ en sachant que
+		\begin{align*}
+			g(-3) = \dfrac1{49}, && g(3) = 2401.
+		\end{align*}
+}{}
+
+
+
+\end{document}
