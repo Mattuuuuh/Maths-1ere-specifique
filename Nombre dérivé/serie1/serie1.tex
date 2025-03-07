@@ -1,0 +1,120 @@
+% SOLUTION SWITCH
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+				
+\input{../preamble.tex}
+
+
+\AdvanceDate[1]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Première}
+\fancyhead[C]{\textbf{Nombre dérivé : calcul de vitesse \ifsolutions -- Solutions \fi}}
+\fancyhead[R]{\today}
+
+
+\exe{
+	Soit $f(t) = \sin(180t)$ la fonction donnant la position d'un ressorts au temps $t$.
+	\footnote{On pourra exprimer $t$ en secondes et $f(t)$ en décimètres si souhaité.}
+	On pose $V(t)$ la vitesse instantanée du ressorts au temps $t$.
+	
+	Le but de l'exercice est de trouver $V(1)$, la vitesse instantanée du ressorts en $t=1$.
+	
+	\begin{enumerate}
+		\item Remplir le tableau de valeurs figure \ref{fig:f(t)} et esquisser la courbe représentative $\C_f$ de $f$ dans le repère figure \ref{fig:Cf}.
+		\item Remplir le tableau de variations et $f$ et de signes de $V$ figure \ref{fig:var-signe}. Quel est le signe de $V(1)$ ?
+		\item Calculer les vitesses moyennes $v_h$ entre $t=1$ et $1+h$
+			\[ v_h = \dfrac{f(1+h)-f(1)}{h} \]
+		pour $h$ de plus en plus petit et remplir le tableau de valeurs figure \ref{fig:vh}.
+		\item Faire une hypothèse sur la valeur de $V(1)$: vers quelle valeur $v_h$ semble converger lorsque $h$ tend vers $0$ ?
+	\end{enumerate}
+}{}
+
+
+
+\begin{figure}[h]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}\hline
+		$t$ & 0 & 0,2 & 0,4 & 0,6 & 0,8 & 0,9 & 1 & 1,1 & 1,3 & 1,5 \\ \hline
+		$f(t)$ &&&&&&&&&& \\ \hline
+	\end{tabular}
+	\caption{Tableau de valeurs de $f$.}
+	\label{fig:f(t)}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}[scale=1.2]
+	\begin{axis}[
+	xmin = 0, xmax=1.5, ymin=-1.25, ymax=1.25, 
+	grid = none,  xlabel={$t$}, ylabel={$f(t)$},
+	xtick = {0, 0.2, ..., 1.4},
+	ytick = {-1, -0.5, 0, .5, 1.5},
+	]
+	\end{axis}
+	\end{tikzpicture}
+	\caption{Graphe de $\C_f$.}
+	\label{fig:Cf}
+\end{figure}
+
+\newpage
+
+\begin{figure}[h]
+	\centering	
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1 , Variation de $f(x)$ / 2, Signe de $V(x)$ / 1}
+	       		{0,,,,{1,5}}
+	\end{tikzpicture}
+	\caption{Tableau de variations de $f$ et de signes de $V$.}
+	\label{fig:var-signe}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\begin{tabular}{|c|c|}\hline
+		$h$ & $v_h$ \\ \hline
+		1 & \hspace{2cm} \\ \hline
+		-1 & \\ \hline
+		0,5 & \\ \hline
+		-0,5 & \\ \hline
+		0,4 & \\ \hline
+		-0,4 & \\ \hline
+	\end{tabular}
+	\hfill
+	\begin{tabular}{|c|c|}\hline
+		$h$ & $v_h$ \\ \hline
+		0,3 & \hspace{2cm} \\ \hline
+		-0,3 & \\ \hline
+		0,2 & \\ \hline
+		-0,2 & \\ \hline
+		0,1 & \\ \hline
+		-0,1 & \\ \hline
+	\end{tabular}
+	\hfill
+	\begin{tabular}{|c|c|}\hline
+		$h$ & $v_h$ \\ \hline
+		0,05 & \hspace{2cm} \\ \hline
+		-0,05 & \\ \hline
+		0,01 & \\ \hline
+		-0,01 & \\ \hline
+		0,001 & \\ \hline
+		-0,001 & \\ \hline
+	\end{tabular}
+	\caption{Tableaux de valeurs de $v_h$.}
+	\label{fig:vh}
+\end{figure}
+
+%solution
+%
+%\begin{tikzpicture}
+%\begin{axis}[xmin = 0, xmax=1.5, ymin=-1.25, ymax=1.25, grid = none,  xlabel={$t$}, ylabel={$f(t)$}]
+%	\addplot[domain=0:1.5, samples=500, myb, thick] {sin(180*x)};
+%	\addplot[domain=0:1.5, samples=2, myr] {-3.14*(x-1)};
+%\end{axis}
+%\end{tikzpicture}
+
+\end{document}
