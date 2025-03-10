@@ -1,0 +1,53 @@
+% SOLUTION SWITCH
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+				
+\input{../preamble.tex}
+
+
+\AdvanceDate[1]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Première}
+\fancyhead[C]{\textbf{Fonction dérivée : propriétés \ifsolutions -- Solutions \fi}}
+\fancyhead[R]{\today}
+
+
+\begin{theorem}[label=thm:der-mono]{Dérivée des monômes usuels}{}
+	
+	Pour chaque monôme suivante, on donne sa dérivée formelle.
+
+\centering
+	\begin{tabular}{|c|c|c|c|c|}\hline
+		Monôme & 1 & $x$ & $x^2$ & $x^3$ \\ \hline
+		Dérivée & 0 & 1 & $2x$ & $3x^2$ \\ \hline
+	\end{tabular}
+\end{theorem}
+
+\begin{theorem}[label=thm:lin-der]{Linéarité de la dérivée}{}
+	Soient $f, g$ deux fonctions dérivables sur $\R$, et $\kappa\in\R$ un nombre réel quelconque. 
+	Alors
+		\begin{enumerate}
+			\item $(f+g)' = f' + g'$ ; et
+			\item $(\kappa f)' = \kappa f'$.
+		\end{enumerate}
+\end{theorem}
+
+\exe{
+	En utilisant les théorèmes \ref{thm:lin-der} et \ref{thm:der-mono}, donner la fonction dérivée de chaque fonction suivante.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $f(x) = 3x$
+		\item $g(x) = -x^2$
+		\item $h(x) = 2x^3$
+		\item $F(x) = -x+x^2$
+		\item $G(x) = x^3 + 3x$
+		\item $H(x) = 2x^2 - x^3$
+	\end{enumerate}
+	\end{multicols}
+}{}
+
+
+\end{document}
