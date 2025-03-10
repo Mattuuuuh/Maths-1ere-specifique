@@ -15,6 +15,41 @@
 \fancyhead[R]{\today}
 
 
+\begin{theorem}[label=thm:der-mono]{Dérivée des monômes usuels}{}
+	
+	Pour chaque monôme suivante, on donne sa dérivée formelle.
+
+\centering
+	\begin{tabular}{|c|c|c|c|c|}\hline
+		Monôme & 1 & $x$ & $x^2$ & $x^3$ \\ \hline
+		Dérivée & 0 & 1 & $2x$ & $3x^2$ \\ \hline
+	\end{tabular}
+\end{theorem}
+
+\begin{theorem}[label=thm:lin-der]{Linéarité de la dérivée}{}
+	Soient $f, g$ deux fonctions dérivables sur $\R$, et $\kappa\in\R$ un nombre réel quelconque. 
+	Alors
+		\begin{enumerate}
+			\item $(f+g)' = f' + g'$ ; et
+			\item $(\kappa f)' = \kappa f'$.
+		\end{enumerate}
+\end{theorem}
+
+\exe{
+	En utilisant les théorèmes \ref{thm:lin-der} et \ref{thm:der-mono}, donner la fonction dérivée de chaque fonction suivante.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $f(x) = 3x$
+		\item $g(x) = -x^2$
+		\item $h(x) = 2x^3+4$
+		\item $F(x) = 1-x+x^2$
+		\item $G(x) = x^3 + 3x - 6$
+		\item $H(x) = 2x^2 - x^3$
+	\end{enumerate}
+	\end{multicols}
+}{}
+
+
 \exe{
 	On considère la fonction $f$ du troisième degré définie sur le domaine $\D=\left[\frac12;5\right]$ :
 		\[ f(x) = x^3 - 6x^2 + 9x-5. \]
@@ -25,7 +60,7 @@
 		\item Montrer que $f'(x) = 3(x-1)(x-3)$.
 		\item Remplir le tableau de signes et de variations de la figure \ref{fig:var-signe}.
 		\item Compléter les variations avec les images de $f$ aux bornes de $\D$ ainsi qu'aux extrema locaux.
-		\item Utiliser le tableau pour esquisser $\C_f$ dans le repère figure \ref{fig:Cf}.
+		\item Utiliser le tableau pour esquisser $\C_f$ dans le repère figure \ref{fig:Cf} (au verso).
 		\item En déduire le maximum et le minimum de $f$ sur $\D$.
 	\end{enumerate}
 }{}
@@ -45,7 +80,7 @@
 
 \begin{figure}[h]
 	\centering
-	\begin{tikzpicture}[scale=1.2]
+	\begin{tikzpicture}[scale=1]
 	\begin{axis}[
 	xmin = .5, xmax=5.5,
 	ymin=-5.5, ymax=15.5,
@@ -59,7 +94,6 @@
 	\caption{Graphe de $\C_f$.}
 	\label{fig:Cf}
 \end{figure}
-
 
 \exe{
 	On considère la fonction $f$ du troisième degré définie sur $\R$ :
@@ -75,7 +109,6 @@
 
 }{}
 
-\newpage
 
 \exe{
 	On considère un objet de position $f(t)$ et de vitesse $f'(t)$ aux temps $t \in \D = [0;3]$.
@@ -96,23 +129,6 @@
 	\end{axis}
 	\end{tikzpicture}
 	\end{center}
-}{}
-
-\exe{
-	Spinoza jette verticalement un objet de masse $m$ au temps $t=0$ et souhaite connaître sa hauteur $h(t)$ en tout temps $t>0$ à l'aide uniquement de ses conditions initiales : la hauteur initiale $h(0)$, la vitesse initiale $h'(0)$.
-	La deuxième loi de Newton lui permet d'écrire, en négligeant toute force qui n'est pas la gravité, que l'accélération $h''$ est donnée par $h''(t) = -\dfrac{g}m$, où $m$ est la masse de l'objet et $g$ l'accélération de la pesanteur.
-	
-	Celui-ci en déduit classiquement que
-		\[ h(t) = -\dfrac{g}{2m} t^2 + b t + c, \]
-	où $b$ et $c$ sont des constantes qu'il ne connaît pas encore.
-	
-	\begin{enumerate}
-		\item Montrer que $c$ est la hauteur de l'objet au temps initial $t=0$.
-		\item Montrer que la vitesse moyenne entre les temps $t=0$ et $\epsilon$ est donnée par
-			\[ v_\epsilon = \dfrac{h(\epsilon) - h(0)}{\epsilon} = -\dfrac{g}{2m} \epsilon + b. \]
-		\item En laissant $\epsilon$ tendre vers $0$, déduire que $b$ est la vitesse de l'objet au temps initial $t=0$.
-		\item Écrire la fonction de la hauteur avec données $g=9,8 ; m=1 ; h(0) = 3 ; h'(0) = 2$.
-	\end{enumerate}
 }{}
 
 \end{document}

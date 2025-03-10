@@ -15,39 +15,21 @@
 \fancyhead[R]{\today}
 
 
-\begin{theorem}[label=thm:der-mono]{Dérivée des monômes usuels}{}
-	
-	Pour chaque monôme suivante, on donne sa dérivée formelle.
-
-\centering
-	\begin{tabular}{|c|c|c|c|c|}\hline
-		Monôme & 1 & $x$ & $x^2$ & $x^3$ \\ \hline
-		Dérivée & 0 & 1 & $2x$ & $3x^2$ \\ \hline
-	\end{tabular}
-\end{theorem}
-
-\begin{theorem}[label=thm:lin-der]{Linéarité de la dérivée}{}
-	Soient $f, g$ deux fonctions dérivables sur $\R$, et $\kappa\in\R$ un nombre réel quelconque. 
-	Alors
-		\begin{enumerate}
-			\item $(f+g)' = f' + g'$ ; et
-			\item $(\kappa f)' = \kappa f'$.
-		\end{enumerate}
-\end{theorem}
-
 \exe{
-	En utilisant les théorèmes \ref{thm:lin-der} et \ref{thm:der-mono}, donner la fonction dérivée de chaque fonction suivante.
-	\begin{multicols}{2}
+	Spinoza jette verticalement un objet de masse $m$ au temps $t=0$ et souhaite connaître sa hauteur $h(t)$ en tout temps $t>0$ à l'aide uniquement de ses conditions initiales : la hauteur initiale $h(0)$, la vitesse initiale $h'(0)$.
+	La deuxième loi de Newton lui permet d'écrire, en négligeant toute force qui n'est pas la gravité, que l'accélération $h''$ est donnée par $h''(t) = -\dfrac{g}m$, où $m$ est la masse de l'objet et $g$ l'accélération de la pesanteur.
+	
+	Celui-ci en déduit classiquement que
+		\[ h(t) = -\dfrac{g}{2m} t^2 + b t + c, \]
+	où $b$ et $c$ sont des constantes qu'il ne connaît pas encore.
+	
 	\begin{enumerate}
-		\item $f(x) = 3x$
-		\item $g(x) = -x^2$
-		\item $h(x) = 2x^3$
-		\item $F(x) = -x+x^2$
-		\item $G(x) = x^3 + 3x$
-		\item $H(x) = 2x^2 - x^3$
+		\item Montrer que $c$ est la hauteur de l'objet au temps initial $t=0$.
+		\item Montrer que la vitesse moyenne entre les temps $t=0$ et $\epsilon$ est donnée par
+			\[ v_\epsilon = \dfrac{h(\epsilon) - h(0)}{\epsilon} = -\dfrac{g}{2m} \epsilon + b. \]
+		\item En laissant $\epsilon$ tendre vers $0$, déduire que $b$ est la vitesse de l'objet au temps initial $t=0$.
+		\item Écrire la fonction de la hauteur avec données $g=9,8 ; m=1 ; h(0) = 3 ; h'(0) = 2$.
 	\end{enumerate}
-	\end{multicols}
 }{}
-
 
 \end{document}
