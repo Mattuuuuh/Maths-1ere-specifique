@@ -1,7 +1,7 @@
 % SOLUTION SWITCH
 \newif\ifsolutions
 				\solutionstrue
-				\solutionsfalse
+				%\solutionsfalse
 				
 \input{../preamble.tex}
 
@@ -22,7 +22,21 @@
 		\item En déduire l'ordre de grandeur de $7^{18}$ et le nombre de chiffres nécessaires pour l'écrire.
 		\item En déduire l'ordre de grandeur de $6^{24} \times 7^{12}$ et le nombre de chiffres nécessaires pour l'écrire.
 	\end{enumerate}
-}{}
+}{
+	\begin{enumerate}
+		\item En mettant au carré on obtient
+			\[ 6^{16} = \left(6^8\right)^2 \approx \left(10^6\right)^2 = 10^{12}. \]
+		Il faut donc $13$ chiffres pour écrire $6^{16}$.
+		\item En mettant au cube on obtient
+			\[ 7^{18} = \left(7^6\right)^3 \approx \left(10^5\right)^3 = 10^{15}. \]
+		Il faut donc $16$ chiffres pour écrire $6^{16}$.
+		\item On combine les méthodes pour obtenir
+			\[ 6^{24} \times 7^{12} \approx \left(10^{6}\right)^3 \times \left(10^5 \right)^2 = 10^{18} \times 10^{10} = 10^{38}, \]
+		et il faut $39$ chiffres pour écrire ce nombre.
+	\end{enumerate}
+
+
+}
 
 \exe{
 	On estime que, dans l'univers, on observe au moins
@@ -33,7 +47,16 @@
 			\item $10^{24}$ atomes.
 		\end{itemize}
 	Estimer le nombre d'atomes dans l'univers observable à partir de ces données.
-}{}
+}{
+	Des deux premières informations on obtient qu'il y a $10^{11} \times 10^{11} = 10^{22}$ étoiles dans l'univers observable.
+	
+	Ensuite, la masse totale est $10^{22} \times 10^{32} = 10^{54}$ kg.
+	
+	On multiplie par $10^{3}$ pour obtenir des grammes, et par $10^{24}$ pour compter les atomes, ce qui donne finalement $10^{54 + 3 + 24} = 10^{81}$ atomes dans l'univers observable.
+	
+	Il faut donc $82$ chiffres pour écrire ce nombre ! Et il nous suffit de $4$ symboles pour en parler.
+
+}
 
 \exe{
 	Soit $S$ est une suite géométrique : $S(n) = S(0) \times q^n$ pour tout $n\in\N$.
@@ -41,7 +64,35 @@
 		\begin{align*}
 			S(3) = \dfrac8{27}, && \text{ et } && S(4) = \dfrac{32}{81}.
 		\end{align*}
-}{}
+}{
+	On se rappelle de la définition des suites géométriques : pour passer d'une terme à l'autre, on multiplie par la raison $q$.
+	Par conséquent, on obtient
+		\[ \dfrac8{27} \times q = \dfrac{32}{81}. \]
+	On résoud en multipliant par $\dfrac{27}{8}$, l'inverse de $\dfrac{8}{27}$ : 
+		\begin{align*}
+			\dfrac{27}{8} \times \dfrac8{27} \times q &= \dfrac{27}{8}\times\dfrac{32}{81} \\
+			q &= \dfrac{32 \times 27}{8 \times 81} \\
+			q &= \dfrac{32}8 \times \dfrac{27}{81} \\
+			q &= 4 \times \dfrac13 = \dfrac43,
+		\end{align*}
+	où on a utilisé que $81 = 27 \times 3$ pour simplifier la fraction $\frac{27}{81}$
+
+	On a trouvé $q$, et on peut déduire le terme initial en remontant en arrière :
+		\begin{align*}
+			S(3) = q \times S(2) && \iff && S(2) = \dfrac1q  \times S(3).
+		\end{align*}
+	D'où 	
+		\begin{align*}
+			S(2) &= \dfrac34 \times \dfrac8{27} =\dfrac29, \\
+			S(1) &= \dfrac34 \times \dfrac23 = \dfrac16, \\
+			S(0) &= \dfrac34 \times \dfrac12 = \dfrac14.
+		\end{align*}
+		
+	Un autre façon de faire est d'écrire 
+		\[ \dfrac{8}{27} = S(3) = S(0) \times q^3 = S(0) \times \left(\dfrac43\right)^3 = S(0) \times \dfrac{64}{27}, \]
+	de quoi on déduit immédiatement
+		\[ S(0) = \dfrac8{27}\times\dfrac{27}{64} = \dfrac8{64} = \dfrac14. \]
+}
 
 \exe{
 	$g$ est une fonction exponentielle : $g(x) = g(0)\times q^x$ pour tout $x\in\R$.
@@ -49,7 +100,32 @@
 		\begin{align*}
 			g(2,5) = 204,8 && \text{ et } && g(3) = 819,2.
 		\end{align*}
-}{}
+}{
+	La méthode de l'exercice précédent se généralise : au lieu de multiplier par $q = q^1$ pour passer de $S(3)$ à $S(4)$ (et donc d'avoir $\dfrac{S(4)}{S(3)} = q$), on multiplie par $q^{0,5}$ pour passer de $g(2,5)$ à $g(3)$.
+	
+	Ceci se démontre de la façon suivante :
+		\begin{align*}
+			g(2,5) &= g(0) \times q^{2,5} \\
+			g(3) &=  g(0) \times q^{3},
+		\end{align*}
+	dont on déduit que
+		\begin{align*}
+			\dfrac{g(3)}{g(2,5)} &= \dfrac{g(0) \times q^{3}}{g(0) \times q^{2,5}} \\
+									&= \dfrac{q^3}{q^{2,5}} \\
+									&= q^3 \times q^{-2,5} \\
+									&= q^{3-2,5} = q^{0,5}.
+		\end{align*}
+	On connaît le ratio, égal à $\dfrac{g(3)}{g(2,5)} = \dfrac{819,2}{204,8} = 4$.
+	Pour obtenir $q$ à partir de $q^{0,5}$, on met à la puissance $\dfrac1{0,5} = 2$ :
+		\[ q = q^1 = \left(q^{0,5}\right)^2 = 4^2 = 16. \]
+	On conclut donc que $q=16$.
+
+	Pour obtenir $g(0)$, on utilise une des deux équations déjà posées plus haut.
+	Par exemple, $g(3) =  g(0) \times q^{3}$, qui implique
+		\[ g(0) = \dfrac{g(3)}{q^3} = \dfrac{819,2}{16^3} = 0,2. \]
+	
+	Finalement, $g(x) = 0,2 \times 16^x$ pour tout $x\in\R$.
+}
 
 \exe{
 	Soit $S$ est une suite géométrique.
@@ -57,7 +133,18 @@
 		\begin{align*}
 			S(4) = 768, && \text{ et }  && S(7) = 49152.
 		\end{align*}
-}{}
+}{
+	Le même raisonnement qu'aux exercice précédent donne l'équation
+		\[ S(7) = q^3 \times S(4), \]
+	de laquelle on déduit
+		\[ q^3 = \dfrac{49152}{768} = 64.\]
+	Pour déduire $q$, on met à la puissance $\frac13$, qui donne
+		\[ q = 64^{1/3} = 4. \]
+	
+	On cherche ensuite à connaître $S(0)$ :
+		\[ S(0) = \dfrac{S(4)}{q^4} = \dfrac{768}{4^4} = 3. \]
+	D'où $S(n) = 3 \times 4^n$ pour tout $n \in \N$.
+}
 
 \exe{
 	$g$ est une fonction exponentielle.
@@ -65,7 +152,15 @@
 		\begin{align*}
 			g(-3) = \dfrac1{49}, && \text{ et }  && g(3) = 2401.
 		\end{align*}
-}{}
+}{
+	On trouve d'abord $q$ en utilisant que
+		\[ g(3) = g(-3) \times q^{6}, \]
+	qui donne $q^6 = 2401\times49 = 117649$, et donc $q = 117649^{1/6} = 7$.
+	
+	On conclut à l'aide de
+		\[ g(0) = \dfrac{g(3)}{q^3} = \dfrac{2401}{7^3} = 7. \]
+	Il suit que $g(x) = 7 \times 7^x = 7^{x+1}$ pour tout $x\in\R$.
+}
 
 
 
