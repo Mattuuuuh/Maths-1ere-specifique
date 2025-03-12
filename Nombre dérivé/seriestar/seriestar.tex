@@ -1,0 +1,35 @@
+% SOLUTION SWITCH
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+				
+\input{../preamble.tex}
+
+
+\AdvanceDate[1]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Première}
+\fancyhead[C]{\textbf{Fonction dérivée : exercices \ifsolutions -- Solutions \fi}}
+\fancyhead[R]{\today}
+
+
+\exe{
+	Spinoza jette verticalement un objet de masse $m$ au temps $t=0$ et souhaite connaître sa hauteur $h(t)$ en tout temps $t>0$ à l'aide uniquement de ses conditions initiales : la hauteur initiale $h(0)$, la vitesse initiale $h'(0)$.
+	La deuxième loi de Newton lui permet d'écrire, en négligeant toute force qui n'est pas la gravité, que l'accélération $h''$ est donnée par $h''(t) = -\dfrac{g}m$, où $m$ est la masse de l'objet et $g$ l'accélération de la pesanteur.
+	
+	Celui-ci en déduit classiquement que
+		\[ h(t) = -\dfrac{g}{2m} t^2 + b t + c, \]
+	où $b$ et $c$ sont des constantes qu'il ne connaît pas encore.
+	
+	\begin{enumerate}
+		\item Montrer que $c$ est la hauteur de l'objet au temps initial $t=0$.
+		\item Montrer que la vitesse moyenne entre les temps $t=0$ et $\epsilon$ est donnée par
+			\[ v_\epsilon = \dfrac{h(\epsilon) - h(0)}{\epsilon} = -\dfrac{g}{2m} \epsilon + b. \]
+		\item En laissant $\epsilon$ tendre vers $0$, déduire que $b$ est la vitesse de l'objet au temps initial $t=0$.
+		\item Écrire la fonction de la hauteur avec données $g=9,8 ; m=1 ; h(0) = 3 ; h'(0) = 2$.
+	\end{enumerate}
+}{}
+
+\end{document}
