@@ -5,31 +5,213 @@
 				
 \input{../preamble.tex}
 
+\def\arraystretch{1.6}
+\setlength\tabcolsep{15pt}
 
 \AdvanceDate[1]
 
 \begin{document}
 \pagestyle{fancy}
 \fancyhead[L]{Première}
-\fancyhead[C]{\textbf{Fonction dérivée : propriétés \ifsolutions -- Solutions \fi}}
+\fancyhead[C]{\textbf{Nombre dérivé : fonction carré \ifsolutions -- Solutions \fi}}
 \fancyhead[R]{\today}
 
 
 \exe{
-	Spinoza jette verticalement un objet de masse $m$ au temps $t=0$ et souhaite connaître sa hauteur $h(t)$ en tout temps $t>0$ à l'aide uniquement de ses conditions initiales : la hauteur initiale $h(0)$, la vitesse initiale $h'(0)$.
-	La deuxième loi de Newton lui permet d'écrire, en négligeant toute force qui n'est pas la gravité, que l'accélération $h''$ est donnée par $h''(t) = -\dfrac{g}m$, où $m$ est la masse de l'objet et $g$ l'accélération de la pesanteur.
-	
-	Celui-ci en déduit classiquement que
-		\[ h(t) = -\dfrac{g}{2m} t^2 + b t + c, \]
-	où $b$ et $c$ sont des constantes qu'il ne connaît pas encore.
+	Le but de l'exercice est de calculer, à l'aide de la définition, le nombre dérivé de la fonction carré 
+		\[ f(x) = x^2 \]
+	en certains points, puis d'en déduire une loi générale.
 	
 	\begin{enumerate}
-		\item Montrer que $c$ est la hauteur de l'objet au temps initial $t=0$.
-		\item Montrer que la vitesse moyenne entre les temps $t=0$ et $\epsilon$ est donnée par
-			\[ v_\epsilon = \dfrac{h(\epsilon) - h(0)}{\epsilon} = -\dfrac{g}{2m} \epsilon + b. \]
-		\item En laissant $\epsilon$ tendre vers $0$, déduire que $b$ est la vitesse de l'objet au temps initial $t=0$.
-		\item Écrire la fonction de la hauteur avec données $g=9,8 ; m=1 ; h(0) = 3 ; h'(0) = 2$.
+		\item On étudie d'abord la fonction $f$.
+			\begin{enumerate}[label=\roman*)]
+				\item Remplir le tableau de valeurs figure \ref{fig:f}.
+				\item Esquisser la courbe de $f$ figure \ref{fig:Cf}.
+				\item Remplir le tableau de variations de $f$ figure \ref{fig:var-signe} (on remplira les signes de $f'$ plus tard).
+			\end{enumerate}
+		\item On souhaite calculer le nombre dérivé de $f$ en $x=1$.
+		Pour cela, on considère les accroissements autour de $1$, pour $h$ de plus en plus petit
+			\[ v_h = \dfrac{f(1+h)-f(1)}h. \]
+			\begin{enumerate}[label=\roman*)]
+				\item Remplir le tableau de valeurs figure \ref{fig:1a}.
+				\item Vers quelle valeur $v_h$ tend-il quand $h$ se rapproche de $0$ ? On appelle cette valeur $f'(1)$, qu'on ajoutera dans la première colonne du tableau figure \ref{fig:f'}.
+			\end{enumerate}
+		\item Calculer les accroissements autour de $x=-1; -0,5 ; 0; \dots$ et compléter les tableaux figure \ref{fig:vh}. Utiliser les résultats pour remplir le tableau de valeurs de $f'$ figure \ref{fig:f'}.
+		\item En déduire une formule algébrique pour obtenir $f'(x)$ comme fonction de $x$.
+		\item Remplir le tableau de signes de $f'$ figure \ref{fig:var-signe}.
 	\end{enumerate}
 }{}
+
+\begin{figure}[h]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}\hline
+		$x$ & -4 & -3 & -2 & -1 & 0 & 1 & 2 & 3 & 4 \\ \hline
+		$f(x)$ &&&&&&&&& \\ \hline
+	\end{tabular}
+	\caption{Tableau de valeurs de $f$.}
+	\label{fig:f}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}\hline
+		$x$ & 1 & -1 & -0,5 & 0 & 1,5 & 0,4 & -2 & 3  \\ \hline
+		$f'(x)$ &&&&&&&& \\ \hline
+	\end{tabular}
+	\caption{Tableau de valeurs de $f'$.}
+	\label{fig:f'}
+\end{figure}
+
+
+\begin{figure}[h]
+	\centering	
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1 , Variation de $f(x)$ / 2, Signe de $f'(x)$ / 1}
+	       		{-4,,,4}
+	\end{tikzpicture}
+	\caption{Tableau de variations de $f$ et de signes de $f'$.}
+	\label{fig:var-signe}
+\end{figure}
+
+\newpage
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}[scale=1.2]
+	\begin{axis}[
+	xmin = -4, xmax=4, ymin=0, ymax=16, 
+	grid = none,  xlabel={$x$}, ylabel={$f(x)$},
+	xtick = {-4, ..., 4},
+	ytick = {0, 2, ..., 16},
+	x=15pt,
+	y=10pt,
+	grid=both,
+	]
+	\end{axis}
+	\end{tikzpicture}
+	\caption{Graphe de $\C_f$ sur $[-4;4]$.}
+	\label{fig:Cf}
+\end{figure}
+
+
+\begin{figure}[h!]
+	\centering
+	\begin{subfigure}{0.2\textwidth}
+	\begin{tabular}{|c|c|}\hline
+		$h$ & $v_h$ \\ \hline
+		1 & \hspace{1cm} \\ \hline
+		0,1 & \\ \hline
+		0,001 & \\ \hline
+		-1 & \\ \hline
+		-0,1 & \\ \hline
+		-0,001 & \\ \hline
+	\end{tabular}
+	\caption{Accroissements autour de $x=1$.}
+	\label{fig:1a}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.2\textwidth}
+	\begin{tabular}{|c|c|}\hline
+		$h$ & $v_h$ \\ \hline
+		1 & \hspace{1cm} \\ \hline
+		0,1 & \\ \hline
+		0,001 & \\ \hline
+		-1 & \\ \hline
+		-0,1 & \\ \hline
+		-0,001 & \\ \hline
+	\end{tabular}
+	\caption{Accroissements autour de $x=-1$.}
+	\label{fig:1b}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.2\textwidth}
+	\begin{tabular}{|c|c|}\hline
+		$h$ & $v_h$ \\ \hline
+		1 & \hspace{1cm} \\ \hline
+		0,1 & \\ \hline
+		0,001 & \\ \hline
+		-1 & \\ \hline
+		-0,1 & \\ \hline
+		-0,001 & \\ \hline
+	\end{tabular}
+	\caption{Accroissements autour de $x=-0,5$.}
+	\label{fig:1c}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.2\textwidth}
+	\begin{tabular}{|c|c|}\hline
+		$h$ & $v_h$ \\ \hline
+		1 & \hspace{1cm} \\ \hline
+		0,1 & \\ \hline
+		0,001 & \\ \hline
+		-1 & \\ \hline
+		-0,1 & \\ \hline
+		-0,001 & \\ \hline
+	\end{tabular}
+	\caption{Accroissements autour de $x=0$.}
+	\label{fig:1d}
+	\end{subfigure}
+	
+	\begin{subfigure}{0.2\textwidth}
+	\begin{tabular}{|c|c|}\hline
+		$h$ & $v_h$ \\ \hline
+		1 & \hspace{1cm} \\ \hline
+		0,1 & \\ \hline
+		0,001 & \\ \hline
+		-1 & \\ \hline
+		-0,1 & \\ \hline
+		-0,001 & \\ \hline
+	\end{tabular}
+	\caption{Accroissements autour de $x=1,5$.}
+	\label{fig:1e}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.2\textwidth}
+	\begin{tabular}{|c|c|}\hline
+		$h$ & $v_h$ \\ \hline
+		1 & \hspace{1cm} \\ \hline
+		0,1 & \\ \hline
+		0,001 & \\ \hline
+		-1 & \\ \hline
+		-0,1 & \\ \hline
+		-0,001 & \\ \hline
+	\end{tabular}
+	\caption{Accroissements autour de $x=0,4$.}
+	\label{fig:1f}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.2\textwidth}
+	\begin{tabular}{|c|c|}\hline
+		$h$ & $v_h$ \\ \hline
+		1 & \hspace{1cm} \\ \hline
+		0,1 & \\ \hline
+		0,001 & \\ \hline
+		-1 & \\ \hline
+		-0,1 & \\ \hline
+		-0,001 & \\ \hline
+	\end{tabular}
+	\caption{Accroissements autour de $x=-2$.}
+	\label{fig:1g}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.2\textwidth}
+	\begin{tabular}{|c|c|}\hline
+		$h$ & $v_h$ \\ \hline
+		1 & \hspace{1cm} \\ \hline
+		0,1 & \\ \hline
+		0,001 & \\ \hline
+		-1 & \\ \hline
+		-0,1 & \\ \hline
+		-0,001 & \\ \hline
+	\end{tabular}
+	\caption{Accroissements autour de $x=3$.}
+	\label{fig:h}
+	\end{subfigure}
+	\caption{Tableaux de valeurs de $v_h$.}
+	\label{fig:vh}
+\end{figure}
+
 
 \end{document}
