@@ -124,12 +124,47 @@ On répète en fait la même chose en langage affine : si le coefficient directe
 \end{axis}
 \end{tikzpicture}
 
-\section{Dérivée}
 
-\dfn{Dérivée}{
-	Soit $f$ une fonction sur $\R$ 
+\dfn{Dérivation ponctuelle}{
+	Soit $f$ une fonction position suffisamment lisse.
+	On calcule, au temps $t$, la vitesse instantanée en considérant
+		\[ v_h = \dfrac{f(t+h)-f(t)}{h}, \]
+	et en laissant $h$ tendre vers $0$.
 
+	On appelle la valeur limite de $v_h$ la \emph{dérivée ponctuelle} de $f$ au temps $t$.
 }{}
 
+\section{Dérivation}
 
+\dfn{Fonction dérivée}{
+	Soit $f$ une fonction sur $\R$ suffisamment lisse.
+	On définit $f'$, la \emph{fonction dérivée} de $f$, telle que $f'(t)$ soit la dérivée ponctuelle de $f$ en $t$.
+}{}
 
+\thm{Linéarité de la dérivée}{
+	Soient $f, g$ deux fonctions dérivables sur $\R$, et $\kappa\in\R$ un nombre réel quelconque. 
+	Alors
+		\begin{enumerate}
+			\item $(f+g)' = f' + g'$ ; et
+			\item $(\kappa f)' = \kappa f'$.
+		\end{enumerate}
+}{thm:lin-der}
+
+\mprop{Dérivée des monômes usuels}{
+	\centering
+	\begin{tabular}{|c|c|}\hline
+		Monôme & Dérivée \\ \hline
+		$1$ & $0$ \\ \hline
+		$x$ & $1$ \\ \hline
+		$x^2$ & $2x$ \\ \hline
+		$x^3$ & $3x^2$ \\ \hline
+	\end{tabular}
+}{prop:der-mono}
+
+\thm{Signes et variations}{
+	Soit $f$ une fonction dérivable sur $\R$ et $I$ un intervalle quelconque.
+	Alors
+		\begin{center}
+			$f$ est croissante sur $I$ \qquad $\iff$ \qquad $f'$ est positive sur $I$. 
+		\end{center}
+}{}
