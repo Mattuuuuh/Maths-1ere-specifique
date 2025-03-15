@@ -36,7 +36,7 @@
 	
 	Une fonction $f$ est \emph{affine} si elle s'écrit
 		\[ f(x) = \qquad\qquad\qquad, \]
-	où $a$ est le
+	où %$a$ est le coefficient directeur.
 	
 	La courbe représentative de $f$ est une % droite de pente $a$.
 \end{rappel*}
@@ -53,7 +53,7 @@
 
 \begin{figure}[h]
 	\centering
-	\begin{tikzpicture}[scale=1]
+	\begin{tikzpicture}[scale=.9]
 	\begin{axis}[
 	xmin = -3, xmax=3, ymin=-5, ymax=7, 
 	grid = both,  xlabel={$x$}, ylabel={$f(x) = -2x+1$},
@@ -71,6 +71,7 @@
 		\begin{enumerate}	
 			\item si $a > 0$, alors $f$ est
 			\item si $a < 0$, alors $f$ est
+			\item si $a = 0$, alors $f$ est
 		\end{enumerate}
 \end{propriete}
 
@@ -80,7 +81,7 @@
 	
 \begin{multicols}{2}
 		%\[ a = \dfrac{f(y) - f(x)}{y-x}. \]
-		\[ a = \qquad\qquad\qquad. \]
+		\[ a = \qquad\qquad\qquad \]
 		\vfill
 		\,
 		
@@ -187,23 +188,44 @@ La pente de la droite $(AB)$ est
 
 \begin{exemple*}{tangente à $\mathbf{f(x) = \dfrac12(x^3 + 2x^2 - x - 2)}$ en $\mathbf{x=-0,5}$}{}
 
-On pose $x=-0,5$ et $h=0,001$ dans l'équation \eqref{eq:ah} qui devient
-	\[ a_{0,001} = \dfrac{f(-0,499) - f(-0,5)}{0,001} = \dfrac{-0,563625 - (-0,5625)}{0,001} = -1,125. \]
+On pose $x=-0,5$ et on prend $h$ de plus en plus petit dans l'équation \eqref{eq:ah} pour remplir le tableau figure \ref{fig:3}.
+	%\[ a_h = \dfrac{f(-0,5+h)-f(-0,5)}{h}. \]
+	\[ a_h = \hspace{5cm} \]
 	
-On trace la droite de pente $-1,125$ passant par $(-0,5 ; f(-0,5))$ ci-dessous.
-
-\begin{center}
-\begin{tikzpicture}[scale=.8]
-\begin{axis}[xmin = -3, xmax=2, ymin=-5, ymax=6, grid = none,  xlabel={$x$}, ylabel={$f(x)$}]
-	\addplot[domain=-3:2, samples=500, myb, thick] {.5*(x+2)*(x+1)*(x-1)};
-	
-	% tangente
-	\addplot[domain=-2:1, samples=2, myr, thick, <->] {-1.125*(x+.5)-.5625};
-\end{axis}
-\end{tikzpicture}
-\end{center}
-
+On trace la droite de pente \hspace{2cm} passant par $(-0,5 ; f(-0,5))$ ci-dessous.
 \end{exemple*}
+
+\begin{figure}[h!]
+	\begin{subfigure}{0.18\textwidth}
+	\begin{tabular}{|c|c|}\hline
+		$h$ & $a_h$ \\ \hline
+		1 & \hspace{1cm} \\ \hline
+		0,1 & \\ \hline
+		0,001 & \\ \hline
+		-1 & \\ \hline
+		-0,1 & \\ \hline
+		-0,001 & \\ \hline
+	\end{tabular}
+	%\caption{Accroissements autour de $x=-0,5$.}
+	%\label{fig:3a}
+	\end{subfigure}
+	\hspace{5cm}
+	\begin{subfigure}{0.78\textwidth}
+	\begin{tikzpicture}[scale=1]
+	\begin{axis}[xmin = -3, xmax=2, ymin=-5, ymax=6, grid = none,  xlabel={$x$}, ylabel={$f(x)$}]
+		\addplot[domain=-3:2, samples=500, myb, thick] {.5*(x+2)*(x+1)*(x-1)};
+		
+		% tangente
+		\addplot[domain=-2:1, samples=2, myr, thick, <->] {-1.125*(x+.5)-.5625};
+	\end{axis}
+	\end{tikzpicture}
+	%\caption{Tangente à $\C_f$ en $x=-0,5$.}
+	%\label{fig:3b}
+	\end{subfigure}
+\caption{Calculs d'accroissements et tangente.}
+\label{fig:3}
+\end{figure}
+
 
 %\begin{propriete}{}{}
 %	$f'(x)$ est le coefficient directeur de la tangente à $f$ en $x$.
