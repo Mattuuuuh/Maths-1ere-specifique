@@ -11,25 +11,107 @@
 \begin{document}
 \pagestyle{fancy}
 \fancyhead[L]{Première}
-\fancyhead[C]{\textbf{Fonction dérivée : exercices \ifsolutions -- Solutions \fi}}
+\fancyhead[C]{\textbf{Fonction dérivée : approfondissements \ifsolutions -- Solutions \fi}}
 \fancyhead[R]{\today}
 
 
 \exe{
-	Spinoza jette verticalement un objet de masse $m$ au temps $t=0$ et souhaite connaître sa hauteur $h(t)$ en tout temps $t>0$ à l'aide uniquement de ses conditions initiales : la hauteur initiale $h(0)$, la vitesse initiale $h'(0)$.
+	Spinoza, déterministe notoire, jette verticalement un objet de masse $m$ au temps $t=0$ et souhaite connaître sa hauteur $h(t)$ en tout temps $t>0$ à l'aide uniquement de ses conditions initiales : la hauteur initiale $h(0)$, la vitesse initiale $h'(0)$.
+	
 	La deuxième loi de Newton lui permet d'écrire, en négligeant toute force qui n'est pas la gravité, que l'accélération $h''$ est donnée par $h''(t) = -\dfrac{g}m$, où $m$ est la masse de l'objet et $g$ l'accélération de la pesanteur.
 	
-	Celui-ci en déduit classiquement que
-		\[ h(t) = -\dfrac{g}{2m} t^2 + b t + c, \]
-	où $b$ et $c$ sont des constantes qu'il ne connaît pas encore.
+	\begin{enumerate}
+		\item 
+		Montrer, en dérivant deux fois $h$, qu'elle est de la forme
+			\[ h(t) = -\dfrac{g}{2m} t^2 + b t + c, \]
+		où $b$ et $c$ sont des constantes qu'on ne connaît pas encore.
+	
+		\item Montrer que $c$ est la hauteur de l'objet au temps initial $t=0$.
+		\item Montrer que $b$ est la vitesse de l'objet au temps initial $t=0$.
+		\item Écrire la hauteur de l'objet en fonction du temps avec les données $g=9,8 ; m=1 ; h(0) = 3 ; h'(0) = 2$. Quand est-ce que l'objet touche le sol, approximativement ? On cherche le $t$ positif tel que $h(t) = 0$.
+	\end{enumerate}
+}{}
+
+\exe{
+	Soit $f$ une fonction réelle et $c\in\R$ une constante quelconque.
 	
 	\begin{enumerate}
-		\item Montrer que $c$ est la hauteur de l'objet au temps initial $t=0$.
-		\item Montrer que la vitesse moyenne entre les temps $t=0$ et $\epsilon$ est donnée par
-			\[ v_\epsilon = \dfrac{h(\epsilon) - h(0)}{\epsilon} = -\dfrac{g}{2m} \epsilon + b. \]
-		\item En laissant $\epsilon$ tendre vers $0$, déduire que $b$ est la vitesse de l'objet au temps initial $t=0$.
-		\item Écrire la fonction de la hauteur avec données $g=9,8 ; m=1 ; h(0) = 3 ; h'(0) = 2$.
+		\item Montrer que $f(x)$ et $g(x) = f(x)+c$ admettent les mêmes variations. Comment dessiner $\C_g$ en connaissant $\C_f$ ? Comparer par exemple les courbe représentatives de $x^2$ et $x^2 + 2$.
+		\item Montrer que $f(x)$ et $c\cdot f(x)$ admettent
+			\begin{enumerate}[label=\roman*)]
+				\item les mêmes variations si $c > 0$ ; et
+				\item des variations opposées si $c < 0$.
+			\end{enumerate}
+		 Comment dessiner $\C_g$ en connaissant $\C_f$ ? Comparer par exemple les courbe représentatives de $x^2, -x^2,$ et $3x^2$.
 	\end{enumerate}
+}{}
+
+\exe{
+	Donner une fonction $f$ telle que sa dérivée $f'$ soit
+		\[ f'(x) =  x^2 - 4. \]
+	En quels $x$ la fonction $f$ change-t-elle de variations ? Ce sont les antécédents des extrema locaux.
+}{}
+
+\exe{
+	Donner une fonction $f$ telle que
+		\[ f'(x) = (2-x)(x-1). \]
+	En quels $x$ la fonction $f$ change-t-elle de variations ? Ce sont les antécédents des extrema locaux.
+}{}
+
+\exe{[$\star$]
+	Soient $a_1 < a_2 < \dots < a_n$ des nombres réels ordonnés.
+	On pose $f$ comme le produit des monômes $x-a_i$ :
+		\[ f(x) = (x-a_1) \cdot (x-a_2) \cdots (x-a_n). \]
+	\begin{enumerate}
+		\item Montrer que $f$ s'annule exactement en $x=a_1, a_2, \dots, a_n$.
+		\item Montrer que $f(x)$ est positif pour $x<a_1$ si $n$ est pair, et négatif sinon.
+		\item Montrer que le signe de $f(x)$ change $n$ fois en $x=a_1, a_2, \dots, a_n$.
+	\end{enumerate}
+}{}
+
+\exe{
+	Montrer que, pour $x, h \in \R$,
+		\[ (x+h)^4 = x^4 + 4x^3 h +6x^2h^2 + 4xh^3 + h^4. \]
+	En déduire que
+		\[ \dfrac{(x+h)^4 - x^4}h \]
+	tend vers $4x^3$ lorsque $h$ devient nul.
+	Conclure que $(x^4)' = 4x^3$.
+}{}
+
+\exe{
+	Montrer que, pour $x, h \in \R$ tels que $x\neq0$ et $h$ suffisamment petit pour que $x+h\neq0$,
+		\[ \dfrac1{x+h} - \dfrac1x = \dfrac{-h}{x(x+h)}. \]
+	Conclure que
+		\[ \left(\dfrac1x\right)' = \dfrac{-1}{x^2}. \]
+}{}
+
+\exe{
+	À l'aide du résultat de l'exercice précédent qui montre que
+		\[ \left(\dfrac1x\right)' = \dfrac{-1}{x^2}, \]
+	montrer que la fonction inverse $f(x) = \dfrac1x$ est strictement décroissante sur son domaine de définition $\R^*$, la droite réelle perforée en $0$.
+}{}
+
+\exe{[$\star$]
+	Soit $n\in\N_{\geq2}$ un entier naturel supérieur ou égal à $2$. On souhaite montrer que
+		\[ (x+h)^n = x^n + nhx^{n-1} + h^2 g(x, h), \]
+	où $g$ est une fonction polynomiale en $x$ et $h$.
+	
+	\begin{enumerate}
+		\item Montrer, en développant $(x+h)^2$, que cette égalité est vraie pour $n=2$.
+		\item En utilisant que 
+			\[ (x+h)^{n+1} = (x+h) \cdot (x+h)^{n} = x(x+h)^n + h(x+h)^n, \]
+		montrer que si cette égalité est vraie pour un entier $n$, alors elle est aussi vraie pour $n+1$.
+		 \item En déduire que l'égalité est vraie pour tout les entiers naturels $n\in\N_{\geq2}$.
+	\end{enumerate}
+
+}{}
+
+\exe{
+	Soit $n\in\N_{\geq2}$ un entier naturel supérieur ou égal à $2$. L'exercice précédent donne
+		\[ (x+h)^n = x^n + nhx^{n-1} + h^2 g(x, h), \]
+	où $g$ est une fonction polynomiale en $x$ et $h$.
+	
+	En déduire que $(x^n)' = nx^{n-1}$.
 }{}
 
 \end{document}
