@@ -1,0 +1,112 @@
+% SOLUTION SWITCH
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+				
+\input{../preamble.tex}
+
+
+\AdvanceDate[1]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Première}
+\fancyhead[C]{\textbf{Évaluation -- Fonctions exponentielles \ifsolutions -- Solutions \fi}}
+\fancyhead[R]{\today}
+
+\exe{
+	Exprimer les nombre suivants sous la forme $10^x$ pour un réel $x\in\R$.
+	
+	\begin{multicols}{3}
+	\begin{enumerate}
+		\item $10^4 \times 10^6$
+		\item $10^{0,414} \times 10^{1}$
+		\item $\left(10^5\right)^3$
+		\item $\dfrac{10^5}{10^{9}}$
+		\item $\dfrac{10^{0}}{10^{-5}}$
+		\item $\dfrac{10^{23}}{10^{23}}$
+		\item $\dfrac{1}{10^{7}}$
+		\item $\left(\dfrac1{10^3}\right)^7$
+		\item $\dfrac{1}{10^{-5}}$
+		\item $\dfrac{10^{-6}}{10^{7}}$
+		\item $\dfrac{10^{31}}{10^{-15}}$
+	\end{enumerate}
+	\end{multicols}
+}{}
+
+
+\exe{
+	Soit $f, g, h$ trois fonctions exponentielles. Déterminer la base $q$ et la valeur en $0$ de chaque fonction avec les informations suivantes.
+		\begin{enumerate}[label=\roman*)]
+			\item $f(4) = \dfrac{49}{3}$ et $f(5) = \dfrac{343}3$.
+			\item $g(-3) = 0,35$ et $g(1) = 1,4$.
+			\item $h(-4) = 4$ et $h(-2,5) = 108$.
+		\end{enumerate}
+}{}
+
+
+\exe{
+	Les recettes fiscales recouvrées par les Finances publiques au cours des années $2019$ à $2022$ sont données ci-dessous.
+	Elles sont exprimés en milliards d'euros, notés Md€.
+	\begin{center}
+	\vspace{.5cm}
+	\begin{tikzpicture}[scale=.8]
+		% nodes
+		\draw (0,0) ellipse (2cm and .5cm) node {464 Md€};
+		
+		\draw (5,0) ellipse (2cm and .5cm) node {441 Md€};
+		
+		\draw (10,0) ellipse (2cm and .5cm) node {503,3 Md€};
+		
+		\draw (15,0) ellipse (2cm and .5cm) node {544,4 Md€};
+		
+		% vertices
+		\draw[->, thick, myg] (1cm,.6cm) arc (105:75:7);
+		\draw[->, thick, myg] (6cm,.6cm) arc (105:75:7);
+		\draw[->, thick, myg] (11cm,.6cm) arc (105:75:7);
+		
+		\draw[->, thick, myr] (1cm,-.5cm) arc (-105:-75:25);
+	\end{tikzpicture}
+	\vspace{.5cm}
+	\end{center}
+
+	\begin{enumerate}
+		\item Compléter le schéma en ajoutant les coefficients multiplicateurs.
+		\item Calculer le coefficient multiplicateur moyen.
+		\item En déduire le taux d'évolution moyen en arrondissant le pourcentage à $10^{-1}$.
+	\end{enumerate}
+
+}{
+
+}
+
+\exe{
+	Un élève d'un lycée de 1 400 élèves  a répandu une rumeur.
+	On estime que, chaque jour, le nombre d'élèves ayant connaissance de la rumeur augmente de $5\%$ : il est donc multiplié par $1,05$.
+	Aujourd'hui, jour $0$, on compte $350$ élèves ayant appris la rumeur.
+	
+	Répondre au questions suivantes en arrondissant les nombres d'élèves à l'unité et les nombres de jours à $10^{-1}$.
+	\begin{enumerate}
+		\item Écrire $E(n)$, le nombre d'élèves ayant appris la rumeur au jour $n$, où $n\in\N$ est un entier naturel.
+		\item Écrire $E(t)$, le nombre d'élèves ayant appris la rumeur au temps $t$ (en jours). $t$ peut être négatif.
+		\item Combien d'élèves connaîtront la rumeur après $4,5$ jours ?
+		\item Combien d'élèves connaissaient la rumeur il y a $3,5$ semaines ?
+		\item À partir de combien de jours l'intégralité du lycée aura-t-il appris la rumeur ?
+		\item Il y a combien de jours la rumeur est-elle née ? On cherche à estimer le $t$ négatif tel que $E(t) = 1$. 
+	\end{enumerate}
+
+}{
+
+}
+
+\section*{Bonus}
+
+\exe{
+	Soit $g$ une fonction exponentielle de base $q>0$.
+	Montrer que si $g(x_A) = y_A$ et $g(x_B) = y_B$ pour $x_A \neq x_B$ réels, alors
+		\[ q = \left(\dfrac{y_B}{y_A}\right)^{1/(x_B - x_A)}. \]
+
+}{}
+
+
+\end{document}
