@@ -1,0 +1,45 @@
+% SOLUTION SWITCH
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+				
+\input{../preamble.tex}
+
+
+\AdvanceDate[6]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Première}
+\fancyhead[C]{\textbf{Fonction dérivée : étude de variations \ifsolutions -- Solutions \fi}}
+\fancyhead[R]{\today}
+
+
+\exe{
+	On considère la fonction $f$ du troisième degré définie sur le domaine $\D=\left[-1 ; 2\right]$ :
+		\[ f(x) = 2x^3 - \dfrac12 x^2 -2x + \dfrac25. \]
+		
+	\begin{enumerate}
+		\item Donner $f'(x)$, la fonction dérivée de $f$.
+		\item Montrer que $f'(x) = (2x+1)(3x-2)$ en développant soigneusement la forme factorisée.
+		\item Remplir le tableau de signes et de variations de la figure \ref{fig:var-signe}.
+		\item Compléter les variations avec les images de $f$ aux bornes de $\D$ ainsi qu'aux extrema locaux.
+		\item En déduire le maximum et le minimum de $f$ sur $\D$ et les antécédents qui les réalisent.
+	\end{enumerate}
+}{}
+
+
+\begin{figure}[h]
+	\centering	
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1 ,  / 1,  / 1, Signe de $f'(x)$ / 1, Variation de $f(x)$ / 2}
+	       		{{-1},,,,2}
+	\end{tikzpicture}
+	\caption{Tableau de signes de $f'$ et de variations de $f$.}
+	\label{fig:var-signe}
+\end{figure}
+
+
+\end{document}
