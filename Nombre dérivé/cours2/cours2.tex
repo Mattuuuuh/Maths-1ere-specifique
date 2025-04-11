@@ -28,7 +28,16 @@
 % domain
 \newcommand{\D}{\mathbb{D}}
 
+% theorems
 
+\theoremstyle{plain}
+\newtheorem{rappel}{Rappel}
+\newtheorem{propriete}{Propriété}
+\newtheorem{outil}{Outil}
+\newtheorem{exemple}{Exemple}
+\newtheorem*{sol}{Solution}
+\theoremstyle{definition}
+\newtheorem{ex}{Exercice}
 
 %plots
 \usepackage{pgfplots, subcaption}
@@ -42,6 +51,10 @@
 
 %icomma
 \usepackage{icomma}
+
+
+% tableaux var, signe
+\usepackage{tkz-tab}
 
 %https://osl.ugr.es/CTAN/macros/latex/contrib/tcolorbox/tcolorbox.pdf
 \newtcolorbox{mybox}[3][]
@@ -130,29 +143,43 @@
 \subsection{Expression algébrique}
 
 \begin{frame}
+
+
+	\begin{rappel}[fonctions affines]
+
 	Une fonction $f$ est \emph{affine} si elle s'écrit
 		\[ f(x) = \pause ax+b, \]
 	où \pause $a$ est le  \textbf{coefficient directeur}. \pause
 	
-	La courbe représentative de $f$ est une \pause \textbf{droite de pente $a$}.
+	La courbe représentative de $f$ est une \pause \textbf{droite de pente }$\mathbf{a}$.
 
+	\end{rappel}
+	
 \end{frame}
 
 
 \subsection{Coefficient directeur}
 
 \begin{frame}
+
+	\begin{propriete}[1]
+
 	Soit $f$ une fonction affine et $a$ son coefficient directeur.
 		\begin{enumerate}	
 			\item si $a > 0$, alors $f$ est \pause \textbf{croissante}. \pause
 			\item si $a < 0$, alors $f$ est \pause \textbf{décroissante}. \pause
 			\item si $a = 0$, alors $f$ est \pause \textbf{constante}.
 		\end{enumerate}
+		
+	\end{propriete}
+	
 \end{frame}
 
 \subsection{Théorème du coefficient directeur}
 
 \begin{frame}
+
+	\begin{outil}[théorème du coefficient directeur]
 	Soient $x, y\in\R$ deux nombres distincts, et $f$ une fonction affine de coefficient directeur $a$.
 	Alors
 	
@@ -171,6 +198,7 @@
 	\end{tikzpicture}
 \end{multicols}
 
+	\end{outil}
 \end{frame}
 
 \section{Nombre dérivé}
@@ -246,6 +274,99 @@ La pente de la droite $(AB)$ est
 	\end{tikzpicture}
 	\end{multicols}
 	
+\end{frame}
+
+\section{Fonction dérivée}
+
+\subsection{Signe et variations}
+
+\begin{frame}
+	\begin{propriete}[2]
+	Le signe de $f'(x)$ donne la variation de $f$ en $x$ et inversement :
+		\begin{enumerate}
+			\item si $f'(x) > 0$, alors \pause $f$ est croissante autour de $x$. \pause
+			\item si $f$ est croissante autour de $x$, alors \pause $f'(x) > 0$. \pause
+			\item si $f'(x) < 0$, alors \pause $f$ est décroissante autour de $x$. \pause
+			\item si $f$ est décroissante autour de $x$, alors \pause $f'(x) < 0$.
+	\end{enumerate}
+\end{propriete}
+
+\end{frame}
+
+\subsection{Exemple}
+
+\begin{frame}
+
+	\begin{center}
+	
+	\only<1>{
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1 , Variation de $f(x)$ / 2, Signe de $f'(x)$ / 2}
+	       		{-3,,,2}
+	\end{tikzpicture}
+	}
+	
+	\only<2>{
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1 , Variation de $f(x)$ / 2, Signe de $f'(x)$ / 2}
+	       		{-3,{-1,55},,2}
+	\end{tikzpicture}
+	}
+	
+	\only<3>{
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1 , Variation de $f(x)$ / 2, Signe de $f'(x)$ / 2}
+	       		{-3,{-1,55},{0,21},2}
+	\end{tikzpicture}
+	}
+	
+	\only<4>{
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1 , Variation de $f(x)$ / 2, Signe de $f'(x)$ / 2}
+	       		{-3,{-1,55},{0,21},2}
+		
+		\tkzTabVar
+		{-/, +/, -/, +/}
+	\end{tikzpicture}
+	}
+	
+	\only<5>{
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1 , Variation de $f(x)$ / 2, Signe de $f'(x)$ / 2}
+	       		{-3,{-1,55},{0,21},2}
+		
+		\tkzTabVar
+		{-/, +/, -/, +/}
+		
+		\tkzTabLine
+		{,+,z,-,z,+,}
+	\end{tikzpicture}
+	}
+	
+	\end{center}
+
+\end{frame}
+
+\begin{frame}
+
+		\begin{center}
+			Un extremum local de $f$ survient lorsque $f'$ change de \pause \textbf{signe}. \pause
+		\end{center}
+		
+		\begin{center}
+			Si un extremum local de $f$ survient en $x$, on a nécessairement \pause $\mathbf{f'(x) = 0}$.
+		\end{center}
+
 \end{frame}
 
 \end{document}
