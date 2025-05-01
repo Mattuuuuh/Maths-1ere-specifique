@@ -1,0 +1,200 @@
+% SOLUTION SWITCH
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+				
+\input{../preamble.tex}
+
+
+\AdvanceDate[1]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Première}
+\fancyhead[C]{\textbf{Phénomènes aléatoires : approfondissements \ifsolutions -- Solutions \fi}}
+\fancyhead[R]{\today}
+
+\exe{
+	L'univers associé à une expérience aléatoire est $\{ a, b, c\}$.
+	La loi de probabilité $P$ vérifie $P(a) = t^2$, $P(b) = -t$, et $P(c) = \frac14$, pour un réel $t \in \R$.
+	
+	Développer le carré $\left(t-\frac12\right)^2$ et déterminer $t$.
+}{
+	On développe le carré à l'aide de l'identité remarquable
+		\[ (a-b)^2 = a^2 + b^2 - 2ab, \]
+	où, ici, on a $a=t$ et $b=\frac12.$
+		\begin{align*}
+			\left(t-\dfrac12\right)^2 &= t^2 + \left(\dfrac12\right)^2 - 2 \cdot t \cdot \dfrac12 \\
+									&= t^2 + \dfrac14 - t
+		\end{align*}
+	On cherche désormais le $t\in\R$ pour lequel $P$ est une loi de probabilité. 
+	Un loi vérifie les deux propriétés suivantes :
+		\begin{itemize}
+			\item $P(\omega) \in [0;1]$ pour chaque issue $\omega \in \Omega$ ; et
+			\item $P(\Omega) = 1$.
+		\end{itemize}
+	La deuxième identité donne donc
+		\begin{align*}
+			P(a) + P(b) + P(c) = 1 && \iff && t^2 - t + \dfrac14 = 1.
+		\end{align*}
+	Le carré développé nous permet d'écrire
+		\[ \left(t-\dfrac12\right)^2 = 1, \]
+	et donc
+		\[ \left|t-\dfrac12\right| = \sqrt{1} = 1, \]
+	en utilisant le fait que $\sqrt{x^2} = |x|.$
+	L'expression à l'intérieur de la valeur absolue est donc soit $+1$, soit $-1$, et on a donc deux alternatives :
+		\begin{align*}
+			t-\dfrac12 = 1 && \text{ ou } && t - \dfrac12 = -1 \\
+			t = \dfrac32 && \text{ ou } && t = -\dfrac12.
+		\end{align*}
+	Pour s'entraîner à ce genre de résolution, voir la feuille d'exercices Fonctions 3.
+	
+	Comme les probabilités sont des nombres entre $0$ et $1$, on peut écarter la première solution car $P(a) = t^2$ serait strictement supérieur à $1$, et $P(b) = -t$, serait strictement négatif.
+	Il ne reste donc que $t = -\frac12$, qui donne le tableau de probabilités suivant.
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|} \hline
+		Issue & $a$ & $b$ & $c$ \\ \hline
+		Probabilité & $\frac14$ & $\frac12$ & $\frac14$ \\ \hline
+	\end{tabular}
+	\end{center}
+}
+
+\exe{
+	On lance $3$ fois de suite une pièce de monnaie bien équilibrée.
+	On note par $P$ (pile) ou $F$ (face) le résultat de chaque lancer.
+	Donner $\Omega$, l'univers de l'expérience, et $|\Omega|$ son cardinal.
+	
+	Calculer la probabilité des événements suivants.
+		\begin{enumerate}
+			\item Obtenir $3$ fois face.
+			\item Le deuxième lancer donne pile.
+			\item Le troisième lancer est différent du premier.
+			\item On obtient au moins une fois pile.
+		\end{enumerate}
+}{
+	Comme les lancers sont distingués, il y a $8$ issues possibles.
+		\[ \Omega = \{ FFF ; FFP ; FPF ; FPP ; PFF ; PFP ; PPF ; PPP \} \]
+	Le cardinal de l'univers est $|\Omega| = 8$.
+	On aurait pû aussi noter les issues avec des parenthèses, p.ex. $(F;P;F)$, mais pas avec des accolades $\{ \cdot \}$.
+	\begin{enumerate}
+		\item
+		Les probabilités se multiplient, on a donc $P(FFF) = \dfrac12 \times \dfrac12 \times \dfrac12 = \left( \dfrac12 \right)^3 = \dfrac18$.
+		En fait, nous sommes en situation d'équiprobabilité, et $|\Omega| = 8$.
+		\item 
+		Les lancers sont indépendants (le résultat des précédents n'influe en rien celui des prochains), donc la probabilité que le deuxième donne pile est $\frac12$.
+		On aurait également pu sommer la probabilité des événements concernés :
+			\[ P(FPF) + P(PPF) +  P(FPP) + P(PPP) = \dfrac48 = \dfrac12. \]
+		\item
+		Il y a quatre issues qui correspondent à cet événement. 
+			\[ P(PFF) + P(PPF) + P(FFP) + P(FPP) = \dfrac48 = \dfrac12. \]
+		On aurait pû tout aussi bien supprimer le deuxième lancer, car il n'a aucune influence sur les autres --- cela donne le même résultat.
+		\item 
+		Lorsqu'on étudie un événement de la forme \og au moins [\dots] \fg, il est toujours utile de passer par le complémentaire.
+		L'événement complémentaire est \og on obtient trois fois face \fg, dont la probabilité est $P(FFF) = \dfrac18.$
+		La probabilité recherché est donc $1-\dfrac18 = \dfrac78$.
+		
+		On aurait également pû énumérer les issues de l'événement et sommer leur probabilité. 
+		Seul l'événement $FFF$ n'apparaît alors pas dans cette somme qui vaut $\dfrac78$.
+	\end{enumerate}
+}
+
+\exe{
+	On lance deux D$6$ équilibrés, dés à $6$ faces l'un après l'autre. Les deux dés sont distinguables car de couleurs différentes.
+	\begin{enumerate}
+		\item Donner l'univers $\Omega$ et son cardinal $|\Omega|$. Est-ce une situation d'équiprobabilité ?
+		\item Quelle est la probabilité d'obtenir un double $6$ ?
+		\item Quelle est la probabilité qu'après $10$ tels lancers, on obtienne au moins une fois un double $6$ ?
+	\end{enumerate}
+}{
+	\begin{enumerate}
+		\item Donner l'univers $\Omega$ et son cardinal $|\Omega|$. Est-ce une situation d'équiprobabilité ?
+		L'univers est formé par tous les couples $(a ;b)$ de résultats.
+		On utilise des parenthèses ici car on distingue le premier du deuxième lancer.
+			\[ \Omega = \left\{ (a ; b) \text{ où } a, b \in \{ 1 ; 2 ; 3 ; 4 ;5 ; 6 \} \right\}, \]
+		de cardinal $|\Omega| = 6 \times 6 = 36$.
+		
+		La situation est bien d'équiprobabilité car il y a $36$ issues et chacune admet comme probabilité $\dfrac16 \times \dfrac16 = \dfrac1{36}$, car les dés sont bien équilibrés.
+		
+		\item 
+		La probabilité de l'issue $(6;6)$ est $\dfrac1{36}$ par équiprobabilité.
+		
+		\item Quelle est la probabilité qu'après $10$ tels lancers, on obtienne au moins une fois un double $6$ ?
+		Lorsqu'on étudie un événement de la forme \og au moins [\dots] \fg, il est toujours utile de passer par le complémentaire.
+		L'événement complémentaire est \og obtenir aucun double $6$ \fg, dont la probabilité est
+			\[ \left( \dfrac{35}{36} \right)^{10} \approx 0,75. \]
+		En effet, on peut construire un arbre réduit à deux événements  : \og double 6 \fg (probabilité $\frac1{36}$) et \og pas double 6 \fg (probabilité $\frac{35}{36}$), de profondeur $10$.
+		La feuille qui correspond à \og obtenir aucun double $6$ \fg est obtenue en obtenant \og pas double 6 \fg dix fois dans l'arbre.
+		
+		La probabilité de l'événement \og on obtient aucun double $6$ \fg est donc
+			\[ \left( \dfrac{35}{36} \right)^{10} \approx 0,75. \]
+		On conclut en faisant $1-0,75 = 0,25 = \frac14$, probabilité approximative qu'au moins un des $10$ lancers donne un double $6$.
+	\end{enumerate}
+}
+
+\exe{
+	Une expérience aléatoire à deux épreuves d'univers $\{A ; B ; C ; D\}$ admet un arbre de probabilité binaire comme ci-dessous, où $t\in\R$ est un paramètre réel encore inconnu.
+
+	\begin{center}
+	\begin{tikzpicture}
+		% depth 1
+		\foreach \i in {-3, 3}
+		\draw[-, thick, black] (0,0) node {$\bullet$} -- (\i,-2);
+		% depth 2
+		\foreach \i in {-3, 3} \foreach \j in {-1, 1}
+			\draw[-, thick, black] (\i,-2) node {$\bullet$} -- (\i+\j,-4) node {$\bullet$};
+		
+		% probas
+		\draw (-1.5,-1) node[above left] {$-t$};
+		\draw (1.5,-1) node[above right] {$1+t$};
+		
+		\draw (-3.5,-3) node[above left] {$-t$};
+		\draw (-2.5,-3) node[above right] {$1+t$};
+		
+		\draw (2.5,-3) node[above left] {$-t$};
+		\draw (3.5,-3) node[above right] {$1+t$};
+		
+		% issues
+		\draw (-4,-4) node[below] {A};
+		\draw (2,-4) node[below] {B};
+		\draw (-2,-4) node[below] {C};
+		\draw (4,-4) node[below] {D};
+	\end{tikzpicture}
+	\end{center}
+	
+	\begin{enumerate}
+		\item Montrer qu'on a forcément 
+			\[ -1 \leq t \leq 0. \]
+		\item Déterminer le paramètre $t$ tel que
+			\[ P(D) = \frac19. \]
+	\end{enumerate}
+}{
+	
+
+	\begin{enumerate}
+		\item Un probabilité est nécessairement entre $0$ et $1$, donc
+			\[ 0 \leq -t \leq 1, \]
+		et multiplier par un nombre négatif inverse l'ordre des inégalités :
+			\[ -1 \leq t \leq 0. \]
+		\item On a la suite d'égalités suivante.
+			\begin{align*}
+				P(D) &= \dfrac19 \\
+				(1+t)^2 &= \dfrac19 \\
+				| 1 + t | &= \sqrt{\dfrac19} = \dfrac{\sqrt{1}}{\sqrt{9}} = \dfrac13,
+			\end{align*}
+		où à la dernière ligne on a utilisé que $\sqrt{x^2} = |x|$ et que $\sqrt{\dfrac{a}{b}} = \dfrac{\sqrt{a}}{\sqrt{b}}$ pour $b$ non nul.
+		Les propriétés des racines sont décrites sur un feuille dédiée (semaine 9 décembre sur Éléa).
+		
+		On continue avec
+			\begin{align*}
+				1+t = \dfrac13 && \text{ou} && 1+t = -\dfrac13 \\
+				t = -\dfrac23 && \text{ou} && t = -\dfrac43
+			\end{align*}
+		Pour revoir la résolution des équations du type $E^2 = a$, revoir la feuille Fonctions 3 (semaine du 25 novembre sur Éléa).
+		
+		La première question implique qu'on a nécessairement $t=-\dfrac23$.
+		On s'assurera que les probabilités de l'arbre ont bien un sens (ce sont des nombres entre $0$ et $1$).
+	\end{enumerate}
+
+}
+
+\end{document}

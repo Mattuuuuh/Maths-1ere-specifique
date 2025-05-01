@@ -1,0 +1,441 @@
+\documentclass[a4paper, 12pt]{extarticle}
+
+\usepackage[utf8x]{inputenc}
+%fonts
+\usepackage{libertinus,libertinust1math}
+\usepackage{amsmath,amsthm,amssymb,mathtools}
+
+% SOLUTION SWITCH
+
+\ifsolutions
+	\newcommand{\exe}[2]{
+		\begin{ex} #1  \end{ex}
+		\begin{sol} #2 \end{sol}
+	}
+\else
+	\newcommand{\exe}[2]{
+		\begin{ex} #1  \end{ex}
+	}
+	
+\fi
+
+
+\usepackage[french]{babel}
+\usepackage[
+a4paper,
+margin=2cm,
+nomarginpar,% We don't want any margin paragraphs
+]{geometry}
+
+% HEADER, ARRAY, ENUM, MULTIOCL
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{multicol, enumitem}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+% theorems
+
+\theoremstyle{theorem}
+\newtheorem{thm}{Théorème}
+\theoremstyle{plain}
+\newtheorem*{sol}{Solution}
+\theoremstyle{definition}
+\newtheorem{ex}{Exercice}
+\newtheorem{dfn}{Définition}
+\newtheorem*{dfn*}{Définition}
+
+% roman section
+\renewcommand{\thesection}{\Roman{section}} 
+
+
+%couleurs
+\usepackage{tcolorbox}
+\definecolor{myg}{RGB}{56, 140, 70}
+\definecolor{myb}{RGB}{45, 111, 177}
+\definecolor{myr}{RGB}{199, 68, 64}
+\definecolor{mygr}{HTML}{2C3338}
+
+
+\tcbuselibrary{theorems,skins,hooks}
+\newcounter{commonbox}
+\makeatletter
+\newtcbtheorem[use counter=commonbox]{theorem}{Théorème }%
+{
+	enhanced,
+	colback=white,
+	colframe=mygr,
+	attach boxed title to top left={yshift*=-\tcboxedtitleheight},
+	fonttitle=\bfseries,
+	title={#2},
+	boxed title size=title,
+	boxed title style={%
+			sharp corners,
+			rounded corners=northwest,
+			colback=tcbcolframe,
+			boxrule=0pt,
+		},
+	underlay boxed title={%
+			\path[fill=tcbcolframe] (title.south west)--(title.south east)
+			to[out=0, in=180] ([xshift=5mm]title.east)--
+			(title.center-|frame.east)
+			[rounded corners=\kvtcb@arc] |-
+			(frame.north) -| cycle;
+		},
+	#1
+}{th}
+\newtcbtheorem[use counter=commonbox]{rappel}{Rappel }%
+{
+	enhanced,
+	colback=white,
+	colframe=mygr,
+	attach boxed title to top left={yshift*=-\tcboxedtitleheight},
+	fonttitle=\bfseries,
+	title={#2},
+	boxed title size=title,
+	boxed title style={%
+			sharp corners,
+			rounded corners=northwest,
+			colback=tcbcolframe,
+			boxrule=0pt,
+		},
+	underlay boxed title={%
+			\path[fill=tcbcolframe] (title.south west)--(title.south east)
+			to[out=0, in=180] ([xshift=5mm]title.east)--
+			(title.center-|frame.east)
+			[rounded corners=\kvtcb@arc] |-
+			(frame.north) -| cycle;
+		},
+	#1
+}{th}
+\newtcbtheorem[use counter=commonbox]{strategie}{Stratégie }%
+{
+	enhanced,
+	colback=white,
+	colframe=mygr,
+	attach boxed title to top left={yshift*=-\tcboxedtitleheight},
+	fonttitle=\bfseries,
+	title={#2},
+	boxed title size=title,
+	boxed title style={%
+			sharp corners,
+			rounded corners=northwest,
+			colback=tcbcolframe,
+			boxrule=0pt,
+		},
+	underlay boxed title={%
+			\path[fill=tcbcolframe] (title.south west)--(title.south east)
+			to[out=0, in=180] ([xshift=5mm]title.east)--
+			(title.center-|frame.east)
+			[rounded corners=\kvtcb@arc] |-
+			(frame.north) -| cycle;
+		},
+	#1
+}{th}
+\newtcbtheorem[use counter=commonbox]{methode}{Méthodes }%
+{
+	enhanced,
+	colback=white,
+	colframe=mygr,
+	attach boxed title to top left={yshift*=-\tcboxedtitleheight},
+	fonttitle=\bfseries,
+	title={#2},
+	boxed title size=title,
+	boxed title style={%
+			sharp corners,
+			rounded corners=northwest,
+			colback=tcbcolframe,
+			boxrule=0pt,
+		},
+	underlay boxed title={%
+			\path[fill=tcbcolframe] (title.south west)--(title.south east)
+			to[out=0, in=180] ([xshift=5mm]title.east)--
+			(title.center-|frame.east)
+			[rounded corners=\kvtcb@arc] |-
+			(frame.north) -| cycle;
+		},
+	#1
+}{th}
+\newtcbtheorem[use counter=commonbox]{remarque}{Remarque }%
+{
+	enhanced,
+	colback=white,
+	colframe=mygr,
+	attach boxed title to top left={yshift*=-\tcboxedtitleheight},
+	fonttitle=\bfseries,
+	title={#2},
+	boxed title size=title,
+	boxed title style={%
+			sharp corners,
+			rounded corners=northwest,
+			colback=tcbcolframe,
+			boxrule=0pt,
+		},
+	underlay boxed title={%
+			\path[fill=tcbcolframe] (title.south west)--(title.south east)
+			to[out=0, in=180] ([xshift=5mm]title.east)--
+			(title.center-|frame.east)
+			[rounded corners=\kvtcb@arc] |-
+			(frame.north) -| cycle;
+		},
+	#1
+}{th}
+\newtcbtheorem[use counter=commonbox]{outil}{Outil }%
+{
+	enhanced,
+	colback=white,
+	colframe=mygr,
+	attach boxed title to top left={yshift*=-\tcboxedtitleheight},
+	fonttitle=\bfseries,
+	title={#2},
+	boxed title size=title,
+	boxed title style={%
+			sharp corners,
+			rounded corners=northwest,
+			colback=tcbcolframe,
+			boxrule=0pt,
+		},
+	underlay boxed title={%
+			\path[fill=tcbcolframe] (title.south west)--(title.south east)
+			to[out=0, in=180] ([xshift=5mm]title.east)--
+			(title.center-|frame.east)
+			[rounded corners=\kvtcb@arc] |-
+			(frame.north) -| cycle;
+		},
+	#1
+}{th}
+\newtcbtheorem[use counter=commonbox]{but}{Buts du chapitre }%
+{
+	enhanced,
+	colback=white,
+	colframe=mygr,
+	attach boxed title to top left={yshift*=-\tcboxedtitleheight},
+	fonttitle=\bfseries,
+	title={#2},
+	boxed title size=title,
+	boxed title style={%
+			sharp corners,
+			rounded corners=northwest,
+			colback=tcbcolframe,
+			boxrule=0pt,
+		},
+	underlay boxed title={%
+			\path[fill=tcbcolframe] (title.south west)--(title.south east)
+			to[out=0, in=180] ([xshift=5mm]title.east)--
+			(title.center-|frame.east)
+			[rounded corners=\kvtcb@arc] |-
+			(frame.north) -| cycle;
+		},
+	#1
+}{th}
+\newtcbtheorem[use counter=commonbox]{propriete}{Propriété }%
+{
+	enhanced,
+	colback=white,
+	colframe=mygr,
+	attach boxed title to top left={yshift*=-\tcboxedtitleheight},
+	fonttitle=\bfseries,
+	title={#2},
+	boxed title size=title,
+	boxed title style={%
+			sharp corners,
+			rounded corners=northwest,
+			colback=tcbcolframe,
+			boxrule=0pt,
+		},
+	underlay boxed title={%
+			\path[fill=tcbcolframe] (title.south west)--(title.south east)
+			to[out=0, in=180] ([xshift=5mm]title.east)--
+			(title.center-|frame.east)
+			[rounded corners=\kvtcb@arc] |-
+			(frame.north) -| cycle;
+		},
+	#1
+}{th}
+\newtcbtheorem[number within=commonbox]{definition}{Définition }%
+{
+	enhanced,
+	colback=white,
+	colframe=mygr,
+	attach boxed title to top left={yshift*=-\tcboxedtitleheight},
+	fonttitle=\bfseries,
+	title={#2},
+	boxed title size=title,
+	boxed title style={%
+			sharp corners,
+			rounded corners=northwest,
+			colback=tcbcolframe,
+			boxrule=0pt,
+		},
+	underlay boxed title={%
+			\path[fill=tcbcolframe] (title.south west)--(title.south east)
+			to[out=0, in=180] ([xshift=5mm]title.east)--
+			(title.center-|frame.east)
+			[rounded corners=\kvtcb@arc] |-
+			(frame.north) -| cycle;
+		},
+	#1
+}{th}
+\newtcbtheorem[number within=commonbox]{exemples}{Exemples }%
+{
+	enhanced,
+	colback=white,
+	colframe=mygr,
+	attach boxed title to top left={yshift*=-\tcboxedtitleheight},
+	fonttitle=\bfseries,
+	title={#2},
+	boxed title size=title,
+	boxed title style={%
+			sharp corners,
+			rounded corners=northwest,
+			colback=tcbcolframe,
+			boxrule=0pt,
+		},
+	underlay boxed title={%
+			\path[fill=tcbcolframe] (title.south west)--(title.south east)
+			to[out=0, in=180] ([xshift=5mm]title.east)--
+			(title.center-|frame.east)
+			[rounded corners=\kvtcb@arc] |-
+			(frame.north) -| cycle;
+		},
+	#1
+}{th}
+\newtcbtheorem[number within=commonbox]{exemple}{Exemple }%
+{
+	enhanced,
+	colback=white,
+	colframe=mygr,
+	attach boxed title to top left={yshift*=-\tcboxedtitleheight},
+	fonttitle=\bfseries,
+	title={#2},
+	boxed title size=title,
+	boxed title style={%
+			sharp corners,
+			rounded corners=northwest,
+			colback=tcbcolframe,
+			boxrule=0pt,
+		},
+	underlay boxed title={%
+			\path[fill=tcbcolframe] (title.south west)--(title.south east)
+			to[out=0, in=180] ([xshift=5mm]title.east)--
+			(title.center-|frame.east)
+			[rounded corners=\kvtcb@arc] |-
+			(frame.north) -| cycle;
+		},
+	#1
+}{th}
+\newtcbtheorem[number within=commonbox]{exercice}{Exercice }%
+{
+	enhanced,
+	colback=white,
+	colframe=mygr,
+	attach boxed title to top left={yshift*=-\tcboxedtitleheight},
+	fonttitle=\bfseries,
+	title={#2},
+	boxed title size=title,
+	boxed title style={%
+			sharp corners,
+			rounded corners=northwest,
+			colback=tcbcolframe,
+			boxrule=0pt,
+		},
+	underlay boxed title={%
+			\path[fill=tcbcolframe] (title.south west)--(title.south east)
+			to[out=0, in=180] ([xshift=5mm]title.east)--
+			(title.center-|frame.east)
+			[rounded corners=\kvtcb@arc] |-
+			(frame.north) -| cycle;
+		},
+	#1
+}{th}
+\newtcbtheorem[number within=commonbox]{questions}{Questions guidantes }%
+{
+	enhanced,
+	colback=white,
+	colframe=mygr,
+	attach boxed title to top left={yshift*=-\tcboxedtitleheight},
+	fonttitle=\bfseries,
+	title={#2},
+	boxed title size=title,
+	boxed title style={%
+			sharp corners,
+			rounded corners=northwest,
+			colback=tcbcolframe,
+			boxrule=0pt,
+		},
+	underlay boxed title={%
+			\path[fill=tcbcolframe] (title.south west)--(title.south east)
+			to[out=0, in=180] ([xshift=5mm]title.east)--
+			(title.center-|frame.east)
+			[rounded corners=\kvtcb@arc] |-
+			(frame.north) -| cycle;
+		},
+	#1
+}{th}
+\makeatother
+
+% corps
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rnn}{\mathbb{R}^{2n}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+% domain
+\newcommand{\D}{\mathcal{D}}
+% for calligraphic C
+\usepackage{calrsfs}
+\newcommand{\C}{\mathcal{C}}
+
+% date
+\usepackage{advdate}
+
+% ensembles tq. 
+\newcommand{\xRtq}[1]{
+	$\left\{ x \in \R \text{ tq. } #1 \right\}$
+}
+
+% vabs
+\newcommand{\vabs}[1]{
+	\left| #1 \right|
+}
+
+%pinfty minfty
+\newcommand{\pinfty}{{+}\infty}
+\newcommand{\minfty}{{-}\infty}
+
+% plots
+\usepackage{pgfplots}
+
+%virgules
+\usepackage{icomma}
+\pgfplotsset{/pgf/number format/use comma}
+
+%subfigures
+\usepackage{subcaption}
+
+%hyperlink footnote
+\usepackage{hyperref}
+
+%wider tabulars
+\def\arraystretch{1}
+\setlength\tabcolsep{15pt}
+
+% tableaux var, signe
+\usepackage{tkz-tab}
+
+
+\newcommand{\sct}{\text{ sachant }}
+\usepackage{makecell}
+
+\usepackage{booktabs}% http://ctan.org/pkg/booktabs
+\newcommand{\tableaucroise}[4]{
+\begin{tabular}{|c|c|c|c|}
+	\cline{2-4}
+	\multicolumn{1}{c|}{} & #1 \\ \hline
+	#2 \\ \hline
+	#3  \\ \hline
+	#4  \\ \hline
+\end{tabular}
+}

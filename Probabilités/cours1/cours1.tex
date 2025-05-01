@@ -1,0 +1,147 @@
+% SOLUTION SWITCH
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+				
+\input{../preamble.tex}
+
+\AdvanceDate[3]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Première}
+\fancyhead[C]{\textbf{Chapitre 4 --- Phénomènes aléatoires \ifsolutions -- Solutions \fi}}
+\fancyhead[R]{\today}
+
+\begin{questions*}{}{}
+	\begin{enumerate}[label=\roman*)]
+		\item La probabilité d'un événement change-t-elle lorsqu'une nouvelle information est disponible ?
+		\item En connaissant la probabilité qu'une personne vaccinée soit infectée, peut-on connaître la probabilité qu'une personne infectée soit vaccinée ?
+		\item Comment démontrer que deux événements sont indépendants ?
+	\end{enumerate}
+\end{questions*}
+
+
+\begin{but*}{}{}
+	\begin{enumerate}
+		\item Construire un arbre de probabilité associé à une expérience aléatoire.
+		\item Calculer des fréquences, des probabilités conditionnelles.
+		\item Compléter et interpréter un tableau croisé.
+	\end{enumerate}
+\end{but*}
+
+\section{Événements conditionnels}
+
+\begin{definition*}{événement conditionnel}{}
+	Soient $A, B$ deux événements. L'événement « $A$ sachant $B$ », aussi noté $A|B$
+	correspond à l'événement associé à $A$ dans le nouvel univers où on sait que $B$ se réalise.
+\end{definition*}
+
+\subsection{Arbres de probabilité}
+
+\begin{exemple*}{}{}
+	On considère un arbre modélisant une expérience aléatoire à deux épreuves.
+	A et B sont les deux issues de la première épreuve. Chaque feuille correspond à une issue finale.
+	\begin{center}
+	\begin{tikzpicture}
+		% depth 1
+		\foreach \i in {-3, 3}
+		\draw[-, thick, black] (0,0) node {$\bullet$} -- (\i,-2);
+		
+		\draw (0,0) node[above] {racine};
+		\draw (-3,-2) node[above left] {A};
+		\draw (3,-2) node[above right] {B};
+		% depth 2
+		\foreach \i in {-3, 3} \foreach \j in {-1, 1}
+			\draw[-, thick, black] (\i,-2) node {$\bullet$} -- (\i+\j,-4) node {$\bullet$};
+			
+		\draw (-4,-4) node[below] {issue 1};
+		\draw (2,-4) node[below] {issue 3};
+		\draw (-2,-4) node[below] {issue 2};
+		\draw (4,-4) node[below] {issue 4};
+		
+		% sols
+		\draw (1.5,-.5) node {$0,6$};
+		\draw (-1.5,-.5) node {$0,4$};
+		
+		\draw (4,-3) node {$0,3$};
+		\draw (2,-3) node {$0,7$};
+		
+		\draw (-2,-3) node {$\frac14$};
+		\draw (-4,-3) node {$\frac34$};
+		
+		
+		\draw (5,-3) node[right] {\thead{probabilités \\ conditionnelles \\ sachant B}};
+		\draw (-7.5,-3) node[right] {\thead{probabilités \\ conditionnelles \\ sachant A}};
+		\draw[->, thick] (5,-3) -- (4.5,-3);
+		\draw[->, thick] (-5,-3) -- (-4.5,-3);
+	\end{tikzpicture}
+	\end{center}
+\end{exemple*}
+
+
+\begin{methode*}{}{}
+	\begin{enumerate}[label=$\bullet$]
+		\item Les probabilités de l'arbre sont conditionnées par le chemin déjà parcouru.
+		\item Pour chaque nœud, la somme des probabilités des sous-branches vaut $1$.
+		\item Pour connaître la probabilité d'une feuille, il faut multiplier les probabilités du chemin racine-feuille.
+		\item Pour connaître la probabilité d'un événement, il faut sommer la probabilité de chaque feuille lui correspondant.
+	\end{enumerate}
+\end{methode*}
+
+
+
+\subsection{Probabilité conditionnelle}
+
+\begin{definition*}{probabilité conditionnelle}{}
+		\[ P(A \sct B) = \dfrac{P(A \cap B)}{P(B)} \]
+\end{definition*}
+
+
+
+\begin{theorem*}{de Bayes}{}
+	Soient $A, B$ deux événements. Alors
+		\[ P(A \sct B) = \dfrac{P(A)}{P(B)} \times P(B \sct A). \]
+\end{theorem*}
+
+
+\begin{definition*}{événements indépendants}{}
+	Les événements $A$ et $B$ sont \emph{indépendants} si
+		\begin{align*}
+			P(A \sct B) = P(A) && \iff && P(B \sct A) = P(B) && \iff && P(A\cap B) = P(A) \times P(B)
+		\end{align*}
+	On dira alors que $A$ et $B$ sont \emph{décorrélés}, ou de \emph{corrélation nulle}.
+	
+\end{definition*}
+
+\begin{remarque*}{corrélation}{}
+	\begin{enumerate}[label=$\bullet$]
+		\item Si $P(A \sct B) > P(A)$, savoir que $B$ se réalise augmente la probabilité que $A$ se réalise. Les événements sont \emph{positivement} corrélés.
+		\item Si $P(A \sct B) < P(A)$, savoir que $B$ se réalise diminue la probabilité que $A$ se réalise. Les événements sont \emph{négativement} corrélés.
+	\end{enumerate}
+\end{remarque*}
+
+\section{Application aux fréquences : tableaux croisés}
+
+\begin{exemple*}{}{}
+	On interroge $500$ personnes pour savoir si elles sont allées chez le dentiste cette année. 
+	
+	\begin{center}
+	\tableaucroise{Dentiste & Pas dentiste & Total}{Enfant & 160 & 40 & 200}{Adulte & 240 & 10 & 300}{Total & 400 & 100 & 500}
+	\end{center}
+	On choisit une personne uniformément au hasard.
+	Les événements $D$ : « la personne choisie est allée chez le dentiste » et $E$ : « la personne choisie est un enfant » sont-ils indépendants ?
+	\begin{align*}
+		P(D) = &&  P(D \sct E) = \\ P(E) = &&  P(E \sct D) = 
+	\end{align*}
+\end{exemple*}
+
+\begin{methode*}{}{}
+	\begin{enumerate}[label=$\bullet$]
+		\item On voit la fréquence d'un événement comme sa probabilité.
+		\item Pour lire la fréquence conditionnelle, on se restreint à une colonne ou une ligne.
+	\end{enumerate}
+\end{methode*}
+
+
+\end{document}
