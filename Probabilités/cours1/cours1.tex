@@ -5,7 +5,7 @@
 				
 \input{../preamble.tex}
 
-\AdvanceDate[3]
+\AdvanceDate[1]
 
 \begin{document}
 \pagestyle{fancy}
@@ -15,9 +15,9 @@
 
 \begin{questions*}{}{}
 	\begin{enumerate}[label=\roman*)]
-		\item La probabilité d'un événement change-t-elle lorsqu'une nouvelle information est disponible ?
+		\item La probabilité d'un événement change-t-elle lorsqu'une nouvelle information est disponible ? Est-ce quantifiable ?
 		\item En connaissant la probabilité qu'une personne vaccinée soit infectée, peut-on connaître la probabilité qu'une personne infectée soit vaccinée ?
-		\item Comment démontrer que deux événements sont indépendants ?
+		\item Quand est-ce que deux événements sont indépendants ? Que peut-on dire dans ce cas ?
 	\end{enumerate}
 \end{questions*}
 
@@ -80,21 +80,21 @@
 \end{exemple*}
 
 
-\begin{methode*}{}{}
+\begin{proprietes*}{}{}
 	\begin{enumerate}[label=$\bullet$]
 		\item Les probabilités de l'arbre sont conditionnées par le chemin déjà parcouru.
 		\item Pour chaque nœud, la somme des probabilités des sous-branches vaut $1$.
-		\item Pour connaître la probabilité d'une feuille, il faut multiplier les probabilités du chemin racine-feuille.
-		\item Pour connaître la probabilité d'un événement, il faut sommer la probabilité de chaque feuille lui correspondant.
+		\item Chaque feuille est une issue (et vice versa). Pour connaître la probabilité d'une issue, il faut multiplier les probabilités le long du chemin racine-feuille.
+		\item Un événement est un ensemble d'issues. Pour connaître la probabilité d'un événement, il faut sommer la probabilité de chaque feuille lui correspondant.
 	\end{enumerate}
-\end{methode*}
+\end{proprietes*}
 
 
 
 \subsection{Probabilité conditionnelle}
 
 \begin{definition*}{probabilité conditionnelle}{}
-		\[ P(A \sct B) = \dfrac{P(A \cap B)}{P(B)} \]
+		\[ P(B \sct A) = \dfrac{P(A \cap B)}{P(A)} \]
 \end{definition*}
 
 
@@ -108,7 +108,7 @@
 \begin{definition*}{événements indépendants}{}
 	Les événements $A$ et $B$ sont \emph{indépendants} si
 		\begin{align*}
-			P(A \sct B) = P(A) && \iff && P(B \sct A) = P(B) && \iff && P(A\cap B) = P(A) \times P(B)
+			P(B \sct A) = P(B) && \iff && \ifsolutions P(B \sct A) = P(B) \else \hspace{3cm} \fi && \iff && \ifsolutions P(A\cap B) = P(A) \times P(B) \else \hspace{3cm} \fi 
 		\end{align*}
 	On dira alors que $A$ et $B$ sont \emph{décorrélés}, ou de \emph{corrélation nulle}.
 	
@@ -121,7 +121,7 @@
 	\end{enumerate}
 \end{remarque*}
 
-\section{Application aux fréquences : tableaux croisés}
+\section{Les fréquences comme probabilités : tableaux croisés}
 
 \begin{exemple*}{}{}
 	On interroge $500$ personnes pour savoir si elles sont allées chez le dentiste cette année. 
@@ -136,12 +136,12 @@
 	\end{align*}
 \end{exemple*}
 
-\begin{methode*}{}{}
+\begin{proprietes*}{}{}
 	\begin{enumerate}[label=$\bullet$]
 		\item On voit la fréquence d'un événement comme sa probabilité.
 		\item Pour lire la fréquence conditionnelle, on se restreint à une colonne ou une ligne.
 	\end{enumerate}
-\end{methode*}
+\end{proprietes*}
 
 
 \end{document}
