@@ -1,0 +1,78 @@
+% SOLUTION SWITCH
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+				
+\input{../preamble.tex}
+
+
+\AdvanceDate[1]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Première}
+\fancyhead[C]{\textbf{Exercices à rendre : phénomènes aléatoires \ifsolutions \\ Solutions \fi}}
+\fancyhead[R]{\today}
+
+
+\exe{
+	Compléter l'arbre avec les données suivantes.
+		\begin{multicols}{3}
+		\begin{enumerate}[label=$\bullet$]
+			\item $P(A) = 0,35$
+			\item $P(B \sct A) = 0,45$
+			\item $P(B \sct \overline{A}) = 0,7$
+		\end{enumerate}
+		\end{multicols}
+	\begin{center}
+	\begin{tikzpicture}
+		% depth 1
+		\foreach \i in {-3, 3}
+		\draw[-, thick, black] (0,0) node {$\bullet$} -- (\i,-1.5);
+		% depth 2
+		\foreach \i in {-3, 3} \foreach \j in {-1, 1}
+			\draw[-, thick, black] (\i,-1.5) node {$\bullet$} -- (\i+\j,-3) node {$\bullet$};
+			
+		\draw (-3,-1.5) node[above left] {$A$};
+		\draw (3,-1.5) node[above right] {$\overline{A}$};
+			
+		\draw (-4,-3) node[below] {$B\cap A$};
+		\draw (2,-3) node[below] {$B\cap\overline{A}$};
+		\draw (-2,-3) node[below] {$\overline{B}\cap A$};
+		\draw (4,-3) node[below] {$\overline{B}\cap\overline{A}$};
+	\end{tikzpicture}
+	\end{center}
+	Calculer $P(B\cap A)$ et $P(\overline{B}\cap\overline{A})$ en multipliant les probabilités des chemins racine-feuille correspondant.
+	\begin{flalign*}
+		P(B\cap A) &= && \\ \\
+		P(\overline{B}\cap\overline{A}) &= && \\
+	\end{flalign*}
+}{}
+
+
+\exe{
+	Un test est mis au point pour détecter une maladie rare. Une étude est effectuée sur un échantillon représentatif de 5 000 personnes, et les résultats sont les suivants.
+	\begin{enumerate}[label=\roman*)]
+		\item 0,4\% des personnes sont malades.
+		\item 99,9\% des personnes malades sont testées positives.
+		\item 94\% des personnes non malades sont testées négatives.
+	\end{enumerate}
+	On choisit une personne uniformément au hasard dans la population et on considère les événements
+	\begin{center}
+		$M$ : \og La personne choisie est malade. \fg
+		\hspace{.8cm}
+		puis
+		\hspace{.6cm}
+		$N$ : \og La personne choisie est testée négative. \fg
+	\end{center}
+		
+	\begin{enumerate}
+		\item À l'aide du texte, donner $P(M), P\bigl(\overline{N} \sct M\bigr)$, et $P\bigl(N \sct \overline{M} \bigr)$.
+		\item Créer un arbre de probabilités correspondant à l'expérience et le compléter.
+		\item Lire sur l'arbre les probabilités $P\bigl(N \sct M\bigr)$ et $P\bigl(\overline{N} \sct \overline{M} \bigr)$. Ce sont les probabilités de faux négatifs et de faux positifs respectivement.
+		\item Calculer $P\bigl(\overline{N}\bigr)$ à l'aide l'arbre en sommant la probabilité de chaque issue correspondant à l'événement $\overline{N}$.
+		\item Calculer $P\bigl(M \sct \overline{N}\bigr)$ à l'aide du cours. C'est la probabilité que la personne choisie soit malade sachant qu'elle est testée positive.
+	\end{enumerate}
+}{}
+
+\end{document}
