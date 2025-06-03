@@ -1,0 +1,75 @@
+% SOLUTION SWITCH
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+				
+\input{../preamble.tex}
+
+
+\AdvanceDate[3]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Première}
+\fancyhead[C]{\textbf{Exercices à rendre : étude de variations \ifsolutions -- Solutions \fi}}
+\fancyhead[R]{\today}
+
+
+\exe{
+	On considère la fonction $f$ du troisième degré définie sur le domaine $\D=\left[-0,5 ; 1\right]$ par
+		\[ f(x) = 16x^3 - 2x^2 -4x + 1. \]
+		
+	\begin{enumerate}
+		\item Donner $f'$, la fonction dérivée de $f$.
+		\item Montrer que $f'(x) = 2(4x+1)(6x-2)$ en développant soigneusement la forme factorisée.
+		\item Remplir le tableau de signes et de variations de la figure \ref{fig:var-signe}.
+		\item Compléter les variations avec les images de $f$ aux bornes de $\D$ ainsi qu'aux extrema locaux.
+		\item En déduire le maximum et le minimum de $f$ sur $\D$, et les antécédents qui les réalisent.
+	\end{enumerate}
+}{}
+
+
+\begin{figure}[h]
+	\centering	
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1 ,  Signe de $4x+1$ / 1, Signe de $6x-2$ / 1, Signe de $f'(x)$ / 1, Variation de $f(x)$ / 2}
+	       		{{-0,5},,,,1}
+	\end{tikzpicture}
+	\caption{Tableau de signes de $f'$ et de variations de $f$.}
+	\label{fig:var-signe}
+\end{figure}
+
+\newpage
+
+\exe{
+	On souhaite étudier les variations de la fonction
+		\[ f(x) = x\sqrt{4-x^2}, \]
+	sur le domaine $\D = [0; 2]$.
+	
+	Il est admis que la dérivée de $f$ est donnée par
+		\[ f'(x) = \dfrac{4-2x^2}{\sqrt{4-x^2}}. \]
+	
+	\begin{enumerate}
+		\item Montrer que $4-2x^2 = 2\left(\sqrt{2}-x\right)\left(x+\sqrt{2}\right)$ en développant soigneusement la forme factorisée. On rappelle que $\sqrt{2}\times\sqrt{2} = 2$, par définition.
+		\item Montrer que le facteur $x+\sqrt{2}$ est positif pour tout $x\in\D$ du domaine.
+		\item Remplir le tableau de signes et de variations de la figure \ref{fig:var-signe2}.
+		\item En déduire le maximum de $f$ sur $\D$ ainsi que l'antécédent qui le réalise.
+	\end{enumerate}
+}{}
+
+\begin{figure}[h]
+	\centering	
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1 ,  Signe de $\sqrt{2}-x$/ 1, Signe de $f'(x)$ / 1, Variation de $f(x)$ / 2}
+	       		{{0},,,,2}
+	\end{tikzpicture}
+	\caption{Tableau de signes de $f'$ et de variations de $f$.}
+	\label{fig:var-signe2}
+\end{figure}
+
+
+\end{document}
