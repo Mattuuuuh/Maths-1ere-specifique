@@ -1,0 +1,122 @@
+% SOLUTION SWITCH
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+				
+\input{../preamble.tex}
+
+
+\AdvanceDate[1]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Première}
+\fancyhead[C]{\textbf{Phénomènes aléatoires 2 \ifsolutions \\ Solutions \fi}}
+\fancyhead[R]{\today}
+
+\exe{
+	Un test est mis au point pour détecter une maladie rare. Une étude est effectuée sur un échantillon représentatif de 5 000 personnes, et les résultats sont les suivants.
+	\begin{enumerate}[label=\roman*)]
+		\item 0,4\% des personnes sont malades.
+		\item 99,9\% des peronnes malades sont testées positives.
+		\item 94\% des personnes non malades sont testées négatives.
+	\end{enumerate}
+	On choisit une personne uniformément au hasard dans la population et on considère les événements
+	\begin{center}
+		$M$ : \og La personne choisie est malade. \fg
+		\hspace{.8cm}
+		puis
+		\hspace{.6cm}
+		$N$ : \og La personne choisie est testée négative. \fg
+	\end{center}
+	
+	\begin{center}
+	\def\arraystretch{1.5}
+	\setlength\tabcolsep{20pt}
+	\tableaucroise{Malade & Pas malade & Total}{Test positif & & &}{Test négatif & & &}{Total &&&}
+	\end{center}
+	
+	\begin{enumerate}
+		\item Remplir le tableau croisé de \emph{fréquences} à l'aide des informations du tableau. On pourra laisser les fréquences sous forme de pourcentages.
+		\item En déduire $P\bigl(M \sct \overline{N}\bigr)$ 
+	\end{enumerate}
+}{}
+
+
+\exe{[Problème de Monty Hall]
+	 Supposez que vous êtes sur le plateau d'un jeu télévisé, face à trois portes et que vous devez choisir d'en ouvrir une seule, en sachant que derrière l'une d'elles se trouve une voiture et derrière les deux autres des chèvres. Vous choisissez une porte, disons la numéro 1, et le présentateur, qui sait, lui, ce qu'il y a derrière chaque porte, ouvre une autre porte, disons la numéro 3, qui découvre une chèvre. Il vous demande alors : \og désirez-vous ouvrir la porte numéro 2 ? \fg. Avez-vous intérêt à changer votre choix ?%\footnote{Traduction de $\href{https://en.wikipedia.org/wiki/Monty\_Hall\_problem}{https://en.wikipedia.org/wiki/Monty\_Hall\_problem}$.}
+	 
+	 \begin{enumerate}
+	 	\item On pose $E :$ \og la porte 2 cache une voiture \fg, et $F$ : \og le présentateur choisit la porte 3 \fg.
+	 	En considérant toutes les configurations possibles derrière chaque porte, montrer que $P(E) = \dfrac13$.
+	 	
+	 	\item Justifier que $P(F \sct E) = 1$ (c'est un événement sûr).
+	 	
+	 	\item En considérant toutes les configurations à nouveau, montrer que $P(F) = \dfrac12$.
+	 	
+	 	\item Répondre à la question de l'énoncé en calculant $P(E \sct F)$ graĉe au théorème de Bayes.	 
+	 \end{enumerate}
+}{}
+
+
+\hrule
+
+\exe{
+	Un professeur décide de lancer une pièce bien équilibrée $8$ fois de suite :
+	« Si j'obtiens pile au moins une fois, alors Clémentine change de place ! »
+	
+	\begin{enumerate}
+		\item Décrire l'événement complémentaire avec des mots.
+		\item Esquisser un arbre de probabilité (pas forcément complet) et donner la probabilité de chacune des issues de l'expérience.
+		\item En calculant d'abord la probabilité de l'événement complémentaire, donner la probabilité que Clémentine change de place.
+		\item Calculer la probabilité de l'événement
+		%
+			\begin{center} « obtenir pile exactement 1 fois » \end{center}
+			
+		en comptant le nombre de chemins racine-feuille qui y correspondent.
+		
+		\item En déduire la probabilité de l'événement
+			%
+			\begin{center} « obtenir pile au moins 2 fois » \end{center}
+	\end{enumerate}
+}{}
+
+\newpage
+
+\exe{
+	Lucas joue à la roulette, jeu de hasard dans lequel une bille est lancée et s'arrête soit sur une des 18 cases noires, soit sur une des 18 cases rouges, soit sur la case 0 (qui est verte). On suppose le jeu non truqué et donc que la bille a la même probabilité de tomber sur chacune des cases.
+	
+	Lucas décide de parier soit sur rouge, soit sur noir (mise de chance simple). S'il gagne son pari, il repart avec le double de la somme misée. S'il perd, il repart les mains vides.
+	\begin{enumerate}
+		\item Donner la probabilité que la bille s'arrête sur une case rouge et la probabilité que la bille s'arrête sur une case noire. 
+		\item En misant 10 000 fois sur rouge, combien de fois s'attend-on à gagner ?
+		\item En misant 10 000 fois 1€ sur rouge, combien d'argent s'attend-on à gagner (ou perdre) ?
+		%\item Pour avoir une chance de repartir gagnant du casino, faut-il faire peu ou beaucoup de paris ?
+		\item Donner la probabilité d'obtenir 5 fois rouge en 5 lancers.
+		\item En remarquant que la bille est tombée 4 fois consécutives sur rouge, Lucas s'emporte et mise tout sur noir.
+		A-t-il raison ? la probabilité d'obtenir noir a-t-elle augmenté en sachant que les 4 derniers résultats sont rouges ?
+		\item Donner la probabilité d'obtenir au moins un noir en 5 lancers.
+	\end{enumerate}
+}{}
+
+
+%\newpage
+
+
+\exe{[$\star$ Paradoxe des anniversaires]
+	On choisit $5$ personnes au hasard dans la population en supposant que chaque date d'anniversaire est équiprobable de probabilité $\dfrac1{365}$.
+	On souhaite calculer la probabilité de l'événement $E = $\og deux d'entre elles partagent la même date d'anniversaire. \fg
+	
+	\begin{enumerate}
+		\item Décrire l'événement contraire $\overline{E}$ avec des mots.
+		\item On considère une personne après l'autre. Justifier que la probabilité que la 2ème personne considérée ait une date d'anniversaire différente de la 1ère est de $\dfrac{364}{365}$.
+		\item En sachant que la 2ème personne considérée a une date d'anniversaire différente de la 1ère, justifier que la probabilité que la 3ème personne considérée ait une date d'anniversaire différente des deux premières est de $\dfrac{363}{365}$.
+		\item En continuant ainsi, démontrer que
+			\[ P\bigl(\overline{E} \bigr) = \dfrac{364 \times 363 \times 362 \times 361}{365^4} \approx 97,29 \% \]
+		\item En dédurie que $P(E) \approx 2,71\%$.
+		
+		\item Montrer qu'en choisissant $32$ personnes, soit le cardinal de la classe de 1ère G2, cette probabilité atteint environ $75,33\%$.
+	\end{enumerate}
+}{}
+
+\end{document}
