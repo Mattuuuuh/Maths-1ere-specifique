@@ -84,13 +84,13 @@
 
 % date
 \usepackage{advdate}
-\AdvanceDate[3]
+\AdvanceDate[2]
 
 \begin{document}
 
 \section*{Table des matières}
 
-\begin{frame}{Conclusion}
+\begin{frame}{Conclusion du cours}
 \tableofcontents%[hidesubsections]
 \end{frame}
 
@@ -156,8 +156,9 @@
 \begin{frame}{Let's Make a Deal}
 
 	 %Supposez que vous êtes sur le plateau d'un jeu télévisé, face à trois portes et que vous devez choisir d'en ouvrir une seule, en sachant que derrière l'une d'elles se trouve une voiture et derrière les deux autres des chèvres. Vous choisissez une porte, disons la numéro 1, et le présentateur, qui sait, lui, ce qu'il y a derrière chaque porte, ouvre une autre porte, disons la numéro 3, qui découvre une chèvre. Il vous demande alors : \og désirez-vous ouvrir la porte numéro 2 ? \fg. Avez-vous intérêt à changer votre choix ?
-	 
-	 \begin{center}
+	
+	\only<1-9>{	 
+	\begin{center}
 	\begin{tikzpicture}[scale=1]
 		
 		\foreach \i in {1,2,3}{
@@ -169,21 +170,30 @@
 		}
 	\end{tikzpicture}
 	\end{center}
+	}
 	
-	\only<1-5>{
+	\only<1-4>{
 	\begin{itemize}
-		\item Les portes cachent deux chèvres et une voiture. 
-		\pause
-		\item Le joueur choisit une porte.
-		\pause
-		\item Le présentateur ouvre une des deux autres portes, découvrant une chèvre.
-		\pause
-		\item Le joueur a-t-il intérêt à changer de porte ?
+		\item<1-> Les portes cachent deux chèvres et une voiture. 
+		\item<2-> Le joueur choisit une porte.
+		\item<3-> Le présentateur ouvre une des deux autres portes, découvrant une chèvre.
+		\item<4-> Le joueur a-t-il intérêt à changer de porte ?
 	 \end{itemize}
 	 }
 	 
-	 \visible<7->{
-	 	AA
+	 \only<5->{
+	 \begin{center}
+	 	 \visible<6->{ $E :$ \og la porte 2 cache une voiture \fg  \\}
+	 	 \visible<7->{ $F$ : \og le présentateur choisit la porte 3 \fg}
+	 \end{center}
+	  \visible<8->{
+	 	\begin{align*}
+	 		P\bigl( E \text{ sachant } F \bigr) 
+	 		&= \visible<9->{\dfrac{P(E)}{P(F)} \times P\bigl( F \text{ sachant } E \bigr) \\}
+	 		\visible<11->{ &= \dfrac{1/3}{1/2} \times 1 }
+	 		\visible<12->{ = \dfrac23 \approx 66\%}
+		\end{align*}
+	 }
 	 }
 	 
 
