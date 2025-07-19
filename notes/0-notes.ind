@@ -1,0 +1,60 @@
+\begin{theindex}
+  \providecommand*\lettergroupDefault[1]{}
+  \providecommand*\lettergroup[1]{%
+      \par\textbf{#1}\par
+      \nopagebreak
+  }
+
+  \lettergroup{A}
+  \item absolue, 28
+  \item affine, 6
+  \item augmentation, 29
+
+  \indexspace
+
+  \lettergroup{C}
+  \item coefficient directeur, 6
+  \item coordonnées entières, 9
+
+  \indexspace
+
+  \lettergroup{D}
+  \item diminution, 29
+
+  \indexspace
+
+  \lettergroup{E}
+  \item environ, 56
+
+  \indexspace
+
+  \lettergroup{F}
+  \item feuilles, 51
+  \item fonction identité, 7
+
+  \indexspace
+
+  \lettergroup{L}
+  \item loi uniforme, 50
+
+  \indexspace
+
+  \lettergroup{O}
+  \item équation de droite, 9
+  \item équiprobable, 50
+  \item événement, 47
+  \item ordonnée à l'origine, 6
+
+  \indexspace
+
+  \lettergroup{P}
+  \item pourcentage, 25
+  \item profondeur, 51
+
+  \indexspace
+
+  \lettergroup{R}
+  \item racine, 51
+  \item relative, 28
+
+\end{theindex}

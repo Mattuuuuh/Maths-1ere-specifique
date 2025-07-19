@@ -1,26 +1,70 @@
+%!TEX encoding = UTF8
+%!TEX root = 0-notes.tex
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % SELF MADE COMMANDS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+%%
+% tcolor environments VS clean environments
+%%
+
+\ifclean
+
+\newcommand{\thm}[3]{\begin{theorem}[#1]\label{#3}#2\end{theorem}}
+\newcommand{\cor}[3]{\begin{corollaire}[#1]\label{#3}#2\end{corollaire}}
+\newcommand{\lem}[3]{\begin{lemme}[#1]\label{#3}#2\end{lemme}}
+\newcommand{\mprop}[3]{\begin{proposition}[#1]\label{#3}#2\end{proposition}}
+\newcommand{\ex}[3]{\begin{exemple}[#1]\label{#3}#2\end{exemple}}
+%\newcommand{\exe}[3]{\begin{exercice}[#1]\label{#3}#2\end{exercice}}
+\newcommand{\dfn}[3]{\begin{definition}[#1]\label{#3}#2\end{definition}}
+\newcommand{\qs}[2]{\begin{question}[#1]#2\end{question}}
+\newcommand{\pf}[2]{\begin{preuve}[#1]#2\end{preuve}}
+\newcommand{\nt}[1]{\begin{remarque}#1\end{remarque}}
+\newcommand{\str}[1]{\begin{strategie}#1\end{strategie}}
+\newcommand{\mth}[1]{\begin{methode}#1\end{methode}}
+\newcommand{\ax}[3]{\begin{axiome}[#1]\label{#3}#2\end{axiome}}
+
+\newcommand{\exe}[4]{
+	\begin{Exercise}[title=#1, label=#3]
+		\marginpar{\mbox{\scriptsize(solution p.\pageref{\ExerciseLabel-Answer})}}
+		#2
+	\end{Exercise}
+	\begin{Answer}[ref=#3]
+		#4
+	\end{Answer}
+}
+
+\else
+
 \newcommand{\thm}[3]{\begin{Theorem}[label=#3]{#1}{}#2\end{Theorem}}
 \newcommand{\cor}[3]{\begin{Corollary}[label=#3]{#1}{}#2\end{Corollary}}
 \newcommand{\lem}[3]{\begin{Lemma}[label=#3]{#1}{}#2\end{Lemma}}
 \newcommand{\mprop}[3]{\begin{Prop}[label=#3]{#1}{}#2\end{Prop}}
-\newcommand{\clm}[3]{\begin{claim}{#1}{#2}#3\end{claim}}
-\newcommand{\wc}[2]{\begin{wconc}{#1}{}\setlength{\parindent}{1cm}#2\end{wconc}}
-\newcommand{\thmcon}[2]{\begin{Theoremcon}[label=#2]{#1}\end{Theoremcon}}
 \newcommand{\ex}[3]{\begin{Example}[label=#3]{#1}{}#2\end{Example}}
-\newcommand{\exe}[3]{\begin{Exercise}[label=#3]{#1}{}#2\end{Exercise}}
+%\newcommand{\exe}[3]{\begin{Exe}[label=#3]{#1}{}#2\end{Exe}}
 \newcommand{\dfn}[3]{\begin{Definition}[colbacktitle=red!75!black, label=#3]{#1}{}#2\end{Definition}}
-\newcommand{\dfnc}[2]{\begin{definition}[colbacktitle=red!75!black]{#1}{}#2\end{definition}}
-\newcommand{\qs}[2]{\begin{question}{#1}{}#2\end{question}}
+\newcommand{\qs}[2]{\begin{MyQuestion}{#1}{}#2\end{MyQuestion}}
 \newcommand{\pf}[2]{\begin{myproof}[#1]#2\end{myproof}}
-\newcommand{\nt}[1]{\begin{note}#1\end{note}}
-\newcommand{\str}[1]{\begin{strategy}#1\end{strategy}}
-\newcommand{\mth}[1]{\begin{methode}#1\end{methode}}
+\newcommand{\nt}[1]{\begin{Note}#1\end{Note}}
+\newcommand{\str}[1]{\begin{Strategy}#1\end{Strategy}}
+\newcommand{\mth}[1]{\begin{Methode}#1\end{Methode}}
+\newcommand{\axiome}[3]{\begin{Axiome}[label=#3]{#1}{}#2\end{Axiome}}
 
+\newcommand{\exe}[4]{
+	\begin{Exe}[label=#3]{}{}#2\end{Exe}
+	\begin{Answer}[ref=#3]
+		#4
+	\end{Answer}
+}
 
+\fi
+
+\newcommand{\notations}[1]{\begin{notation}#1 \end{notation}}
+\newcommand{\nomen}[1]{\begin{nomenclature}#1 \end{nomenclature}}
+
+%%
 
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
 		\node[shape=circle,draw,inner sep=1pt] (char) {#1};}}
@@ -47,8 +91,6 @@
 \makeatother
 
 
-
-
 \tikzset{
 	symbol/.style={
 			draw=none,
@@ -60,7 +102,7 @@
 
 % deliminators
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
-\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+%\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
 
 \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
 \DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
@@ -101,9 +143,8 @@
 \providecommand*{\pdv}[3][]{\frac{\partial^{#1}#2}{\partial#3^{#1}}}
 %  - others
 \DeclareMathOperator{\Lap}{\mathcal{L}}
-\DeclareMathOperator{\Var}{Var} % varience
-\DeclareMathOperator{\Cov}{Cov} % covarience
-\DeclareMathOperator{\E}{E} % expected
+\DeclareMathOperator{\Var}{Var} % variance
+\DeclareMathOperator{\Cov}{Cov} % covariance
 
 % Since the amsthm package isn't loaded
 
@@ -113,8 +154,44 @@
 \renewcommand{\leq}{\leqslant}
 \renewcommand{\geq}{\geqslant}
 
-% PLUS INFTY AND MINUS INFTY WITH NO SPACE
+% tel que
+\newcommand{\tqs}{\text{ tels que }}
+\newcommand{\tq}{\text{ tq. }}
+\newcommand{\et}{\text{ et }}
+\newcommand{\ou}{\text{ ou }}
+\newcommand{\pourtout}{\text{ pour tout }}
 
+% Lois
+\newcommand{\Bern}{\text{Bern}}
+\newcommand{\Binom}{\text{Binom}}
+
+% ensemble avec bigl et bigr
+\newcommand{\bigset}[1]{\bigl\{ #1 \bigr\}}
+\newcommand{\Bigset}[1]{\Bigl\{ #1 \Bigr\}}
+\newcommand{\bigpar}[1]{\bigl( #1 \bigr)}
+\newcommand{\Bigpar}[1]{\Bigl( #1 \Bigr)}
+
+% PLUS INFTY AND MINUS INFTY WITH NO SPACE
 \newcommand{\pinfty}{{+}\infty}
 \newcommand{\minfty}{{-}\infty}
 
+% vecteur flèche
+\renewcommand{\vec}[1]{\overrightarrow{#1}}
+
+% vecteur pmatrix
+\newcommand{\pvec}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}}
+
+% vecteur norme
+\newcommand{\norm}[1]{\left\Vert #1 \right\Vert}
+
+% point plan
+\newcommand{\point}[3]{
+	#1\left(#2 ; #3 \right)
+}
+
+% \smash avant \underline pour coller la ligne au mot
+\let\oldunderline\underline
+\renewcommand{\underline}[1]{\oldunderline{\smash{#1}}}
+
+% emph + index
+\newcommand{\emphindex}[1]{\emph{#1}\index{#1}}

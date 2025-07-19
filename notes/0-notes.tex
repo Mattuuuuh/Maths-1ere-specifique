@@ -1,0 +1,49 @@
+\documentclass[a4paper, 12pt]{report}
+
+\input{preamble}
+\input{letterfonts}
+
+\newif\ifclean
+		\cleantrue
+		%\cleanfalse
+\input{macros}
+
+
+\title{
+	{\Huge Mathématiques en classe de 1ère spécifique} \\ 
+	%{\huge Problèmes et solutions} \\ 
+	{\Large Année 2025-2026}
+}
+\author{\huge{Matthieu Häberle}}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\newpage
+\pdfbookmark[section]{\contentsname}{toc}
+\tableofcontents
+\pagebreak
+
+\include{1-preface}
+
+\include{1-fonctions-affines}
+
+\include{1-suites-arithmetiques}
+
+\include{1-evolution}
+
+\include{1-fonctions-exponentielles}
+
+\include{1-suites-geometriques}
+
+\include{1-derivation}
+
+\include{1-probabilites}
+
+\include{1-solutions}
+
+\include{1-index}
+
+
+\end{document}

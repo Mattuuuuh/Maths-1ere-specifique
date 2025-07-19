@@ -1,0 +1,89 @@
+\documentclass[tikz]{standalone}
+
+\usepackage{icomma}
+
+% tikz
+\usepackage{tikz, pgfplots}
+% i wish external worked but idk it sucks
+%\usetikzlibrary{external}
+%\tikzexternalize[prefix=figures/]
+
+% for function graph
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{positioning}
+\tikzset{
+dot/.style = {circle, fill=#1, minimum size=5pt,
+              inner sep=0pt, outer sep=0pt},
+dot/.default = black % size of the circle diameter
+}
+
+ % for braces
+\usetikzlibrary{decorations.pathreplacing}
+% for hashing area
+\usetikzlibrary{patterns}
+% tableaux var, signe
+% source https://www.sqlpac.com/fr/documents/latex-package-tkz-tab-tikz-tableaux-de-signes-et-de-variations-de-fonctions.html
+\usepackage{tkz-tab}
+\input{../colors}
+\input{../letterfonts}
+
+
+\tikzset{
+	every node/.style = {font=\Large}
+}
+
+\begin{document}
+%
+	% page 1
+	\begin{tikzpicture}
+		% nodes
+		\draw (0,0) ellipse (2cm and .5cm) node {Valeur initiale};
+		
+		\draw (5,0) ellipse (2cm and .5cm) node {Nouvelle valeur};
+		
+		\draw (10,0) ellipse (2cm and .5cm) node {Valeur finale};
+		
+		% vertices
+		\draw[->, thick, myg] (1cm,.6cm) arc (105:75:7) node[midway, above] {$\times m_1$};
+		\draw[->, thick, myg] (6cm,.6cm) arc (105:75:7) node[midway, above] {$\times m_2$};
+		
+		\draw[->, thick, myr] (1cm,-.5cm) arc (-105:-75:15) node[midway, below=5pt] {$\times (m_1 \times m_2)$};
+	\end{tikzpicture}
+	
+	% page 2
+	\begin{tikzpicture}
+		% nodes
+		\draw (0,0) ellipse (2cm and .5cm) node {Valeur initiale};
+		
+		\draw (5,0) ellipse (2cm and .5cm) node {Nouvelle valeur};
+		
+		\draw (10,0) ellipse (2cm and .5cm) node {Valeur initiale};
+		
+		% vertices
+		\draw[->, thick, myg] (1cm,.6cm) arc (105:75:7) node[midway, above] {$\times m_1$};
+		\draw[->, thick, myg] (6cm,.6cm) arc (105:75:7) node[midway, above] {$\times \dfrac1{m_1}$};
+		
+		\draw[->, thick, myr] (1cm,-.5cm) arc (-105:-75:15) node[midway, below=5pt] {$\times 1$};
+	\end{tikzpicture}
+		
+	% page 3
+	\begin{tikzpicture}[scale=.8]
+		% nodes
+		\draw (0,0) ellipse (2cm and .5cm) node {Valeur $1$};
+		
+		\draw (5,0) ellipse (2cm and .5cm) node {Valeur $2$};
+		
+		\draw (10,0) ellipse (2cm and .5cm) node {Valeur $3$};
+		
+		\draw (15,0) ellipse (2cm and .5cm) node {Valeur $4$};
+		
+		% vertices
+		\draw[->, thick, myg] (1cm,.6cm) arc (105:75:7) node[midway, above] {$\times m_1$};
+		\draw[->, thick, myg] (6cm,.6cm) arc (105:75:7) node[midway, above] {$\times m_2$};
+		\draw[->, thick, myg] (11cm,.6cm) arc (105:75:7) node[midway, above] {$\times m_3$};
+		
+		\draw[->, thick, myr] (1cm,-.5cm) arc (-105:-75:25) node[midway, below] {$\times M_{\text{Global}}$};
+	\end{tikzpicture}
+%
+\end{document}

@@ -1,0 +1,217 @@
+%!TEX encoding = UTF8
+%!TEX root = 0-notes.tex
+
+\chapter{Suites géométriques}
+
+\section{Définition et exemples}
+
+\dfn{Suite}{
+	Une suite $u$ est une fonction qui à tout entier naturel $n \in \N$ associe un réel
+		\[ u(n) \in \R. \]
+	Le \emph{terme initial} de la suite est donné par $u(0)$, et son terme de \emph{rang} $n$ est $u(n)$.
+}{}
+
+\ex{}{
+	Les fonctions suivantes sont des suites données par leur rang $n$ : on connait donc leur valeur pour tout les entiers naturels.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $u(n) = n+1$
+		\item $v(n) = 15 + n$
+		\item $\xi(n) = 3n + 1$
+		\item $a(n) = n^2$
+	\end{enumerate}
+	\end{multicols}
+	Une suite n'a pas forcément de formule générale pour tout $n$, c'est une simplement \emph{suite} de nombres réels.
+}{}
+
+\dfn{Suite géométrique}{
+	On dit d'une suite $u$ qu'elle est arithmétique dès qu'elle vérifie, pour tout $n\in\N$,
+		\begin{align}\label{eq:suite-geom}
+			u(n+1) = q \cdot u(n),
+		\end{align}
+	où $q \in \R$ est un réel fixé qui ne dépend pas de $n$.
+	
+	On appelle $q$ la \emph{raison} de la suite.
+}{}
+
+\nt{
+	Comme $n$ et $n+1$ représentent un entier quelconque et son suivant, la relation \eqref{eq:suite-geom} se lit de la façon suivante :
+		\begin{center}
+		\og pour passer d'un terme au suivant, on multiplie par $q$ \fg.
+		\end{center}
+}{}
+
+\thm{Propriétés des puissances}{
+	Soient $a, b, c \in \Z$. On a les relations suivantes.
+		\begin{gather*}
+			a^{b+c} = a^{b} \times a^{c} \\
+			\left(a^b\right)^c = a^{b \times c} \\
+			a^{c} \times b^c = \left( a \times b \right)^c
+		\end{gather*}
+	En particulier, si $a \neq 0$, on a
+		\begin{align*}
+			a^0 = 1, &
+			&a^1 = a, &
+			&a^{-1} = \dfrac1a. 
+		\end{align*}
+}{}
+
+\ex{}{
+	La suite $u$ définie par
+		\[ u(n) = 5 \times 3^n \]
+	est géométrique. 
+	En effet, pour tout $n\in\N$, on calcule
+		\begin{align*}
+			u(n+1) &= 5 \times 3^{n+1} \\
+					&= 5 \times 3^n \times 3 \\
+					&= 3 \times \left( 5 \times 3^n \right) \\
+					&= 3 u(n).
+		\end{align*}
+	Comme $u(0) = 5 \times 3^0 = 5 \times 1 = 5$, on en déduit que $u$ est géométrique de raison $3$ et de terme initial $5$.
+}{}
+
+\exe{}{
+	Pour chacune des suites données algébriquement pour tout $n\in\N$, donner leur raison et leur terme initial.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $u(n) = 2 \times 3^n$
+		\item $v(n) = 7 \times \left(\dfrac12 \right)^n$
+		\item $\xi(n) = - 6^n$
+		\item $a(n) = 11 \times 5^{2n}$
+		\item $a(n) = 3 \times 5^{2n+3}$
+		\item $a(n) = 10^{-n}$
+	\end{enumerate}
+	\end{multicols}
+}{}
+
+\section{Conséquences : expression algébrique et variations}
+
+\ex{}{
+	Considérons une suite $G$, géométrique de raison $4$ et de terme initial $3$.
+	Alors, par définition,
+		\[ G(0) = 3. \]
+	En spécialisant l'équation \eqref{eq:suite-geom} pour $n=0$, on trouve ensuite
+		\[ G(1) = G(0+1) = 4 \times G(0) = 4 \times 3 = 12. \]
+	On peut déduire la suite des termes de façon analogue.
+		\begin{align*}
+			G(0) &= 3 \\
+			G(1) &= 4 \times G(0) = 12 \\
+			G(2) &= 4 \times G(1) = 48 \\
+			G(3) &= 4 \times G(2) = 196 \\
+			\vdots &\, \qquad \vdots
+		\end{align*}
+	On souhaite désormais connaître une formule valable pour tous les entiers naturels $n\in\N$ pour qu'on ait pas à reconstruire la suite depuis le début à chaque étude.
+	Pour cela, on choisit de réécrire les termes de la suite de la façon suivante, en utilisant les propriétés de la puissance.
+		\begin{align*}
+			G(0) &= 3 = 3 \times 4^{0} \\
+			G(1) &= 4 \times G(0) = 3 \times 4^{1} \\
+			G(2) &= 4 \times G(1) = 3 \times 4^{2} \\
+			G(3) &= 4 \times G(2) = 3 \times 4^{3} \\
+			\vdots &\, \qquad \vdots \\
+			G(n) &= 3 \times 4^n
+		\end{align*}
+}{}
+
+\thm{de Maya}{
+	Soit $v$ une suite géométrique de raison $q \in \R$ et de terme initial $v(0) \in \R$.
+	Alors
+		\[ v(n) = v(0) \times q^n. \]
+}{thm:maya}
+
+\mprop{Variations}{
+	Soit $u$ une suite géométrique de raison $q > 0$ et de terme initial $u(0) > 0$.
+	On distingue alors les trois cas suivants.
+		\begin{enumerate}[label=---]
+			\item Si $0 < q < 1$, alors $u$ est décroissante et tend vers $0$ exponentiellement.
+			\item Si $q=1$, alors $u$ est constante : $u(n) = u(0)$ pour tout $n\in\N$.
+			\item Si $q>1$, alors $u$ est croissante et diverge exponentiellement vers $+ \infty$.
+		\end{enumerate}
+}{}
+
+\section{Problèmes de seuil}
+
+\str{
+	On décrit ici une stratégie pour résoudre un problème de seuil courant qui est facile à résoudre pour les suites arithmétiques mais très dur à résoudre pour les suites géométriques.
+	Étant donné une suite géométrique $v$ croissante et un seuil $M > 0$, on souhaite trouver le plus petit entier naturel $N\in\N$ vérifiant
+		\[ v(N) > M. \]
+	Considérons l'exemple suivant.
+		\begin{align*}
+			v(n) = 3 \times 5^n && \text{et} && M = 100~000.
+		\end{align*}
+	La stratégie est de considérer un intervalle dans lequel le $N$ recherché doit nécessairement appartenir, et de scinder cet intervalle à chaque étape.
+	Pour commencer, on prend
+		\[ I = [0 ; 10], \]
+	car $v(0) = 3 < 100~000 < v(10) \approx 2,9 \times 10^{7}$.
+	La borne supérieure $10$ a été choisie au hasard et suffisamment grande telle que $v(10)$ dépasse le seuil.
+	
+	On divise l'intervalle en deux parts égales en considérant son milieu, 
+		\[ m = \dfrac{0+10}2 = 5. \]
+	On évalue $v$ en $5$ pour décider si $N$ est plus grand ou plus petit que $5$.
+	En l'occurrence, 
+		\[ v(5) = 9375 < 100~000. \]
+	Le seuil recherché est donc nécessairement supérieur à $5$, et on peut définir
+		\[ I = [5 ; 10], \]
+	comme nouvel intervalle dans lequel $N$ appartient.
+	
+	On répète l'opération en calculant le milieu $m = \dfrac{5+10}2 = 7,5$, et 
+		\[ v(7,5) \approx 5,2 \times 10^5 > 100~000. \]
+	D'où $I = [5 ; 7,5]$.
+	Ici, on peut soit tester les $3$ valeurs qui restent ($5 ; 6 ; 7$) ou continuer pour trouver
+		\[ I = [ 6,25 ; 7,5 ], \]
+	dans lequel $N = 7$ est le seul entier possible.
+	
+	On vérifiera bien sûr que $v(6) < 100~000 < v(7)$, comme voulu.
+}{}
+
+\IncMargin{1em}
+\begin{algorithm}
+\SetKwInput{KwRes}{retourner}%
+\SetKwIF{Si}{SinonSi}{Sinon}{si}{alors}{sinon si}{sinon}{fin si}%
+\SetKwFor{Tq}{tant que}{faire}{fin tq}%
+\SetKwInOut{Input}{entrée}\SetKwInOut{Output}{sortie}
+	\Input{Suite géométrique $G$ de raison $q > 1$ tel que $G(0) > 0$. Seuil $M$. Intervalle $I=[a ; b]$ tel que $G(a) < M < G(b)$.}
+	\Output{Le plus petit entier naturel $N\in\N$ tel que $G(N) \geq M$.}
+	\BlankLine
+	\emph{L'intervalle $I=[a;b]$ de départ doit vérifier $G(a) < M < G(b)$, de telle sorte que l'entier $N$ recherché lui appartienne nécessairement car $G$ est croissante. On pourrait prendre $a=0$ et $b$ extrêmement grand en cas de doute.}\\
+	\Tq{ la longueur de l'intervalle $I=[a;b]$ est supérieure  ou égale à $1$}{
+		$m = \dfrac{a+b}2$ \emph{, le milieu de l'intervalle $I$}\\
+		\Si{ $G(m) \geq M$}{
+			$I = [a ; m]$
+		}
+		\Sinon{
+			$I = [m ; b]$
+		}
+	}
+	\KwRes{L'unique entier appartenant à l'intervalle $I$.}
+\caption{Problème de seuil.}\label{algo:seuil-geom}
+\end{algorithm}\DecMargin{1em} 
+
+\exe{}{
+	Trouver le plus petit entier naturel $n\in\N$ vérifiant les inéquations suivantes.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $2 \times 3^n > 100~000$
+		\item $7 \times \left(\dfrac32 \right)^n > 50~000$
+		\item $3 \times \left( \dfrac43 \right)^n > 1~000$
+		\item $3 \times \left( \dfrac43 \right)^n > 10~000$
+	\end{enumerate}
+	\end{multicols}
+}{}
+
+
+
+
+\nt{
+	C'est au début du 17è siècle que John Neper crée les premières tables de valeurs de la fonction $\ln$ qui porte son nom : le logarithme népérien.
+	La notation $\log$ désigne une fonction qui transforme la multiplication en une addition, cette dernière opération étant beaucoup plus facile lorsqu'on manipule des grands nombres.
+	Une bonne table de valeurs permet alors, pour multiplier deux grands nombres $A$ et $B$, d'additionner leur logarithmes grâce à la relation
+		\[ \log(A \times B) = \log(A) + \log(B). \]
+	Pour retrouver le produit, on utilise alors la table de valeurs dans le sens inverse.
+	
+	Plus généralement, l'application du $\log$ convertit une équation exponentielle en une équation linéaire simple.
+	L'étude du logarithme est au programme du cours de mathématiques complémentaires, option de Terminale.
+}{}
+
+\section{Lecture graphique : échelle logarithmique}
+
+TODO 
