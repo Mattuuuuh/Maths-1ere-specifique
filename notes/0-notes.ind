@@ -6,7 +6,7 @@
   }
 
   \lettergroup{A}
-  \item absolue, 28
+  \item absolue, 29
   \item affine, 6
   \item augmentation, 29
 
@@ -15,46 +15,54 @@
   \lettergroup{C}
   \item coefficient directeur, 6
   \item coordonnées entières, 9
+  \item corrélation nulle, 55
 
   \indexspace
 
   \lettergroup{D}
   \item diminution, 29
+  \item décorrélés, 55
 
   \indexspace
 
   \lettergroup{E}
-  \item environ, 58
+  \item environ, 59
 
   \indexspace
 
   \lettergroup{F}
-  \item feuilles, 53
   \item fonction identité, 7
 
   \indexspace
 
   \lettergroup{L}
-  \item loi uniforme, 52
+  \item loi uniforme, 53
+
+  \indexspace
+
+  \lettergroup{N}
+  \item négativement corrélés, 55
 
   \indexspace
 
   \lettergroup{O}
   \item équation de droite, 9
-  \item équiprobable, 52
-  \item événement, 49
+  \item équiprobable, 53
+  \item événement, 50
+  \item événement conditionnel, 54
+  \item événements indépendants, 55
   \item ordonnée à l'origine, 6
 
   \indexspace
 
   \lettergroup{P}
+  \item positivement corrélés, 55
   \item pourcentage, 25
-  \item profondeur, 53
+  \item probabilité conditionnelle, 54
 
   \indexspace
 
   \lettergroup{R}
-  \item racine, 53
-  \item relative, 28
+  \item relative, 29
 
 \end{theindex}

@@ -35,6 +35,8 @@ cross/.default={1pt}}
 	every node/.style = {font=\Large}
 }
 
+\usepackage{makecell} %pour \thead dans tabular ex3 (aligner verticalement le coeff de proportionnalité)
+
 \begin{document}
 %
 	% page 1
@@ -198,6 +200,41 @@ cross/.default={1pt}}
 		\node[cross=2pt, label=above:2, thick] at (1,1){};
 		\node[cross=2pt, label=left:4, thick] at (-1,1){};
 		\node[cross=2pt, label=below:6, thick] at (1,-1){};
+	\end{tikzpicture}
+	
+	%page 8
+	\begin{tikzpicture}
+		% depth 1
+		\foreach \i in {-3, 3}
+		\draw[-, thick, black] (0,0) node {$\bullet$} -- (\i,-2);
+		
+		\draw (0,0) node[above] {racine};
+		\draw (-3,-2) node[above left] {A};
+		\draw (3,-2) node[above right] {B};
+		% depth 2
+		\foreach \i in {-3, 3} \foreach \j in {-1, 1}
+			\draw[-, thick, black] (\i,-2) node {$\bullet$} -- (\i+\j,-4) node {$\bullet$};
+			
+		\draw (-4,-4) node[below] {issue 1};
+		\draw (2,-4) node[below] {issue 3};
+		\draw (-2,-4) node[below] {issue 2};
+		\draw (4,-4) node[below] {issue 4};
+		
+		% sols
+		\draw (1.5,-.5) node {$0,6$};
+		\draw (-1.5,-.5) node {$0,4$};
+		
+		\draw (4,-3) node {$0,3$};
+		\draw (2,-3) node {$0,7$};
+		
+		\draw (-2,-3) node {$\frac14$};
+		\draw (-4,-3) node {$\frac34$};
+		
+		
+		\draw (5,-3) node[right] {\thead{probabilités \\ conditionnelles \\ sachant B}};
+		\draw (-7.5,-3) node[right] {\thead{probabilités \\ conditionnelles \\ sachant A}};
+		\draw[->, thick] (5,-3) -- (4.5,-3);
+		\draw[->, thick] (-5,-3) -- (-4.5,-3);
 	\end{tikzpicture}
 %
 \end{document}

@@ -249,53 +249,58 @@ C'est association est une loi de probabilité qu'on ne démontre jamais : c'est 
 	ce qui conclut.
 }{}
 
-\section{Arbres de probabilité}
+\section{Événements conditionnels}
 
-Les arbres de probabilité sont des schémas permettant de décrire les chemins possibles d'une expérience aléatoire à plusieurs épreuves (ou étapes).
-Le point de départ est la \emphindex{racine} de l'arbre, et les issues possibles sont ses \emphindex{feuilles}.
-
-On choisit ici de représenter un arbre de haut en bas, plutôt que de gauche à droite comme il est commun de le faire.
-Il va de soi que ces deux représentations sont équivalentes.
-
-La \emphindex{profondeur} de l'arbre désigne le nombre total d'épreuves de l'expérience.
-On lit l'arbre en le parcourant de haut en bas, chaque embranchement correspondant à un résultat possible de l'épreuve d'après.
-La somme des probabilités de chaque branche est donc nécessairement $1$.
-Pour connaître la probabilité d'une issue, il faut multiplier les probabilités correspondant à chaque choix du parcours vers celle-ci.
-
-L'ensemble des feuilles $\omega$ de l'arbre correspond à l'univers $\Omega$ de l'expérience.
-On pourra donc connaître $|\Omega|$ en comptant les feuilles, et $P(\omega)$ en multipliant les probabilités qui mènent de la racine à la feuille.
-
-\ex{}{
-	On lance un D$6$ équilibré, dé à $6$ faces.
-	\begin{enumerate}[label=$\bullet$]
-		\item Si le numéro obtenu est un multiple de 3, on extrait au hasard une boule dans l'urne 1 qui contient 3 boules noires, 4 boules blanches et 3 boules rouges
-		\item Si le numéro obtenu n'est pas un multiple de 3, on extrait une boule dans l'urne 2 qui contient 3 boules noires et 2 boules blanches.
-	\end{enumerate}
-	On distingue deux étapes à l'expérience : on crée donc l'arbre de profondeur $2$ suivant, où on dénote par B, N, et R les évéments \og tirer une boule blanche, noire, rouge \fg respectivement.
-	
-	\begin{center}
-	\includegraphics[page=4, scale=1.25]{figures/fig-proba.pdf}
-	\end{center}
-	On ajoute les probabilités de chacun des événements sur les branches associées.
-	Par exemple, de la racine, pour atteindre l'embranchement \og multiple de $3$ \fg, il y a $1$ chance sur $3$ (car seuls $3$ et $6$ sont les issues favorables).
-	On ajoute donc un $\frac13$ sur la branche qui mène à cet événement, est un $\frac23$ sur l'autre.
-	
-	En sachant qu'on ait obtenu un nombre qui n'est pas un multiple de $3$, on tire une boule dans la deuxième urne  qui contient 3 boules noires et 2 boules blanches.
-	La probabilité d'obtenir une boule blanche est donc $\frac25$, et celle d'obtenir une boule noire est $\frac35$.
-	En notant toutes les probabilités ainsi calculées, on obtient l'arbre de probabilité suivant.
-	
-	\begin{center}
-	\includegraphics[page=5, scale=1.25]{figures/fig-proba.pdf}
-	\end{center}
-	La probabilité d'un chemin racine-feuille est le produit des probabilités rencontrées en le parcourant.
-	En outre, deux tels chemins correspondent à des événements disjoints.
-	On calcule par exemple
-		\[ P(N) = \dfrac23 \cdot \dfrac35 + \dfrac13 \cdot \dfrac3{10} = \dfrac12. \]
+\dfn{événement conditionnel}{
+	Soient $A, B$ deux événements. L'\emphindex{événement conditionnel} « $A$ sachant $B$ », aussi noté $A|B$
+	correspond à l'événement associé à $A$ dans le nouvel univers où on sait que $B$ se réalise.
 }{}
 
-% à reporter au chapitre d'échantillonnage peut-être ?
+\subsection{Arbres de probabilité}
 
-%\section{Construction d'un modèle empirique}
-%done
+\ex{}{
+	On considère un arbre modélisant une expérience aléatoire à deux épreuves.
+	A et B sont les deux issues de la première épreuve. Chaque feuille correspond à une issue finale.
+	\begin{center}
+	\includegraphics[page=8, scale=1.25]{figures/fig-proba.pdf}
+	\end{center}
+	\begin{enumerate}[label=$\bullet$]
+		\item Les probabilités de l'arbre sont conditionnées par le chemin déjà parcouru.
+		\item Pour chaque nœud, la somme des probabilités des sous-branches vaut $1$.
+		\item Chaque feuille est une issue (et vice versa). Pour connaître la probabilité d'une issue, il faut multiplier les probabilités le long du chemin racine-feuille.
+		\item Un événement est un ensemble d'issues. Pour connaître la probabilité d'un événement, il faut sommer la probabilité de chaque feuille lui correspondant.
+	\end{enumerate}
+}{}
+
+
+
+\subsection{Probabilité conditionnelle}
+
+\dfn{probabilité conditionnelle}{
+	On pose la \emphindex{probabilité conditionnelle} de $B$ sachant $A$ par
+		\[ P(B \sct A) = \dfrac{P(A \cap B)}{P(A)}. \]
+}{}
+
+
+
+\thm{de Bayes}{
+	Soient $A, B$ deux événements. Alors
+		\[ P(A \sct B) = \dfrac{P(A)}{P(B)} \times P(B \sct A). \]
+}{}
+
+
+\dfn{événements indépendants}{
+	Les événements $A$ et $B$ sont \emphindex{événements indépendants} si
+		\begin{align*}
+			P(B \sct A) = P(B) && \iff && P(B \sct A) = P(B) && \iff && P(A\cap B) = P(A) \times P(B)
+		\end{align*}
+	On dira alors que $A$ et $B$ sont \emphindex{décorrélés}, ou de \emphindex{corrélation nulle}.
+}{}
+
+\nomen{
+	 Si $P(A \sct B) > P(A)$, savoir que $B$ se réalise augmente la probabilité que $A$ se réalise. Les événements sont \emphindex{positivement corrélés}.
+	 
+	  Si $P(A \sct B) < P(A)$, savoir que $B$ se réalise diminue la probabilité que $A$ se réalise. Les événements sont \emphindex{négativement corrélés}.
+}
 
 

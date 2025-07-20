@@ -5,14 +5,18 @@
 \indexentry{équation de droite}{9}
 \indexentry{coordonnées entières}{9}
 \indexentry{pourcentage}{25}
-\indexentry{relative}{28}
-\indexentry{absolue}{28}
+\indexentry{relative}{29}
 \indexentry{augmentation}{29}
 \indexentry{diminution}{29}
-\indexentry{événement}{49}
-\indexentry{équiprobable}{52}
-\indexentry{loi uniforme}{52}
-\indexentry{racine}{53}
-\indexentry{feuilles}{53}
-\indexentry{profondeur}{53}
-\indexentry{environ}{58}
+\indexentry{absolue}{29}
+\indexentry{événement}{50}
+\indexentry{équiprobable}{53}
+\indexentry{loi uniforme}{53}
+\indexentry{événement conditionnel}{54}
+\indexentry{probabilité conditionnelle}{54}
+\indexentry{événements indépendants}{55}
+\indexentry{décorrélés}{55}
+\indexentry{corrélation nulle}{55}
+\indexentry{positivement corrélés}{55}
+\indexentry{négativement corrélés}{55}
+\indexentry{environ}{59}
