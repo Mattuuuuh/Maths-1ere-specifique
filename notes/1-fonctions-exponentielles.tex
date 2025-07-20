@@ -21,7 +21,7 @@ Une première étape est donc de comprendre la signification de l'exponentiation
 
 \section{Généralisation de l'exponentiation}
 
-\dfn{Vocabulaire d'exponentiation : puissance, base, exposant}{
+\dfn{vocabulaire d'exponentiation : puissance, base, exposant}{
 	On parle d'\emph{exponentiation} lorsqu'on prend une valeur à la \emph{puissance} d'une autre.
 	
 	On dit \og $a$ puissance $b$ \fg ou \og $a$ exposant $b$ \fg pour signifier 
@@ -61,7 +61,7 @@ Une première étape est donc de comprendre la signification de l'exponentiation
 	et donc $q^{-2} = \dfrac1{q^2}$.
 }{}
 
-\dfn{Extension de la puissance à $\Z$}{
+\dfn{extension de la puissance à $\Z$}{
 	On étend la notation $q^m$ à $m \in \Z$ pour obtenir les valeurs suivantes.
 		\begin{center}
 		\begin{tabular}{|c|c|c|c|c|c|c|}\hline
@@ -100,7 +100,7 @@ Une première étape est donc de comprendre la signification de l'exponentiation
 	et que $q^{1/3}$ est la racine cubique de $q$.
 }{}
 
-\dfn{Extension de la puissance à $\Q$}{
+\dfn{extension de la puissance à $\Q$}{
 	On étend la relation $q^m$ à $m\in\Q$, pour obtenir
 		\[ \left( q^{1/m} \right)^{m} = q. \]
 	Le nombre $q^{1/m}$ est donc l'unique nombre réel $x\in\R^*_+$ strictement positif tel que
@@ -135,68 +135,68 @@ Une première étape est donc de comprendre la signification de l'exponentiation
 	On vérifiera qu'on ait bien $4^3 = 8^2 = 64$ pour s'assurer de la cohérence des opérations.
 }{}
 
-\section{Application : évolution moyenne}
-
-\dfn{Pourcentage}{
-	Soient $P, x \in\R$ deux nombres réels positifs ou nuls.
-	Alors
-	  	\begin{center}
-	  	\og $P \%$ de $x$ \fg~= $\dfrac{P}100 \times x$.
-	  	\end{center}
-	En particulier,
-	  	\begin{center}
-	  	\og $A \%$ de $B$ \fg~= \og $B \%$ de $A$ \fg.
-	  	\end{center}
-}{}
-
-\nt{
-	Lorsqu'on lit \og $P \%$ de $x$ \fg, on convertit $P\% = \dfrac{P}{100}$, et on remplace \og de \fg par le signe de multiplication $\times$.
-}{}
-
-\ex{}{
-	Comme $50\% = \dfrac{50}{100} = 0,5 = \dfrac12$, on a $50\%$ de $340 = \dfrac12 \times 340 = 170$.
-	
-	De plus, $30\%$ de $50 = \dfrac{30}{100} \times 50 = 0,3 \times 50 = 15$.
-	On aurait aussi pû dire que c'est égal à $50\%$ de $30$, qui vaut $15$ sans hésiter.
-}{}
-
-\thm{Évolutions successives}{
-	L'évolution d'une valeur correspond à sa multiplication par un coefficient multiplicateur $m$.
-	
-	\begin{enumerate}
-		\item Si $m>1$, $m=1+p$, et l'évolution est une augmentation de $100p \%$.
-		\item Si $m<1$, $m=1-p$, et l'évolution est une diminution de $100p \%$.
-		\item Si $m=1$, la valeur ne change pas.
-	\end{enumerate}
-	
-	Lorsque deux évolutions successives ont lieu, les coefficients sont multipliés entre eux pour obtenir un coefficient multiplicateur global.
-
-	\begin{center}
-	\includegraphics[page=1]{figures/fig-exponentielles.pdf}
-	\end{center}
-}{thm:ev-succ}
-
-\thm{Évolution réciproque}{
-	L'évolution réciproque est l'évolution qui permet de revenir à une valeur initale.
-	
-	\begin{center}
-	\includegraphics[page=2]{figures/fig-exponentielles.pdf}
-	\end{center}
-}{}
-
-\thm{Évolution moyenne}{
-	Si une valeur de départ subit $n$ évolutions successives, alors on appelle \emph{coefficient multiplicateur moyen} le nombre
-		%\[ M_{\text{Moyen}} = \left( M_{\text{Global}} \right)^{1/n}. \]
-		\[ M_{\text{Moyen}} = M_{\text{Global}}^{1/n}. \]
-
-	\begin{center}
-	\includegraphics[page=3]{figures/fig-exponentielles.pdf}
-	\end{center}
-}{}
+%\section{Application : évolution moyenne}
+%
+%\dfn{Pourcentage}{
+%	Soient $P, x \in\R$ deux nombres réels positifs ou nuls.
+%	Alors
+%	  	\begin{center}
+%	  	\og $P \%$ de $x$ \fg~= $\dfrac{P}100 \times x$.
+%	  	\end{center}
+%	En particulier,
+%	  	\begin{center}
+%	  	\og $A \%$ de $B$ \fg~= \og $B \%$ de $A$ \fg.
+%	  	\end{center}
+%}{}
+%
+%\nt{
+%	Lorsqu'on lit \og $P \%$ de $x$ \fg, on convertit $P\% = \dfrac{P}{100}$, et on remplace \og de \fg par le signe de multiplication $\times$.
+%}{}
+%
+%\ex{}{
+%	Comme $50\% = \dfrac{50}{100} = 0,5 = \dfrac12$, on a $50\%$ de $340 = \dfrac12 \times 340 = 170$.
+%	
+%	De plus, $30\%$ de $50 = \dfrac{30}{100} \times 50 = 0,3 \times 50 = 15$.
+%	On aurait aussi pû dire que c'est égal à $50\%$ de $30$, qui vaut $15$ sans hésiter.
+%}{}
+%
+%\thm{Évolutions successives}{
+%	L'évolution d'une valeur correspond à sa multiplication par un coefficient multiplicateur $m$.
+%	
+%	\begin{enumerate}
+%		\item Si $m>1$, $m=1+p$, et l'évolution est une augmentation de $100p \%$.
+%		\item Si $m<1$, $m=1-p$, et l'évolution est une diminution de $100p \%$.
+%		\item Si $m=1$, la valeur ne change pas.
+%	\end{enumerate}
+%	
+%	Lorsque deux évolutions successives ont lieu, les coefficients sont multipliés entre eux pour obtenir un coefficient multiplicateur global.
+%
+%	\begin{center}
+%	\includegraphics[page=1]{figures/fig-exponentielles.pdf}
+%	\end{center}
+%}{thm:ev-succ}
+%
+%\thm{Évolution réciproque}{
+%	L'évolution réciproque est l'évolution qui permet de revenir à une valeur initale.
+%	
+%	\begin{center}
+%	\includegraphics[page=2]{figures/fig-exponentielles.pdf}
+%	\end{center}
+%}{}
+%
+%\thm{Évolution moyenne}{
+%	Si une valeur de départ subit $n$ évolutions successives, alors on appelle \emph{coefficient multiplicateur moyen} le nombre
+%		%\[ M_{\text{Moyen}} = \left( M_{\text{Global}} \right)^{1/n}. \]
+%		\[ M_{\text{Moyen}} = M_{\text{Global}}^{1/n}. \]
+%
+%	\begin{center}
+%	\includegraphics[page=3]{figures/fig-exponentielles.pdf}
+%	\end{center}
+%}{}
 
 \section{Fonction exponentielle}
 
-\dfn{Fonction exponentielle de base $q$}{
+\dfn{fonction exponentielle de base $q$}{
 	On dit qu'une fonction $g$ est exponentielle de base $q\in\R_+^*$ si elle est de la forme 
 		\[ g(x) = g(0) \times q^{x}. \]
 }{}

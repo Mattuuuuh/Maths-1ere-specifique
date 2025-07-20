@@ -1,7 +1,7 @@
 %!TEX encoding = UTF8
 %!TEX root = 0-notes.tex
 
-\chapter{Nombre dérivé}
+\chapter{Dérivation}
 
 \section{Introduction : calcul de vitesse}
 
@@ -27,8 +27,9 @@ C'est la vitesse \emph{instantanée} de la voiture --- celle qu'on lit sur le ta
 
 Avant de commencer l'étude, dessinons d'abord quelques situations qui peuvent subvenir.
 D'abord, la notation $t$ et $f(t)$ n'est pas anodine : la position de la voiture est une fonction de temps (car à chaque temps est associé une unique position), et on peut la représenter dans un graphique comme ci-dessous.
-
+\begin{center}
 \includegraphics[page=1]{figures/fig-derivation.pdf}
+\end{center}
 
 De l'expression de la vitesse de l'équation \eqref{eq:3.1}, et en prenant $t_1 < t_2$, on remarque trois cas de figure.
 \begin{enumerate}
@@ -84,13 +85,18 @@ qui est exactement la formule du coefficient directeur de la fonction affine pas
 Rappelons que le coefficient directeur mesure la pente d'une fonction affine, et que le signe de celui-ci donne les variations de celle-ci.
 On répète en fait la même chose en langage affine : si le coefficient directeur est positif, c'est que la vitesse moyenne est positive, et donc que la fonction augmente.
 
-\includegraphics[page=3]{figures/fig-derivation.pdf}
-\includegraphics[page=4]{figures/fig-derivation.pdf}
-\includegraphics[page=5]{figures/fig-derivation.pdf}
-\includegraphics[page=6]{figures/fig-derivation.pdf}
+	\begin{center}
+	\begin{multicols}{2}
+	\includegraphics[page=3]{figures/fig-derivation.pdf}
+	\includegraphics[page=4]{figures/fig-derivation.pdf}
+	
+	\hfill
+	\includegraphics[page=5]{figures/fig-derivation.pdf}
+	\includegraphics[page=6]{figures/fig-derivation.pdf}
+	 \end{multicols}
+	 \end{center}
 
-
-\dfn{Dérivation ponctuelle}{
+\dfn{dérivation ponctuelle}{
 	Soit $f$ une fonction position suffisamment lisse.
 	On calcule, au temps $t$, la vitesse instantanée en considérant
 		\[ v_h = \dfrac{f(t+h)-f(t)}{h}, \]
@@ -101,35 +107,213 @@ On répète en fait la même chose en langage affine : si le coefficient directe
 
 \section{Dérivation}
 
-\dfn{Fonction dérivée}{
+\dfn{fonction dérivée}{
 	Soit $f$ une fonction sur $\R$ suffisamment lisse.
 	On définit $f'$, la \emph{fonction dérivée} de $f$, telle que $f'(t)$ soit la dérivée ponctuelle de $f$ en $t$.
 }{}
 
-\thm{Linéarité de la dérivée}{
-	Soient $f, g$ deux fonctions dérivables sur $\R$, et $\kappa\in\R$ un nombre réel quelconque. 
+\thm{linéarité de la dérivée}{
+	Soient $f, g$ deux fonctions dérivables sur $\R$, et $c\in\R$ un nombre réel quelconque. 
 	Alors
+		\begin{multicols}{2}
 		\begin{enumerate}
 			\item $(f+g)' = f' + g'$ ; et
-			\item $(\kappa f)' = \kappa f'$.
+			\item $(c\times f)' = c\times f'$.
 		\end{enumerate}
+		\end{multicols}
 }{thm:lin-der}
 
-\mprop{Dérivée des monômes usuels}{
-	\centering
-	\begin{tabular}{|c|c|}\hline
-		Monôme & Dérivée \\ \hline
-		$1$ & $0$ \\ \hline
-		$x$ & $1$ \\ \hline
-		$x^2$ & $2x$ \\ \hline
-		$x^3$ & $3x^2$ \\ \hline
+\mprop{dérivée des monômes usuels}{
+	Pour chaque monôme suivant, on donne sa dérivée formelle.
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|c|}\hline
+		Monôme & 1 & $x$ & $x^2$ & $x^3$ \\ \hline
+		Dérivée & 0 & 1 & $2x$ & $3x^2$ \\ \hline
 	\end{tabular}
+	\end{center}
 }{prop:der-mono}
 
-\thm{Signes et variations}{
+\pf{}{
+	Prenons $f(x) = x^2$.
+	Alors $f'(x)$ est la limite de $\dfrac{f(x+h)-f(x)}h$ lorsque $h$ tend vers 0.
+	Calculons donc
+		\[ \dfrac{f(x+h)-f(x)}h = \dfrac{(x+h)^2 - x^2}h = \dfrac{x^2 + h^2 + 2xh - x^2}h = 2x + h, \]
+	qui approche bien $2x$ lorsque $h$ est très proche de $0$ (on peut ici prendre $h=0$).
+	
+	Les autres monômes se dérivent de la même façon.
+}
+
+\ex{}{
+	La dérivée du polynôme de degré 3 $f(x) = 2x^3 - 6x^2 - 48x + 30$ est donnée par
+		\begin{align*}
+		 f'(x) &= \bigl(f(x)\bigr)' =  \bigl( 2x^3 - 6x^2 - 48x + 30\bigr)' , \\
+		 	&= \bigl( 2x^3\bigr)' + \bigl(- 6x^2\bigr)' + \bigl( - 48x \bigr)' + \bigl( 30\bigr)', \\
+		 	&= 2\bigl( x^3\bigr)' -6 \bigl(x^2\bigr)' -48 \bigl(x \bigr)' + 30\bigl( 1\bigr)', \\
+		 	&= 2\bigl( 3x^2\bigr) -6 \bigl(2x\bigr) -48 \bigl(1 \bigr)' + 30\bigl( 0\bigr), \\
+		 	&= 6x^2-12x -48.
+		\end{align*}
+}{ex:cube1}
+
+
+\exe{}{
+	Montrer qu'une fonction constante $f(x) = c$ est de dérivée identiquement nulle : $f'(x) = 0$.
+}{}
+
+\nt{
+	D'après l'exercice précédent, on se permettra d'ignorer instantanément les monômes constants lors de la dérivation.
+}
+
+\thm{signes et variations}{
 	Soit $f$ une fonction dérivable sur $\R$ et $I$ un intervalle quelconque.
 	Alors
 		\begin{center}
 			$f$ est croissante sur $I$ \qquad $\iff$ \qquad $f'$ est positive sur $I$. 
 		\end{center}
 }{}
+
+
+\ex{}{
+	Considérons la fonction affine $f(x) = 3x - 61$.
+	Sa dérivée est donnée par
+		\[ f'(x) = \bigl(f(x)\bigr)' = \bigl( 3x - 61 \bigr)' = \bigl( 3x \bigr)' + \bigl( - 61 \bigr)' = 3 \bigl( x \bigr)' + 0 = 3. \]
+	$f'$ vaut donc constamment 3, qui est positif, et donc $f$ est une fonction croissante.
+}{}
+
+\ex{}{
+	En reprenant l'étude de $f(x) = 2x^3 - 6x^2 - 48x + 30$ entamée à l'exercice \ref{ex:cube1}, on démontre que $f'(x) = 6(x+2)(x-4)$ en développant la forme factorisée.
+		\[ 6(x+2)(x-4) = 6\bigl[ (x+2)(x-4) \bigr] = 6\bigl[ x^2 -2x - 8 \bigr] = 6x^2 - 12x - 48 = f'(x). \]
+	Un tableau de signes permet l'étude d'un produit de fonctions affines.
+	Ici les affines $x+2$ et $x-4$ sont toutes les deux croissantes et donc sont négatives, nulles, puis positives.
+	On ajoute une ligne pour les variations de $f$ données par le signe de $f'$.
+	
+	\begin{center}
+	\includegraphics[page=7]{figures/fig-derivation.pdf}
+	 \end{center}
+}{ex:cube2}
+
+\exe{}{
+	Soit $f(x) = ax+b$ une fonction affine où $a$ et $b$ sont des réels fixés.
+	Montrer que $f'(x) = a$ et en déduire les variations de $f$ selon le signe de son coefficient directeur.	
+}{exe:affineprime}{
+	TODO
+}
+
+
+\exe{, difficulty=1}{
+	Spinoza, déterministe notoire, jette verticalement un objet de masse $m$ au temps $t=0$ et souhaite connaître sa hauteur $h(t)$ en tout temps $t>0$ à l'aide uniquement de ses conditions initiales : la hauteur initiale $h(0)$, la vitesse initiale $h'(0)$.
+	
+	La deuxième loi de Newton lui permet d'écrire, en négligeant toute force qui n'est pas la gravité, que l'accélération $h''$ est donnée par $h''(t) = -\dfrac{g}m$, où $m$ est la masse de l'objet et $g$ l'accélération de la pesanteur.
+	
+	\begin{enumerate}
+		\item 
+		Montrer, en dérivant deux fois $h$, qu'elle est de la forme
+			\[ h(t) = -\dfrac{g}{2m} t^2 + b t + c, \]
+		où $b$ et $c$ sont des constantes qu'on ne connaît pas encore.
+	
+		\item Montrer que $c$ est la hauteur de l'objet au temps initial $t=0$.
+		\item Montrer que $b$ est la vitesse de l'objet au temps initial $t=0$.
+		\item Écrire la hauteur de l'objet en fonction du temps avec les données $g=9,8 ; m=1 ; h(0) = 3 ; h'(0) = 2$. Quand est-ce que l'objet touche le sol, approximativement ? On cherche le $t$ positif tel que $h(t) = 0$.
+	\end{enumerate}
+}{exe:spinoza}{
+	TODO
+}
+
+
+\exe{, difficulty=1}{
+	Soit $f$ une fonction réelle et $c\in\R$ une constante quelconque.
+	
+	\begin{enumerate}
+		\item Montrer que $f(x)$ et $g(x) = f(x)+c$ admettent les mêmes variations. Comment dessiner $\C_g$ en connaissant $\C_f$ ? Comparer par exemple les courbe représentatives de $x^2$ et $x^2 + 2$.
+		\item Montrer que $f(x)$ et $c\cdot f(x)$ admettent
+			\begin{enumerate}[label=\roman*)]
+				\item les mêmes variations si $c > 0$ ; et
+				\item des variations opposées si $c < 0$.
+			\end{enumerate}
+		 Comment dessiner $\C_g$ en connaissant $\C_f$ ? Comparer par exemple les courbe représentatives de $x^2, -x^2,$ et $3x^2$.
+	\end{enumerate}
+}{exe:fonctions-parentes}{
+	TODO
+}
+
+\exe{}{
+	Donner une fonction $f$ telle que sa dérivée $f'$ soit
+		\[ f'(x) =  x^2 - 4. \]
+	En quels $x$ la fonction $f$ change-t-elle de variations ? Ce sont les antécédents des extrema locaux.
+}{exe:intégration}{
+	TODO
+}
+
+\exe{, difficulty=1}{
+	Donner une fonction $f$ telle que
+		\[ f'(x) = (2-x)(x-1). \]
+	En quels $x$ la fonction $f$ change-t-elle de variations ? Ce sont les antécédents des extrema locaux.
+}{exe:intégration2}{
+	TODO
+}
+
+\exe{, difficulty=2}{
+	Soient $a_1 < a_2 < \dots < a_n$ des nombres réels ordonnés.
+	On pose $f$ comme le produit des facteurs affines $x-a_i$ :
+		\[ f(x) = (x-a_1) \cdot (x-a_2) \cdots (x-a_n). \]
+	\begin{enumerate}
+		\item Montrer que $f$ s'annule exactement en $x=a_1, a_2, \dots, a_n$.
+		\item Montrer que $f(x)$ est positif pour $x<a_1$ si $n$ est pair, et négatif sinon.
+		\item Montrer que le signe de $f(x)$ change $n$ fois en $x=a_1, a_2, \dots, a_n$.
+	\end{enumerate}
+}{exe:signe-décomposition}{
+	TODO
+}
+
+\exe{, difficulty=1}{
+	Montrer que, pour $x, h \in \R$,
+		\[ (x+h)^4 = x^4 + 4x^3 h +6x^2h^2 + 4xh^3 + h^4. \]
+	En déduire que
+		\[ \dfrac{(x+h)^4 - x^4}h \]
+	tend vers $4x^3$ lorsque $h$ devient nul.
+	Conclure que $(x^4)' = 4x^3$.
+}{exe:x4prime}{
+	TODO
+}
+
+\exe{, difficulty=1}{
+	Montrer que, pour $x, h \in \R$ tels que $x\neq0$ et $h$ suffisamment petit pour que $x+h\neq0$,
+		\[ \dfrac1{x+h} - \dfrac1x = \dfrac{-h}{x(x+h)}. \]
+	Conclure que
+		\[ \left(\dfrac1x\right)' = \dfrac{-1}{x^2}. \]
+}{exe:invprime}{
+	TODO
+}
+
+\exe{, difficulty=1}{
+	À l'aide du résultat de l'exercice \ref{exe:invprime} qui montre que
+		\[ \left(\dfrac1x\right)' = \dfrac{-1}{x^2}, \]
+	montrer que la fonction inverse $f(x) = \dfrac1x$ est strictement décroissante sur son domaine de définition $\R^*$, la droite réelle perforée en $0$.
+}{exe:invprime2}{
+	TODO
+}
+
+\exe{, difficulty=2}{
+	Soit $n\in\N_{\geq2}$ un entier naturel supérieur ou égal à $2$. On souhaite montrer que
+		\[ (x+h)^n = x^n + nhx^{n-1} + h^2 g(x, h), \]
+	où $g$ est une fonction polynomiale en $x$ et $h$.
+	
+	\begin{enumerate}
+		\item Montrer, en développant $(x+h)^2$, que cette égalité est vraie pour $n=2$.
+		\item En utilisant que 
+			\[ (x+h)^{n+1} = (x+h) \cdot (x+h)^{n} = x(x+h)^n + h(x+h)^n, \]
+		montrer que si cette égalité est vraie pour un entier $n$, alors elle est aussi vraie pour $n+1$.
+		 \item En déduire que l'égalité est vraie pour tout les entiers naturels $n\in\N_{\geq2}$.
+	\end{enumerate}
+}{exe:xnprime}{
+	TODO
+}
+
+\exe{, difficulty=2}{
+	Soit $n\in\N_{\geq2}$ un entier naturel supérieur ou égal à $2$. L'exercice \ref{exe:xnprime} donne
+		\[ (x+h)^n = x^n + nhx^{n-1} + h^2 g(x, h), \]
+	où $g$ est une fonction polynomiale en $x$ et $h$.
+	
+	En déduire que $(x^n)' = nx^{n-1}$.
+}{exe:xnprime2}{
+	TODO
+}
