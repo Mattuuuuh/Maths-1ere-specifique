@@ -10,25 +10,24 @@
 	\begin{chart}
 	%\grid
 	% y = 60
-	\reqhalfcoursec 10,60:{Chapitre }{Fonctions affines}{}{PURPLE_A}
 	
-	\reqhalfcoursec 30,60:{Chapitre }{Fonctions géométriques}{}{RED}
 	
-	\reqhalfcoursec 50,60:{Chapitre }{Évolution}{}{BLUE_E}
+	\reqhalfcoursec 30,60:{Chapitre 2}{Pourcentages et \\ évolution}{}{BLUE_E}
 	
 	% y = 50
-	\reqhalfcoursec 10,50:{Chapitre }{Suites arithmétiques}{}{PURPLE_A}
 	
-	\reqhalfcoursec 30,50:{Chapitre }{Suites géométriques}{}{RED}
+	\reqhalfcoursec 20,50:{Chapitre 4}{Suites \\ géométriques}{}{RED}
+	\reqhalfcoursec 50,50:{Chapitre 5}{Probabilités}{}{GREEN_E}
 	
 	% y = 40
-	\reqhalfcoursec 10,40:{Chapitre }{Fonction dérivée}{}{GOLD}
-	
-	\reqhalfcoursec 30,40:{Chapitre }{Probabilités}{}{GOLD}
+	\reqhalfcoursec 10,40:{Chapitre 7}{Fonctions \\ exponentielles}{}{RED}	
 	
 	% y = 30
+	\reqhalfcoursec 30,30:{Chapitre 1}{Fonctions \\ affines}{}{PURPLE_A}
 	
 	% y = 20
+	\reqhalfcoursec 10,20:{Chapitre 3}{Suites \\ arithmétiques}{}{PURPLE_A}
+	\reqhalfcoursec 50,20:{Chapitre 6}{Fonction \\ dérivée}{}{GOLD}
 	
 	% y = 10
 	
@@ -52,12 +51,17 @@
 	% to y = 60
 	
 	% to y = 50
+	\prereqc 30,60,20,50;10:
+	\prereqc 30,60,50,50;-20:
 	
 	% to y = 40
+	\prereqc 20,50,10,40;-10:
 	
 	% to y = 30
 	
 	% to y = 20
+	\prereq 30,30,10,20:
+	\prereq 30,30,50,20:
 	
 	% to y = 10
 	
