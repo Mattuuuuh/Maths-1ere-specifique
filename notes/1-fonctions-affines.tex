@@ -1,7 +1,7 @@
 %!TEX encoding = UTF8
 %!TEX root = 0-notes.tex
 
-\chapter{Droites et fonctions affines}
+\chapter{Lecture graphique et fonctions affines}
 
 
 %%%%%%%
@@ -15,48 +15,13 @@
 %%%%%%%
 %%%%%%%
 
-\section{Lecture graphique et définitions}\label{sec:aff-1}
-
-Soit $(d)$ une droite \emph{non verticale} qu'on plonge dans un repère orthonormé.
-On suppose $(d)$ non verticale pour qu'elle soit la courbe représentative d'une certaine fonction $f$ qu'on souhaite déterminer : \[(d) = \C_f. \]
-Posons en outre $\D = \R$ le domaine de $f$, soit la droite réelle toute entière.
-
-On a supposé $(d)$ non verticale car dans le cas contraire, un certain antécédent $x$ aurait plusieurs images, ce qui n'est pas possible d'après la définition d'une fonction.
+\section{Lecture graphique}
 
 
-	\begin{center}
-	\includegraphics[page=1]{figures/fig-affines.pdf}
-	\end{center}
 
-Comme on a supposé $(d)$ non verticale, elle coupe nécessairement l'axe des ordonnées.
-Posons $(0; b)$ le point d'intersection, où $b\in\R$ est un réel désormais fixé.
+\section{Fonctions affines}\label{sec:aff-1}
 
-%On souhaite trouver la fonction $f$ telle que $(d) = \C_f$, sa courbe représentative.
-On rappelle la propriété fondamentale (voir corollaire \ref{cor:prop-fond}) : 
-	\begin{align*}
-		(x;y) \in \C_f && \iff && y = f(x).
-	\end{align*}
-Prenons donc un $x \in \R$ non nul, et essayons de déterminer l'ordonnée du point de $(d)$ d'abscisse $x$ afin d'obtenir $f(x)$.
-
-	\begin{center}
-	\includegraphics[page=2, scale=1.3]{figures/fig-affines.pdf}
-	\hfill
-	\includegraphics[page=3, scale=1.3]{figures/fig-affines.pdf}
-	\end{center}
-	
-	L'angle $\alpha$ comme défini ci-dessus est constant et mesure la pente de la droite.
-	On se restreint au triangle rectangle dont les sommets sont $(0;b), (x ; b)$, et $(x;y)$ pour appliquer les résultats de trigonométrie du chapitre \ref{chap:pb-geom} de géométrie.
-	\begin{align*}
-		\tan(\alpha) = \dfrac{|y-b|}{|x|} && \iff && |y-b| = \tan(\alpha) \cdot |x|.
-	\end{align*}
-	Comme la valeur absolue ne fait que supprimer le signe, on en déduit que
-	\begin{align*}
-		y - b = \pm \tan(\alpha) \cdot x && \iff && y = \pm \tan(\alpha) \cdot x + b,
-	\end{align*}
-	où $\pm$ signifie ``plus ou moins'', c'est-à-dire qu'on ne connait pas \emph{a priori} le signe et que cela n'importe pas pour l'instant.
-	En posant $a = \pm \tan(\alpha)$, on a trouvé la forme de la fonction $f$ telle que $(d) = \C_f$ :
-		\[ f(x) = a\cdot x + b, \]
-	où $a$ et $b$ sont des nombres réels déterminés entièrement par la droite $(d)$.
+\subsection{Définitions}
 
 \dfn{}{
 	Un fonction \emphindex{affine} est une fonction $f$ vérifiant pour tout $x\in\R$
@@ -232,8 +197,6 @@ Prenons donc un $x \in \R$ non nul, et essayons de déterminer l'ordonnée du po
 	Du couple $(2 ; 1)$ on déduit le couple $(2+9 ; 1+5) = (11 ; 6)$, puis $(11+9 ; 6 + 5 ) = (20 ; 11)$.
 	On vérifiera que $20 \times 5 - 11 \times 9 = 100 - 99 = 1$ pour se rassurer.
 }
-
-\section{Identifications des paramètres}
 
 \subsection{Ordonnée à l'origine $b$}
 
@@ -504,207 +467,53 @@ Prenons donc un $x \in \R$ non nul, et essayons de déterminer l'ordonnée du po
 }
 
 
-\section{Parallélisme et intersection}
+\section{Variations et signe du coefficient directeur}
 
-Considérons deux fonctions $f$ et $g$, affines sur $\R$.
-Les courbes représentatives $\C_f$ et $\C_g$ sont deux droites du plan.
-En géométrie, on distingue alors trois cas.
-	\begin{enumerate}
-		\item Les droites sont sécantes en un unique point $P$.
-		\item Les droites sont confondues (ou égales).
-		\item Les droites sont parallèles non confondues.
-	\end{enumerate}
-Le deuxième cas correspond à la situation où les deux fonction sont égales : c'est le cas $f=g$.
-Deux fonctions affines sont égales si et seulement si leurs paramètres (coefficient directeur et ordonnée à l'origine) sont égaux.
 
-Nous étudions d'abord algébriquement le cas $1$ de l'intesection.
-Les techniques de résolution d'équations linéaires nous mèneront naturellement vers des situations pour lesquelles deux droites n'ont pas de point d'intersection : c'est troisième cas.
+On distingue trois cas différents de droites parmis les exemples de la section \ref{sec:aff-1} : les deux premières sont croissantes, la suivante est constante, et la dernière est décroissante.
 
-\ex{}{
-	Considérons deux droites $\C_f$ et $\C_g$ où, pour tout $x\in\R$,
-		\begin{align*}
-			f(x) = 2x+3, &&
-			g(x) = -4x+8.
-		\end{align*}
-	On souhaite trouver les points d'intersection des deux droites, c'est-à-dire décrire l'ensemble
-		\[ \C_f \cap \C_g. \]
-	Soit $P(x_P;y_P)$ appartenant à l'intersection $\C_f \cap \C_g$.
-	On extrait deux informations distinctes afin de connaître $x_P$ et $y_P$ :
-		\begin{align*}
-			P \in \C_f && \text{et} && P \in \C_g
-		\end{align*}
-	La propriété fondamentale \ref{cor:prop-fond} nous donne donc deux équations qu'on met dans un système car elles sont valables simultanément.
-		\[ \begin{cases*} y_P = 2x_P + 3, \\ y_P = -4x_P + 8. \end{cases*} \]
-	Comme on a bien sûr $y_P = y_P$, on peut écrire
-		\begin{align*}
-			y_P &= y_P \\
-			2x_P + 3 &= -4x_P + 8 \\
-			6x_P &= 5 \\
-			x_P &=  \dfrac56
-		\end{align*}
-	Et par suite $y_P = 2\cdot\dfrac56 + 3 = \dfrac{14}3$.
-	
-	Nous avons donc obtenu que $P\left(\dfrac56 ; \dfrac{14}3\right)$ est l'unique point qui appartient à la fois à $\C_f$ et $\C_g$, et donc l'unique point d'intersection des droites.
-	Autrement dit, 
-		\[ \C_f \cap \C_g = \left\{ \left(\dfrac56 ; \dfrac{14}3\right) \right\}. \]
+\dfn{variations}{
+	Soit $f : \D \rightarrow \R$ une fonction $f$ quelconque sur un intervalle $I\subseteq\R$.
+	Alors
+		\begin{itemize}
+			\item On dit que $f$ est \emphindex{strictement croissante} si, pour tous les $x,y\in I$ du domaine,
+				\begin{align*}
+					x < y && \iff && f(x) < f(y).
+				\end{align*}	
+			On interprète l'implication ainsi :
+			\begin{center}
+				\og lorsqu'on augmente l'abscisse $x$, l'ordonnée $f(x)$ augmente \fg.
+			\end{center}
+				
+			\item On dit que $f$ est \emphindex{strictement décroissante} si, pour tous les $x,y\in I$ du domaine,
+				\begin{align*}
+					x < y && \iff && f(x) > f(y).
+				\end{align*}
+			On interprète l'implication ainsi :
+			\begin{center}
+				\og lorsqu'on augmente l'abscisse $x$, l'ordonnée $f(x)$ diminue \fg.
+			\end{center}
+				
+			\item On dit que $f$ est \emphindex{constante} si, pour tous les $x\in I$ du domaine, et pour une certaine constante $K\in\R$,
+				\begin{align*}
+					f(x) = K.
+				\end{align*}
+		\end{itemize}
 }{}
 
-\nt{
-	On se rassurera sur le résultat trouvé en vérifiant que le point d'intersection appartient bien aux deux droites ci-dessus.
+\thm{variations}{
+	Soit $f$ une fonction affine où $a, b \in\R$ sont ses deux paramètres réels.
 		\begin{align*}
-			f(x_P) = 2x_P + 3 = 2 \cdot \dfrac56 + 3 = \dfrac{14}3 = y_P, \\
-			g(x_P) = -4x_P + 8 = -4\cdot\dfrac56 + 8 = \dfrac{14}3 = y_P.
+			f(x) = a x + b && (x\in\R)
 		\end{align*}
-}
+	On distingue trois cas de figure.
+		\begin{itemize}
+			\item Si $a < 0$, alors $f$ est \emphindex{strictement décroissante}.
+			\item Si $a=0$, alors $f$ est \emphindex{constante}.
+			\item Si $a>0$, alors $f$ est \emphindex{strictement croissante}.
+		\end{itemize}
+}{thm:affine-var}
 
-\exe{}{
-	Considérons deux droites $\C_f$ et $\C_g$ où, pour tout $x\in\R$,
-		\begin{align*}
-			f(x) = 3-x , &&
-			g(x) = -2x +12.
-		\end{align*}
-	Déterminer $\C_f \cap \C_g$, l'ensemble des points appartenant à la fois à $\C_f$ et à $\C_g$.
-}{exe:intersection-droites}{
-	TODO
-}
-
-\exe{}{
-	Considérons deux droites $(d)$ et $(d')$ données par
-		\begin{align*}
-			(d) &= \bigset{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = 2x+1 }, \\
-			(d') &= \bigset{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = 2x-2 }.
-		\end{align*}
-	Montrer que $(d) \cap (d') = \emptyset$, l'ensemble vide.
-}{exe:intersection-droites2}{
-	TODO
-}
-
-\qs{}{
-	Considérons deux droites $\C_f$ et $\C_g$ données plus généralement par	
-		\begin{align*}
-			f(x) = ax+b, &&
-			g(x) = a'x+b',
-		\end{align*}
-	où $a, a', b, b' \in \R$ sont les paramètres des droites.
-	
-	On souhaite déterminer $P(x_P;y_P)$ appartenant à l'intersection $\C_f \cap \C_g$, ce qui se traduit par
-		\[ \begin{cases*} y_P = ax_P + b, \\ y_P = a'x_P + b'. \end{cases*} \]
-	et donc, en suivant le même raisonnement que précédemment,
-		\begin{align*}
-			ax_P + b &= a'x_P + b' \\
-			(a-a')x_P &= b'-b \\
-		\end{align*}
-	Ici il faut faire attention car il n'est pas toujours possible de diviser par $a-a'$ pour trouver $x_P$.
-	
-	Quelles conditions sur $a$ et $a'$ faut-il poser pour s'assurer qu'il existe un unique point d'intersection ?
-}
-
-\exe{, difficulty=1}{
-	Considérons deux droites $(d)$ et $(d')$ données par
-		\begin{align*}
-			(d) &= \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = ax+b \}, \\
-			(d') &= \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = a'x+b' \},
-		\end{align*}
-	où $a, a', b, b' \in \R$ sont les paramètres des droites.
-	
-	Si $a=a'$ et $b\neq b'$, montrer que $(d)\cap(d')$ est l'ensemble vide.
-	
-	Si $a=a'$ et $b = b'$, montrer que $(d)\cap(d') = (d) = (d')$.
-}{exe:parallélisme}{
-	TODO
-}
-
-\thm{}{
-	Considérons deux droites $\C_f$ et $ \C_g$ avec
-		\begin{align*}
-			f(x)= ax+b, && \text{ et } && g(x) = a'x+b',
-		\end{align*}
-	où $a, a', b, b' \in \R$ sont les paramètres des droites.
-	
-	On distingue alors les cas suivants sur les points d'intersection entre les droites.
-		\begin{enumerate}
-			\item Si $a \neq a'$, les droites $\C_f$ et $\C_g$ sont sécantes en un unique point d'intersection.
-			\item Sinon $a = a'$, les droites $\C_f$ et $\C_g$ sont parallèles et on distingue deux sous-cas.
-				\begin{enumerate}[label=\roman*)]
-					\item Si $b\neq b'$, il n'existe aucun point d'intersection ($\C_f \cap \C_g = \emptyset$).
-					\item Si $b=b'$, alors $f=g$ et les droites sont confondues ($\C_f \cap \C_g = \C_f = \C_g$).
-				\end{enumerate}
-		\end{enumerate}
-}{}
-
-
-
-\ex{}{
-	Soit $(d)$ une droite donnée par
-		\[ (d) = \bigset{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = 2x+3 }. \]
-	On souhaite déterminer une droite parallèle à $(d)$ et passant par le point $(2;1)$.
-	
-	On s'assure au préalable qu'on ait bien deux informations distinctes, car il faut déterminer les deux paramètres de la fonction $f(x) = ax+b$ associée à la droite à trouver.
-	
-	Le parallélisme à $(d)$ se traduit par l'égalité des coefficients directeurs des fonctions associées :
-		\[ a = 2. \]
-	L'appartenance du point $(2;1)$ donne
-		\[ 1 = f(1) = 2a + b, \]
-	d'où $b= 1 -2a = 1-4 = -3$.
-	
-	En conclusion, $f(x) = 2x - 3$, et la droite recherchée est donnée par (en violet ci-dessous)
-		\[ \bigset{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = 2x-3 }. \]
-		
-	\begin{center}
-	\includegraphics[page=11]{figures/fig-affines.pdf}
-	\end{center}
-}{}
-
-
-% postponed
-%\section{Variations et signe du coefficient directeur}
-%
-%
-%On distingue trois cas différents de droites parmis les exemples de la section \ref{sec:aff-1} : les deux premières sont croissantes, la suivante est constante, et la dernière est décroissante.
-%
-%\dfn{Variations}{
-%	Soit $f : \D \rightarrow \R$ une fonction $f$ quelconque sur un intervalle $I\subseteq\R$.
-%	Alors
-%		\begin{itemize}
-%			\item On dit que $f$ est \emph{croissante} si, pour tous les $x,y\in I$ du domaine,
-%				\begin{align*}
-%					x < y && \implies && f(x) \leq f(y).
-%				\end{align*}	
-%			On interprète l'implication ainsi :
-%			\begin{center}
-%				\og lorsqu'on augmente l'abscisse $x$, l'ordonnée $f(x)$ augmente \fg.
-%			\end{center}
-%				
-%			\item On dit que $f$ est \emph{décroissante} si, pour tous les $x,y\in I$ du domaine,
-%				\begin{align*}
-%					x < y && \implies && f(x) \geq f(y).
-%				\end{align*}
-%			On interprète l'implication ainsi :
-%			\begin{center}
-%				\og lorsqu'on augmente l'abscisse $x$, l'ordonnée $f(x)$ diminue \fg.
-%			\end{center}
-%				
-%			\item On dit que $f$ est \emph{constante} si, pour tous les $x\in I$ du domaine, et pour une certaine constante $K\in\R$,
-%				\begin{align*}
-%					f(x) = K.
-%				\end{align*}
-%		\end{itemize}
-%	On définiera de la même façon \og strictement croissante \fg ~ (respectivement décroissante) en remplaçant l'inégalité large $\leq$ (resp. $\geq$) par l'inégalité stricte $<$ (resp. $>$).
-%}{}
-%
-%\thm{Variations}{
-%	Soit $f$ une fonction affine où $a, b \in\R$ sont ses deux paramètres réels.
-%		\begin{align*}
-%			f(x) = a x + b && (x\in\R)
-%		\end{align*}
-%	On distingue trois cas de figure.
-%		\begin{itemize}
-%			\item Si $a < 0$, alors $f$ est strictement décroissante.
-%			\item Si $a=0$, alors $f$ est constante.
-%			\item Si $a>0$, alors $f$ est strictement croissante.
-%		\end{itemize}
-%}{thm:affine-var}
-%
 %\pf{Démonstration du théorème \ref{thm:affine-var}}{
 %	Si $a=0$, $f$ est clairement constante car
 %		\begin{align*}
