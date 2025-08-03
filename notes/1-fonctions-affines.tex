@@ -17,7 +17,240 @@
 
 \section{Lecture graphique}
 
+\subsection{Courbe représentative}
 
+On souhaite représenter graphiquement une fonction $f$ afin de pouvoir rapidement trouver toutes les images de $f$.
+Une bonne représentation graphique nous permet de lire
+	%\begin{multicols}{2}
+	\begin{enumerate}[label=$\bullet$]
+		\item les images $f(x)$;
+		\item les antécédents $x$ ;
+		%\item les variations de $f$ (croissante, décroissante, constante) ;
+		%\item le signe de $f(x)$ (positif, négatif, nul).
+	\end{enumerate}
+	%\end{multicols}
+
+Pour chaque $x\in\D\subset\R$, élément du domaine de $f$, il faut donc pouvoir facilement lire son image $f(x)$ par $f$.
+À cette fin et pour chaque $x\in\D$, on crée un point d'abscisse $x$ et d'ordonnée $f(x)$.
+L'ensemble de ces points est la courbe représentative de $f$.
+Pour lire l'image de $x$ par $f$, il suffit alors de trouver l'ordonnée de l'unique point de la courbe d'abscisse $x$.
+
+\dfn{courbe représentative}{
+	Considérons $f : \D \rightarrow \R$ une fonction.
+	
+	La \emphindex{courbe représentative} de $f$, notée $\C_f$, est donnée par l'ensemble de points
+		\[ \C_f = \Bigset{ \bigpar{x ; f(x)} \text{ où $x$ parcourt } \D }. \]
+	On lit \og la courbe représentative de $f$ est l'ensemble des points $\bigl(x,f(x)\bigr)$ du plan où $x$ parcourt le domaine de $f$ \fg.
+}{dfn:Cf}	
+
+\nt{
+	Connaître $f$ sur son domaine $\D$ c'est connaître $\C_f$, et vice versa.
+	Cependant, il n'est possible de dessiner $\C_f$ si le domaine $\D$ est infini, ou si $f$ prend des valeurs toujours plus grandes.
+}
+
+\cor{propriété fondamentale}{
+	On a donc la propriété fondamentale suivante valable pour tout $x, y\in\R$.
+		\begin{align*}
+			(x;y) \in \C_f && \iff && y = f(x).
+		\end{align*}
+		
+		\begin{center}
+		 \includegraphics[page=12, scale=1.5]{figures/fig-affines.pdf}
+		\end{center}
+	%\emph{Note : $f(x) = \dfrac1{200}(x+3,5)(x+2,5)(x-3,5)(x-4,5)(x-5,5) + 2$, polynôme de degré $5$ dans l'exemple ci-dessus.}
+}{cor:prop-fond}
+
+\nomen{
+	On appelle \emphindex{graphe} la représentation graphique d'une fonction.
+}
+
+\ex{}{
+	Soit la fonction $f : [-1,5; 2,5] \rightarrow \R$ donnée algébriquement par
+		\[ f(x) = 3\cdot x^3 -x - 3, \]
+	et considérons les points $P(0;-3), Q(1; 1), R(-1; 1),$ et $S(2; 19)$.
+	On se demande si les points appartiennent à la courbe représentative de $f$ ou non.
+	
+	D'après la propriété fondamentale \ref{cor:prop-fond}, un point $(x;y)$ appartient à la courbe de $f$ si et seulement si l'équation $y=f(x)$ est vérifiée.
+	On a donc les (non) appartenances suivantes.
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $f(0) = -3$, et donc $P \in \C_f$.
+			\item $f(1) = -1 \neq 1$, donc $Q \not\in \C_f$.
+			\item $f(-1) = -5 \neq 1$, donc $R \not\in\C_f$.
+			\item $f(2) = 19$, et donc $S\in\C_f$.
+		\end{enumerate}
+		
+		\begin{center}
+		 \includegraphics[page=13, scale=1.1]{figures/fig-affines.pdf}
+		\end{center}
+	\end{multicols}
+}{}
+
+
+\exe{}{
+	Considérons la fonction $f: \left]{-}\dfrac72 ; \dfrac{11}2 \right[ \rightarrow\R$ donnée algébriquement par
+		\[ f(x) = \dfrac17-x. \]
+	Pour chaque point suivant, déterminer s'il appartient à $\C_f$ ou non.
+	
+	\begin{multicols}{2}
+	\begin{enumerate}[label=\roman*)]
+		\item $\left(0; \dfrac17\right)$
+		\item $\left(\dfrac17 ; 0\right)$
+		\item $\left(\dfrac27 ; \dfrac37\right)$
+		\item $\left(-\dfrac{13}7 ; 2\right)$
+		\item $\left(\dfrac67 ; 1\right)$
+		\item $\left(\dfrac27 ; -\dfrac17\right)$
+	\end{enumerate}
+	\end{multicols}
+
+}{exe:Cf}{
+	TODO
+}
+
+\exe{}{
+	Considérons deux fonctions $f, g: ]{-}3 ; 3[ \rightarrow\R$ données algébriquement par
+		\begin{align*}
+			f(x) = x^2 - 2\cdot x && g(x) = (x-1)^2
+		\end{align*}
+	
+	\begin{enumerate}
+		\item Esquisser les représentations graphiques de $f$ et de $g$ dans un même repère.
+		\item Démontrer que $g(x) - 1 = f(x)$ pour tout $x$ du domaine.
+		\item En déduire que $(x-1)^2 = x^2 - 2\cdot x + 1$ pour tout $x$ du domaine.
+	\end{enumerate}
+}{exe:id-rem-graph}{
+	TODO
+}
+
+\exe{}{
+	Esquisser la courbe de la fonction $f:[-2; 4]\rightarrow\R$ donnée algébriquement par
+		\[ f(x) = 3. \]
+	Que dire de $f$ et de $\C_f$ ?
+}{exe:graph-const}{
+	TODO
+}
+
+\exe{}{
+	Esquisser la courbe de la fonction $f:[-5;3]\rightarrow\R$ donnée algébriquement par
+		\[ f(x) = 1-x. \]
+	Que dire $\C_f$ ?
+}{exe:graph-droite}{
+	TODO
+}
+
+\exe{}{
+	Esquisser la courbe de la fonction $f:[3;10]\rightarrow\R$ donnée algébriquement par
+		\[ f(x) = \dfrac3x + 1. \]
+}{exe:graph-droite2}{
+	TODO
+}
+
+
+\exe{}{
+	Considérons la représentation graphique suivante d'une fonction $f$ définie sur $\D = ]{-}3,4 ; 2,3[$.
+	
+	\begin{center}
+	\includegraphics[page=14]{figures/fig-affines.pdf}
+	\end{center}
+	\begin{enumerate}
+		\item Donner approximativement les images de $-1,5$ et de $-\dfrac{20}7$ par $f$.
+		\item Énumérer approximativement les antécédents de $-2$ et de $2$ par $f$.
+		\item Donner approximativement un réel qui admet exactement deux antécédents par $f$.
+		\item Si $f$ était définie sur $\R$ tout entier, serait-il toujours possible de connaître l'image de $-2$ ? Et tous les antécédents de $-2$ ?
+	\end{enumerate}
+	Supposons désormais que $f(x) = 3-2\cdot x +\dfrac13 \cdot x^3$ pour tout $x\in\D$ du domaine.
+	\begin{enumerate}
+		\item[5.] Vérifier à la calculatrice les réponses aux deux premières questions.
+		\item[6.] Montrer sans calculatrice que l'image par $f$ de $-3$ est $0$ et que l'image par $f$ de $0$ est $3$.
+	\end{enumerate}
+}{exe:deg3}{
+	TODO
+}
+
+
+\exe{}{
+	Un fonction $f$ admet une représentation graphique suivante.
+		\begin{center}
+		 \includegraphics[page=15]{figures/fig-affines.pdf}
+		\end{center}
+	Parmis les expressions algébriques suivantes, trouver celle qui correspond à $f(x)$.
+		\begin{multicols}{2}
+		\begin{enumerate}[label=\roman*)]
+			\item $1-x$
+			\item $\dfrac{-1-x}3$
+			\item $\left(x+\dfrac13\right)^2$
+			\item $-2\cdot x - \dfrac23$
+		\end{enumerate}
+		\end{multicols}
+}{exe:expr-from-graph}{
+	TODO
+}
+
+\exe{}{
+	Comparer les représentations graphiques des fonctions suivantes données algébriquement.
+		\begin{align*}
+			f(x) = x^2 && g(x) = x^2 - 3 && h(x) = (x+4)^2.
+		\end{align*}
+}{exe:y-shift}{
+	TODO
+}
+
+\exe{, difficulty=2}{
+	Donner une fonction réelle et un domaine telle qu'une de ses images admet
+		\begin{multicols}{2}
+		\begin{enumerate}
+			\item Exactement un antécédent
+			\item Exactement deux antécédents
+			\item Exactement trois antécédents
+			\item Une infinité d'antécédents
+		\end{enumerate}	
+		\end{multicols}
+}{exe:nb-antécédents}{
+	TODO
+}
+
+\exe{, difficulty=2}{
+	Donner graphiquement une fonction sur $\R$ non constante telle que toutes les images de $f$ admettent un nombre infini d'antécédents.
+}{exe:infinité-antécédents}{
+	TODO
+}
+
+\newpage
+
+\subsection{Résoudre graphiquement $f(x) = k$}
+
+
+On cherche à résoudre graphiquement une équation du type $f(x)=k$ pour un $k\in\R$ donné, c'est-à-dire trouver l'ensemble des $x\in\R$ pour lesquels l'équation est vérifiée.
+En reformulant, il s'agit de trouver l'ensemble des antécédents de $k$ par $f$. 
+
+En reprenant la solution de l'exercice \ref{exe:deg3}, on peut généraliser la stratégie à employer.
+Supposons qu'on souhaite résoudre $f(x) = 2$ où $x\in]{-}3,4 ; 2,3[$ et $\C_f$ est donnée graphiquement.
+Comme chaque point de $\C_f$ est de la forme $\bigl(x; f(x)\bigr)$, on souhaite trouver les points de la forme $(x;2)$ pour ensuite lire leur abscisse et enfin obtenir les différents $x$ du domaine.
+Pour trouver tous les points d'ordonnée $2$, on peut s'aider en créant une droite horizontale d'ordonnée $2$, comme ci-dessous.
+	\begin{center}
+	\includegraphics[page=16, scale=1.5]{figures/fig-affines.pdf}
+	\end{center}
+Les coordonnées des points $A,B,C$ trouvés en intersectant la droite horizontale avec $\C_f$ sont
+	\begin{align*}
+		A \approx (-2,67 ; 2) && B \approx (0,52 ; 2) && C \approx (2,14 ; 2)
+	\end{align*}
+L'ensemble de solutions de l'équation $f(x)=2$ est donc approximativement donné par 
+	\[ \bigset{ -2,67 ; 0,52 ; 2,14 }. \]
+
+\thm{}{
+	Soit $f:\D \rightarrow \R$ une fonction réelle définie sur son domaine $\D$.
+	Pour tout réel $k$, les solutions dans $\D$ de l'équation $f(x)=k$ sont les abscisses des points d'intersection de $\C_f$ et de la droite d'équation $y=k$.
+}{}
+
+\exemulticols{}{
+	Donner l'ensemble des $x$ vérifiant $f(x) = -2$ à l'aide du graphe de $f$ ci-contre.
+}{
+	TODO graph
+}{exe:fx=k}{
+	TODO
+}
+
+\newpage
 
 \section{Fonctions affines}\label{sec:aff-1}
 
