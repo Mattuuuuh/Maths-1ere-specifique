@@ -6,52 +6,59 @@
   }
 
   \lettergroup{A}
-  \item affine, 6
-  \item équation de droite, 9
-  \item événement conditionnel, 35
-  \item événements indépendants, 34
-  \item évolution absolue, 22
-  \item évolution relative, 22
-  \item augmentation, 22
+  \item affine, 5
+  \item équation de droite, 7
+  \item événement conditionnel, 31
+  \item événements indépendants, 30
+  \item évolution absolue, 18
+  \item évolution relative, 18
+  \item augmentation, 18
 
   \indexspace
 
   \lettergroup{C}
-  \item coefficient directeur, 6
-  \item coordonnées entières, 9
-  \item corrélation nulle, 34
+  \item coefficient directeur, 5
+  \item constante, 13
+  \item coordonnées entières, 8
+  \item corrélation nulle, 30
 
   \indexspace
 
   \lettergroup{D}
-  \item décorrélés, 34
-  \item diminution, 22
+  \item décorrélés, 30
+  \item diminution, 18
 
   \indexspace
 
   \lettergroup{F}
-  \item fonction identité, 7
+  \item fonction identité, 5
 
   \indexspace
 
   \lettergroup{N}
-  \item négativement corrélés, 34
+  \item négativement corrélés, 30
 
   \indexspace
 
   \lettergroup{O}
-  \item ordonnée à l'origine, 6
+  \item ordonnée à l'origine, 5
 
   \indexspace
 
   \lettergroup{P}
-  \item positivement corrélés, 34
-  \item pourcentage, 18
-  \item probabilité conditionnelle, 34, 36
+  \item positivement corrélés, 30
+  \item pourcentage, 14
+  \item probabilité conditionnelle, 30, 32
+
+  \indexspace
+
+  \lettergroup{S}
+  \item strictement croissante, 13
+  \item strictement décroissante, 13
 
   \indexspace
 
   \lettergroup{T}
-  \item tableau croisé d'effectifs, 33
+  \item tableau croisé d'effectifs, 29
 
 \end{theindex}
