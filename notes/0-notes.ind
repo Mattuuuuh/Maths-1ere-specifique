@@ -6,15 +6,12 @@
   }
 
   \lettergroup{A}
-  \item absolue, 22
   \item affine, 6
   \item équation de droite, 9
-  \item équiprobable, 37
-  \item événement, 34
-  \item événement complémentaire, 34
-  \item événement conditionnel, 38
-  \item événements disjoints, 37
-  \item événements indépendants, 39
+  \item événement conditionnel, 35
+  \item événements indépendants, 34
+  \item évolution absolue, 22
+  \item évolution relative, 22
   \item augmentation, 22
 
   \indexspace
@@ -22,18 +19,13 @@
   \lettergroup{C}
   \item coefficient directeur, 6
   \item coordonnées entières, 9
-  \item corrélation nulle, 39
+  \item corrélation nulle, 34
 
   \indexspace
 
   \lettergroup{D}
-  \item décorrélés, 39
+  \item décorrélés, 34
   \item diminution, 22
-
-  \indexspace
-
-  \lettergroup{E}
-  \item expérience aléatoire, 33
 
   \indexspace
 
@@ -42,20 +34,8 @@
 
   \indexspace
 
-  \lettergroup{I}
-  \item intersection, 35
-  \item issues, 33
-
-  \indexspace
-
-  \lettergroup{L}
-  \item loi de probabilité, 36
-  \item loi uniforme, 37
-
-  \indexspace
-
   \lettergroup{N}
-  \item négativement corrélés, 39
+  \item négativement corrélés, 34
 
   \indexspace
 
@@ -65,19 +45,13 @@
   \indexspace
 
   \lettergroup{P}
-  \item positivement corrélés, 39
+  \item positivement corrélés, 34
   \item pourcentage, 18
-  \item probabilité conditionnelle, 38
+  \item probabilité conditionnelle, 34, 36
 
   \indexspace
 
-  \lettergroup{R}
-  \item relative, 22
-
-  \indexspace
-
-  \lettergroup{U}
-  \item union, 35
-  \item univers, 33
+  \lettergroup{T}
+  \item tableau croisé d'effectifs, 33
 
 \end{theindex}
