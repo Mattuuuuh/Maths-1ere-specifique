@@ -10,20 +10,33 @@
 
   \indexspace
 
+  \lettergroup{B}
+  \item base, 40
+
+  \indexspace
+
   \lettergroup{C}
   \item coefficient directeur, 10
-  \item constante, 15
+  \item constante, 15, 24
   \item coordonnées entières, 11
   \item corrélation nulle, 31
   \item courbe représentative, 5
+  \item croissante, 24
 
   \indexspace
 
   \lettergroup{D}
   \item diminution, 20
   \item décorrélés, 31
+  \item décroissante, 24
   \item domaine, 5
   \item droite d'équation $y=ax+b$, 10
+
+  \indexspace
+
+  \lettergroup{E}
+  \item exponentiation, 40
+  \item exposant, 40
 
   \indexspace
 
@@ -59,16 +72,27 @@
   \item positivement corrélés, 31
   \item pourcentage, 16
   \item probabilité conditionnelle, 31, 33
+  \item puissance, 40
+
+  \indexspace
+
+  \lettergroup{R}
+  \item raison, 23, 39
+  \item rang, 23
 
   \indexspace
 
   \lettergroup{S}
   \item strictement croissante, 15
   \item strictement décroissante, 15
+  \item suite, 23
+  \item suite arithmétique, 23
+  \item suite géométrique, 39
 
   \indexspace
 
   \lettergroup{T}
   \item tableau croisé d'effectifs, 30
+  \item terme initial, 23
 
 \end{theindex}

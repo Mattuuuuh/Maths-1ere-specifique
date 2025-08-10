@@ -21,6 +21,14 @@
 \indexentry{évolution absolue}{19}
 \indexentry{augmentation}{20}
 \indexentry{diminution}{20}
+\indexentry{suite}{23}
+\indexentry{terme initial}{23}
+\indexentry{rang}{23}
+\indexentry{suite arithmétique}{23}
+\indexentry{raison}{23}
+\indexentry{croissante}{24}
+\indexentry{décroissante}{24}
+\indexentry{constante}{24}
 \indexentry{tableau croisé d'effectifs}{30}
 \indexentry{probabilité conditionnelle}{31}
 \indexentry{événements indépendants}{31}
@@ -30,3 +38,9 @@
 \indexentry{négativement corrélés}{31}
 \indexentry{événement conditionnel}{32}
 \indexentry{probabilité conditionnelle}{33}
+\indexentry{suite géométrique}{39}
+\indexentry{raison}{39}
+\indexentry{exponentiation}{40}
+\indexentry{puissance}{40}
+\indexentry{base}{40}
+\indexentry{exposant}{40}
