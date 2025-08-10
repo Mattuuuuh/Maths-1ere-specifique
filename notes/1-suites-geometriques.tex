@@ -5,43 +5,103 @@
 
 \section{Définition et exemples}
 
-\dfn{Suite}{
-	Une suite $u$ est une fonction qui à tout entier naturel $n \in \N$ associe un réel
-		\[ u(n) \in \R. \]
-	Le \emph{terme initial} de la suite est donné par $u(0)$, et son terme de \emph{rang} $n$ est $u(n)$.
-}{}
-
-\ex{}{
-	Les fonctions suivantes sont des suites données par leur rang $n$ : on connait donc leur valeur pour tout les entiers naturels.
-	\begin{multicols}{2}
-	\begin{enumerate}
-		\item $u(n) = n+1$
-		\item $v(n) = 15 + n$
-		\item $\xi(n) = 3n + 1$
-		\item $a(n) = n^2$
-	\end{enumerate}
-	\end{multicols}
-	Une suite n'a pas forcément de formule générale pour tout $n$, c'est une simplement \emph{suite} de nombres réels.
-}{}
-
-\dfn{Suite géométrique}{
-	On dit d'une suite $u$ qu'elle est arithmétique dès qu'elle vérifie, pour tout $n\in\N$,
+\dfn{suite géométrique}{
+	On dit d'une suite $u$ qu'elle est une \emphindex{suite géométrique} dès qu'elle vérifie, pour tout $n\in\N$,
 		\begin{align}\label{eq:suite-geom}
 			u(n+1) = q \cdot u(n),
 		\end{align}
 	où $q \in \R$ est un réel fixé qui ne dépend pas de $n$.
 	
-	On appelle $q$ la \emph{raison} de la suite.
-}{}
-
-\nt{
-	Comme $n$ et $n+1$ représentent un entier quelconque et son suivant, la relation \eqref{eq:suite-geom} se lit de la façon suivante :
+	On appelle $q$ la \emphindex{raison} de la suite, et on lit
 		\begin{center}
 		\og pour passer d'un terme au suivant, on multiplie par $q$ \fg.
 		\end{center}
 }{}
 
-\thm{Propriétés des puissances}{
+\ex{}{
+	Soit $u$ la suite de terme initial $u(0) = 3$ et de raison $1,5$.
+	Par multiplications successives par $3$, il suit que
+		\begin{align*}
+			u(1) &= 4,5 & u(2) &= 6,75 & u(3) &= 10,125 & \cdots
+		\end{align*}
+}{}
+
+\exe{1}{
+	Soit $u$ une suite géométrique de raison $7$ et de terme de rang $61$ donné par
+		\[ u(61) = 2.\]
+	Calculer $u(63)$.	
+}{}{
+	TODO
+}
+
+% premier sujet zéro
+\exe{premier sujet zéro}{
+	Albert a acquis un étang d'une surface de 2 000 m².
+	Le jour de son anniversaire, un dimanche, il installe des nénuphars sur une surface de 200 m².
+	
+	\begin{enumerate}
+		\item
+		Le dimanche d'après, la surface des nénuphars a augmenté de 40m².
+		\begin{enumerate}[label=\alph*.]
+			\item
+			Quel pourcentage d'augmentation cela représente-t-il ?
+			\item
+			Quelle est à présent la surface occupée par les nénuphars ?
+		\end{enumerate}
+		\item
+		Dans cette question, on suppose que la surface occupée par les nénuphars augmente de 40m² chaque semaine, depuis la date de l'anniversaire, tant que cela est possible.
+		\begin{enumerate}[label=\roman*.]
+			\item
+			Quelle est la surface occupée par les nénuphars 10 semaines après l'anniversaire ?
+			\item
+			Est-il possible qu'un dimanche, la surface occupée par les nénuphars soit égale à 580 m² ? Justifier.
+			\item
+			Au bout de combien de semaines, l'étang sera-t-il entièrement recouvert de nénuphars ?
+		\end{enumerate}
+		\item
+		Dans cette question, on suppose que la surface occupée par les nénuphars augmente de 20\% chaque semaine, depuis la date de l'anniversaire, tant que cela est possible.
+		\begin{enumerate}[label=\alph*.]
+			\item
+			Quelle est la surface occupée par les nénuphars 2 semaines après l'anniversaire ?
+			\item
+			On considère un entier naturel $n$. Déterminer, en fonction de $n$, la surface occupée par les nénuphars $n$ semaines après l'anniversaire.
+			\item
+			Au bout de combien de semaines, l'étang sera-t-il entièrement recouvert de nénuphars ?
+		\end{enumerate}
+		\item
+		Réaliser sur votre copie un schéma sur lequel apparaissent l’allure des nuages de points traduisant la progression de la surface occupée par les nénuphars, aussi bien dans le cas de la question 2 que dans le cas de la question 3, et faire figurer le moment où, dans chacun des cas, l’étang est recouvert par les nénuphars.
+		\end{enumerate}
+}{exe:nénuphars}{
+	TODO
+}
+
+
+\section{Exponentiation}
+
+\dfn{puissance, base, exposant}{
+	On parle d'\emphindex{exponentiation} lorsqu'on prend une valeur à la \emphindex{puissance} d'une autre.
+	
+	On dit \og $a$ puissance $b$ \fg ou \og $a$ exposant $b$ \fg pour signifier 
+		\[ a^b, \]
+	et on appelle alors $a$ la \emphindex{base}, et $b$ l'\emphindex{exposant}.
+}{}
+
+\nt{
+	Dans la suite, $q\in\R^*_+$ est un nombre réel strictement positif, base des différentes exponentiations.
+}
+
+
+\dfn{puissance sur $\N^*$}{
+	Soit $m \in \N^*$ un entier naturel non nul.
+	Alors \og $q$ puissance $m$ \fg~est égal à
+		\[ q^{m} = \underbrace{q \times q \times \cdots \times q}_{\text{$m$ fois}}. \]
+}{}
+
+\nt{
+	En particulier, $q^1 = q$.
+}
+
+\thm{propriétés des puissances}{
 	Soient $a, b, c \in \Z$. On a les relations suivantes.
 		\begin{gather*}
 			a^{b+c} = a^{b} \times a^{c} \\
@@ -64,8 +124,8 @@
 		\begin{align*}
 			u(n+1) &= 5 \times 3^{n+1} \\
 					&= 5 \times 3^n \times 3 \\
-					&= 3 \times \left( 5 \times 3^n \right) \\
-					&= 3 u(n).
+					&=\left( 5 \times 3^n \right) \times 3 \\
+					&= u(n) \times3.
 		\end{align*}
 	Comme $u(0) = 5 \times 3^0 = 5 \times 1 = 5$, on en déduit que $u$ est géométrique de raison $3$ et de terme initial $5$.
 }{}
@@ -84,33 +144,33 @@
 	\end{multicols}
 }{}
 
-\section{Conséquences : expression algébrique et variations}
+\section{Expression algébrique et variations}
 
-\ex{}{
-	Considérons une suite $G$, géométrique de raison $4$ et de terme initial $3$.
-	Alors, par définition,
-		\[ G(0) = 3. \]
-	En spécialisant l'équation \eqref{eq:suite-geom} pour $n=0$, on trouve ensuite
-		\[ G(1) = G(0+1) = 4 \times G(0) = 4 \times 3 = 12. \]
-	On peut déduire la suite des termes de façon analogue.
-		\begin{align*}
-			G(0) &= 3 \\
-			G(1) &= 4 \times G(0) = 12 \\
-			G(2) &= 4 \times G(1) = 48 \\
-			G(3) &= 4 \times G(2) = 196 \\
-			\vdots &\, \qquad \vdots
-		\end{align*}
-	On souhaite désormais connaître une formule valable pour tous les entiers naturels $n\in\N$ pour qu'on ait pas à reconstruire la suite depuis le début à chaque étude.
-	Pour cela, on choisit de réécrire les termes de la suite de la façon suivante, en utilisant les propriétés de la puissance.
-		\begin{align*}
-			G(0) &= 3 = 3 \times 4^{0} \\
-			G(1) &= 4 \times G(0) = 3 \times 4^{1} \\
-			G(2) &= 4 \times G(1) = 3 \times 4^{2} \\
-			G(3) &= 4 \times G(2) = 3 \times 4^{3} \\
-			\vdots &\, \qquad \vdots \\
-			G(n) &= 3 \times 4^n
-		\end{align*}
-}{}
+%\ex{}{
+%	Considérons une suite $G$, géométrique de raison $4$ et de terme initial $3$.
+%	Alors, par définition,
+%		\[ G(0) = 3. \]
+%	En spécialisant l'équation \eqref{eq:suite-geom} pour $n=0$, on trouve ensuite
+%		\[ G(1) = G(0+1) = 4 \times G(0) = 4 \times 3 = 12. \]
+%	On peut déduire la suite des termes de façon analogue.
+%		\begin{align*}
+%			G(0) &= 3 \\
+%			G(1) &= 4 \times G(0) = 12 \\
+%			G(2) &= 4 \times G(1) = 48 \\
+%			G(3) &= 4 \times G(2) = 196 \\
+%			\vdots &\, \qquad \vdots
+%		\end{align*}
+%	On souhaite désormais connaître une formule valable pour tous les entiers naturels $n\in\N$ pour qu'on ait pas à reconstruire la suite depuis le début à chaque étude.
+%	Pour cela, on choisit de réécrire les termes de la suite de la façon suivante, en utilisant les propriétés de la puissance.
+%		\begin{align*}
+%			G(0) &= 3 = 3 \times 4^{0} \\
+%			G(1) &= 4 \times G(0) = 3 \times 4^{1} \\
+%			G(2) &= 4 \times G(1) = 3 \times 4^{2} \\
+%			G(3) &= 4 \times G(2) = 3 \times 4^{3} \\
+%			\vdots &\, \qquad \vdots \\
+%			G(n) &= 3 \times 4^n
+%		\end{align*}
+%}{}
 
 \thm{de Maya}{
 	Soit $v$ une suite géométrique de raison $q \in \R$ et de terme initial $v(0) \in \R$.
