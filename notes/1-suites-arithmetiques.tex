@@ -5,10 +5,10 @@
 
 \section{Définitions}
 
-\dfn{Suite}{
-	Une suite $u$ est une fonction qui à tout entier naturel $n \in \N$ associe un réel
+\dfn{suite}{
+	Une \emphindex{suite} $u$ est une fonction qui à tout entier naturel $n \in \N$ associe un réel
 		\[ u(n) \in \R. \]
-	Le \emph{terme initial} de la suite est donné par $u(0)$, et son terme de \emph{rang} $n$ est $u(n)$.
+	Le \emphindex{terme initial} de la suite est donné par $u(0)$, et son terme de \emphindex{rang} $n$ est $u(n)$.
 }{}
 
 \ex{}{
@@ -26,47 +26,28 @@
 
 %Les exercices étudiés en cours nous ont menés à considérer les suites ayant une structure particulière : les suites obtenue par ajouts successifs d'une même constante.
 
-\dfn{Suite arithmétique}{
-	On dit d'une suite $u$ qu'elle est arithmétique dès qu'elle vérifie, pour tout $n\in\N$,
+\dfn{suite arithmétique}{
+	On dit d'une suite $u$ qu'elle est une \emphindex{suite arithmétique} dès qu'elle vérifie, pour tout $n\in\N$,
 		\begin{align}\label{eq:1}
-			u(n+1) - u(n) = r,
+			u(n+1) = u(n) + r,
 		\end{align}
 	où $r \in \R$ est un réel fixé qui ne dépend pas de $n$.
 	
-	On appelle $r$ la \emph{raison} de la suite.
+	On appelle $r$ la \emphindex{raison} de la suite, et on lit
+		\begin{center}
+		« pour passer d'un terme au suivant, on ajoute $r$ ».
+		\end{center}
 }{}
-
-\nt{
-	L'équation \eqref{eq:1} peut se réécrire comme
-		\begin{align}\label{eq:2}
-			u(n+1) = u(n) + r
-		\end{align}
-	Avec des mots, on lira alors \og le terme $n+1$ est égal au terme $n$ plus $r$ \fg, et ceci toujours pour tout $n\in\N$.
-}
-
-\nt{
-	Pour vérifier qu'une suite est arithmétique et pour connaître sa raison, on préférera l'écriture \eqref{eq:1}.
-	L'écriture \eqref{eq:2} est utile pour calculer les terms successifs d'une suite.
-}
-
 
 \ex{}{
 	Soit $u$ la suite de terme initial $u(0) = -2$ et de raison $3$.
-	
-	L'équation \eqref{eq:2} spécialisée en $n=0 \in \N$ donne
-		\[ u(1) = u(0) + 3 = -2 + 3 = 1. \]
-	Puis, en $n=1 \in \N$, on trouve
-		\[ u(2) = u(1) + 3 = 1 + 3 = 4. \]
-	Etc... pour avoir
+	Par ajouts successifs de $3$, il suit que
 		\begin{align*}
 			u(3) &= 7 & u(4) &= 10 & u(5) &= 13 & \cdots
 		\end{align*}
-	On conjecture que le terme de rang $n\in\N$ s'écrit alors
-			\[ u(n) = -2 + 3n. \]
-	Le théorème \ref{thm:lili} démontrera cette conjecture.
 }{}
 
-\exe{}{
+\exe{1}{
 	Soit $u$ une suite arithmétique de raison $7$ et de terme de rang $61$ donné par
 		\[ u(61) = -15.\]
 	Calculer $u(63)$.	
@@ -93,6 +74,8 @@
 	TODO
 }
 
+% c'est quoi cet exo lol ?
+% j'ai du écrire ça tard la nuit
 \exe{}{
 	Soit $\beta$ la suite donnée, pour tout $n\in\N$, par
 		\[ \beta(n) = 3n^3 + \tau, \]
@@ -104,23 +87,31 @@
 	TODO
 }
 
+\dfn{suite croissante, décroissante, constante}{
+	Une suite $u$ est dite
+		\begin{itemize}
+			\item \emphindex{croissante} si $u(n+1) > u(n)$ pour tout $n$ ;
+			\item \emphindex{décroissante} si $u(n+1) < u(n)$ pour tout $n$ ; ou
+			\item \emphindex{constante} si $u(n+1) = u(n)$ pour tout $n$.
+		\end{itemize}
+	On lit, pour une fonction croissante,
+		\begin{center}
+		« chaque terme d'une suite est strictement plus grand que le terme précédent ».
+		\end{center}
+}{dfn:suite-var}
+
 \nt{
-	L'équation \eqref{eq:1} peut être utilisée pour déduire les variations d'une suite arithmétique selon le signe de sa raison.
-	Par exemple, si $r > 0$, alors
-		\[ u(n+1) > u(n) \]
-	pour tout $n\in\N$
-	
-	On lira \og le terme $n+1$ est strictement supérieur au terme $n$, pour tout entier naturel $n$ \fg.
-	De fait, $u$ est donc croissante.
+	Pour passer d'un terme d'une suite arithmétique à l'autre, on ajoute $r$.
+	Le théorème suivant est donc évident.
 }
 
-\dfn{}{
-	Pour $u$ une suite arithmétique de raison $r\in\R$. On dit que
-	\[\begin{cases*} 
-		& $u$ est \emph{croissante} dès que $r > 0$, \\
-		& $u$ est \emph{constante} dès que $r=0$, et \\
-		& $u$ est \emph{décroissante} dès que $r < 0$.
-	\end{cases*}\]
+\thm{}{
+	Soit $u$ une suite arithmétique de raison $r\in\R$.
+		\begin{itemize}
+			\item Si $r>0$, alors $u$ est croissante ;
+			\item Si $r<0$, alors $u$ est décroissante ;
+			\item Si $r=0$, alors $u$ est constante.
+		\end{itemize}
 }{}
 
 \exe{}{
