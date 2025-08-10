@@ -6,28 +6,31 @@
   }
 
   \lettergroup{A}
-  \item affine, 10
-  \item augmentation, 23
+  \item augmentation, 20
 
   \indexspace
 
   \lettergroup{C}
   \item coefficient directeur, 10
-  \item constante, 18
-  \item coordonnées entières, 12
-  \item corrélation nulle, 35
+  \item constante, 15
+  \item coordonnées entières, 11
+  \item corrélation nulle, 31
   \item courbe représentative, 5
 
   \indexspace
 
   \lettergroup{D}
-  \item diminution, 23
-  \item décorrélés, 35
+  \item diminution, 20
+  \item décorrélés, 31
+  \item domaine, 5
+  \item droite d'équation $y=ax+b$, 10
 
   \indexspace
 
   \lettergroup{F}
+  \item fonction affine, 10
   \item fonction identité, 10
+  \item fonction linéaire, 10
 
   \indexspace
 
@@ -37,34 +40,35 @@
   \indexspace
 
   \lettergroup{N}
-  \item négativement corrélés, 35
+  \item négativement corrélés, 31
 
   \indexspace
 
   \lettergroup{O}
-  \item équation de droite, 12
-  \item événement conditionnel, 36
-  \item événements indépendants, 35
-  \item évolution absolue, 22
-  \item évolution relative, 22
+  \item équation cartésienne, 11
+  \item équation réduite, 11
+  \item événement conditionnel, 32
+  \item événements indépendants, 31
+  \item évolution absolue, 19
+  \item évolution relative, 19
   \item ordonnée à l'origine, 10
 
   \indexspace
 
   \lettergroup{P}
-  \item positivement corrélés, 35
-  \item pourcentage, 19
-  \item probabilité conditionnelle, 35, 37
+  \item positivement corrélés, 31
+  \item pourcentage, 16
+  \item probabilité conditionnelle, 31, 33
 
   \indexspace
 
   \lettergroup{S}
-  \item strictement croissante, 18
-  \item strictement décroissante, 18
+  \item strictement croissante, 15
+  \item strictement décroissante, 15
 
   \indexspace
 
   \lettergroup{T}
-  \item tableau croisé d'effectifs, 34
+  \item tableau croisé d'effectifs, 30
 
 \end{theindex}

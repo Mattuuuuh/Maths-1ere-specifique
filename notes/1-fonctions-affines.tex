@@ -19,18 +19,13 @@
 
 \subsection{Courbe représentative}
 
-On souhaite représenter graphiquement une fonction $f$ afin de pouvoir rapidement trouver toutes les images de $f$.
-Une bonne représentation graphique nous permet de lire
-	%\begin{multicols}{2}
-	\begin{enumerate}[label=$\bullet$]
-		\item les images $f(x)$;
-		\item les antécédents $x$ ;
-		%\item les variations de $f$ (croissante, décroissante, constante) ;
-		%\item le signe de $f(x)$ (positif, négatif, nul).
-	\end{enumerate}
-	%\end{multicols}
+\notations{
+	Pour une fonction $f$ quelconque, 
+	on note $\D\subseteq\R$ un \emphindex{domaine} sur laquelle elle est bien définie et étudiée :
+	$f$ admet une image $f(x)$ pour chaque $x\in\D$ du domaine d'étude.
+}
 
-Pour chaque $x\in\D\subset\R$, élément du domaine de $f$, il faut donc pouvoir facilement lire son image $f(x)$ par $f$.
+Pour chaque $x\in\D\subset\R$, élément du domaine de $f$, il faut pouvoir facilement lire son image $f(x)$ par $f$.
 À cette fin et pour chaque $x\in\D$, on crée un point d'abscisse $x$ et d'ordonnée $f(x)$.
 L'ensemble de ces points est la courbe représentative de $f$.
 Pour lire l'image de $x$ par $f$, il suffit alors de trouver l'ordonnée de l'unique point de la courbe d'abscisse $x$.
@@ -65,8 +60,8 @@ Pour lire l'image de $x$ par $f$, il suffit alors de trouver l'ordonnée de l'un
 }
 
 \ex{}{
-	Soit la fonction $f : [-1,5; 2,5] \rightarrow \R$ donnée algébriquement par
-		\[ f(x) = 3\cdot x^3 -x - 3, \]
+	Soit la fonction $f$ donnée algébriquement par
+		\[ f(x) = 3x^3 -x - 3, \]
 	et considérons les points $P(0;-3), Q(1; 1), R(-1; 1),$ et $S(2; 19)$.
 	On se demande si les points appartiennent à la courbe représentative de $f$ ou non.
 	
@@ -79,6 +74,7 @@ Pour lire l'image de $x$ par $f$, il suffit alors de trouver l'ordonnée de l'un
 			\item $f(-1) = -5 \neq 1$, donc $R \not\in\C_f$.
 			\item $f(2) = 19$, et donc $S\in\C_f$.
 		\end{enumerate}
+		\vfill
 		
 		\begin{center}
 		 \includegraphics[page=13, scale=1.1]{figures/fig-affines.pdf}
@@ -88,11 +84,11 @@ Pour lire l'image de $x$ par $f$, il suffit alors de trouver l'ordonnée de l'un
 
 
 \exe{}{
-	Considérons la fonction $f: \left]{-}\dfrac72 ; \dfrac{11}2 \right[ \rightarrow\R$ donnée algébriquement par
+	Considérons la fonction $f$ sur $\R$ donnée algébriquement par
 		\[ f(x) = \dfrac17-x. \]
 	Pour chaque point suivant, déterminer s'il appartient à $\C_f$ ou non.
 	
-	\begin{multicols}{2}
+	\begin{multicols}{3}
 	\begin{enumerate}[label=\roman*)]
 		\item $\left(0; \dfrac17\right)$
 		\item $\left(\dfrac17 ; 0\right)$
@@ -108,22 +104,21 @@ Pour lire l'image de $x$ par $f$, il suffit alors de trouver l'ordonnée de l'un
 }
 
 \exe{}{
-	Considérons deux fonctions $f, g: ]{-}3 ; 3[ \rightarrow\R$ données algébriquement par
+	Considérons deux fonctions $f, g$ sur $\D = ]-3 ; 3[$ données algébriquement par
 		\begin{align*}
-			f(x) = x^2 - 2\cdot x && g(x) = (x-1)^2
+			f(x) = x^2 - 2x && g(x) = (x-1)^2
 		\end{align*}
 	
 	\begin{enumerate}
 		\item Esquisser les représentations graphiques de $f$ et de $g$ dans un même repère.
-		\item Démontrer que $g(x) - 1 = f(x)$ pour tout $x$ du domaine.
-		\item En déduire que $(x-1)^2 = x^2 - 2\cdot x + 1$ pour tout $x$ du domaine.
+		\item Démontrer que $g(x) = f(x) + 1$ pour tout $x$ du domaine.
 	\end{enumerate}
 }{exe:id-rem-graph}{
 	TODO
 }
 
 \exe{}{
-	Esquisser la courbe de la fonction $f:[-2; 4]\rightarrow\R$ donnée algébriquement par
+	Esquisser la courbe de la fonction $f$ sur $\D=[-2; 4]$ donnée algébriquement par
 		\[ f(x) = 3. \]
 	Que dire de $f$ et de $\C_f$ ?
 }{exe:graph-const}{
@@ -131,7 +126,7 @@ Pour lire l'image de $x$ par $f$, il suffit alors de trouver l'ordonnée de l'un
 }
 
 \exe{}{
-	Esquisser la courbe de la fonction $f:[-5;3]\rightarrow\R$ donnée algébriquement par
+	Esquisser la courbe de la fonction $f$ sur $\D=[-5;3]$ donnée algébriquement par
 		\[ f(x) = 1-x. \]
 	Que dire $\C_f$ ?
 }{exe:graph-droite}{
@@ -139,7 +134,7 @@ Pour lire l'image de $x$ par $f$, il suffit alors de trouver l'ordonnée de l'un
 }
 
 \exe{}{
-	Esquisser la courbe de la fonction $f:[3;10]\rightarrow\R$ donnée algébriquement par
+	Esquisser la courbe de la fonction $f$ sur $\D=[3;10]$ donnée algébriquement par
 		\[ f(x) = \dfrac3x + 1. \]
 }{exe:graph-droite2}{
 	TODO
@@ -166,22 +161,21 @@ Pour lire l'image de $x$ par $f$, il suffit alors de trouver l'ordonnée de l'un
 }{exe:deg3}{
 	TODO
 }
-
-
-\exe{}{
-	Un fonction $f$ admet une représentation graphique suivante.
-		\begin{center}
-		 \includegraphics[page=15]{figures/fig-affines.pdf}
-		\end{center}
-	Parmis les expressions algébriques suivantes, trouver celle qui correspond à $f(x)$.
+\exemulticols{}{
+	Un fonction $f$ admet une représentation graphique ci-contre.
+	Parmis les expressions algébriques suivantes, lequelles ne peuvent pas correspondre à $f(x)$ ?
 		\begin{multicols}{2}
 		\begin{enumerate}[label=\roman*)]
 			\item $1-x$
 			\item $\dfrac{-1-x}3$
 			\item $\left(x+\dfrac13\right)^2$
-			\item $-2\cdot x - \dfrac23$
+			\item $-2x - \dfrac23$
 		\end{enumerate}
 		\end{multicols}
+}{
+	\begin{center}
+	\includegraphics[page=15]{figures/fig-affines.pdf}
+	\end{center}
 }{exe:expr-from-graph}{
 	TODO
 }
@@ -228,7 +222,7 @@ Supposons qu'on souhaite résoudre $f(x) = 2$ où $x\in]{-}3,4 ; 2,3[$ et $\C_f$
 Comme chaque point de $\C_f$ est de la forme $\bigl(x; f(x)\bigr)$, on souhaite trouver les points de la forme $(x;2)$ pour ensuite lire leur abscisse et enfin obtenir les différents $x$ du domaine.
 Pour trouver tous les points d'ordonnée $2$, on peut s'aider en créant une droite horizontale d'ordonnée $2$, comme ci-dessous.
 	\begin{center}
-	\includegraphics[page=16, scale=1.5]{figures/fig-affines.pdf}
+	\includegraphics[page=16, scale=1.25]{figures/fig-affines.pdf}
 	\end{center}
 Les coordonnées des points $A,B,C$ trouvés en intersectant la droite horizontale avec $\C_f$ sont
 	\begin{align*}
@@ -254,30 +248,31 @@ L'ensemble de solutions de l'équation $f(x)=2$ est donc approximativement donn�
 
 \section{Fonctions affines}\label{sec:aff-1}
 
-\subsection{Définitions}
+
+\subsection{Lecture graphique et définitions}\label{sec:aff-1}
 
 \dfn{}{
-	Un fonction \emphindex{affine} est une fonction $f$ vérifiant pour tout $x\in\R$
+	Un \emphindex{fonction affine} est une fonction $f$ vérifiant pour tout $x\in\R$
 		\begin{align}
 			f(x) = ax + b, \label{eq:affine}
 		\end{align}
 	où $a$ et $b$ sont deux paramètres : le \emphindex{coefficient directeur} et l'\emphindex{ordonnée à l'origine}.
-	
 }{def:affine}
+
+\nomen{
+	Une \emphindex{fonction linéaire} est une fonction affine avec $b=0$.
+}
+
+\exe{, difficulty=1}{
+	Montrer que deux fonctions affines sont égales si et seulement si les coefficients directeurs sont égaux et les ordonnées à l'origines sont égales.
+}{exe:f=g-affines}{
+	TODO
+}
 
 \mprop{}{
 	La courbe représentative d'une fonction affine est une droite non verticale.
 }{prop:Cf-affine}
 
-
-\nt{
-	De la discussion ci-dessus, on en déduit des interprétations préliminaires pour les paramètres $a$ et $b$.
-		\begin{itemize}
-			\item Le réel $b$ est l'ordonnée du point d'intersection de la droite avec l'axe des ordonnées.
-			\item Le réel $a$ est associé à la tangente de l'angle $\alpha$ que forme la droite avec l'axe des abscisses : il mesure donc la pente de la droite. En effet, le pourcentage qu'on voit écrit sur les panneaux de signalisation de descente routière est égal la tangente de l'angle de l'inclinaison vis-à-vis de l'horizontale. Par exemple, un angle de $9$° correspond à une pente de $\tan(9) \approx 15,8\%$.
-		\end{itemize}
-	On verra dans la suite que le signe de $a$ correspond au caractère croissant ou décroissant de la fonction affine ; et que plus $|a|$ est grand, plus la pente est raide.
-}
 
 \ex{}{
 	Considérons la fonction $id$, dite \emphindex{fonction identité}, donnée par
@@ -287,80 +282,85 @@ L'ensemble de solutions de l'équation $f(x)=2$ est donc approximativement donn�
 		\begin{align*}
 			(x;y) \in (d) && \iff && y = x.
 		\end{align*}
+		
+	\begin{multicols}{2}
 	Un point appartient donc à $(d)$ si et seulement si sont abscisse est égale à son ordonnée.
 	
 	Ainsi, $(3;3) \in (d)$ et $\bigl(-\sqrt{2}; -\sqrt{2}\bigr) \in (d)$, mais $(3;4) \notin (d)$.
-	La droite restreinte à $\D = [-4 ; 4]$ est donc l'ensemble des points en bleu ci-dessous.
+	La droite restreinte à \mbox{$\D = [-4 ; 4]$} est donc l'ensemble des points en bleu ci-contre.
 	
-		\begin{center}
+	\vfill
+	
+	\begin{center}
 	\includegraphics[page=4]{figures/fig-affines.pdf}
-		\end{center}
+	\end{center}
+	
+	\end{multicols}
 }{}
 
-\ex{}{
-	Considérons la fonction $f$ donnée par
-		\[ f(x) = x+6 \qquad \text{pour tout $x \in \R$.} \]
-	Cette fonction est affine, car c'est un cas spécial de la forme \ref{eq:affine} où $a=1$ et $b=6$.
-	La droite $(d) = \C_{f}$ vérifie donc
-		\begin{align*}
-			(x;y) \in (d) && \iff && y = x+6.
-		\end{align*}
-	Ainsi, $(3;9) \in (d)$ et $\bigl(-\sqrt{2}; -\sqrt{2}+6\bigr) \in (d)$, mais $(6;0) \notin (d)$.
-	La droite est donc l'ensemble des points en bleu ci-dessous.
-	
-		\begin{center}
-	\includegraphics[page=5]{figures/fig-affines.pdf}
-	\end{center}
-}{ex:droite}
-
-\ex{}{
-	Considérons la fonction $f$ donnée par
-		\[ f(x) = 2,2 \qquad \text{pour tout $x \in \R$.} \]
-	Cette fonction est affine, car c'est un cas spécial de la forme \ref{eq:affine} où $a=0$ et $b=2,2$.
-	La droite $(d) = \C_{f}$ vérifie donc
-		\begin{align*}
-			(x;y) \in (d) && \iff && y = 2,2.
-		\end{align*}
-	Ainsi, $(3;2,2) \in (d)$ et $\bigl(-\sqrt{2}; 2,2\bigr) \in (d)$, mais $(0;0) \notin (d)$.
-	La droite est donc l'ensemble des points en bleu ci-dessous.
-	
-	\begin{center}
-	\includegraphics[page=6]{figures/fig-affines.pdf}
-	\end{center}
-}{}
-
-\ex{}{
-	Considérons la fonction $f$ donnée par
-		\[ f(x) = -2x + 1 \qquad \text{pour tout $x \in \R$.} \]
-	Cette fonction est affine, car c'est un cas spécial de la forme \ref{eq:affine} où $a=-2$ et $b=1$.
-	La droite $(d) = \C_{f}$ vérifie donc
-		\begin{align*}
-			(x;y) \in (d) && \iff && y = -2x+1.
-		\end{align*}
-	Ainsi, $(-1;3) \in (d)$ et $(-\sqrt{2}; 2\sqrt{2}+1) \in (d)$, mais $(1;1) \notin (d)$.
-	La droite est donc l'ensemble des points en bleu ci-dessous.
-	
-	\begin{center}
-	\includegraphics[page=7]{figures/fig-affines.pdf}
-	\end{center}
-}{}
+%\ex{}{
+%	Considérons la fonction $f$ donnée par
+%		\[ f(x) = x+6 \qquad \text{pour tout $x \in \R$.} \]
+%	Cette fonction est affine, car c'est un cas spécial de la forme \ref{eq:affine} où $a=1$ et $b=6$.
+%	La droite $(d) = \C_{f}$ vérifie donc
+%		\begin{align*}
+%			(x;y) \in (d) && \iff && y = x+6.
+%		\end{align*}
+%	Ainsi, $(3;9) \in (d)$ et $\bigl(-\sqrt{2}; -\sqrt{2}+6\bigr) \in (d)$, mais $(6;0) \notin (d)$.
+%	La droite est donc l'ensemble des points en bleu ci-dessous.
+%	
+%		\begin{center}
+%	\includegraphics[page=5]{figures/fig-affines.pdf}
+%	\end{center}
+%}{ex:droite}
+%
+%\ex{}{
+%	Considérons la fonction $f$ donnée par
+%		\[ f(x) = 2,2 \qquad \text{pour tout $x \in \R$.} \]
+%	Cette fonction est affine, car c'est un cas spécial de la forme \ref{eq:affine} où $a=0$ et $b=2,2$.
+%	La droite $(d) = \C_{f}$ vérifie donc
+%		\begin{align*}
+%			(x;y) \in (d) && \iff && y = 2,2.
+%		\end{align*}
+%	Ainsi, $(3;2,2) \in (d)$ et $\bigl(-\sqrt{2}; 2,2\bigr) \in (d)$, mais $(0;0) \notin (d)$.
+%	La droite est donc l'ensemble des points en bleu ci-dessous.
+%	
+%	\begin{center}
+%	\includegraphics[page=6]{figures/fig-affines.pdf}
+%	\end{center}
+%}{}
+%
+%\ex{}{
+%	Considérons la fonction $f$ donnée par
+%		\[ f(x) = -2x + 1 \qquad \text{pour tout $x \in \R$.} \]
+%	Cette fonction est affine, car c'est un cas spécial de la forme \ref{eq:affine} où $a=-2$ et $b=1$.
+%	La droite $(d) = \C_{f}$ vérifie donc
+%		\begin{align*}
+%			(x;y) \in (d) && \iff && y = -2x+1.
+%		\end{align*}
+%	Ainsi, $(-1;3) \in (d)$ et $(-\sqrt{2}; 2\sqrt{2}+1) \in (d)$, mais $(1;1) \notin (d)$.
+%	La droite est donc l'ensemble des points en bleu ci-dessous.
+%	
+%	\begin{center}
+%	\includegraphics[page=7]{figures/fig-affines.pdf}
+%	\end{center}
+%}{}
 
 \nt{
-
-	Soit $f$ une fonction quelconque sur $\R$.
-	Alors, par définition, nous avons
-		\[ \C_f = \bigset{ (x ; f(x) ) \text{ où $x$ parcourt $\R$} }. \]
-	Cet ensemble se réécrit également de la façon suivante.
-		\[ \C_f = \bigset{ (x ; y ) \text{ où $x$ parcourt $\R$ et où $y = f(x)$} } \]
-
+	On peut réécrire la courbe représentative de $f$ de la façon suivante.
+		\[ \C_f = \bigset{ \bigl(x ; f(x) \bigr) \text{ où $x$ parcourt $\R$} }
+		= \bigset{ (x ; y ) \text{ où $x$ parcourt $\R$ et où $y = f(x)$} } \]
 }{}
 
 % à mettre plus haut non ?
 \dfn{équation de droite}{
-	Sot $f(x) = ax+b$ une fonction affine sur $\R$. On a
-		\[ \C_f = \bigset{ (x ; y ) \text{ où $x$ parcourt $\R$ et où $y =ax+b$} }, \]
-	et nomme alors abusivement l'équation \og $y = ax+b$ \fg, l'\emphindex{équation de droite} de $\C_f$.
+	Pour une fonction affine $f(x) = ax+b$, on parle de $\C_f$ comme la « \emphindex{droite d'équation $y=ax+b$} ».
 }{dfn:eq-droite}
+
+\notations{
+	Pour se défaire de la fonction $f$, on peut noter
+		\[ (d) : y = ax+b. \]
+}
 
 \exe{1}{
 	Donner deux points distincts appartenant à la droite d'équation $y = 2x-1$.
@@ -387,7 +387,7 @@ L'ensemble de solutions de l'équation $f(x)=2$ est donc approximativement donn�
 }
 
 \exe{, difficulty=1}{
-	On considère la fonction affine $f(x) = \dfrac12 x$.
+	On considère la fonction affine $f(x) = \frac12 x$.
 	Donner tous les points $(x,y)$ à coordonnées entières de $\C_f$.
 }{exe:12x-integer}{
 	Tout d'abord, $(x,y) \in \C_f \iff y = \dfrac12  x \iff x = 2y$.
@@ -397,7 +397,7 @@ L'ensemble de solutions de l'équation $f(x)=2$ est donc approximativement donn�
 }
 
 \exe{}{
-	On considère la fonction affine $f(x) = \dfrac13 -\dfrac23 x$.
+	On considère la fonction affine $f(x) = \frac13 -\frac23 x$.
 	Montrer que $(x,y) \in \C_f$ si et seulement si $2x + 3y = 1$.
 	Montrer ensuite que tous les points de la forme $(x, y) = (-3k -1 ; 2k+1)$ où $k\in\Z$ appartiennent à $\C_f$.
 }{exe:2x+3y=1-integer}{
@@ -407,9 +407,14 @@ L'ensemble de solutions de l'équation $f(x)=2$ est donc approximativement donn�
 		\[ 2x+3y = 2(-3k-1) + 3(2k+1) = -2 + 3 = 1. \]
 }
 
+\nt{
+	L'équation $2x  - 3y= 3$ étant équivalente à $y = \frac23 x - 1$, c'est aussi une équation de droite.
+	La première forme est appelée \emphindex{équation cartésienne}, et la deuxième \emphindex{équation réduite}.
+}
+
 \exe{}{
 	On considère l'ensemble des points $(x,y)$ vérifiants $5x - 9y = 1$.
-	Exprimer cette ensemble comme la courbe représentative d'une fonction affine dont on explicitera l'expression algébrique.
+	Exprimer cet ensemble comme la courbe représentative d'une fonction affine dont on explicitera l'expression algébrique.
 	Donner un point de la droite à coordonnées entières.
 }{exe:isoler-y}{
 	$5x - 9y = 1 \iff 5x = 1 + 9y \iff 9y = 5x -1 \iff y = \dfrac59x - \dfrac19$.
@@ -441,21 +446,23 @@ L'ensemble de solutions de l'équation $f(x)=2$ est donc approximativement donn�
 		\[ (0 ; b) \in \C_f. \]
 }{lem:affine-b}
 
+\begin{multicols}{2}
 \ex{}{
-	On considère la droite suivante, courbe représentative $\C_f$ d'une certaine fonction affine $f$.
-
+	Considérons la droite $(d)$ ci-contre, d'équation $y=ax+b$.
+	
+	Le point de $(d)$ d'abscisse nulle admet pour coordonnées $(0 ; 2)$.
+	Ainsi
+		\begin{align*}
+			(0 ; 2) \in (d) && \iff && 2 = a\cdot0 + b,
+		\end{align*}
+	Et on en déduit que le paramètre $b$ vaut $2$.
+	\vfill
+}{}
 	\begin{center}
-	\includegraphics[page=8]{figures/fig-affines.pdf}
+	\includegraphics[page=8, scale=.9]{figures/fig-affines.pdf}
 	\end{center}
 	
-	On regarde le point de $\C_f$ d'abscisse nulle et on considère son ordonnée.
-		\begin{align*}
-			(0 ; 2) \in \C_f && \iff && 2 = f(0).
-		\end{align*}
-	Comme $f$ est affine, elle s'écrit $f(x) = ax + b$, pour certains paramètres $a,b\in\R$ réels, et donc
-		\[ 2 = f(0) = a \cdot 0 + b = b. \]
-	On en déduit que le paramètre $b$ vaut $2$.
-}{}
+\end{multicols}
 
 \ex{}{
 	Considérons une droite $(d)$ qui contient les points
@@ -483,7 +490,7 @@ L'ensemble de solutions de l'équation $f(x)=2$ est donc approximativement donn�
 	Soit $f(x) = a x + b$ affine.
 	Alors, pour tout $x\in\R$ réel,
 		\[ f(x+1) - f(x) = a. \]
-	On lit : « lorsqu'on augmente l'abscisse $x$ de $1$, l'ordonnée $y$ augmente de $a$ ».
+	Lorsqu'on augmente l'abscisse $x$ de 1, l'ordonnée $y$ augmente de $a$.
 }{lem:coeff-dir}
 
 %\pf{Preuve du lemme \ref{lem:coeff-dir}}{
@@ -498,8 +505,8 @@ L'ensemble de solutions de l'équation $f(x)=2$ est donc approximativement donn�
 }
 
 \cor{}{
-	Si $f(x) = ax+b$, alors
-		\[ a = f(1) - f(0). \]
+	On a, en particulier,
+		$ a = f(1) - f(0).$
 }{cor:affine-a}
 
 \exe{}{
@@ -526,12 +533,10 @@ L'ensemble de solutions de l'équation $f(x)=2$ est donc approximativement donn�
 	TODO
 }
 
+\begin{multicols}{2}
+		
 \ex{}{
-	On considère la droite suivante, courbe représentative $\C_f$ d'une certaine fonction affine $f$.
-
-		\begin{center}
-		\includegraphics[page=9]{figures/fig-affines.pdf}
-		\end{center}
+	On considère la droite ci-contre, courbe représentative $\C_f$ d'une certaine fonction affine $f(x)=ax+b$.
 	
 	On regarde deux points de $\C_f$ dont les abscisses sont espacées de $1$ et on regarde comme leur ordonnée évolue.
 	Par exemple, $(1;0)$ et $(2,-2)$. 
@@ -546,41 +551,15 @@ L'ensemble de solutions de l'équation $f(x)=2$ est donc approximativement donn�
 	Remarquons qu'on aurait pû prendre d'autres points, par exemple $(0;2)$ et $(1;0)$, ou $(2;-2)$ et $(3;-4)$.
 	La différence des ordonnées vaut bien $-2$, le coefficient directeur.	
 }{}
-
-
-\ex{}{
-	Soient $(1;2)$ et $(4;-4)$ deux points du plan qui appartiennent à une droite $\C_f$.
-	Notons $a, b \in\R$ les paramètres de la fonction affine $f$.
-		\[ f(x) = ax + b \qquad \text{pour tout $x\in\R$.} \]
-	On a les équivalences suivantes
-		\[ (1;2) \in \C_f \qquad\iff\qquad 2 = a\times1 + b, \]
-	et
-		\[ (4;-4) \in \C_f \qquad\iff\qquad -4 = a\times4 + b. \]
-	Ces deux égalités étant valides simultanément, on les met dans un système :
-		\[ \begin{cases*} a + b = 2, \\ 4a + b = -4. \end{cases*} \]
-	En l'état, il paraît difficile de trouver les valeurs de $a$ et $b$ vérifiant le système.
-	Il n'est d'ailleurs pas clair qu'il existe une solution, ou qu'il n'en existe pas une infinité.
-	
-	Cependant, remarquons qu'en soustrayant la deuxième équation à la première, on obtient
-		\begin{align*}
-			(4a + b) - (a+b) &= (-4) - (2) \\
-			4a+b-a-b & = -6 \\
-			3a &= -6 \\
-			a &= -2
-		\end{align*}
-	Soustraire une équation a une autre a permis de créer une nouvelle équation dans laquelle $b$ n'apparaît pas.
-	On la résoud alors tranquillement pour trouver $a=-2$.
-	
-	On remplace ensuite la valeur de $a$ dans une des deux équations du système pour trouver $b$ : 
-		\[ b=2-a = 4.\]
-	On peut désormais s'assurer que $(a;b) = (-2;4)$ vérifie bien les deux équations du système simultanément.
-	On conclut donc que la fonction $f$ est donnée par
-		\[ f(x) = -2x + 4, \qquad \text{pour tout $x\in\R$.} \]
-}{ex:systeme-affine}
+	\vfill\null
+	\begin{center}
+	\includegraphics[page=9]{figures/fig-affines.pdf}
+	\end{center}
+	\vfill\null
+\end{multicols}
 
 \exe{}{
-	Vérifier que les points $(1;2)$ et $(4;-4)$ appartiennent bien à la droite 
-		\[ (d) = \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = -2x+4 \}.\]
+	Vérifier que les points $(1;2)$ et $(4;-4)$ appartiennent bien à la droite d'équation $y = -2x+4$.
 }{exe:point-sur-droite}{
 	TODO
 }
@@ -591,12 +570,30 @@ L'ensemble de solutions de l'équation $f(x)=2$ est donc approximativement donn�
 	TODO
 }
 
-% who is this?
-\exe{}{
-	Vérifier que la fonction affine $f$ de l'exemple \ref{ex:ant-image}, en sachant que l'image de $-112$ par $f$ est $1013$, est bien donnée par $f(x) = -\frac12 x + 957$ pour tout $x\in\R$.
-}{exe:}{
-	TODO
+
+\nt{
+	Du lemme \ref{lem:coeff-dir}, on déduit que lorsqu'on augmente l'abscisse $x$ de 1, l'ordonnée $y$ augmente de $a$.
+	
+	Il suit naturellement que, lorsqu'on augmente $x$ de 2, alors $y$ augmente de $a+a = 2a$.
+	De plus, lorsqu'on augmente $x$ de $-1$, alors $y$ augmente de $-a$.
+	
+	Plus généralement, on montre facilement que $f(x+c) - f(x) = ca$ pour n'importe que $c\in\R$.
+	Si on note $x' = x+c$ on a donc, en supposant $c \neq 0$ non nul,
+		\[ a = \dfrac{f(x+c)-f(x)}{c} = \dfrac{f(x') - f(x)}{x' - x}. \]
+	Ceci démontre la première partie du théorème \ref{thm:param-affine}.
 }
+
+\ex{}{
+	Soient $(1;2)$ et $(4;-4)$ deux points du plan qui appartiennent à une droite d'équation $y=ax+b$.
+	Le but est de connaître $a$ et $b$ afin de connaître entièrement la droite passant par ces deux points.
+	
+	En augmentant l'abscisse de 3 unités, l'ordonnée augmente de $-6$.
+	D'après la remarque ci-dessus, $a=\frac{-6}3 = -2$.
+	
+	L'équation de la droite est donc $y=-2x + b$.
+	Comme $(1 ; 2)$ lui appartient, la propriété fondamentale donne $2 = -2\cdot1 + b = -2 + b$.
+	On conclut que $b=4$.
+}{ex:systeme-affine}
 
 \exe{}{
 	Montrer qu'une droite ne peut pas contenir les trois points $(0;1), (1;0),$ et $(2;1)$ simultanément.
@@ -612,58 +609,14 @@ L'ensemble de solutions de l'équation $f(x)=2$ est donc approximativement donn�
 	TODO
 }
 
-%\str{
-%	La stratégie de l'exemple \ref{ex:systeme-affine} peut se généraliser.
-%	Considérons $(x_A, y_A)$ et $(x_B, y_B)$ deux points distincts appartenant à une droite non verticale
-%		\[ (d) = \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = ax+b \},\]
-%	où $a, b\in\R$ sont deux paramètres à déterminer.
-%	
-%	Les deux appartenances donnent les égalités suivantes, grâce à la propriété fondamentale \ref{cor:prop-fond}.
-%		\[ \begin{cases} y_A = ax_A + b, \\ y_B = ax_B + b. \end{cases} \]
-%	On rappelle ici que $(x_A,y_A)$ et $(x_B,y_B)$ sont des valeurs sues, et qu'il faut déterminer $a$ et $b$ en fonction de ces valeurs.
-%	
-%	On soustrait la deuxième équation à la première pour éliminer la variable $b$ et obtenir
-%	\begin{align*}
-%		y_A - y_B &= (ax_A + b) - (ax_B + b) \\
-%		y_A - y_B & = a(x_A - x_B) \\
-%		a & = \dfrac{y_A - y_B}{x_A - x_B},
-%	\end{align*}
-%	où on a pu diviser par $x_A - x_B$ car la droite est supposée non verticale et les points sont supposés distincts.
-%	
-%	On peut ensuite substituer pour exprimer $b$ de façon analogue mais la formule est moins facile à retenir.
-%		\[ b = y_A - \dfrac{y_A - y_B}{x_A - x_B}\cdot x_A = \dfrac{x_A y_B - x_B y_A}{x_A-x_B}. \]
-%}
-
-\nt{
-	Remarquons qu'on a aussi les relations suivantes, démontrables comme pour le lemme \ref{lem:coeff-dir}.
-		\begin{align*}
-			f(x+2) - f(x) &= 2a  &\iff &&  a &= \dfrac{f(x+2)-f(x)}2 \\
-			f(x+3) - f(x) &= 3a  &\iff && a &= \dfrac{f(x+3)-f(x)}3 \\
-			f\left(x+\frac12 \right) - f(x) &= \frac12 a  &\iff && a &= 2 \cdot \left(f\left(x+\frac12\right)-f(x)\right) \\
-			f\left(x+\frac13 \right) - f(x) &= \frac13 a  &\iff && a &= 3 \cdot \left(f\left(x+\frac13\right)-f(x)\right)
-		\end{align*}
-	Plus généralement, pour n'importe quel réel $\kappa \in\R$ non nul,
-		\begin{align*}
-			f\left(x+\kappa \right) - f(x) = \kappa \cdot a && \iff && a = \dfrac{f(x+\kappa) - f(x)}{\kappa}.
-		\end{align*}
-	Si on note $x' = x+\kappa$ on a donc
-		\[ a = \dfrac{f(x') - f(x)}{x' - x}. \]
-	Ceci démontre la première partie du théorème \ref{thm:param-affine}.
-}
-
 \thm{interpolation linéaire}{
-	Soit $f$ une fonction affine donnée par, pour tout $x\in\R$, et pour certains paramètres $a, b\in\R$,
-		\[ f(x) = ax+b. \]
-	
-	Si les deux points $(x_A, y_A)$ et $(x_B, y_B)$ vérifient $x_A\neq x_B$ et appartiennent à $\C_f$, alors
+	Si deux points $(x_A, y_A)$ et $(x_B, y_B)$ vérifient $x_A\neq x_B$ et appartiennent à la droite d'équation $y=ax+b$, alors
 		\begin{align*}
 			a = \dfrac{y_A - y_B}{x_A - x_B} && \text{et} && b = \dfrac{x_A y_B - x_B y_A}{x_A-x_B}. 
 		\end{align*}
 }{thm:param-affine}
 
 \nt{
-	%Le théorème \ref{thm:param-affine} étend le résultat du lemme \ref{lem:coeff-dir} à une différence d'abscisses qui n'est pas forcément $1$.
-
 	Un moyen mnémotechnique pour retenir la formule de $a$ est
 		\[ a = \dfrac{\text{différence des $y$}}{\text{différence des $x$}} = \dfrac{y-y'}{x-x'} = \dfrac{dy}{dx}. \]
 	L'ordre des différences ($A$ moins $B$ ou $B$ moins $A$) doit être le même au numérateur et au dénominateur mais, même s'il ne l'est pas, on aura seulement commis une erreur de signe.
@@ -672,32 +625,58 @@ L'ensemble de solutions de l'équation $f(x)=2$ est donc approximativement donn�
 	La formule pour $b$ n'a pas a être retenue car, une fois $a$ connu, une appartenance d'un point suffit à donner une équation pour trouver $b$.
 }
 
+\begin{multicols}{2}
 \ex{}{
-	On considère la droite suivante, courbe représentative $\C_f$ d'une certaine fonction affine $f$.
-
-		\begin{center}
-		\includegraphics[page=10]{figures/fig-affines.pdf}
-		\end{center}
-		
+	On considère la droite \mbox{$y=ax+b$} ci-contre.
 	Le théorème \ref{thm:param-affine} affirme que
 		\begin{align*}
 			a = \dfrac{1,5 - (-3,5)}{0,5 - (-0,5)}  = \dfrac{5}{1} = 5. 
 		\end{align*}
-	On aurait aussi pû appliquer le lemme \ref{lem:coeff-dir} avec $x=-0,5$ : lorsque $x$ augmente de $1$ en passant de $-0,5$ à $+0,5$, l'ordonnée augmente de $5$ en passant de $-1,5$ à $3,5$.
+	On aurait aussi pû appliquer le lemme \ref{lem:coeff-dir} : lorsque $x$ augmente de 1 en passant de $-0,5$ à $+0,5$, l'ordonnée augmente de $5$ en passant de $-1,5$ à $3,5$.
 }{}
 
+	\begin{center}
+	\includegraphics[page=10]{figures/fig-affines.pdf}
+	\end{center}
+\end{multicols}
 
 \exe{}{
-	Calculer $a$ et $b$ de l'exemple \ref{ex:systeme-affine} à l'aide des formules ci-dessus et comparer avec les valeurs obtenues.
+	Calculer $a$ et $b$ de l'exemple \ref{ex:systeme-affine} à l'aide du théorème \ref{thm:param-affine} et comparer avec les valeurs obtenues.
 }{exe:a-b-affine}{
 	TODO
 }
 
 \exe{}{
-	Décrire entièrement la droite contenant les points $(-1;-10)$ et $(1;30)$.
+	Donner l'équation de la droite contenant les points $(-1;-10)$ et $(1;30)$.
+	Le point $(3 ;  60)$ appartient-il à la droite ?
 }{exe:a-b-affine2}{
 	TODO
 }
+
+\exe{, difficulty=1}{
+	Les points $(-3 ; -6)$, $(1 ;1)$, et $(3 ; 4)$ sont-ils alignés ?
+}{exe:affine-alignement}{
+	TODO
+}
+
+\exe{, difficulty=2}{
+	Considérons une fonction quadratique 
+		\[ f(x) = ax^2 + bx + c, \]
+	où $a, b, c\in\R$ sont trois paramètres réels.
+	Supposons de surcroît qu'on connaisse deux zéros distincts de $f$, c'est-à-dire qu'on connaisse $\alpha, \beta\in\R$ tels que $\alpha\neq\beta$ et
+		\[ f(\alpha) = f(\beta) = 0. \]
+	\begin{enumerate}
+		\item Montrer que la fonction $g$ donnée par
+			\[ g(x) = f(x) - a (x-\alpha)(x-\beta) \qquad \text{ pour tout } x\in\R \]
+		est affine.
+		\item Montrer que $g$ admet deux zéros distincts.
+		\item En déduire, par interpolation linéaire, que $g$ est constamment nulle et donc que
+			\[ f(x) = a (x-\alpha)(x-\beta)  \qquad \text{ pour tout } x\in\R.  \]
+	\end{enumerate}
+}{exe:thm-fond-alg-2}{
+	TODO
+}
+
 
 
 \section{Variations et signe du coefficient directeur}
