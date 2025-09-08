@@ -1,0 +1,259 @@
+\input{../preamble.tex}
+
+\AdvanceDate[1]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Première spécifique}
+\fancyhead[C]{\textbf{Fonctions affines — approfondissements}}
+\fancyhead[R]{\today}
+
+
+\exe{, difficulty=1}{
+    Soit $f(x) = ax + b$ une fonction affine sur $\R$ de paramètres $a, b\in\R$ et $P(x_P;y_P)$ un point du plan.
+
+    \begin{enumerate}
+        \item 
+        Montrer que la fonction affine $g$ donnée par
+            \[ g(x) = a(x-x_P) + y_P, \]
+        pour tout $x\in\R$ vérifie que $\C_f$ est parallèle à $\C_g$ et que $P \in \C_g$.
+        \item
+        Montrer que si $P\in\C_f$, alors $f=g$ ($f$ et $g$ admettent le même coefficient directeur et la même ordonnée à l'origine).
+    \end{enumerate}
+
+}{exe:1}{
+    \begin{enumerate}
+        \item 
+        Sont coefficient directeur est $a$, le même que celui de $f$.
+        Sa courbe est donc parallèle à celle de $f$.
+        
+        De plus, $g(x_P) = a(x_P - x_P) + y_P = y_P$, donc $P$ appartient à la courbe de $g$.
+        \item
+        Les coefficients directeurs sont déjà égaux.
+        L'ordonnée à l'origine de $g$ est $y_P - ax_P$.
+        Or, comme $P$ appartient à la courbe de $f$, on a $f(x_P) = ax_P + b = y_P$.
+        Il suit que $y_P - ax_P = b$, ce qui conclut.
+    \end{enumerate}
+}
+
+\exe{, difficulty=1}{
+    Soient $f(x) = 3x^2 + 17x - 11$ et $g(x) = 2x^2 + 17x - 10$ pour tout $x \in \R$ deux fonctions quadratiques.
+
+    Déterminer entièrement $\C_f \cap \C_g$.
+}{exe:2}{
+	On pose $f(x) = g(x)$, qu'on simplifie en $x^2 = 1$.
+	On trouve donc deux solution, $x=1$ et $x=-1$.
+	
+	Comme $f(1) = 9$ et $f(-1) = -25$, les deux points d'intersections sont donc $( 1 ; 9)$ et $(-1 ; -25)$.
+}
+
+\exe{, difficulty=2}{
+    Soient $f(x) = x$ et $g(x) = x^3 - 3x^2 + 4x - 1$ deux fonctions polynomiales sur $\R$.
+
+    \begin{enumerate}
+        \item 
+        Montrer que $(x-1)^3 = x^3 - 3x^2 + 3x - 1$ pour tout $x\in\R$.
+        \item
+        Déterminer entièrement $\C_f \cap \C_g$.
+        \item
+        Créer une fonction polynomiale $h$ de degré $4$ telle que $\C_f \cap \C_h = \bigset{ (1;1) }.$
+    \end{enumerate}
+}{exe:3}{
+    \begin{enumerate}
+        \item 
+        On utilise que $(x-1)^3 = (x-1)(x-1)(x-1) = (x^2 - 2x + 1)(x-1)$ et on développe tranquillement.
+        \item
+        Après avoir posé $f(x) = g(x)$, on obtient $(x-1)^3 = 0$, d'après la première question.
+        C'est un produit nul (trois fois le même terme), donc $x-1=0$ et $x=1$.
+        Le point d'intersection est donc $(1 ; 1)$.
+        \item
+        On choisit $h(x) = (x-1)^4 + x$
+        En développant, on trouve $h(x) = x^4 - 4x^3 + 6x^2 - 3x + 1$.
+    \end{enumerate}
+}
+
+\exe{, difficulty=1}{
+    Soient $f(x) = -2x^2 + 7x + 2$ et $g(x) = -3x^2 + 2x +16$ pour tout $x \in \R$ deux fonctions quadratiques.
+    
+    \begin{enumerate}
+        \item 
+        Déterminer l'autre solution de $f(x)-g(x)=0$, sachant que $x=2$ en est une et donc que $f(x)-g(x) = (x-2)h(x)$, où $h$ est affine.
+        \item
+        Déterminer entièrement $\C_f \cap \C_g$.
+        \item
+        Créer une fonction polynomiale $F$ de degré $2$ telle que $\C_f \cap \C_F = \bigset{ (2;8), (-1; -7) }.$
+    \end{enumerate}
+}{exe:4}{
+    \begin{enumerate}
+        \item 
+        $f(x) - g(x) = x^2 + 5x - 14 = (x-2)h(x)$
+        Comme $h$ est affine, $h(x) = ax+b$, et $x^2 + 5x - 14 = (x-2)(ax+b) = ax^2 + (b-2a)x - 2b$.
+        
+        En identifiant les coefficients devant les $x^2$, on trouve $1=a$.
+        Les coefficients constants donnent $-14 = -2b$, et $b=7$.
+        Donc $f(x)-g(x) = (x-2)(x+7)$.
+        \item
+        On cherche les $x$ vérifiant $(x-2)(x+7)=0$. 
+        C'est un produit nul, et donc un des deux termes est nul.
+        Il suit que $x=2$ et $x=-7$ sont les deux solutions.
+        
+        Ainsi, $(2 ; 8)$ et $(-7 ; -145)$ sont les deux points d'intersection.
+        \item
+        On vérifiera bien sûr que $f(-1)=-7$ avant de tenter quoi que ce soit...
+        
+        Par analogie au raisonnement précédent, on souhaite désormais créer $F$ de telle sorte que $f(x) - F(x) = (x-2)(x+1)$.
+        Ainsi $F(x) = f(x) - (x-2)(x+1) = -3x^2 +8x +4$.
+    \end{enumerate}
+}
+
+\exe{, difficulty=2}{
+    Soit $f(x) = ax+b$ et $g(x) = a'x + b'$ pour tout $x \in \R$ deux fonctions affines de paramètres $a, a', b, b' \in\R$.
+
+    Montrer que si $a\neq a'$, alors
+        \[ \C_f \cap \C_g = \left\{ \left(\ \dfrac{b'-b}{a-a'} ; \dfrac{ab' - ba'}{a-a'} \right) \right\}. \]
+    Comparer avec les réultats obtenus dans la série d'exercices précédente.
+}{exe:5}{
+	Soit $P(x_P ; y_P) \in \C_f \cap \C_g$.
+	Alors $f(x_P) = y_P = g(x_P)$.
+	Il suit que 
+		\[ f(x_P) = g(x_P) \iff ax_P + b = a' x_P + b' \iff x_P = \dfrac{b'-b}{a-a'}. \]
+	
+	Ensuite, 
+		\[ y_P = f(x_P) = a\dfrac{b'-b}{a-a'} + b = \dfrac{ab' -ab + ba -ba'}{a-a'} = \dfrac{ab' -ba'}{a-a'}. \]
+}
+
+\exe{, difficulty=1}{
+	Soit $f(x) = ax+b$ une fonction affine sur $\R$ à paramètre $a, b\in\R$.
+	
+	Montrer que si $f(r)=0$ pour un certain $r\in\R$ on a alors, pour tout $x\in\R$,
+		\[ f(x) = a(x-r). \]
+}{exe:6}{
+	L'exercice \ref{exe:1} conclut, grâce au point $P(r ; 0)$.
+}
+
+\exe{, difficulty=2}{
+	Considérons une fonction quadratique 
+		\[ f(x) = ax^2 + bx + c, \]
+	où $a, b, c\in\R$ sont trois paramètres réels.
+	On appelle cette forme, la \emph{forme développée} de $f$.
+	
+	Supposons de surcroît qu'on connaisse deux zéros distincts de $f$, c'est-à-dire qu'on connaisse $\alpha, \beta\in\R$ tels que $\alpha\neq\beta$ et
+		\[ f(\alpha) = f(\beta) = 0. \]
+	\begin{enumerate}
+		\item Montrer que la fonction $g$ donnée par
+			\[ g(x) = f(x) - a (x-\alpha)(x-\beta) \qquad \text{ pour tout } x\in\R \]
+		est affine.
+		\item Montrer que $g(\alpha) = g(\beta) = 0$.
+		\item En déduire que $g$ est constamment nulle et donc que
+			\[ f(x) = a (x-\alpha)(x-\beta)  \qquad \text{ pour tout } x\in\R.  \]
+	\end{enumerate}
+	
+	\textbf{Conclusion} : une fonction quadratique $f$ se factorise comme produit de facteurs linéaires $x-r$ où $r$ est une \emph{racine} de $f$ (c'est-à-dire que $f(r) = 0$).
+	C'est la \emph{forme factorisée} du polynôme.
+	
+	Ce résultat est généralisé par le \emph{théorème fondamental de l'algèbre} énoncé ci-dessous.
+}{exe:7}{
+	\begin{enumerate}
+		\item 
+			En développant l'expression de $g$, le terme quadratique (en $x^2$) s'annule.
+			Ne subsiste qu'une expression de la forme $ax+b$, expression d'une fonction affine.
+		\item 
+			$g(\alpha) = f(\alpha) - a(\alpha-\alpha)(\alpha-\beta) = 0$, car $f(\alpha)=0$, et $\alpha-\alpha=0$.
+			Idem pour $\beta$.
+		\item 
+			$g$ est affine et passe par $(\alpha ;0)$, et $(\beta ; 0)$, deux points distincts.
+			$g$ est donc la fonction nulle, $g(x) = 0$.
+			Or comme $g(x) = f(x) - a (x-\alpha)(x-\beta) =0$, on déduit que $f(x) = a (x-\alpha)(x-\beta)$.
+	\end{enumerate}
+}
+
+
+\exe{, difficulty=1}{
+	Considérons, pour tout $x\in\R$, la fonction quadratique suivante.
+		\[ f(x) = x^2 -9x + 20 \]
+	\begin{enumerate}
+		\item Montrer que si $f(x) = (x-\alpha) (x-\beta)$ pour certains nombres réels $\alpha, \beta\in\R$, alors on a forcément $f(\alpha) = f(\beta) = 0$.
+	\end{enumerate}
+	Supposons désormais que $f(x) = (x-\alpha) (x-\beta)$.
+	\begin{enumerate}[resume]
+		\item Développer l'expression de droite, identifier les coeffients en $1, x, x^2$, et déduire que
+			\[\begin{cases} \alpha + \beta = 9, \\ \alpha \beta = 20. \end{cases} \]
+		\item Trouver $\alpha$ et $\beta$, les racines de $f$.
+	\end{enumerate}
+}{exe:8}{
+	\begin{enumerate}
+		\item Évaluer en $x=\alpha$ ou $x=\beta$ annule un des termes du produit, et donc le produit entier.
+		C'est pour cela que la forme factorisée donne directement les racines d'un polynôme.
+		\item 
+			\[ f(x) = x^2 - 9x + 20 = (x-\alpha)(x-\beta) = x^2 - (\alpha + \beta)x + \alpha\beta. \]
+		En $x^2$, on trouve $1=1$, en $x$, on trouve $\alpha+\beta=9$, et en $1$, on trouve $\alpha\beta=20$.
+		\item 
+		On cherche deux nombres donc le produit vaut 20 et la somme 9.
+		$(\alpha, \beta) = (5 ; 4)$ fonctionne. À noter qu'on pourrait échanger les valeurs de $\alpha$ et $\beta$, par symétrie du problème.
+			\[ x^2 - 9x + 20 = (x-5)(x-4). \]
+	\end{enumerate}
+}
+
+\begin{thm}[théorème fondamental de l'algèbre]
+	Si $f$ polynomiale admet une racine $r$ (c'est-à-dire que $f(r) = 0$), alors $f(x) = (x-r)g(x)$, avec $g$ polynomiale.
+\end{thm}
+
+\exe{, difficulty=1}{
+	Soit $f(x) = x^3 - 3x^2 - 10x + 24$ une fonction cubique.
+	
+	\begin{enumerate}
+		\item Montrer que $f(2) = 0$.
+		\item Par division polynomiale, trouver $g$ quadratique telle que $f(x) = (x-2)g(x)$.
+		\item Montrer que $g(4) = 0$, et factoriser complètement $f$ comme produit de facteurs linéaires.
+	\end{enumerate}
+}{exe:9}{
+	\begin{enumerate}
+		\item Trivial.
+		\item La division polynômiale fonctionne ainsi : à chaque étape, le diviseur ($x-2$ ici) annule la plus grande puissance de $x$ du divisé.
+		Ainsi, $f(x) - x^2(x-2) = -x^2 - 10x + 24$ annule le terme en $x^3$.
+		On continue : 
+			\[ f(x) - x^2(x-2) + x(x-2) = -12x + 24, \]
+		annule le terme en $x^2$.
+		Puis, 
+			\[ f(x) - x^2(x-2) + x(x-2) + 12(x-2) = 0, \]
+		qui permet de conclure que
+			\[ f(x) = (x^2 - x - 12)(x-2) = g(x)(x-2). \]
+		\item 
+		On diviser $x^2 - x - 12$ par $x-4$ pour trouver
+			\[ x^2 - x - 12 = (x-4)(x+3). \]
+		On conclut que $x^3 - 3x^2 - 10x + 24 = (x-2)(x-4)(x+3)$.
+	\end{enumerate}
+}
+
+\exe{, difficulty=3}{
+	Soit $f, g$ deux polynômes.
+	Montrer qu'il existe deux polynômes, $r$, et $q$, tels que
+		\[ f = gq + r, \]
+	avec le degré de $r$ strictement inférieur à celui de $q$.
+	
+	En déduire le théorème fondamental de l'algèbre.
+}{exe:10}{
+	La division polynomiale comme décrite à l'exercice \ref{exe:10} permet de se convaincre qu'on peut enlever un multiple de $g$ à $f$ pour réduire son degré, jusqu'à obtenir un reste $r$ de degré strictement inférieur.
+	
+	Le théorème fondamental de l'algèbre se démontre donc ainsi : si $f$ est polynomiale et admet une racine $r$, alors la division $f(x) = q(x) (x-r) + r(x)$ implique que $r(x) = c$ est une constante (car son degré est strictement inférieur à celui de $x-r$.
+	Or, en évaluant en $x=r$, on trouve que $0 = 0 + c$, et donc que $c=0$.
+	D'où $f(x) = q(x) (x-r)$, comme voulu.
+}
+
+% prochaine série
+%\exe{, difficulty=2}{
+%	Supposons que le polynôme du second degré $p(x) = ax^2 + bx + c$ s'écrive de la forme $p(x) = a'(x-\alpha)^2 - \beta$.
+%	On appelle cette forme, la \emph{forme canonique} de $f$.
+%	
+%	Montrer, par identification des coefficients en $x^2, x, 1$, que $a'=a$, puis que $\alpha = \dfrac{-b}{2a}$, et enfin que $\beta = \dfrac{b^2 - 4ac}{4a}$.
+%}{exe:déterminant-2nddeg}{
+%	Sol11.
+%}
+
+%%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}

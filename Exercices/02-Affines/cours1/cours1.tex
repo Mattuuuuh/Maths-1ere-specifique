@@ -1,0 +1,59 @@
+\input{../preamble.tex}
+
+\AdvanceDate[1]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Première spécifique}
+\fancyhead[C]{\textbf{Chapitre 1 — Fonctions affines}}
+\fancyhead[R]{\today}
+
+
+\dfn{}{
+	Un \emph{fonction affine} est une fonction $f$ vérifiant pour tout $x\in\R$
+		\begin{align*}
+			f(x) = \phantom{ax + b,}
+		\end{align*}
+	où \phantom{$a$} et \phantom{$b$} sont deux paramètres : \phantom{le coefficient directeur et l'ordonnée à l'origine.}
+}{def:affine}
+
+
+\mprop{}{
+	La courbe représentative d'une fonction affine est \phantom{une droite non verticale.}
+}{prop:Cf-affine}
+
+
+\dfn{équation de droite}{
+	Pour une fonction affine $f(x) = \phantom{ax+b}$, on parle de $\C_f$ comme la « \emph{droite d'équation \phantom{$y=ax+b$}} ».
+}{dfn:eq-droite}
+
+
+\thm{intersection}{
+	Un point $P(x_P ; y_P)$ à l'intersection des courbes $\C_f$ et $\C_g$ vérifie
+		\begin{align*}
+			f(x_P) = g(x_P), && \et && y_P = f(x_P) = g(x_P).
+		\end{align*}
+}{thm:intersection}
+
+
+\thm{variations}{
+	On distingue trois cas de figure.
+		\begin{itemize}
+			\item Si \phantom{$a < 0$}, alors $f$ est \phantom{strictement décroissante.}
+			\item Si \phantom{$a=0$}, alors $f$ est \phantom{constante.}
+			\item Si \phantom{$a>0$}, alors $f$ est \phantom{strictement croissante.}
+		\end{itemize}
+}{thm:affine-var}
+
+
+\begin{center}
+\begin{tikzpicture}[scale=1.5]
+\begin{axis}[ytick distance=1, xtick distance=1, domain=-1.1:2.1]
+	\addplot[transparent, very thick] expression{3*x-2} node[right] {$\C_f$};
+	\addplot[transparent, very thick] expression{-x+2} node[pos=0,left] {$\C_g$};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+
+\end{document}
