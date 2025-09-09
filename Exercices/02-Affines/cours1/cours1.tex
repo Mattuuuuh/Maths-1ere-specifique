@@ -14,9 +14,18 @@
 		\begin{align*}
 			f(x) = \phantom{ax + b,}
 		\end{align*}
-	où \phantom{$a$} et \phantom{$b$} sont deux paramètres : \phantom{le coefficient directeur et l'ordonnée à l'origine.}
+	où \phantom{\quad$a$\quad} et \phantom{\quad$b$\quad} sont deux paramètres : \phantom{le coefficient directeur et l'ordonnée à l'origine.}
 }{def:affine}
 
+\mprop{}{
+	Si $f(x) = ax+b$, alors
+		\begin{multicols}{2}
+		\begin{enumerate}
+			\item $f(0) = \phantom{b,}$
+			\item $f(1) - f(0) = \phantom{a.}$
+		\end{enumerate}
+		\end{multicols}
+}{prop:Cf-affine}
 
 \mprop{}{
 	La courbe représentative d'une fonction affine est \phantom{une droite non verticale.}
@@ -24,14 +33,14 @@
 
 
 \dfn{équation de droite}{
-	Pour une fonction affine $f(x) = \phantom{ax+b}$, on parle de $\C_f$ comme la « \emph{droite d'équation \phantom{$y=ax+b$}} ».
+	Pour une fonction affine $f(x) = \phantom{\quad ax+b\quad}$, on parle de $\C_f$ comme la « \emph{droite d'équation \phantom{\quad$y=ax+b$\quad}} ».
 }{dfn:eq-droite}
 
 
 \thm{intersection}{
 	Un point $P(x_P ; y_P)$ à l'intersection des courbes $\C_f$ et $\C_g$ vérifie
 		\begin{align*}
-			f(x_P) = g(x_P), && \et && y_P = f(x_P) = g(x_P).
+			\phantom{f(x_P) = g(x_P),} && \et && \phantom{y_P = f(x_P) = g(x_P).}
 		\end{align*}
 }{thm:intersection}
 
@@ -39,21 +48,24 @@
 \thm{variations}{
 	On distingue trois cas de figure.
 		\begin{itemize}
-			\item Si \phantom{$a < 0$}, alors $f$ est \phantom{strictement décroissante.}
-			\item Si \phantom{$a=0$}, alors $f$ est \phantom{constante.}
-			\item Si \phantom{$a>0$}, alors $f$ est \phantom{strictement croissante.}
+			\item Si \phantom{\quad$a < 0$\quad}, alors $f$ est \phantom{strictement décroissante.}
+			\item Si \phantom{\quad$a=0$\quad}, alors $f$ est \phantom{constante.}
+			\item Si \phantom{\quad$a>0$\quad}, alors $f$ est \phantom{strictement croissante.}
 		\end{itemize}
 }{thm:affine-var}
 
+\ex{}{\,\\
+	\begin{center}
+	\begin{tikzpicture}[scale=1.5]
+	\begin{axis}[domain=-1.1:2.1, ticks = none, grid=none]
+		\addplot[GOLD_E, very thick] expression{3*x-2};
+		\addplot[PURPLE, very thick] expression{3-3*x};
+		\addplot[GREEN_E, very thick] expression{-4};
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}{}
 
-\begin{center}
-\begin{tikzpicture}[scale=1.5]
-\begin{axis}[ytick distance=1, xtick distance=1, domain=-1.1:2.1]
-	\addplot[transparent, very thick] expression{3*x-2} node[right] {$\C_f$};
-	\addplot[transparent, very thick] expression{-x+2} node[pos=0,left] {$\C_g$};
-\end{axis}
-\end{tikzpicture}
-\end{center}
 
 
 \end{document}

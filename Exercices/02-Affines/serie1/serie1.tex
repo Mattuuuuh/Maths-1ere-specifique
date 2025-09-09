@@ -5,12 +5,12 @@
 \begin{document}
 \pagestyle{fancy}
 \fancyhead[L]{Première spécifique}
-\fancyhead[C]{\textbf{Fonctions affines — approfondissements}}
+\fancyhead[C]{\textbf{Fonctions affines}}
 \fancyhead[R]{\today}
 
 \exe{}{
-	Pour chaque fonction affine sur $\R$ suivante, déterminer son coefficient directeur $a$ et son ordonnée à l'origine $b$ à l'aide du lemme \ref{lem:affine-b} et du corollaire \ref{cor:affine-a}.
-	\begin{multicols}{2}
+	Pour chaque fonction affine sur $\R$ suivante, déterminer son coefficient directeur $a$ et son ordonnée à l'origine $b$.
+	\begin{multicols}{4}
 	\begin{enumerate}
 		\item $f(x) = 2x + 1$
 		\item $f(x) = 1 + 2x$
@@ -22,9 +22,204 @@
 		\item $f(x) = 0$
 	\end{enumerate}
 	\end{multicols}
-}{exe:paramètres-affines}{
+}{exe:parametres-affines}{
 	TODO
 }
+
+\exe{}{
+	Un vase droit, de base carrée de $5$cm de côté, a une hauteur de $20$cm.
+	On y dépose une couche initial de sable de $2$cm
+	
+	\begin{enumerate}
+		\item Quel est le volume du vase ?
+		\item Quel est le volume de la couche initiale de sable ?
+	\end{enumerate}
+	
+	On note $x$ la hauteur supplémentaire de sable que l'on rajoute.
+	\begin{enumerate}[resume]
+		\item À quel intervalle appartient $x$ ?
+		\item Exprimer, en fonction de $x$, le volume total $V(x)$ de sable dans le vase.
+		\item Calculer $V(0), V(3),$ et $V(18)$.
+		\item Quelle hauteur de sable a été rajoutée si le volume total est de $335 \text{cm}^3$ ?
+		\item Quelle hauteur minimale de sable a été rajoutée si le volume total dépasse $440 \text{cm}^3$ ?
+	\end{enumerate}
+}{exe:volume-affine}{
+	\begin{enumerate}
+		\item On fait base $\times$ hauteur, d'où $5^2 \cdot 20 = 500 cm^3$.
+		\item Idem, la hauteur maintenant étant de $2$cm : $5^2 \cdot 2 = 50cm^3$.
+		\item La valeur minimale de $x$ est $0$ (hauteur non nulle), et sa valeur maximale est $18$, car il y a déjà une couche de $2$cm présente.
+		
+		$x$ peut donc prendre toutes les valeurs entre $0$ et $18$ incluses, d'où $x \in [0;18]$.
+		\item La base reste d'aire $5^2 = 25cm^2$, et la hauteur du sable est de $2+x$cm, car il y a déjà une couche de $2$cm présente.
+		
+		D'où $V(x) = 25\cdot(2+x) = 25x + 50$.
+		$V$ est affine.
+		\item $V(0) = 50$ et $V(18) = 500$, ce qui est cohérent avec les valeurs trouvées aux deux premières questions de l'exercice.
+		
+			$V(3) = 25\cdot3 + 50 = 125$.
+		\item On résoud pour $x$ l'équation $V(x) = 335$.
+			\begin{align*}
+				V(x) &= 335 \\
+				25x + 50 &= 335 \\
+				25x &= 285 \\
+				x &= \dfrac{285}{25} = \dfrac{570}{50} = \dfrac{1140}{100} = 11,4.
+			\end{align*}
+		\item On résoud pour $x$ l'inéquation $V(x) \geq 440$.
+			\begin{align*}
+				V(x) &\geq 440 \\
+				25x + 50 &\geq 440 \\
+				25x &\geq 390 \\
+				x &\geq 15,6
+			\end{align*}
+			La hauteur minimale ajoutée est donc $15,6$cm, qui est bien dans l'intervalle de définition de $x$.
+	\end{enumerate}
+
+}
+
+\exe{}{
+	\begin{multicols}{2}
+		\begin{center}
+		\begin{tikzpicture}[scale=0.8]
+		% real line
+		\draw[black, thick] (0,0) -- (7,0);
+		\draw[black,thick] (7,0) -- (7,7);
+		\draw[black,thick] (7,7) -- (2,7);
+		\draw[black,thick] (2,7)--(2,2);
+		\draw[black, thick](2,2)--(0,2);
+		\draw[black,thick](0,2)--(0,0);
+		
+		\draw[black,thick, dotted](2,0)--(2,2);
+		
+		\draw[<->, thick] (2,-.2) -- (7,-.2) node [midway, below] {$5$} ;
+		\draw[<->, thick] (0,-.2) -- (2,-.2) node [midway, below] {$x$} ;
+		\draw[<->, thick] (-.2,0) -- (-.2,2) node [midway, left] {$x$} ;
+		\draw[<->, thick] (7.2,0) -- (7.2,7) node [midway, right] {$12$} ;
+	\end{tikzpicture}
+	\end{center}
+	
+	Considérons la figure ci-contre. La longueur du côté du carré de gauche doit rester inférieure à la longueur du rectangle de droite.
+	\begin{enumerate}
+		\item À quel intervalle appartient $x$ ?
+		\item Exprimer le périmètre de la figure en fonction de $x$. Est-ce une fonction affine ? Si oui, donner son coefficient directeur de son ordonnée à l'origine.
+		\item Donner l'ensemble des valeurs de $x$ pour lesquelles le périmètre est supérieur ou égal à $50$.
+	\end{enumerate}
+	
+	\end{multicols}
+}{exe:perimetre-affine}{
+	
+	\begin{enumerate}
+		\item En considérant les valeurs minimales et maximales de $x$, on trouve $x \in [0;12]$.
+		\item Le périmètre est la longueur du pourtour, soit $12 + 5 + 5 + 12 + 2x = 34 + 2x$.
+		
+		La fonction $f(x) = 2x+34$ est affine, de coefficient directeur $2$ et d'ordonnée à l'origine $34$.
+		\item On résoud pour $x$ l'inéquation $f(x) \geq 50$.
+			\begin{align*}
+				f(x) &\geq 50 \\
+				34+2x &\geq 50 \\
+				2x &\geq 16 \\
+				x &\geq 8
+			\end{align*}
+		L'ensemble des valeurs est donc donné par $[8;12]$, car on a toujours $x \leq 12$ d'après la question 1.
+	\end{enumerate}
+
+}
+
+\exe{}{
+    Achille dispute une course avec une tortue. On suppose que les deux participants avancent à vitesse constante. Posons $v = 60$ mètres par minute la vitesse d'Achille.
+    La tortue, elle, avance 10 fois moins vite qu’Achille, soit à $6$ mètres par minute. 
+    Achille décide donc de lui laisser généreusement 10 minutes d’avance.
+
+    
+	\begin{enumerate}
+        \item Calculer la distance parcourue par la tortue après les 10 minutes laissées gracieusement par Achille.
+        \item \`A la minute $10+t$, on appelle $A(t)$ et $T(t)$ les distances parcourues respectivement par Achille et la tortue, c'est-à-dire après les $10$ premières minutes accordées par Achille.
+        Montrer que
+            \begin{align*}
+                A(t) = 60 t, && \text{ et } && T(t) = 60 + 6t.
+            \end{align*}
+        \item Combien de temps Achille met-il pour rattraper la tortue ?
+        \item Quelle est la distance parcourue par les deux participants au moment où ils se croisent ?
+        \item($\star$) Supposons qu'on ne connaisse pas la vitesse exacte d'Achille mais qu'on sache tout de même que la tortue avance 10 fois moins vite que celui-ci.
+        Montrer qu'Achille rattrape la tortue en $t = \frac{10}{9}$ minutes, indépendamment de la vitesse d'Achille.
+	\end{enumerate}
+	
+}{}{}
+
+
+\exe{}{
+	Déterminer les paramètres des fonction affines $f, g, h$ dont les courbes sont représentées ci-dessous.
+
+	\begin{center}
+		\begin{tikzpicture}[>=stealth, scale=1.5, x=1cm, y=4cm]
+		\begin{axis}[xmin = -10, xmax=10, ymin=-10, ymax=10, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {-10, -8, ..., 8, 10}, ytick = {-10, -8, ..., 8, 10}, grid=both]
+		
+			\addplot[RED_E, thick, domain =-9:9, samples=2] {-x}  node[above=6pt] {$(\mathcal{C}_f)$};
+			\addplot[RED_E, thick, dotted, domain =-10:-9, samples=2] {-x} ;
+			\addplot[RED_E, thick, dotted, domain =9:10, samples=2] {-x};
+		
+		
+			\addplot[GREEN_E, thick, domain =-9:9, samples=2] {x/2+1}  node[below=6pt] {$(\mathcal{C}_g)$};
+			\addplot[GREEN_E, thick, dotted, domain =-10:-9, samples=2] {x/2+1} ;
+			\addplot[GREEN_E, thick, dotted, domain =9:10, samples=2] {x/2+1};
+		
+		
+			\addplot[black, thick, domain =-9:9, samples=2] {7}  node[above=10pt, left] {$(\mathcal{C}_h)$};
+			\addplot[black, thick, dotted, domain =-10:-9, samples=2] {7} ;
+			\addplot[black, thick, dotted, domain =9:10, samples=2] {7};
+		
+			
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}{exe:lecture-graphique-affine}{
+	Pour la fonction $f(x) = ax+b (x\in\R)$, on peut par exemple choisir deux points lui appartenant et interpoler linéairement à partir de ces deux points.
+	Par unicité de la droite passant par deux points, l'interpolation trouvée doit nécessairement être $f$.
+	Prenons $A(-4;4)$ et $B(2;-2)$ et calculons les paramètres de la droite $(AB) = \C_f$.
+	
+	\begin{align*}
+		a = \dfrac{4 - (-2)}{-4 - 2} = -1, && b = \dfrac{(-4)\cdot(-2) - 4\cdot2}{-4-2} = 0.
+	\end{align*}
+	
+	\hrule\vspace{10pt}
+	
+	Pour la fonction $g(x) = ax+b (x\in\R)$, on peut faire idem en choisissant de bons points pour faciliter les calculs.
+	Par exemple, $A(0;1)$ et $B(-2;0)$ sont pratiques car il y a beaucoup de zéros qui annulent les expressions.
+	En fait, le point $A$ donne directement l'ordonnée à l'origine $b=1$, mais on peut calculer à l'aide du théorème du cours nonobstant.
+	\begin{align*}
+		a = \dfrac{1-0}{0-(-2)} = \dfrac12, && b = \dfrac{0 \cdot0 - 1 \cdot (-2)}{0-(-2)} = 1.
+	\end{align*}
+	
+	\hrule\vspace{10pt}
+	
+	Pour la fonction $h(x) = ax+b (x\in\R)$, on procède par parallélisme et appartenance.
+	La fonction est constante, donc $a=0$.
+	N'importe quel point lui appartenant a pour ordonnée $b=7$, ce qui conclut.
+
+}
+
+L'exercice suivant est tiré du premier sujet zéro de l'examen de 1ère spécifique.
+
+\exe{}{
+	Sur un axe gradué en mètres, on organise une course entre une tortue et un escargot.
+	\begin{itemize}
+		\item
+		La tortue part du point d'abscisse $x=0$, et se déplace vers la droite à une vitesse de 2 mètres par minute.
+	
+		\item
+		L'escargot part du point d'abscisse $x=12$, et se déplace vers la droite à une vitesse de 50 centimètres par minute.
+	
+		\item
+		Les deux concurrents partent en même temps.
+	\end{itemize}
+	
+	À quel endroit la tortue rattrapera-t-elle l'escargot ?
+	
+	\begin{center}
+	\includegraphics[scale=.6]{zero1.png}
+	\end{center}
+	
+	\emph{Toute trace de recherche, même infructueuse, sera prise en compte.}
+}{exe:zero1-affine}{}
 
 %%%%%%%%%%%%
 
