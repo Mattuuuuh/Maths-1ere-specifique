@@ -8,6 +8,135 @@
 \fancyhead[C]{\textbf{Fonctions affines — approfondissements}}
 \fancyhead[R]{\today}
 
+\exe{}{
+	Pour chacune des paires de fonctions affines $f, g$, calculer l'intersection des droites $\C_f \cap \C_g$.
+	
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $f(x) = 2x + 1, g(x) = -x+1$.
+		\item $f(x) = -x + 1, g(x) = 2x + 1$.
+		\item $f(x) = 3+7x, g(x) = 2$.
+		\item $f(x) = 9-2x, g(x) = 17-x$.
+		\item $f(x) = 2x+1, g(x) = 2x+1$.
+		\item $f(x) = 2x+1, g(x) = 2x+2$.
+	\end{enumerate}
+	\end{multicols}
+}{exe:intersections-affines}{
+
+	\begin{enumerate}
+		\item $f(x) = 2x + 1, g(x) = -x+1$ .
+			On cherche un point $P(x_P, y_P) \in \R^2$ vérifiant les deux équations
+				\begin{align*}
+					y_P = f(x_P) && \text{ et } && y_P = g(x_P)
+				\end{align*}
+			Comme bien sûr $y_P = y_P$, on peut résoudre l'équation
+				\[ f(x_P) = g(x_P) \]
+			pour trouver $x_P$.
+			Ici, on pose calmement
+				\begin{align*}
+					f(x_P) &= g(x_P) \\
+					2x_P + 1 &= -x_P + 1 \\
+					3x_P &= 0 \\
+					x_P &= 0,
+				\end{align*}
+			ce qui nous fournit $x_P = 0$.
+			Reste plus qu'à utiliser que $y_P = f(x_P) = g(x_P)$ pour calculer $y_P$.
+			
+			D'une part, 
+				\[ f(x_P) = f(0) = 2\cdot0 + 1 = 1. \]
+			D'autre part, on aurait pû calculer
+				\[ g(x_P) = g(0) = -0 + 1 = 1. \]
+			Rien de surprenant à ce qu'on trouve la même valeur $y_P = 1$, car $x_P$ a été trouvé vérifiant $f(x_P) = g(x_P)$.
+			
+			En conclusion, $\C_f \cap \C_g = \{ (0;1) \}$.
+			
+		\item 
+			Similairement,
+			\begin{align*}
+				f(x_P) &= g(x_P) \\
+				-x_P + 1 & = 2x_P + 1 \\
+				x_P &= 0,
+			\end{align*}
+			et $y_P = f(0) = 1$.
+			Sans surprise, $(0;1)$ est à nouveau le point d'intersection de $\C_f$ et de $\C_g$ car se sont les mêmes fonctions que ci-dessus mais échangées.
+		
+		\item 
+			Similairement,
+			\begin{align*}
+				f(x_P) &= g(x_P) \\
+				3 + 7x_P & = 2 \\
+				7x_P &= -1 \\
+				x_P &= \dfrac{-1}7,
+			\end{align*}
+			\[
+				y_P = f(x_P) = 3+7\cdot \dfrac{-1}7  = 2.
+			\]
+			Il aurait été encore plus facile de calculer $g(x_P) = 2$ à la place !
+			
+			En conclusion, $\C_f \cap \C_g = \{ \left(-\dfrac72 ; 2\right) \}$.
+		
+		\item
+			Similairement,
+			\begin{align*}
+				f(x_P) &= g(x_P) \\
+				9-2x_P & = 17-x_P \\
+				-8 &= x_P,
+			\end{align*}
+			\[
+				y_P = f(x_P) = 9-2 \cdot(-8) = 25.
+			\]
+		
+			En conclusion, $\C_f \cap \C_g = \{ (-8;25) \}$.
+		
+		\item 			
+		Similairement,
+			\begin{align*}
+				f(x_P) &= g(x_P) \\
+				2x_P + 1 & = 2x_P + 1 \\
+				0 &= 0,
+			\end{align*}
+			cette équation étant évidemment vraie, tous les $x_P \in \R$ vérifient l'équation.
+			\[
+				y_P = f(x_P) = 2x_P + 1.
+			\]
+			N'importe quel $(x_P ; 2x_P+1) \in \R$ appartient donc à l'intersection des droites.
+			
+			En conclusion, $\C_f \cap \C_g = \{ (x_P ; 2x_P+1) \text{ tq. } x_P \in \R \} = \{ (x_P ; y_P) \in \R^2 \text{ tq. } y_P = 2x_P + 1 \} = \C_f = \C_g$.
+			Il n'est pas surprenant qu'on trouve que toute la droite appartienne à l'intersection, car $f$ et $g$ sont identiques : tous les points de la droite $\C_f$ sont des points d'intersection.
+		
+		
+		\item 
+			Similairement,
+			\begin{align*}
+				f(x_P) &= g(x_P) \\
+				2x_P + 1 & = 2x_P + 2 \\
+				1 &= 2,
+			\end{align*}
+			cette équation étant évidemment fausse, aucun $x_P \in \R$ ne vérifie l'équation.
+			
+			En conclusion, $\C_f \cap \C_g = \emptyset$, l'ensemble vide.
+			En fait, les droites $\C_f$ et $\C_g$ sont parallèles car elles ont le même coefficient directeur $2$.
+			Or les droites ne sont pas égales car leurs ordonnées à l'origine sont différentes, donc il n'y a aucun point d'intersection.
+	\end{enumerate}
+
+}
+
+\exe{, difficulty=2}{
+    Soit $f(x) = ax+b$ et $g(x) = a'x + b'$ pour tout $x \in \R$ deux fonctions affines de paramètres $a, a', b, b' \in\R$.
+	
+	Montrer que si $a=a'$, alors $\C_f$ et $\C_g$ sont parallèles : on a soit $\C_f \cap \C_g = \emptyset$, soit $\C_f = \C_g$.
+
+    Montrer que si $a\neq a'$, alors
+        \[ \C_f \cap \C_g = \left\{ \left(\ \dfrac{b'-b}{a-a'} ; \dfrac{ab' - ba'}{a-a'} \right) \right\}. \]
+}{exe:5}{
+	Soit $P(x_P ; y_P) \in \C_f \cap \C_g$.
+	Alors $f(x_P) = y_P = g(x_P)$.
+	Il suit que 
+		\[ f(x_P) = g(x_P) \iff ax_P + b = a' x_P + b' \iff x_P = \dfrac{b'-b}{a-a'}. \]
+	
+	Ensuite, 
+		\[ y_P = f(x_P) = a\dfrac{b'-b}{a-a'} + b = \dfrac{ab' -ab + ba -ba'}{a-a'} = \dfrac{ab' -ba'}{a-a'}. \]
+}
 
 \exe{, difficulty=1}{
     Soit $f(x) = ax + b$ une fonction affine sur $\R$ de paramètres $a, b\in\R$ et $P(x_P;y_P)$ un point du plan.
@@ -55,9 +184,13 @@
         Montrer que $(x-1)^3 = x^3 - 3x^2 + 3x - 1$ pour tout $x\in\R$.
         \item
         Déterminer entièrement $\C_f \cap \C_g$.
-        \item
-        Créer une fonction polynomiale $h$ de degré $4$ telle que $\C_f \cap \C_h = \bigset{ (1;1) }.$
     \end{enumerate}
+    {Le degré d'un polynôme est sa plus haute puissance de $x$. Par exemple, $x^5 - x^2 + 12$ est de degré 5.}
+    \begin{enumerate}[resume]
+        \item
+        Créer une fonction polynomiale $h$ de degré 4 telle que $\C_f \cap \C_h = \bigset{ (1;1) }.$
+    \end{enumerate}
+    
 }{exe:3}{
     \begin{enumerate}
         \item 
@@ -104,22 +237,6 @@
         Par analogie au raisonnement précédent, on souhaite désormais créer $F$ de telle sorte que $f(x) - F(x) = (x-2)(x+1)$.
         Ainsi $F(x) = f(x) - (x-2)(x+1) = -3x^2 +8x +4$.
     \end{enumerate}
-}
-
-\exe{, difficulty=2}{
-    Soit $f(x) = ax+b$ et $g(x) = a'x + b'$ pour tout $x \in \R$ deux fonctions affines de paramètres $a, a', b, b' \in\R$.
-
-    Montrer que si $a\neq a'$, alors
-        \[ \C_f \cap \C_g = \left\{ \left(\ \dfrac{b'-b}{a-a'} ; \dfrac{ab' - ba'}{a-a'} \right) \right\}. \]
-    Comparer avec les réultats obtenus dans la série d'exercices précédente.
-}{exe:5}{
-	Soit $P(x_P ; y_P) \in \C_f \cap \C_g$.
-	Alors $f(x_P) = y_P = g(x_P)$.
-	Il suit que 
-		\[ f(x_P) = g(x_P) \iff ax_P + b = a' x_P + b' \iff x_P = \dfrac{b'-b}{a-a'}. \]
-	
-	Ensuite, 
-		\[ y_P = f(x_P) = a\dfrac{b'-b}{a-a'} + b = \dfrac{ab' -ab + ba -ba'}{a-a'} = \dfrac{ab' -ba'}{a-a'}. \]
 }
 
 \exe{, difficulty=1}{
@@ -194,9 +311,9 @@
 	\end{enumerate}
 }
 
-\begin{thm}[théorème fondamental de l'algèbre]
+\thm{théorème fondamental de l'algèbre}{
 	Si $f$ polynomiale admet une racine $r$ (c'est-à-dire que $f(r) = 0$), alors $f(x) = (x-r)g(x)$, avec $g$ polynomiale.
-\end{thm}
+}{thm:fond}
 
 \exe{, difficulty=1}{
 	Soit $f(x) = x^3 - 3x^2 - 10x + 24$ une fonction cubique.
