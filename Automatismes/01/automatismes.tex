@@ -1,0 +1,70 @@
+\input{../preamble.tex}
+\AdvanceDate[0]
+
+\begin{document}
+
+\section{Automatismes}
+
+\begin{frame}
+
+\centering \huge
+Automatismes
+
+\large
+Calculatrice interdite
+
+\end{frame}
+
+\subsection{Ensembles}
+
+\begin{frame}{1\vspace{-32pt}}
+	Donner $f(0)$ à l'aide du graphe de $f$.
+	
+	\vfill
+	\centering
+	\begin{tikzpicture}[>=stealth, scale=1]
+	\begin{axis}[xmin = -4, xmax=4, ymin=-5, ymax=3, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}, clip=false]
+		\addplot[BLUE_E, very thick, domain =-4:4, samples=2] {.3*x-2} node[below]{$\C_f$} ;
+	\end{axis}
+	\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{2\vspace{-32pt}}
+	Donner $g(0)$ à l'aide du graphe de $g$.
+	
+	\vfill
+	\centering
+	\begin{tikzpicture}[>=stealth, scale=1]
+	\begin{axis}[xmin = -4, xmax=4, ymin=-5, ymax=3, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}, clip=false]
+		\addplot[RED_E, very thick, domain =-4:4, samples=2] {-.5*x-1} node[below]{$\C_g$} ;
+	\end{axis}
+	\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{3\vspace{-32pt}}
+	Donner l'aire du rectangle.
+	
+	\vfill
+	\centering
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\draw[-, very thick] (0,0) -- (4,0) node[midway, below] {4 cm};
+		\draw[-, very thick] (0,5) -- (4,5);
+		\draw[-, very thick] (4,5) -- (4,0) node[midway, right] {5 cm};
+		\draw[-, very thick] (0,5) -- (0,0);
+	\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{4\vspace{-32pt}}
+	Donner l'aire du rectangle. Quelles valeurs peut prendre $x$ ?
+	
+	\vspace{5pt}
+	\centering
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\draw[-, very thick] (0,0) -- (4,0) node[midway, below] {4 cm};
+		\draw[-, very thick] (0,5) -- (4,5);
+		\draw[-, very thick] (4,5) -- (4,0) node[midway, right] {$x$ cm};
+		\draw[-, very thick] (0,5) -- (0,0);
+	\end{tikzpicture}
+\end{frame}
+
+\end{document}
