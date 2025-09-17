@@ -1,0 +1,64 @@
+\input{../preamble.tex}
+\AdvanceDate[0]
+
+\begin{document}
+
+\section{Automatismes}
+
+\begin{frame}
+
+\centering \huge
+Automatismes
+
+\large
+Calculatrice interdite
+
+\end{frame}
+
+\subsection{Ensembles}
+
+\begin{frame}%{1\vspace{-32pt}}
+	La seule équation pouvant correspondre à la droite $(d)$ est
+	\begin{multicols}{2}
+	\begin{enumerate}%[label=\alph*.]
+		\item $y=x+3$
+		\item $y=x-3$
+		\item $y=-x+3$
+		\item $y=-x-3$
+	\end{enumerate}
+	\end{multicols}
+	
+	\centering
+	\begin{tikzpicture}[>=stealth, scale=1]
+	\begin{axis}[xmin = -2, xmax=4, ymin=-5, ymax=2, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=none, grid style = {opacity=.5}, clip=true, ticks = none]
+		\addplot[BLUE_E, very thick, domain =-2:4, samples=2] {x-3} node[below right, pos=.5]{$\C_f$} ;
+	\end{axis}
+	\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{2\vspace{-32pt}}
+	Approximativement quel $x$ vérifie $f(x) = g(x)$ ? 
+	
+	\vfill
+	\centering
+	\begin{tikzpicture}[>=stealth, scale=1]
+	\begin{axis}[xmin = -4, xmax=4, ymin=-5, ymax=3, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}, clip=true, xtick distance=1]
+		\addplot[GREEN_E, very thick, domain =-4:4, samples=2] {-1.2*x+1.2} node[below, pos=.9]{$\C_f$} ;
+		\addplot[RED_E, very thick, domain =-4:4, samples=2] {0.2*x-1} node[above, pos=.9]{$\C_g$} ;
+	\end{axis}
+	\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{3\vspace{-32pt}}
+	Quel $t$ vérifie l'équation suivante ?
+		\[ 60+6t = 60t \]
+	Réduire la fraction le plus possible.
+\end{frame}
+
+\begin{frame}{4\vspace{-32pt}}
+	Quel est le résultat de l'opération suivante ?
+		\[ \dfrac12 - \dfrac12 \times \dfrac43 \]
+	Réduire la fraction le plus possible.
+\end{frame}
+
+\end{document}

@@ -1,0 +1,58 @@
+\input{../preamble.tex}
+\AdvanceDate[0]
+
+\begin{document}
+
+\section{Automatismes}
+
+\begin{frame}
+
+\centering \huge
+Automatismes
+
+\large
+Calculatrice interdite
+
+\end{frame}
+
+\subsection{Ensembles}
+
+\begin{frame}{1\vspace{-32pt}}
+	Donner approximativement $f(0)$ à l'aide du graphe de $f$.
+	
+	\centering
+	\begin{tikzpicture}[>=stealth, scale=1]
+	\begin{axis}[xmin = -4, xmax=4, ymin=-5, ymax=3, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}, clip=true, ytick distance=1]
+		\addplot[BLUE_E, very thick, domain =-2:4, samples=2] {-1.2*x+1.5} node[above right, pos=.5]{$\C_f$} ;
+	\end{axis}
+	\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{2\vspace{-32pt}}
+	Donner le périmètre du rectangle. Quel est le coefficient directeur et l'ordonnée à l'origine de l'expression obtenue ?
+	
+	\centering
+	\begin{tikzpicture}[>=stealth, scale=1, rotate=90]
+		\draw[-, very thick] (0,0) -- (4,0) node[midway, right] {4 cm};
+		\draw[-, very thick] (0,5) -- (4,5);
+		\draw[-, very thick] (4,5) -- (4,0) node[midway, above] {$x$ cm};
+		\draw[-, very thick] (0,5) -- (0,0);
+	\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{3\vspace{-32pt}}
+	Un lynx court à 15 mètres par seconde.
+	
+	Quelle distance a-t-il parcouru après 5 secondes ?
+\end{frame}
+
+\begin{frame}{4\vspace{-32pt}}
+	Un lynx parcourt 100 mètres puis continue de courir pendant $x$ secondes à 15 mètres par seconde.
+	
+	\begin{enumerate}
+		\item Quelle distance a-t-il parcouru au total ? 
+		\item Quel est le coefficient directeur et l'ordonnée à l'origine de l'expression obtenue ?
+	\end{enumerate}
+\end{frame}
+
+\end{document}
