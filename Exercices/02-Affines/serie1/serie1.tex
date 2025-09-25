@@ -23,7 +23,18 @@
 	\end{enumerate}
 	\end{multicols}
 }{exe:parametres-affines}{
-	TODO
+	\begin{multicols}{4}
+	\begin{enumerate}
+		\item $a=2, b=1$
+		\item $a=2, b=1$
+		\item $a=-1, b=0$
+		\item $a=0, b=-42$
+		\item $a=10, b=2$
+		\item $a=10, b=2$
+		\item $a=-1, b=1$
+		\item $a=0, b=0$
+	\end{enumerate}
+	\end{multicols}
 }
 
 \exe{}{
@@ -143,7 +154,37 @@
         Montrer qu'Achille rattrape la tortue en $t = \frac{10}{9}$ minutes, indépendamment de la vitesse d'Achille.
 	\end{enumerate}
 	
-}{}{}
+}{exe:achille}{
+	\begin{enumerate}
+		\item (6 mètres par minute) $\times$ (10 minutes) = 60 mètres
+        	\item Achille court pendant $t$ minutes, et il parcourt donc $60t$ mètres.
+        	La tortue court pendant $t$ minutes et parcourt $6t$ mètres, auxquels ont ajoute les 60 mètres d'avance.
+        	\item On pose l'équation, on substitue les expressions, et on résoud pour $t$.
+        		\begin{align*}
+        			A(t) &= T(t) \\
+        			60t &= 60 + 6t \\
+        			54t &= 60 \\
+        			t &= \dfrac{60}{54} = \dfrac{10}9
+        		\end{align*}
+		Achille met donc $\frac{10}9 \approx 1,1111$ minutes à ratrapper la tortue.
+        	\item On calcule soit $A(\frac{10}9)$, soit $T(\frac{10}9)$, les deux ayant la même valeur car $t$ a été trouvé vérifiant $A(t) = T(t)$.
+        		\[ A\left(\dfrac{10}9 \right) = 60 \times \dfrac{10}9 = \dfrac{600}{9} = \dfrac{200}3. \]
+		Achillet et la tortue se croisent donc après avoir parcouru chacun $\frac{200}3 \approx 66,666$ mètres.
+        	\item($\star$) 
+        	Posons $v$ la vitesse d'Achille, inconnue a priori.
+        	Dans ce cas, on a $A(t) = vt$, et $T(t)= 10\frac{v}{10} + \frac{v}{10}t$.
+        	On pose l'équation et on résoud pour $t$.
+        		\begin{align*}
+        			A(t) &= T(t) \\
+        			vt &= 10\dfrac{v}{10} + \dfrac{v}{10}t \\
+        			vt &= v\Bigl( 1 + \dfrac1{10}t\Bigr) \\
+        			t &= 1 + \dfrac1{10}t \\
+        			\dfrac9{10} t &= 1 \\
+        			t &= \dfrac{10}9
+        		\end{align*}
+        		
+	\end{enumerate}
+}
 
 
 \exe{}{
@@ -172,27 +213,27 @@
 	\end{tikzpicture}
 	\end{center}
 }{exe:lecture-graphique-affine}{
-	Pour la fonction $f(x) = ax+b (x\in\R)$, on peut par exemple choisir deux points lui appartenant et interpoler linéairement à partir de ces deux points.
-	Par unicité de la droite passant par deux points, l'interpolation trouvée doit nécessairement être $f$.
-	Prenons $A(-4;4)$ et $B(2;-2)$ et calculons les paramètres de la droite $(AB) = \C_f$.
+	Pour la fonction $f(x) = ax+b (x\in\R)$, on peut d'abord trouver $b$ comme l'ordonnée à l'origine (l'origine du point lui appartenant et d'abscisse nulle).
+	D'où $b=0$ car $(0;0) \in \C_f$.
 	
+	Pour $a$, on peut utiliser la formule $\dfrac{y_B - y_A}{x_B - x_A}$, avec $A$ et $B$ deux points de la droite.
+	
+	Pour $A(-4;4)$ et $B(2;-2)$, on trouve,	
 	\begin{align*}
-		a = \dfrac{4 - (-2)}{-4 - 2} = -1, && b = \dfrac{(-4)\cdot(-2) - 4\cdot2}{-4-2} = 0.
+		a = \dfrac{4 - (-2)}{-4 - 2} = -1.
 	\end{align*}
 	
 	\hrule\vspace{10pt}
 	
 	Pour la fonction $g(x) = ax+b (x\in\R)$, on peut faire idem en choisissant de bons points pour faciliter les calculs.
 	Par exemple, $A(0;1)$ et $B(-2;0)$ sont pratiques car il y a beaucoup de zéros qui annulent les expressions.
-	En fait, le point $A$ donne directement l'ordonnée à l'origine $b=1$, mais on peut calculer à l'aide du théorème du cours nonobstant.
 	\begin{align*}
-		a = \dfrac{1-0}{0-(-2)} = \dfrac12, && b = \dfrac{0 \cdot0 - 1 \cdot (-2)}{0-(-2)} = 1.
+		a = \dfrac{1-0}{0-(-2)} = \dfrac12, && b = 1.
 	\end{align*}
 	
 	\hrule\vspace{10pt}
 	
-	Pour la fonction $h(x) = ax+b (x\in\R)$, on procède par parallélisme et appartenance.
-	La fonction est constante, donc $a=0$.
+	Pour la fonction $h(x) = ax+b (x\in\R)$, la fonction est constante, donc $a=0$.
 	N'importe quel point lui appartenant a pour ordonnée $b=7$, ce qui conclut.
 
 }
@@ -219,7 +260,25 @@ L'exercice suivant est tiré du premier sujet zéro de l'examen de 1ère spécif
 	\end{center}
 	
 	\emph{Toute trace de recherche, même infructueuse, sera prise en compte.}
-}{exe:zero1-affine}{}
+}{exe:zero1-affine}{
+	Il s'agit ici de calculer les distances parcourues respectivement par la tortue et par l'escargot à un temps $t$ variable (donné en minutes).
+	
+	Pour l'escargot, celui-ci part de 12 mètres, et avance à $0,5$ mètres par minute. 
+	Sa distance parcourue au temps $t$ est donc de $12 + 0,5 t$.
+	
+	Pour la tortue, on obtient similairement $2t$.
+	
+	On pose l'équation et on résoud.
+		\begin{align*}
+			2t &= 12 + 0,5t \\
+			1,5 t &= 12 \\
+			t &= \dfrac{12}{1,5} = \dfrac{24}{3} = 8
+		\end{align*}
+	Au temps $t=8$ minutes, la tortue et l'escargot auront parcourus la même distance.
+	Cette distance est égale à $2\times8 = 16$, ou $12 + 0,5\times8 = 16$ mètres.
+	
+	Les deux participants se croiseront donc en $x=16$.
+}
 
 %%%%%%%%%%%%
 
