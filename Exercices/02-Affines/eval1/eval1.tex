@@ -1,0 +1,71 @@
+\input{../preamble.tex}
+
+\SetDate[07/10/2025]
+\reversemarginpar
+
+\setlength{\marginparsep}{.5cm}
+
+\renewcommand{\ExerciseHeader}{
+	\textbf{Exercice \theExercise.}
+	\ifnum\ExerciseDifficulty=0
+	\else
+		(\theExerciseDifficulty)
+	\fi
+}
+
+\newcommand{\exeI}{1}
+\newcommand{\exeII}{2}
+\newcommand{\exeIII}{3}
+\newcommand{\exeIV}{4}
+\newcommand{\exeV}{5}
+\newcommand{\exeVI}{6}
+\newcommand{\exeVII}{7}
+\newcommand{\exeVIII}{8}
+\newcommand{\exeIX}{9}
+\newcommand{\exeX}{10}
+\newcommand{\exeXI}{11}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Première}
+\fancyhead[C]{\textbf{Évaluation — Fonctions affines}}
+\fancyhead[R]{\today}
+
+\null\vspace{-30pt}
+Consigne particulière : 
+\begin{itemize}[label=$\bullet$]
+	\item 
+	La calculatrice est {interdite}.
+\end{itemize}
+
+\hrule
+
+\begin{center}
+\subsection*{PREMIÈRE PARTIE : AUTOMATISMES — QCM (6pts)}
+\end{center}
+
+\textbf{
+	Pour cette première partie, aucune justification n'est demandée et une seule réponse est possible par question.
+	Pour chaque question, reportez son numéro sur votre copie et indiquez votre réponse.
+}
+
+\vspace{30pt}
+
+\input{exercises/\exeI}
+
+\newpage
+
+\begin{center}
+\subsection*{DEUXIÈME PARTIE (14pts)}
+\end{center}
+
+\input{exercises/\exeII}
+\input{exercises/\exeIII}
+
+%%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}
