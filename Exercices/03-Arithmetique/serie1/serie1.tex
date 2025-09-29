@@ -1,0 +1,79 @@
+\input{../preamble.tex}
+
+\AdvanceDate[1]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Première spécifique}
+\fancyhead[C]{\textbf{Fonctions affines}}
+\fancyhead[R]{\today}
+
+\exe{}{
+	On considère trois suites arithmétiques.
+	Compléter leur représentation graphique et déterminer leur expression algébrique.
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1.1]
+		\begin{axis}[xmin = 0, xmax=5.5, ymin=-2.8, ymax=4.8, axis x line=middle, axis y line=middle, axis line style=->, xlabel={rang $n$}, x label style={anchor=north}, grid=both, ytick distance=1, xtick distance = 1, x=2cm]
+			\addplot[black, thick, only marks, mark=*] coordinates {(0,1) (1,1.5) (2,2) (3,2.5) (4,3) (5,3.5)}
+				node[pos=0, left=25pt] {$v$};
+			
+			\addplot[black, thick, only marks, mark=star] coordinates {(0,4.5) (1, 3.5) (2,2.5) (3,1.5) (4,0.5)}
+				node[pos=0, left=25pt] {$u$};
+			
+			\addplot[black, thick, only marks, mark=square] coordinates {(0,-1.5) (1,-1.5) (2,-1.5) (3,-1.5) (4,-1.5) (5,-1.5)}
+				node[pos=0, left=25pt] {$w$};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	
+	\begin{align*}
+		u(n) = &&&& v(n) = &&&& w(n) = 
+	\end{align*}
+}{exe:graph}{
+	todo
+}
+
+\exe{}{
+	Un professeur hésite entre louer un appartement ou l'acheter.
+	D'une part, le loyer mensuel de l'appartement est de $700$€, avec un coût initial (la caution) fixé à deux loyers, soit $1\ 400$€.
+	D'autre part, à l'achat, cet appartement coûte $140 \ 000$€.
+	
+	Dans la première alternative, lorsque l'appartement est loué, on dénote par $u(n)$ le montant total payé en euros par le locataire après $n$ mois (et ceci pour tout $n\in\N$).
+	Ainsi par exemple, après $1$ mois, un seul loyer a été payé en plus de la caution initiale. D'où $u(1) = 2 \ 100$.
+	\begin{enumerate}
+		\item Donner le terme initial $u(0)$.
+		\item Donner $u(2)$, le montant payé par le locataire après $2$ mois.
+		\item Justifier avec des mots le caractère arithmétique de la suite $u$. Quelle est sa raison ?
+		\item Pour tout $n\in\N$, donner $u(n)$ en fonction de $n$ sans justifier.
+		\item À partir de combien de mois le locataire aura-t-il payé plus que le coût de l'appartement à l'achat ?
+	\end{enumerate}
+}{exe:loyer-achat}{
+	todo
+}
+
+\exe{}{
+	Le mathématicien français Abraham de Moivre, alors âgé de plus que 80 ans, étudia dans les années 1750 la durée de son sommeil ; il remarqua que celle-ci augmentait de façon inquiétante.
+	Il prit donc note chaque jour de son heure de coucher et de réveil et compara avec une valeur initiale : la nuit $0$, il dormit $8$ heures.
+	
+	Au fil des jours, il compta que son temps de sommeil augmentait chaque nuit de $15$ minutes, soit $\frac14$ d'heure.
+	En notant $v(n)$ la durée de son sommeil en heures lors de sa $n$-ième nuit, il put alors calculer la nuit de la mort : celle où il dormirait $24$ heures.
+	\begin{enumerate}
+		\item Donner le terme initial $v(0)$.
+		\item Donner $v(4)$, la durée de son sommeil en heures lors de la $4$-ème nuit.
+		\item Pourquoi la suite $v$ est-elle arithmétique ? Quelle est sa raison ?
+		\item Pour tout $n\in\N$, donner $v(n)$ en fonction de $n$ sans justifier.
+		\item Quelle nuit Abraham de Moivre mourut-t-il ?
+	\end{enumerate}
+}{exe:Moivre}{
+	todo
+}
+
+
+
+%%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}
