@@ -10,7 +10,26 @@
 
 \exe{}{
 	On considère trois suites arithmétiques.
-	Compléter leur représentation graphique et déterminer leur expression algébrique.
+	Compléter le nuage de points et déterminer leur expression algébrique.
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1.1]
+		\begin{axis}[xmin = 0, xmax=5.5, ymin=-2.8, ymax=4.8, axis x line=middle, axis y line=middle, axis line style=->, xlabel={rang $n$}, x label style={anchor=north}, grid=both, ytick distance=1, xtick distance = 1, x=2cm]
+			\addplot[black, thick, only marks, mark=*] coordinates {(0,1) (4,3)}
+				node[pos=0, left=25pt] {$v$};
+			
+			\addplot[black, thick, only marks, mark=star] coordinates {(0,4.5) (2,2.5)}
+				node[pos=0, left=25pt] {$u$};
+			
+			\addplot[black, thick, only marks, mark=square] coordinates {(0,-1.5) (1,-1.5)}
+				node[pos=0, left=25pt] {$w$};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	
+	\begin{align*}
+		u(n) = &&&& v(n) = &&&& w(n) = 
+	\end{align*}
+}{exe:graph}{
 	\begin{center}
 	\begin{tikzpicture}[>=stealth, scale=1.1]
 		\begin{axis}[xmin = 0, xmax=5.5, ymin=-2.8, ymax=4.8, axis x line=middle, axis y line=middle, axis line style=->, xlabel={rang $n$}, x label style={anchor=north}, grid=both, ytick distance=1, xtick distance = 1, x=2cm]
@@ -27,28 +46,47 @@
 	\end{center}
 	
 	\begin{align*}
-		u(n) = &&&& v(n) = &&&& w(n) = 
+		u(n) = 4,5 - n  &&&& v(n) = 1 + 0,5n &&&& w(n) = -1,5
 	\end{align*}
-}{exe:graph}{
-	todo
 }
 
 \exe{}{
 	Un professeur hésite entre louer un appartement ou l'acheter.
-	D'une part, le loyer mensuel de l'appartement est de $700$€, avec un coût initial (la caution) fixé à deux loyers, soit $1\ 400$€.
-	D'autre part, à l'achat, cet appartement coûte $140 \ 000$€.
+	\begin{itemize}
+		\item
+		D'une part, le loyer mensuel de l'appartement est de $700$€, avec un coût initial (la caution) fixé à deux loyers, soit $1\ 400$€.
+		\item
+		D'autre part, à l'achat, cet appartement coûte $140~000$€.
+	\end{itemize}
 	
 	Dans la première alternative, lorsque l'appartement est loué, on dénote par $u(n)$ le montant total payé en euros par le locataire après $n$ mois (et ceci pour tout $n\in\N$).
-	Ainsi par exemple, après $1$ mois, un seul loyer a été payé en plus de la caution initiale. D'où $u(1) = 2 \ 100$.
+	Ainsi, par exemple, après $1$ mois, un seul loyer a été payé en plus de la caution initiale. D'où $u(1) = 2~100$.
 	\begin{enumerate}
 		\item Donner le terme initial $u(0)$.
 		\item Donner $u(2)$, le montant payé par le locataire après $2$ mois.
-		\item Justifier avec des mots le caractère arithmétique de la suite $u$. Quelle est sa raison ?
+		\item Justifier du caractère arithmétique de la suite $u$. Quelle est sa raison ?
 		\item Pour tout $n\in\N$, donner $u(n)$ en fonction de $n$ sans justifier.
-		\item À partir de combien de mois le locataire aura-t-il payé plus que le coût de l'appartement à l'achat ?
+		\item À partir de combien de mois le locataire aura-t-il payé plus que le coût de l'appartement à l'achat ? Convertir le résultat en années.
 	\end{enumerate}
 }{exe:loyer-achat}{
-	todo
+	\begin{enumerate}
+		\item $u(0) = 1~400$.
+		\item $u(2) = u(1) + 700 = 2~100 + 700 = 2~800$.
+		\item D'un mois à l'autre, on ajoute 700 au montant total payé.
+		La raison est donc de 700.
+		\item D'après le cours, $u(n) = 1400 + 700n = 700(2+n)$.
+		\item 
+		On pose et on résoud $u(n) = 140~000$.
+			\begin{align*}
+				u(n) &= 140~000 \\
+				1400 + 700n &= 140~000 \\
+				700(2+n) &= 140~000 \\
+				2+n &=200 \\
+				n &= 198
+			\end{align*}
+		Par conséquent, au bout de 198 mois, le locataire aura payé le coût de l'appartement à l'achat.
+		En divisant par 12, on convertit le résultat en $\frac{198}{12} = \frac{99}{6} = \frac{33}2 = 16,5$ années.
+	\end{enumerate}
 }
 
 \exe{}{
@@ -65,7 +103,22 @@
 		\item Quelle nuit Abraham de Moivre mourut-t-il ?
 	\end{enumerate}
 }{exe:Moivre}{
-	todo
+	\begin{enumerate}
+		\item $v(0) = 8$, car on compte en heures.
+		\item $v(4) = 8 + \frac14 \times 4 = 9$.
+		\item D'une nuit à l'autre, de Moivre dort $\frac14$ d'heure en plus.
+		La suite est donc arithmétique de raison $\frac14$.
+		\item D'après le cours, $v(n) = 8 + \frac14 n$.
+		\item 
+		On pose et on résoud $v(n) = 24$.
+			\begin{align*}
+				v(n) &= 24 \\
+				8 + \frac14 n &= 24 \\
+				\frac14n &= 16 \\
+				n &= 4\times16 = 48
+			\end{align*}
+		On conclut que de Moivre meurt la 48-ème nuit après le début de son étude.
+	\end{enumerate}
 }
 
 
