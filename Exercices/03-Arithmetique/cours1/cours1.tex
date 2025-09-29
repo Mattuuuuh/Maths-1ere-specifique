@@ -1,0 +1,61 @@
+\input{../preamble.tex}
+
+\SetDate[01/10/2025]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Première spécifique}
+\fancyhead[C]{\textbf{Chapitre 2 — Suites arithmétiques}}
+\fancyhead[R]{\today}
+
+\newcommand{\hide}[1]{\phantom{#1}}
+% (un)comment below for completion
+% cannot renew phantom itself otherwise multicols environment shows a "p" in the right margin idk why
+%\renewcommand{\hide}[1]{#1}
+
+\dfn{}{
+	Un \emph{suite arithmétique} est une fonction $u$ vérifiant pour tout $n\in\N$
+		\begin{align*}
+			u(n) = \hide{an + b,}
+		\end{align*}
+	où $a$ et $b$ sont deux nombres réels.
+	
+	On appelle
+		\begin{itemize}
+			\item $u(0)$ le \emph{terme initial} de la suite, 
+			\item $u(n)$ son terme de rang $n$, et
+			\item $a$ sa \emph{raison}.
+		\end{itemize}
+}{def:affine}
+
+\mprop{}{
+	Une suite arithmétique $u(n) = an+b$ vérifie les deux propriétés suivantes.
+		\begin{multicols}{2}
+		\begin{enumerate}[label=(P\arabic*) :]
+			\item $u(0) = b$,
+			\item $u(n+1) = u(n) + a$ pour tout $n\in\N$.
+		\end{enumerate}
+		\end{multicols}
+	La propriété (P1) se lit : le terme initial est égal à $b$.
+	
+	La propriété (P2) se lit : pour passer du terme de rang $n$ au terme de rang $n+1$, on ajoute $a$.
+}{prop:Cf-affine}
+
+
+\ex{}{ 
+	On considère la suite arithmétique $u$ donnée graphiquement par le nuage de points 
+		\[ \bigl(0 ; u(0)\bigr), \qquad \bigl(1; u(1)\bigr),\qquad \bigl(2 ; u(2)\bigr),\qquad \dots \]
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1.1]
+		\begin{axis}[xmin = 0, xmax=3.5, ymin=-2.8, ymax=4.8, axis x line=middle, axis y line=middle, axis line style=->, xlabel={rang $n$}, x label style={anchor=north}, grid=both, ytick distance=1, xtick distance = 1, x=3.5cm]
+			\addplot[black, thick, only marks, mark=*] coordinates {(0,3) (1, 1) (2,-1) (3,-2)}
+				node[pos=0, left=25pt] {$u$};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	$u(n) = $
+}{}
+
+
+
+\end{document}
