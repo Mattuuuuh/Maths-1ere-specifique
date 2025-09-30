@@ -1,0 +1,52 @@
+\input{../preamble.tex}
+\AdvanceDate[0]
+
+\begin{document}
+
+\section{Automatismes}
+
+\begin{frame}
+
+\centering \huge
+Automatismes
+
+\large
+Calculatrice interdite
+
+\end{frame}
+
+\subsection{Ensembles}
+
+\begin{frame}{1\vspace{-32pt}}
+	La fonction affine $f$ est représentée ci-dessous.
+	Donner son expression algébrique $f(x) = \dots$.
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+	\begin{axis}[xmin = -2.1, xmax=3.1, ymin=-5, ymax=3, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}, clip=true, xtick distance=1, ytick distance=1, x=2cm, y=.6cm]
+		\addplot[BLUE_E, very thick, domain =-4:4, samples=2] {2*x - 3} node[above, pos=.8]{$\C_f$} ;
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+\end{frame}
+
+\begin{frame}{2\vspace{-32pt}}
+	Quelles fonctions sont affines parmis $f, g, h,$ et $k$ ?
+	\begin{align*}
+		f(x) &= 2x - 1 \\[10pt]
+		g(x) &= x^2 + 3 \\[10pt]
+		h(x) &= -4 \\[10pt]
+		k(x) &= \dfrac{1}{3x-1}
+	\end{align*}
+\end{frame}
+
+\begin{frame}{3\vspace{-32pt}}
+	Quel $x$ vérifie l'équation suivante ?
+		\[ \dfrac23 x + 2 = 10 \]
+\end{frame}
+
+\begin{frame}{4\vspace{-32pt}}
+	Quel $x$ vérifie l'équation suivante ?
+		\[ 5 x + 2 = 2x + 10 \]
+\end{frame}
+
+\end{document}
