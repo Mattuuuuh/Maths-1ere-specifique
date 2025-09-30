@@ -16,35 +16,37 @@
 \dfn{}{
 	Un \emph{suite arithmétique} est une fonction $u$ vérifiant pour tout $n\in\N$
 		\begin{align*}
-			u(n) = \hide{an + b,}
+			u(n) = \hide{\qquad an + b,\qquad}
 		\end{align*}
 	où $a$ et $b$ sont deux nombres réels.
 	
 	On appelle
-		\begin{itemize}
-			\item $u(0)$ le \emph{terme initial} de la suite, 
-			\item $u(n)$ son terme de rang $n$, et
-			\item $a$ sa \emph{raison}.
+		\begin{itemize}[itemsep=15pt]
+			\item $u(0)$ \hide{le \emph{terme initial} de la suite, }
+			\item $u(n)$ \hide{ son terme de rang $n$, et }
+			\item $a$ \hide{sa \emph{raison}.}
 		\end{itemize}
 }{def:affine}
 
 \mprop{}{
-	Une suite arithmétique $u(n) = an+b$ vérifie les deux propriétés suivantes.
+	Une suite arithmétique $u(n) = \hide{\qquad an+b\qquad}$ vérifie
 		\begin{multicols}{2}
-		\begin{enumerate}[label=(P\arabic*) :]
-			\item $u(0) = b$,
-			\item $u(n+1) = u(n) + a$ pour tout $n\in\N$.
+		\begin{enumerate}[label=(\arabic*) :]
+			\item \hide{ $u(0) = b$, }
+			\item \hide{ $u(n+1) = u(n) + a$ pour tout $n\in\N$.}
 		\end{enumerate}
 		\end{multicols}
-	La propriété (P1) se lit : le terme initial est égal à $b$.
+	La propriété (1) se lit : \hide{le terme initial est égal à $b$.}
 	
-	La propriété (P2) se lit : pour passer du terme de rang $n$ au terme de rang $n+1$, on ajoute $a$.
+	\vspace{15pt}
+	La propriété (2) se lit : \hide{pour passer du terme de rang $n$ au terme de rang $n+1$, on ajoute $a$.}
+	\vspace{15pt}
 }{prop:Cf-affine}
 
 
 \ex{}{ 
 	On considère la suite arithmétique $u$ donnée graphiquement par le nuage de points 
-		\[ \bigl(0 ; u(0)\bigr), \qquad \bigl(1; u(1)\bigr),\qquad \bigl(2 ; u(2)\bigr),\qquad \dots \]
+		\[ \bigl(0 ; u(0)\bigr), \qquad \bigl(1; u(1)\bigr),\qquad \bigl(2 ; u(2)\bigr),\qquad \bigl(3 ; u(3)\bigr),\qquad \dots \]
 	\begin{center}
 	\begin{tikzpicture}[>=stealth, scale=1.1]
 		\begin{axis}[xmin = 0, xmax=3.5, ymin=-2.8, ymax=4.8, axis x line=middle, axis y line=middle, axis line style=->, xlabel={rang $n$}, x label style={anchor=north}, grid=both, ytick distance=1, xtick distance = 1, x=3.5cm]
@@ -53,7 +55,8 @@
 		\end{axis}
 	\end{tikzpicture}
 	\end{center}
-	$u(n) = $
+	\vspace{15pt}
+	$u(n) = \hide{3 - 2n}$ \hide{car le terme initial de $u$ est $u(0)=3$, et que la suite va de -2 en -2.}
 }{}
 
 
