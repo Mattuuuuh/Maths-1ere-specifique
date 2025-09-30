@@ -11,7 +11,7 @@
 \newcommand{\hide}[1]{\phantom{#1}}
 % (un)comment below for completion
 % cannot renew phantom itself otherwise multicols environment shows a "p" in the right margin idk why
-%\renewcommand{\hide}[1]{#1}
+\renewcommand{\hide}[1]{#1}
 
 \dfn{}{
 	Un \emph{suite arithmétique} est une fonction $u$ vérifiant pour tout $n\in\N$
@@ -49,8 +49,8 @@
 		\[ \bigl(0 ; u(0)\bigr), \qquad \bigl(1; u(1)\bigr),\qquad \bigl(2 ; u(2)\bigr),\qquad \bigl(3 ; u(3)\bigr),\qquad \dots \]
 	\begin{center}
 	\begin{tikzpicture}[>=stealth, scale=1.1]
-		\begin{axis}[xmin = 0, xmax=3.5, ymin=-2.8, ymax=4.8, axis x line=middle, axis y line=middle, axis line style=->, xlabel={rang $n$}, x label style={anchor=north}, grid=both, ytick distance=1, xtick distance = 1, x=3.5cm]
-			\addplot[black, thick, only marks, mark=*] coordinates {(0,3) (1, 1) (2,-1) (3,-2)}
+		\begin{axis}[xmin = 0, xmax=3.5, ymin=-3.8, ymax=4.8, axis x line=middle, axis y line=middle, axis line style=->, xlabel={rang $n$}, x label style={anchor=north}, grid=both, ytick distance=1, xtick distance = 1, x=3.5cm]
+			\addplot[black, thick, only marks, mark=*] coordinates {(0,3) (1, 1) (2,-1) (3,-3)}
 				node[pos=0, left=25pt] {$u$};
 		\end{axis}
 	\end{tikzpicture}
