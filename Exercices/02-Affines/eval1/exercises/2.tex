@@ -1,7 +1,65 @@
 %!TEX root = ../eval1.tex
 
-\exe{}{
-	Exo vitesse
+\exe{7}{
+	L'échelle en degrés Fahrenheit (°F) d'une température se déduit de l'échelle en degrés Celsius (°C) par une fonction affine.
+	On fait expérimentalement les deux mesures suivantes.
+	
+		\begin{center}
+		\def\arraystretch{2}
+		\setlength\tabcolsep{50pt}
+		\begin{tabular}{|c|c|c|}\cline{2-3}
+			\multicolumn{1}{c|}{} & Mesure 1 & Mesure 2 \\ \hline
+			Température C & 100 & 0 \\ \hline
+			Température F & 212 & 32 \\ \hline
+		\end{tabular}
+		\end{center}
+	
+	\begin{enumerate}
+		\item 
+		Tracer un repère de la température Fahrenheit (ordonnée) comme fonction de la température Celsius (abscisse).
+		Placer les deux mesures dans le repère .
+		
+		\item 
+		Dans le repère, tracer la droite $y=ax+b$ des Fahrenheit ($y$) comme fonction des Celsius ($x$).
+		Justifier que $y = \frac95 x + 32$.
+		
+		\item 
+		Pour quelle(s) température(s) les mesures en Fahrenheit et en Celsius sont-elles égales ?
+	\end{enumerate}
 }{exe:2}{
-
+	
+	\begin{enumerate}
+		\item \,\\
+		\begin{center}
+		\begin{tikzpicture}[scale=1]
+		\begin{axis}[xmin = -10, xmax=110, ymin=-10, ymax=230, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={Degrés Celsius}, ylabel={Degrés Fahrenheit}, grid style = {opacity=.5}, clip=true,
+		x label style={above right}, y label style={above right}]
+			\addplot[RED_E, thick, only marks, mark=*] coordinates {(0,32) (100,212)};
+		\end{axis}
+		\end{tikzpicture}
+		\end{center}
+		
+		\item  \,\\
+		\begin{center}
+		\begin{tikzpicture}[scale=1]
+		\begin{axis}[xmin = -10, xmax=110, ymin=-10, ymax=230, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={Degrés Celsius}, ylabel={Degrés Fahrenheit}, grid style = {opacity=.5}, clip=false,
+		x label style={above right}, y label style={above right}]
+			\addplot[RED_E, thick, only marks, mark=*] coordinates {(0,32) (100,212)};
+			\addplot[dashed, BLUE_E, thick] expression[domain=-10:110]{9*x/5 + 32} node[right] {$y = ax+b$};
+		\end{axis}
+		\end{tikzpicture}
+		\end{center}
+		L'ordonnée à l'origine est 32, donc $b=32$.
+		Pour le calcul de $a$, on utilise les deux points $A(0;32)$ et $B(100;212)$ pour avoir
+			\[ a = \dfrac{y_B - y_A}{x_B - x_A} = \dfrac{212 - 32}{100-0} = \dfrac{180}{100} = \dfrac{18}{10} = \dfrac95. \]
+		\item 
+		On pose $y=x$ puis on substitue $y$ et on résoud pour $x$.
+			\begin{align*}
+				y &= x \\
+				\dfrac95 x + 32 &= x \\
+				\dfrac45 x &= - 32 \\
+				x &= -\dfrac54 \times 32 = -5\times8 = -40
+			\end{align*}
+		La température -40°C est donc la même que -40°F.
+	\end{enumerate}
 }

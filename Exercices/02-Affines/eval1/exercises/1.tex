@@ -1,61 +1,97 @@
 %!TEX root = ../eval1.tex
 
+\newcommand{\cm}{\text{ cm}}
+
 \begin{enumerate}[label=\textbf{\arabic*.}]
 	\item 
 	Le nombre $x$ vérifiant $3x + 4 = 8x - 1$ est
 	\begin{multicols}{4}
 	\begin{enumerate}[label=\textbf{\alph*)}]
-		\item $x = $
+		\item $x = 1$
+		\item $x = \frac5{11}$
+		\item $x = -1$
+		\item $x = 0$
 	\end{enumerate}
 	\end{multicols}
 	
 	\item 
-	Le coefficient directeur de la fonction affine $f(x) = x + 2$ est
+	Le coefficient directeur de la fonction affine $f(x) = 2 - x$ est
 	\begin{multicols}{4}
 	\begin{enumerate}[label=\textbf{\alph*)}]
 		\item $0$
-		\item $-\frac16$
-		\item $\frac23$
+		\item $1$
 		\item $-1$
+		\item $2$
 	\end{enumerate}
 	\end{multicols}
-	
-	\item 
-	Considérons la droite ci-contre.
-	La seule équation pouvant lui correspondre est
-	\begin{multicols}{2}
-	\begin{enumerate}[label=\textbf{\alph*)}]
-		\item $y=2x+1$
-		\item $y=-2x+1$
-		\item $y=2x-1$
-		\item $y=x^2+1$
+\end{enumerate}
+\begin{multicols}{2}
+	\begin{enumerate}[label=\textbf{\arabic*.}, resume]
+		\item 
+		Considérons la droite de la figure ci-contre.
+		La seule équation pouvant lui correspondre est
+		\begin{multicols}{2}
+		\begin{enumerate}[label=\textbf{\alph*)}]
+			\item $y=2x+1$
+			\item $y=-2x+1$
+			\item $y=2x-1$
+			\item $y=x^2+1$
+		\end{enumerate}
+		\end{multicols}
 	\end{enumerate}
-	\end{multicols}
-	
+	\vfill\null
+	\centering
+	\begin{tikzpicture}[scale=.7]
+	\begin{axis}[xmin = -2, xmax=2, ymin=-2, ymax=5, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=none, grid style = {opacity=.5}, clip=true, ticks = none]
+		\addplot[BLUE_E, very thick, domain =-2:4, samples=2] {2*x+1};% node[below right, pos=.6]{$\C_f$} ;
+	\end{axis}
+	\end{tikzpicture}
+\end{multicols}
+\begin{enumerate}[label=\textbf{\arabic*.}]\setcounter{enumi}{3}
 	\item 
-	Le volume d'un pavé de 5cm de longueur, 4 cm de largeur, et 10 cm de hauteur est
+	Le volume d'un pavé de 5cm de longueur, 4 cm de largeur, et $x$ cm de hauteur est égal à
 	\begin{multicols}{4}
 	\begin{enumerate}[label=\textbf{\alph*)}]
-		\item
+		\item $20x \cm^3$
+		\item $25x \cm^3$
+		\item $4x+5 \cm^3$
+		\item $5x+4 \cm^3$
 	\end{enumerate}
 	\end{multicols}
 	
 	\item 
 	Usain Bolt court à 10 mètres par seconde pendant $t$ secondes après avoir parcouru 30 mètres.
-	Sa distance parcourue au total est
+	Sa distance parcourue au total est égal à, en mètres, 
 	\begin{multicols}{4}
 	\begin{enumerate}[label=\textbf{\alph*)}]
-		\item
+		\item $10 + 30t$
+		\item $30$
+		\item $40$
+		\item $30 + 10t$
 	\end{enumerate}
 	\end{multicols}
 	
-	\item 
-	Considérons les deux droites ci-contre, courbes représentatives de fonctions $f$ et $g$.
-	Le nombre $x$ vérifiant $f(x) = g(x)$ est donné environ égal à
-	\begin{multicols}{4}
-	\begin{enumerate}[label=\textbf{\alph*)}]
-		\item
-	\end{enumerate}
-	\end{multicols}
 \end{enumerate}
-
+\begin{multicols}{2}
+	\begin{enumerate}[label=\textbf{\arabic*.}]\setcounter{enumi}{5}
+		\item 
+		Considérons les deux droites ci-contre. %, courbes représentatives de fonctions $f$ et $g$.
+		Le nombre $x$ vérifiant $f(x) = g(x)$ est donné environ égal à
+		\begin{multicols}{2}
+		\begin{enumerate}[label=\textbf{\alph*)}]
+			\item $x=1$
+			\item $x=2$
+			\item $x=3$
+			\item $x=-1$
+		\end{enumerate}
+		\end{multicols}
+	\end{enumerate}
+	\vfill\null
+	\centering
+	\begin{tikzpicture}[scale=1]
+	\begin{axis}[xmin = -4, xmax=4, ymin=-3, ymax=7, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}, clip=true, xtick distance=1]
+		\addplot[GREEN_E, very thick, domain =-4:4, samples=2] {2  - x} node[below, pos=.9]{$\C_f$} ;
+		\addplot[RED_E, very thick, domain =-4:4, samples=2] {3*x + 6} node[left, pos=.3]{$\C_g$} ;
+	\end{axis}
+	\end{tikzpicture}
+\end{multicols}

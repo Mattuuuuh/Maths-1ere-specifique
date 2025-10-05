@@ -1,7 +1,59 @@
 %!TEX root = ../eval1.tex
 
-\exe{}{
-	Exo 2
+\exe{7}{
+	On étudie la température d'un plat sorti du four.
+	
+	Au début de l'expérience, le plat est à 215°C.
+	Toutes les 30 secondes, on mesure sa température.
+	Les premiers résultats sont notés dans le tableau ci-dessous.
+	
+	\begin{center}
+	\begin{tabular}{|c|c|}\hline
+		{Temps écoulé  (en minutes)} & {Température (°C)} \\ \hline
+		0 & 215 \\\hline
+		0,5 & 210 \\\hline
+		1 & 205 \\\hline
+		1,5 & 200 \\\hline
+		2 & 195 \\ \hline
+	\end{tabular}
+	\end{center}
+	
+	Soit $n$ un entier naturel.
+	On note $u(n)$ la température du plat après $n$ périodes de 30 secondes.
+	Ainsi, $u(0) = 215 ; u(1) = 210 ; u(2) = 205 ; \dots$.
+	\begin{enumerate}
+		\item
+		Justifier que les termes $u(0), u(1), u(2), u(3)$ sont en progression arithmétique.
+		Quelle est la raison ?
+		\item 
+		En supposant que la température continue d'évoluer de façon arithmétique, donner $u(n)$ en fonction de $n$.
+		\item 
+		En combien de temps le plat atteindra-t-il une température de 25°C ? 
+		Donner un résultat en minutes.
+		\item
+		Le modèle arithmétique de la température est-il réaliste ? 
+	\end{enumerate}
 }{exe:3}{
-
+	\begin{enumerate}
+		\item
+		On calcule $u(1) - u(0) = -5, u(2) - u(1) = -5,$ et $u(3) - u(2) = -5$.
+		Pour passer d'un terme à l'autre, on soustrait 5 : la progression est arithmétique de raison -5.
+		\item 
+		On a $u(n) = - 5n + 215$ d'après le cours.
+		\item
+		On pose $u(n) = 25$ et on résoud pour $n$.
+		\begin{align*}
+			u(n) &= 25 \\
+			-5n + 215 &= 25 \\
+			-5n &= -190 \\
+			n &= \frac{-190}{-5} = \frac{190}5 \\
+			n &= \frac{380}{10} = 38
+		\end{align*}
+		Après 38 périodes de 30 secondes, la température du plat est de 25°C.
+		En minutes, cela fait $38 \times \frac12 = 19$ minutes.
+		
+		\item
+		Le modèle n'est pas réaliste car la température continue de diminuer indéfiniment.
+		D'après celui-ci, en 50 minutes, la température du plat sera $u(100) = -500 + 215 = -385$, ce qui n'est pas un température possible.
+	\end{enumerate}
 }
