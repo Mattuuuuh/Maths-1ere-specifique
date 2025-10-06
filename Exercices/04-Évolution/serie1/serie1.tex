@@ -1,0 +1,194 @@
+\input{../preamble.tex}
+
+\SetDate[08/10/2025]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Première spécifique}
+\fancyhead[C]{\textbf{Évolution}}
+\fancyhead[R]{\today}
+
+\exe{}{
+	Calculer sans calculatrice les valeurs suivantes.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $75\%$ de $60$
+		\item $60\%$ de $75$
+		\item $72\%$ de $25$
+		\item $68\%$ de $20$
+		\item $125\%$ de $40$
+		\item $40\%$ de $125$
+	\end{enumerate}
+	\end{multicols}
+}{exe:1}{
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $\dfrac34 \cdot 60 = 3 \cdot \dfrac{60}4 = 3 \cdot 15 = 45$
+		\item $45$
+		\item $\dfrac14 \cdot 72 = 18$
+		\item $\dfrac15 \cdot 68 = \dfrac{136}{10} = 13,6$
+		\item $40 + \dfrac14 \cdot 40 = 50$
+		\item $50$
+	\end{enumerate}
+	\end{multicols}
+}
+
+\exe{}{
+	Approximer sans calculatrice les valeurs suivantes.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $33\%$ de $150$
+		\item $166\%$ de $180$
+		\item $11\%$ de $90$
+		\item $89\%$ de $81$
+		\item $16,6\%$ de $18$
+		\item $83,4\%$ de $36$
+	\end{enumerate}
+	\end{multicols}
+}{exe:2}{
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $\approx \dfrac13 \cdot 150 = 50$
+		\item $\approx 180 + \dfrac23 \cdot 180 = 180 + 120 = 300$
+		\item $\approx \dfrac19 \cdot 90 = 10$
+		\item $\approx 81 - \dfrac19 \cdot 81 = 81 - 9 = 72$
+		\item $\approx \dfrac16 \cdot 18 = 3$
+		\item $\approx 36 - \dfrac16 \cdot 36 = 36 - 6 = 30$
+	\end{enumerate}
+	\end{multicols}
+}
+
+\exe{}{
+On estime la biomasse totale des fourmis sur Terre à $12$ millions de tonnes.
+Ceci serait égal à $20\%$ de la biomasse humaine.
+
+Estimer la biomasse totale des humains sur Terre en tonnes.
+}{exe:3}{
+	On a la relation
+		\[ \dfrac{\text{biomasse des fourmis}}{\text{biomasse humaine}} = 0,2. \]
+	D'où
+		\[ \text{biomasse humaine} = \dfrac{12 \times 10^6}{0,2} \text{T} = 60 \times 10^6 \text{T}.\] 
+
+}
+
+
+% à changer pour éviter la calculatrice ?
+\exe{}{
+	Considérons deux tailleurs, l'un à $250$€ et l'autre à $360$€.
+	\begin{enumerate}
+		\item Quelle augmentation de prix faut-il appliquer au premier tailleur pour qu'il ait le prix du second ?
+		\item Quel rabais faut-il appliquer au second tailleur pour qu'il ait le prix du premier ?
+	\end{enumerate}
+}{exe:4}{
+	\begin{enumerate}
+		\item On calcule l'évolution $\dfrac{360}{250}= 1,44 = 144\%$. Ainsi, le deuxième tailleur vaut $144\%$ du prix du premier : une augmentation de $44\%$ est nécessaire.
+		\item On calcule l'évolution $\dfrac{250}{360}\approx 0,7 = 70\%$. Le premier tailleur vaut environ $70\%$ du prix du second : une diminution de $30\%$ est nécessaire.
+	\end{enumerate}
+}
+
+\exe{}{
+À quelle évolution correspond une augmentation de $20\%$ suivie d'une diminution de $20\%$ ?
+}{exe:5}{
+	Augmenter une quantité $N$ de $20\%$ correspond à la multiplier par $1,2$.
+	Une diminution, elle, multiplie par $0,8$.
+	
+	La quantité finale est donné par 
+		\[ 0,8 \cdot (1,2 \cdot N) = (0,8 \cdot 1,2) \cdot N = 0,96 \cdot N, \]
+	qui correspond à une diminution de $4\%$.
+}
+
+\exe{}{
+	Si on augmente le prix d'un objet de $150\%$, quel rabais faut-il appliquer pour retrouver le prix initial de l'objet ?
+}{exe:6}{
+	Notons $P$ le prix initial de l'objet.
+	Le prix augmenté vaut donc $1,5 \cdot P$.
+	Pour retrouver $P$, il faut multiplier le prix augmenté par l'inverse de $1,5$, soit $1,5^{-1} = \dfrac23 \approx 0,666 = 66,6\%$.
+	Ceci correspond à une diminution de $33,4\%$.
+}
+
+\exe{}{
+	Un marchand décide de changer le prix de sa marchandise de 1 000€ à 999€, prix psychologique.
+	Il compare le nombre de ventes avant et après le changement de prix.
+	\begin{enumerate}
+		\item De quel pourcentage les ventes doivent-elles augmenter pour que le chiffre d'affaire reste inchangé ?
+		\item De quel pourcentage les ventes doivent-elles augmenter pour que le chiffre d'affaire augmente de 10\% ?
+	\end{enumerate}
+}{exe:prix-psychologique}{
+	TODO
+}
+
+\exe{}{
+	Une jeune femme dépose $10$€ à la banque. Celle-ci lui promet un taux d'intérêt à l'année de $3\%$.
+	Ainsi, après la première année, il y aura $1,03 \times 10 = 10,3$€ sur son compte.
+	La deuxième année, il y aura $1,03 \times 10,35 = 10,609$€, etc...
+	
+	\begin{enumerate}
+		\item Combien d'argent aura-t-elle après $5$ ans ?
+		\item Combien d'argent aura-t-elle après $50$ ans ?
+		\item Combien d'argent y aura-t-il sur son compte après $1000$ ans ?
+	\end{enumerate}
+	
+	Aide aux calculs
+}{exe:evol4}{
+	\begin{enumerate}
+		\item On multiplie $5$ fois par $1,03$, ce qui donne $1,03^5 \times 10\approx 11,59$€.
+		\item On multiplie $50$ fois par $1,03$, ce qui donne $1,03^{50} \times 10\approx 43,84$€.
+		\item On multiplie $1000$ fois par $1,03$, ce qui donne $1,03^{1000} \times 10\approx 6,87 \times 10^{13}$€, c'est-à-dire environ $68$ billions d'euros ($1$ billion = $1000$ milliards).
+	\end{enumerate}
+}
+
+
+% évol moyenne. Chiant ? mais dans le BO
+%\exe{}{
+%	Le nombre de visiteurs du Musée du Louvre au cours des années $2015$ à $2018$ sont donnés ci-dessous.
+%	\begin{center}
+%	\begin{tikzpicture}[scale=.8]
+%		% nodes
+%		\draw (0,0) ellipse (2cm and .5cm) node {$8,6$ millions};
+%		
+%		\draw (5,0) ellipse (2cm and .5cm) node {$7,3$ millions};
+%		
+%		\draw (10,0) ellipse (2cm and .5cm) node {$8,1$ millions};
+%		
+%		\draw (15,0) ellipse (2cm and .5cm) node {$10,2$ millions};
+%		
+%		% vertices
+%		\draw[->, thick, myg] (1cm,.6cm) arc (105:75:7);
+%		\draw[->, thick, myg] (6cm,.6cm) arc (105:75:7);
+%		\draw[->, thick, myg] (11cm,.6cm) arc (105:75:7);
+%		
+%		\draw[->, thick, myr] (1cm,-.5cm) arc (-105:-75:25);
+%	\end{tikzpicture}
+%	\end{center}
+%
+%	\begin{enumerate}
+%		\item Compléter le schéma en ajoutant les coefficients multiplicateurs.
+%		\item Calculer le coefficient multiplicateur moyen et en déduire le taux d'évolution moyen.
+%	\end{enumerate}
+%
+%}{exe:7}{
+%	TODO
+%}
+%
+%\exe{}{
+%	Le nombre de visiteurs du Musée du Louvre semble augmenter de $6\%$ chaque année.
+%	À l'année $0$, on compte $8,6$ millions de visiteurs.
+%
+%	\begin{enumerate}
+%		\item Écrire $V(n)$, le nombre de visiteurs du musée après $n$ années, où $n\in\N$ est un entier naturel.
+%		\item Écrire $V(x)$, le nombre de visiteurs du musée après $x$ années, où $x\geq0$ est un nombre réel positif ou nul.
+%		\item À partir de quand le nombre de visiteurs dépassera $13,3$ millions ?
+%		\item À partir de quand le nombre de visiteurs dépassera $14,78$ millions ?
+%	\end{enumerate}
+%
+%}{exe:8}{
+%	TODO
+%}
+
+%%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}
