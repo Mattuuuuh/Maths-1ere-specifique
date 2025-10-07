@@ -17,17 +17,18 @@
 	Soient $P, x \in\R$ deux nombres réels positifs ou nuls.
 	Alors
 	  	\begin{center}
-	  	\og $P \%$ de $x$ \fg~= \dots\dots\dots\dots\dots
+	  	\og $P \%$ de $x$ \fg~= \hide{ $\dfrac{P}{100} \times x$.}
 	  	\end{center}
 	En particulier,\hspace{50pt}
-	  	\og $A \%$ de $B$ \fg~= \og $B \%$ de $A$ \fg.
+	  	\hide{\og $A \%$ de $B$ \fg~= \og $B \%$ de $A$ \fg.}
 }{def:pourcentage}
 
 \thm{}{
-	L'évolution d'une valeur correspond à sa multiplication par un coefficient multiplicateur $m$.
+	%L'évolution d'une valeur correspond à sa multiplication par un coefficient multiplicateur $m$.
+	\,\\
 	\begin{enumerate}
-		\item Augmenter de $P \%$ revient à multiplier par $m = 1 + \frac{P}{100}$.
-		\item Diminuer de $P \%$ revient à multiplier par $m = 1 - \frac{P}{100}$.
+		\item Augmenter de $P \%$ revient à multiplier par \hide{$m = 1 + \frac{P}{100}$.}
+		\item Diminuer de $P \%$ revient à multiplier par \hide{$m = 1 - \frac{P}{100}$.}
 	\end{enumerate}
 	
 	Lorsque deux évolutions successives ont lieu, les coefficients sont multipliés entre eux pour obtenir un coefficient multiplicateur global.
@@ -45,7 +46,7 @@
 		\draw[->, thick, BLUE_E] (1cm,.6cm) arc (105:75:7) node[midway, above] {$\times m_1$};
 		\draw[->, thick, BLUE_E] (6cm,.6cm) arc (105:75:7) node[midway, above] {$\times m_2$};
 		
-		\draw[->, thick, RED_E] (1cm,-.5cm) arc (-105:-75:15) node[midway, below=5pt] {$\times \dots\dots\dots\dots$};
+		\draw[->, thick, RED_E] (1cm,-.5cm) arc (-105:-75:15) node[midway, below=5pt] {$\times \hide{(m_1 \times m_2)}$};
 	\end{tikzpicture}
 	\end{center}
 }{thm:ev-succ}
@@ -64,9 +65,9 @@
 		
 		% vertices
 		\draw[->, thick, BLUE_E] (1cm,.6cm) arc (105:75:7) node[midway, above] {$\times m_1$};
-		\draw[->, thick, BLUE_E] (6cm,.6cm) arc (105:75:7) node[midway, above] {$\times \dots\dots$};
+		\draw[->, thick, BLUE_E] (6cm,.6cm) arc (105:75:7) node[midway, above] {$\times \hide{\frac1{m_1}}$};
 		
-		\draw[->, thick, RED_E] (1cm,-.5cm) arc (-105:-75:15) node[midway, below=5pt] {$\times \dots\dots$};
+		\draw[->, thick, RED_E] (1cm,-.5cm) arc (-105:-75:15) node[midway, below=5pt] {$\times \hide{1}$};
 	\end{tikzpicture}
 	\end{center}
 }{thm:ev-rec}
@@ -99,27 +100,30 @@
 %}{thm:ev-rec}
 
 \ex{}{
-	\begin{enumerate}
-		\item Une augmentation de 20\% correspond à multiplier par 1,2.
-		\item Une diminution de 30\% correspond à multiplier par 0,7.
+	\begin{enumerate}[itemsep=15pt]
+		\item Une augmentation de 20\% correspond à \hide{multiplier par 1,2.}
+		\item Une diminution de 30\% correspond à \hide{multiplier par 0,7.}
+		\item Multiplier par 1,4 correspond à \hide{une augmentation de 40\%.}
+		\item Diviser par 2 correspond à \hide{une diminution de 50\%.}
+		\item L'évolution réciproque d'une augmentation de 25\% est \hide{une diminution de 20\%.}
 	\end{enumerate}
 }{ex:ev}
 
 \dfn{}{
 	Pour $n>0$ entier, $q>0$ réel, \og $q$ puissance $n$ \fg~est égal à
-		\[ q^{n} = \underbrace{q \times q \times \cdots \times q}_{\text{$n$ fois}}. \]
-	De plus, \hspace{70pt} $q^0 = 1$ \hspace{70pt} et \hspace{70pt} $q^{-n} = \dfrac1{q^n}$.
+		\[ q^{n} = \underbrace{q \times q \times \cdots \times q}_{\hide{\text{$n$ fois}}}. \]
+	De plus, \hspace{70pt} \hide{$q^0 = 1$} \hspace{70pt} et \hspace{70pt} \hide{$q^{-n} = \dfrac1{q^n}$.}
 }{dfn:puissances}
 
 
-\ex{}{
-	\begin{multicols}{3}
-	\begin{enumerate}[label=]
-		\item $2^4 = 16$
-		\item $10^{-3} = 0,001$
-		\item $5^{-2} = 0,04$
-	\end{enumerate}
-	\end{multicols}
-}{ex:ev}
+%\ex{}{
+%	\begin{multicols}{3}
+%	\begin{enumerate}[label=]
+%		\item $2^4 = 16$
+%		\item $10^{-3} = 0,001$
+%		\item $5^{-2} = 0,04$
+%	\end{enumerate}
+%	\end{multicols}
+%}{ex:ev}
 
 \end{document}
