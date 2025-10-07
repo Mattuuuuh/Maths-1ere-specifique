@@ -5,7 +5,7 @@
 \begin{document}
 \pagestyle{fancy}
 \fancyhead[L]{Première spécifique}
-\fancyhead[C]{\textbf{Évolution}}
+\fancyhead[C]{\textbf{Évolutions}}
 \fancyhead[R]{\today}
 
 \exe{}{
@@ -65,7 +65,7 @@ Ceci serait égal à $20\%$ de la biomasse humaine.
 Estimer la biomasse totale des humains sur Terre en tonnes.
 }{exe:3}{
 	On a la relation
-		\[ \dfrac{\text{biomasse des fourmis}}{\text{biomasse humaine}} = 0,2. \]
+		\[ \text{biomasse des fourmis} = 0,2 \times \text{biomasse humaine}. \]
 	D'où
 		\[ \text{biomasse humaine} = \dfrac{12 \times 10^6}{0,2} \text{T} = 60 \times 10^6 \text{T}.\] 
 
@@ -73,18 +73,18 @@ Estimer la biomasse totale des humains sur Terre en tonnes.
 
 
 % à changer pour éviter la calculatrice ?
-\exe{}{
-	Considérons deux tailleurs, l'un à $250$€ et l'autre à $360$€.
-	\begin{enumerate}
-		\item Quelle augmentation de prix faut-il appliquer au premier tailleur pour qu'il ait le prix du second ?
-		\item Quel rabais faut-il appliquer au second tailleur pour qu'il ait le prix du premier ?
-	\end{enumerate}
-}{exe:4}{
-	\begin{enumerate}
-		\item On calcule l'évolution $\dfrac{360}{250}= 1,44 = 144\%$. Ainsi, le deuxième tailleur vaut $144\%$ du prix du premier : une augmentation de $44\%$ est nécessaire.
-		\item On calcule l'évolution $\dfrac{250}{360}\approx 0,7 = 70\%$. Le premier tailleur vaut environ $70\%$ du prix du second : une diminution de $30\%$ est nécessaire.
-	\end{enumerate}
-}
+%\exe{}{
+%	Considérons deux tailleurs, l'un à $250$€ et l'autre à $360$€.
+%	\begin{enumerate}
+%		\item Quelle augmentation de prix faut-il appliquer au premier tailleur pour qu'il ait le prix du second ?
+%		\item Quel rabais faut-il appliquer au second tailleur pour qu'il ait le prix du premier ?
+%	\end{enumerate}
+%}{exe:4}{
+%	\begin{enumerate}
+%		\item On calcule l'évolution $\dfrac{360}{250}= 1,44 = 144\%$. Ainsi, le deuxième tailleur vaut $144\%$ du prix du premier : une augmentation de $44\%$ est nécessaire.
+%		\item On calcule l'évolution $\dfrac{250}{360}\approx 0,7 = 70\%$. Le premier tailleur vaut environ $70\%$ du prix du second : une diminution de $30\%$ est nécessaire.
+%	\end{enumerate}
+%}
 
 \exe{}{
 À quelle évolution correspond une augmentation de $20\%$ suivie d'une diminution de $20\%$ ?
@@ -107,20 +107,11 @@ Estimer la biomasse totale des humains sur Terre en tonnes.
 }
 
 \exe{}{
-	Un marchand décide de changer le prix de sa marchandise de 1 000€ à 999€, prix psychologique.
-	Il compare le nombre de ventes avant et après le changement de prix.
-	\begin{enumerate}
-		\item De quel pourcentage les ventes doivent-elles augmenter pour que le chiffre d'affaire reste inchangé ?
-		\item De quel pourcentage les ventes doivent-elles augmenter pour que le chiffre d'affaire augmente de 10\% ?
-	\end{enumerate}
-}{exe:prix-psychologique}{
-	TODO
-}
-
-\exe{}{
 	Une jeune femme dépose $10$€ à la banque. Celle-ci lui promet un taux d'intérêt à l'année de $3\%$.
 	Ainsi, après la première année, il y aura $1,03 \times 10 = 10,3$€ sur son compte.
 	La deuxième année, il y aura $1,03 \times 10,35 = 10,609$€, etc...
+	
+	Répondre aux questions suivantes à l'aide de la figure \ref{fig:1}.
 	
 	\begin{enumerate}
 		\item Combien d'argent aura-t-elle après $5$ ans ?
@@ -128,7 +119,7 @@ Estimer la biomasse totale des humains sur Terre en tonnes.
 		\item Combien d'argent y aura-t-il sur son compte après $1000$ ans ?
 	\end{enumerate}
 	
-	Aide aux calculs
+	%\hfill
 }{exe:evol4}{
 	\begin{enumerate}
 		\item On multiplie $5$ fois par $1,03$, ce qui donne $1,03^5 \times 10\approx 11,59$€.
@@ -137,53 +128,27 @@ Estimer la biomasse totale des humains sur Terre en tonnes.
 	\end{enumerate}
 }
 
-
-% évol moyenne. Chiant ? mais dans le BO
-%\exe{}{
-%	Le nombre de visiteurs du Musée du Louvre au cours des années $2015$ à $2018$ sont donnés ci-dessous.
-%	\begin{center}
-%	\begin{tikzpicture}[scale=.8]
-%		% nodes
-%		\draw (0,0) ellipse (2cm and .5cm) node {$8,6$ millions};
-%		
-%		\draw (5,0) ellipse (2cm and .5cm) node {$7,3$ millions};
-%		
-%		\draw (10,0) ellipse (2cm and .5cm) node {$8,1$ millions};
-%		
-%		\draw (15,0) ellipse (2cm and .5cm) node {$10,2$ millions};
-%		
-%		% vertices
-%		\draw[->, thick, myg] (1cm,.6cm) arc (105:75:7);
-%		\draw[->, thick, myg] (6cm,.6cm) arc (105:75:7);
-%		\draw[->, thick, myg] (11cm,.6cm) arc (105:75:7);
-%		
-%		\draw[->, thick, myr] (1cm,-.5cm) arc (-105:-75:25);
-%	\end{tikzpicture}
-%	\end{center}
-%
-%	\begin{enumerate}
-%		\item Compléter le schéma en ajoutant les coefficients multiplicateurs.
-%		\item Calculer le coefficient multiplicateur moyen et en déduire le taux d'évolution moyen.
-%	\end{enumerate}
-%
-%}{exe:7}{
-%	TODO
-%}
-%
-%\exe{}{
-%	Le nombre de visiteurs du Musée du Louvre semble augmenter de $6\%$ chaque année.
-%	À l'année $0$, on compte $8,6$ millions de visiteurs.
-%
-%	\begin{enumerate}
-%		\item Écrire $V(n)$, le nombre de visiteurs du musée après $n$ années, où $n\in\N$ est un entier naturel.
-%		\item Écrire $V(x)$, le nombre de visiteurs du musée après $x$ années, où $x\geq0$ est un nombre réel positif ou nul.
-%		\item À partir de quand le nombre de visiteurs dépassera $13,3$ millions ?
-%		\item À partir de quand le nombre de visiteurs dépassera $14,78$ millions ?
-%	\end{enumerate}
-%
-%}{exe:8}{
-%	TODO
-%}
+\begin{figure}[h]
+	\begin{center}
+	\def\arraystretch{1.1}
+	\setlength\tabcolsep{15pt}
+	\begin{tabular}{|c|c|}\hline
+		$n$ & $1,03^n \approx$ \\ \hline
+		0 & 1 \\ \hline
+		1 & 1,03 \\ \hline
+		2 & 1,061 \\ \hline
+		3 & 1,093 \\ \hline
+		4 & 1,126 \\ \hline
+		5 & 1,159 \\ \hline
+		10 & 1,344 \\ \hline
+		25 & 2,094 \\ \hline
+		50 & 4,384 \\ \hline
+		1000 & $6,8 \times 10^{12}$ \\ \hline
+	\end{tabular}
+	\end{center}
+	\caption{Aide aux calculs}
+	\label{fig:1}
+\end{figure}
 
 %%%%%%%%%%%%
 
