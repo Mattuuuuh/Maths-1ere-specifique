@@ -1,11 +1,11 @@
 \input{../preamble.tex}
 
-\SetDate[08/10/2025]
+\SetDate[05/11/2025]
 
 \begin{document}
 \pagestyle{fancy}
 \fancyhead[L]{Première spécifique}
-\fancyhead[C]{\textbf{Chapitre 3 — Suites géométriques}}
+\fancyhead[C]{\textbf{Chapitre 4 — Suites géométriques}}
 \fancyhead[R]{\today}
 
 \newcommand{\hide}[1]{\phantom{#1}}
@@ -14,116 +14,36 @@
 \renewcommand{\hide}[1]{#1}
 
 \dfn{}{
-	Soient $P, x \in\R$ deux nombres réels positifs ou nuls.
-	Alors
-	  	\begin{center}
-	  	\og $P \%$ de $x$ \fg~= \hide{ $\dfrac{P}{100} \times x$.}
-	  	\end{center}
-	En particulier,\hspace{50pt}
-	  	\hide{\og $A \%$ de $B$ \fg~= \og $B \%$ de $A$ \fg.}
-}{def:pourcentage}
+	Une \emph{suite géométrique} est une fonction $u$ vérifiant pour tout $n\in\N$
+		\begin{center}
+		\hide{ $u(n+1) = q \times u(n)$}
+		\end{center}
+	qui se lit : \hide{pour passer d'un terme au suivant, on multiplie par la \emph{raison} $q$.}
+}{def:affine}
 
 \thm{}{
-	%L'évolution d'une valeur correspond à sa multiplication par un coefficient multiplicateur $m$.
-	\,\\
-	\begin{enumerate}
-		\item Augmenter de $P \%$ revient à multiplier par \hide{$m = 1 + \frac{P}{100}$.}
-		\item Diminuer de $P \%$ revient à multiplier par \hide{$m = 1 - \frac{P}{100}$.}
-	\end{enumerate}
-	
-	Lorsque deux évolutions successives ont lieu, les coefficients sont multipliés entre eux pour obtenir un coefficient multiplicateur global.
+	Une suite géométrique $u$ de raison $q$ vérifie
+		\begin{align*}
+			u(n) = \hide{\qquad u(0)\times q^n.\qquad}
+		\end{align*}
+}{prop:Cf-affine}
 
+
+\ex{}{ 
+	On considère la suite arithmétique $u$ donnée graphiquement par le nuage de points 
+		\[ \bigl(0 ; u(0)\bigr), \qquad \bigl(1; u(1)\bigr),\qquad \bigl(2 ; u(2)\bigr),\qquad \bigl(3 ; u(3)\bigr),\qquad \dots \]
 	\begin{center}
-	\begin{tikzpicture}
-		% nodes
-		\draw (0,0) ellipse (2cm and .5cm) node {Valeur initiale};
-		
-		\draw (5,0) ellipse (2cm and .5cm) node {Nouvelle valeur};
-		
-		\draw (10,0) ellipse (2cm and .5cm) node {Valeur finale};
-		
-		% vertices
-		\draw[->, thick, BLUE_E] (1cm,.6cm) arc (105:75:7) node[midway, above] {$\times m_1$};
-		\draw[->, thick, BLUE_E] (6cm,.6cm) arc (105:75:7) node[midway, above] {$\times m_2$};
-		
-		\draw[->, thick, RED_E] (1cm,-.5cm) arc (-105:-75:15) node[midway, below=5pt] {$\times \hide{(m_1 \times m_2)}$};
+	\begin{tikzpicture}[>=stealth, scale=1.1]
+		\begin{axis}[xmin = 0, xmax=3.5, ymin=0, ymax=15.8, axis x line=middle, axis y line=middle, axis line style=->, xlabel={rang $n$}, x label style={anchor=north}, grid=both, ytick distance=1, xtick distance = 1, x=3.5cm, extra x ticks = {0}, extra y ticks = {0},]
+			\addplot[black, thick, only marks, mark=*] coordinates {(0,4) (1, 6) (2,9) (3,13.5)}
+				node[pos=0, left=25pt] {$u$};
+		\end{axis}
 	\end{tikzpicture}
 	\end{center}
-}{thm:ev-succ}
-
-\thm{}{
-	L'évolution réciproque est l'évolution qui permet de revenir à une valeur initale.
-	
-	\begin{center}
-	\begin{tikzpicture}
-		% nodes
-		\draw (0,0) ellipse (2cm and .5cm) node {Valeur initiale};
-		
-		\draw (5,0) ellipse (2cm and .5cm) node {Nouvelle valeur};
-		
-		\draw (10,0) ellipse (2cm and .5cm) node {Valeur initiale};
-		
-		% vertices
-		\draw[->, thick, BLUE_E] (1cm,.6cm) arc (105:75:7) node[midway, above] {$\times m_1$};
-		\draw[->, thick, BLUE_E] (6cm,.6cm) arc (105:75:7) node[midway, above] {$\times \hide{\frac1{m_1}}$};
-		
-		\draw[->, thick, RED_E] (1cm,-.5cm) arc (-105:-75:15) node[midway, below=5pt] {$\times \hide{1}$};
-	\end{tikzpicture}
-	\end{center}
-}{thm:ev-rec}
-
-% pas hyper intéressant en fait?
-%\thm{}{
-%	Si une valeur de départ subit $n$ évolutions successives, alors on appelle \emph{coefficient multiplicateur moyen} le nombre
-%		%\[ M_{\text{Moyen}} = \left( M_{\text{Global}} \right)^{1/n}. \]
-%		\[ M_{\text{Moyen}} = \dots\dots\dots\dots\dots\dots\dots \]
-%
-%	\begin{center}
-%	\begin{tikzpicture}[scale=.8]
-%		% nodes
-%		\draw (0,0) ellipse (2cm and .5cm) node {Valeur $1$};
-%		
-%		\draw (5,0) ellipse (2cm and .5cm) node {Valeur $2$};
-%		
-%		\draw (10,0) ellipse (2cm and .5cm) node {Valeur $3$};
-%		
-%		\draw (15,0) ellipse (2cm and .5cm) node {Valeur $4$};
-%		
-%		% vertices
-%		\draw[->, thick, myg] (1cm,.6cm) arc (105:75:7) node[midway, above] {$\times m_1$};
-%		\draw[->, thick, myg] (6cm,.6cm) arc (105:75:7) node[midway, above] {$\times m_2$};
-%		\draw[->, thick, myg] (11cm,.6cm) arc (105:75:7) node[midway, above] {$\times m_3$};
-%		
-%		\draw[->, thick, myr] (1cm,-.5cm) arc (-105:-75:25) node[midway, below] {$\times M_{\text{Global}}$};
-%	\end{tikzpicture}
-%	\end{center}
-%}{thm:ev-rec}
-
-\ex{}{
-	\begin{enumerate}[itemsep=15pt]
-		\item Une augmentation de 20\% correspond à \hide{multiplier par 1,2.}
-		\item Une diminution de 30\% correspond à \hide{multiplier par 0,7.}
-		\item Multiplier par 1,4 correspond à \hide{une augmentation de 40\%.}
-		\item Diviser par 2 correspond à \hide{une diminution de 50\%.}
-		\item L'évolution réciproque d'une augmentation de 25\% est \hide{une diminution de 20\%.}
-	\end{enumerate}
-}{ex:ev}
-
-\dfn{}{
-	Pour $n>0$ entier, $q>0$ réel, \og $q$ puissance $n$ \fg~est égal à
-		\[ q^{n} = \underbrace{q \times q \times \cdots \times q}_{\hide{\text{$n$ fois}}}. \]
-	De plus, \hspace{70pt} \hide{$q^0 = 1$} \hspace{70pt} et \hspace{70pt} \hide{$q^{-n} = \dfrac1{q^n}$.}
-}{dfn:puissances}
+	\vspace{15pt}
+	$u(n) = \hide{4 \times (1,5)^n}$ \hide{car le terme initial de $u$ est $u(0)=4$, et que pour passer d'un terme à l'autre, on multiplie par $1,5$.}
+}{}
 
 
-%\ex{}{
-%	\begin{multicols}{3}
-%	\begin{enumerate}[label=]
-%		\item $2^4 = 16$
-%		\item $10^{-3} = 0,001$
-%		\item $5^{-2} = 0,04$
-%	\end{enumerate}
-%	\end{multicols}
-%}{ex:ev}
 
 \end{document}
