@@ -1,6 +1,6 @@
 \input{../preamble.tex}
 
-\SetDate[16/10/2025]
+\SetDate[05/11/2025]
 
 \begin{document}
 \pagestyle{fancy}
@@ -23,7 +23,7 @@
 	\begin{enumerate}
 		\item Vérifier les premières valeurs du tableau ci-dessus et le compléter.
 	\end{enumerate}
-	On note $P_n$ le nombre de lapins à l'année $n$.
+	On note $P(n)$ le nombre de lapins à l'année $n$.
 	\begin{enumerate}[resume]
 		\item Écrire l'expression algébrique de $P(n)$.
 		\item Donner $P(20)$ en arrondissant à l'entier le plus proche.
@@ -40,12 +40,12 @@
 	
 	\begin{enumerate}[start=2]
 		\item 
-		La suite est géométrique de raison 1,5 et de terme initial $P_0 = 256$, donc
+		La suite est géométrique de raison 1,5 et de terme initial $P(0) = 256$, donc
 			\[ P(n) = 256 \times (1,5)^n. \]
 		\item 
 		À l'aide de la calculatrice, $P(20) = 256 \times (1,5)^{20} \approx 851~266$.
 		\item 
-		La suite $P_n$ est croissante, donc le $N$ recherché doit être inférieur à 20 (et supérieur à 4, d'après le tableau).
+		La suite $P(n)$ est croissante, donc le $N$ recherché doit être inférieur à 20 (et supérieur à 4, d'après le tableau).
 		
 		On teste donc $P(10) \approx 14~762$, qui implique que $N > 10$.
 		
@@ -97,9 +97,9 @@
 			\[ A(n+1) = 1,1 \times A(n), \]
 		valable pour tout $n\in\N$ entier naturel.
 		
-		À l'âge de $50 = 17+n$ ans, on doit calculer $A_n$ pour $n=50-17 = 34$, et donc $A(34)$.
+		À l'âge de $50 = 17+n$ ans, on doit calculer $A(n)$ pour $n=50-17 = 34$, et donc $A(34)$.
 		
-		On utilise l'expression algébrique de $A_n$ qui est
+		On utilise l'expression algébrique de $A(n)$ qui est
 			\[ A(n) = 200 \times (1,1)^n, \]
 		pour trouver $A(34) \approx 5109,5.$
 		\item $A(50) = 200 \times (1,1)^{50} \approx 23~478,2$.
@@ -132,7 +132,7 @@
 }{exe:geom-or-not}{
 	\begin{enumerate}
 		\item 
-		$a$ est géométrique car elle respecte le théorème du cours avec $a_0 = 1$ et $q=3$, car $3^n = 3^n \times 1$.
+		$a$ est géométrique car elle respecte le théorème du cours avec $a(0) = 1$ et $q=3$, car $3^n = 3^n \times 1$.
 		On peut également utiliser la définition d'une suite géométrique et que 
 			\[ a(n+1) = 3^{n+1} = 3^{1} \times 3^{n} = 3 \times a(n). \]
 		\item 
@@ -149,12 +149,12 @@
 		\item $c(n) = 5 \times 2^n$ est géométrique.
 		\item On calcule deux ratios successifs.
 			\begin{align*}
-				\dfrac{g(1)}{g(0)} = \dfrac23 && \neq &&  \dfrac{g_2}{g_1} = \dfrac12,
+				\dfrac{g(1)}{g(0)} = \dfrac23 && \neq &&  \dfrac{g(2)}{g(1)} = \dfrac12,
 			\end{align*}
 		ce qui implique que $g$ ne peut pas être géométrique.
 		\item On calcule deux ratios successifs.
 			\begin{align*}
-				\dfrac{h(1)}{h(0)} = \dfrac12 &&  \neq && \dfrac{h_2}{h_1} = \dfrac23,
+				\dfrac{h(1)}{h(0)} = \dfrac12 &&  \neq && \dfrac{h(2)}{h(1)} = \dfrac23,
 			\end{align*}
 		ce qui implique que $h$ ne peut pas être géométrique.
 	\end{enumerate}
@@ -260,7 +260,7 @@
 		\item Pour payer le premier investisseur après une semaine, vous recrutez deux nouveaux investisseurs.
 		\item Vous poursuivez ainsi, en recrutant toujours deux nouveaux investisseurs pour en payer un.
 	\end{itemize}
-	On note $u_n$ le nombre de nouveaux investisseurs recrutés en semaine numéro $n$. On suppose que l'entreprise démarre en semaine 0 avec un seul investisseur.
+	On note $u(n)$ le nombre de nouveaux investisseurs recrutés en semaine numéro $n$. On suppose que l'entreprise démarre en semaine 0 avec un seul investisseur.
 	\begin{enumerate}
 		\item Calculer $u(0)$, $u(1)$ et $u(2)$.
 		\item Quelle est la nature de la suite $u$ ? Justifier.
