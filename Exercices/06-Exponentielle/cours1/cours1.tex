@@ -1,0 +1,115 @@
+\input{../preamble.tex}
+
+\SetDate[26/11/2025]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Première spécifique}
+\fancyhead[C]{\textbf{Chapitre 5 — Fonctions exponentielles}}
+\fancyhead[R]{\today}
+
+\newcommand{\hide}[1]{\quad\phantom{#1}\quad}
+% (un)comment below for completion
+% cannot renew phantom itself otherwise multicols environment shows a "p" in the right margin idk why
+%\renewcommand{\hide}[1]{{\color{red}#1}}
+
+\dfn{taux d'évolution moyen}{
+	Considérons \hide{$n$} évolutions successives.
+	Alors
+	\begin{align*}
+		CM = \hide{\dfrac{\text{valeur finale}}{\text{valeur initiale}} }
+		&& \et &&
+		q =\hide{CM^{1/n}}
+	\end{align*}
+	où \hide{$CM$ est le coefficient multiplicateur global, et $q$ le coefficient multiplicateur moyen.}
+}{dfn:taux-moyen}
+
+\hspace{-50pt}
+\parbox{\textwidth}{
+\begin{center}
+\begin{tikzpicture}[scale=.79]
+	% nodes
+	\draw (0,0) ellipse (2cm and .5cm) node {valeur initiale};
+	
+	\draw[dashed] (5,0) ellipse (2cm and .5cm);
+	
+	\draw (10,0) node{. . .};
+	
+	\draw[dashed] (15,0) ellipse (2cm and .5cm);
+	
+	\draw (20,0) ellipse (2cm and .5cm) node {valeur finale};
+	
+	% vertices
+	\draw[->, thick, myg] (1cm,.6cm) arc (105:75:7) node[above, midway] {$\times q$};
+	\draw[->, thick, myg, dashed] (6cm,.6cm) arc (105:75:7) node[above, midway] {$\times q$};
+	\draw[->, thick, myg, dashed] (11cm,.6cm) arc (105:75:7) node[above, midway] {$\times q$};
+	\draw[->, thick, myg] (16cm,.6cm) arc (105:75:7) node[above, midway] {$\times q$};
+	
+	\draw[->, thick, myr] (1cm,-.5cm) arc (-105:-75:35) node[below, midway] {$\times CM$};
+\end{tikzpicture}
+\end{center}
+}
+
+\ex{}{
+	Le PIB de la Corée du Nord est connu depuis 2009 seulement. 
+	En 2009, il était estimé à 28 483,5 Won nord-coréens (WNK).
+	En 2024, il est estimé à 43 678,9 WNK.
+	
+	\begin{itemize}
+		\item Le coefficient multiplicateur global est \hide{$CM = \frac{43~678,9}{28~483,5} \approx 1,53$.}
+		\item Le coefficient multiplicateur \underline{annuel} moyen est donc \hide{$1,53^{1/15} \approx 1,03$.}
+		\item Ceci correspond à \hide{une augmentation annuelle moyenne de 3\%.}
+	\end{itemize}
+
+}{ex:q-moyen}
+
+\dfn{}{
+	Pour $q>0$, la puissance est étendue aux nombres négatifs par les relations
+		\begin{align*}
+			q^0 = 1 && \et && \hide{q^{-x} = \dfrac1{q^x}.}
+		\end{align*}
+}{def:exp-neg}
+
+\ex{}{
+$
+2^{-3} \hide{= \dfrac1{2^3} = \dfrac18}
+\qquad\qquad\qquad\qquad
+4^{-2} = \hide{\dfrac1{4^2} = \dfrac1{16}}
+\qquad\qquad\qquad\qquad
+\dfrac1{36} =\hide{ 6^{-2}}
+$
+}{ex:pow-neg}
+
+\dfn{}{
+	Une fonction $g$ est exponentielle de base $q > 0$ dès qu'elle est de la forme
+		\[ \hide{g(x) = g(0) \times q^x.} \]
+}{def:fonction-exp}
+
+%\thm{propriétés des puissances}{
+%	
+%	ss
+%
+%}{prop:puissances}
+
+\thm{variations}{
+	Pour \hide{$g(x) = g(0) \times q^x$} avec $g(0) > 0$, on distingue deux cas :
+		\begin{enumerate}[leftmargin=100pt]
+			\item[Si $q>1$ :] alors $g$ est \hide{croissante.}
+			\item[Si $q<1$ :] alors $g$ est \hide{décroissante.}
+		\end{enumerate}
+}{prop:variations}
+
+
+\begin{center}
+\begin{tikzpicture}[>=stealth, scale=1]
+	\begin{axis}[xmin = -10, xmax=10, ymin=0, ymax=50, axis x line=middle, axis y line=middle, axis line style=->, ylabel={}, grid=both, clip=true, x=20pt, xtick distance=1, extra x ticks ={0}]
+		
+		\addplot[PURPLE_E, very thick, domain=-10:10, samples=100] expression{8*1.2^x};
+		\addplot[GREEN_E, very thick, domain=-10:10, samples=100] expression{2*1.4^(-x)};
+	\end{axis}
+
+\end{tikzpicture}
+\end{center}
+
+
+\end{document}
