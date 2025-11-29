@@ -1,0 +1,240 @@
+\input{../preamble.tex}
+
+\SetDate[10/01/2026]
+\reversemarginpar
+
+\setlength{\marginparsep}{.5cm}
+
+\renewcommand{\ExerciseHeader}{
+	\textbf{Question \theExercise.}
+	\ifnum\ExerciseDifficulty=0
+	\else
+		(\theExerciseDifficulty)
+	\fi
+}
+\renewcommand{\AnswerHeader}{
+	\textbf{Question \theExercise.}
+}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Première spécifique}
+\fancyhead[C]{\textbf{Baccalauréat blanc}}
+\fancyhead[R]{\today}
+
+\null\vspace{-30pt}
+Consignes particulières : 
+\begin{itemize}[label=$\bullet$]
+	\item 
+	La calculatrice est {interdite}.
+	\item
+	L'évaluation fait 2 pages.
+\end{itemize}
+
+\hrule
+
+\begin{center}
+\subsection*{PREMIÈRE PARTIE : AUTOMATISMES — QCM (6pts)}
+\end{center}
+
+\textbf{
+	Pour cette première partie, aucune justification n'est demandée et une seule réponse est possible par question.
+	Pour chaque question, reportez son numéro sur votre copie et indiquez votre réponse.
+}
+
+\vspace{30pt}
+
+
+\newcommand{\cm}{\text{ cm}}
+
+\begin{enumerate}[label=\textbf{\arabic*.}]
+	\item 
+	Le nombre $x$ vérifiant $6x + 8 = 16x - 2$ est
+	\begin{multicols}{4}
+	\begin{enumerate}[label=\textbf{\alph*)}]
+		\item 
+		$x = 1$
+		\item 
+		$x = \frac{10}{22}$
+		\item 
+		$x = -1$
+		\item 
+		$x = 0$
+	\end{enumerate}
+	\end{multicols}
+	
+	\item 
+	La suite de nombre $2 ; 4 ; 8 ; 16$ est en progression
+	\begin{multicols}{2}
+	\begin{enumerate}[label=\textbf{\alph*)}]
+		\item
+		 arithmétique uniquement.
+		\item
+		géométrique uniquement.
+		\item
+		arithmétique et géométrique.
+		\item
+		ni arithmétique ni géométrique.
+	\end{enumerate}
+	\end{multicols}
+	
+	\item 
+	Une diminution de 30\% correspond à
+	\begin{multicols}{2}
+	\begin{enumerate}[label=\textbf{\alph*)}]
+		\item
+		une multiplication par 0,3.
+		\item
+		une multiplication par 1,3.
+		\item
+		une multiplication par 0,7.
+		\item
+		une division par 1,3.
+	\end{enumerate}
+	\end{multicols}
+	
+	\item 
+	Le prix d'un objet passe de 50€ à 75€.
+	Ceci correspond à
+	\begin{multicols}{2}
+	\begin{enumerate}[label=\textbf{\alph*)}]
+		\item
+		une augmentation de 25\%.
+		\item
+		une augmentation de 125\%.
+		\item
+		une augmentation de 150\%.
+		\item
+		une augmentation de 50\%.
+	\end{enumerate}
+	\end{multicols}
+	
+	\item 
+	Considérons la fonction $f(x) = \dfrac{1}{2x+1}$.
+	L'image de 2 par la fonction $f$ est égale à
+	\begin{multicols}{4}
+	\begin{enumerate}[label=\textbf{\alph*)}]
+		\item
+		0,2
+		\item
+		5
+		\item
+		0,5
+		\item
+		1,5
+	\end{enumerate}
+	\end{multicols}
+	
+	\item 
+	Soit $A = \dfrac12 - \dfrac12 \times \dfrac43$.
+	Alors
+	\begin{multicols}{4}
+	\begin{enumerate}[label=\textbf{\alph*)}]
+		\item
+		$A = 0$
+		\item
+		$A = -\frac16$
+		\item
+		$A = \frac23$
+		\item
+		$A = -1$
+	\end{enumerate}
+	\end{multicols}
+	
+\end{enumerate}
+
+\newpage
+
+\begin{center}
+\subsection*{DEUXIÈME PARTIE (14pts)}
+\end{center}
+\marginpar{[pts]}
+
+
+Un élève du lycée Marguerite Yourcenar a répandu une rumeur.
+Aujourd'hui, jour 0, on compte 100 élèves ayant appris la rumeur.
+Chaque jour, la rumeur se propage jusqu'à inévitablement atteindre les 900 élèves du lycée.
+Le but des questions suivantes est d'étudier deux propagations possibles de la rumeur.
+
+
+\exe{2}{
+	Le jour d'après, 20 nouveaux élèves ont appris la rumeur.
+	\begin{enumerate}
+		\item Combien d'élèves connaissent la rumeur au jour 1 ?
+		\item Quel pourcentage d'augmentation cela représente-t-il ?
+	\end{enumerate}
+}{exe:1}{
+	todo
+}
+
+\exe{4}{
+	Dans cette question, on suppose que le nombre d'élèves ayant appris la rumeur augmente de 20 chaque jour.
+
+	\begin{enumerate}
+		\item
+		Combien d'élèves connaitront la rumeur au jour 10 ?
+		\item
+		Est-il possible qu'un jour, 290 élèves connaissent la rumeur ?
+		\item
+		Au bout de combien de jours le lycée tout entier aura-t-il appris la rumeur ?
+	\end{enumerate}
+}{exe:2}{
+	todo
+}
+
+
+\exe{4}{
+	Dans cette question, on suppose que le nombre d'élèves ayant appris la rumeur augmente de 20\% chaque jour, tant que cela est possible.
+	\begin{enumerate}
+		\item
+		Combien d'élèves connaitront la rumeur au jour 4 ?
+		\item
+		Soit $n$ un entier naturel.
+		Déterminer, en fonction de $n$, le nombre d'élèves connaissant la rumeur au jour $n$.
+		\item
+		Au bout de combien de jours le lycée tout entier aura-t-il appris la rumeur ?
+		On pourra s'aider du tableau ci-dessous.
+	\end{enumerate}
+	
+	
+	\begin{center}
+\setlength\tabcolsep{15pt}
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}\hline
+		$n =$ & 0 & 1 & 2 & 5 & 10 & 12 & 13 & 14 & 15 \\ \hline
+		$1,2^n \approx$ & 1 & 1,2 & 1,44 & 2,49 & 6,19 & 8,92 & 10,70 & 12,84 & 15,40 \\ \hline
+	\end{tabular}
+	\end{center}
+	
+}{exe:3}{
+	todo
+}
+
+
+\exe{4}{
+	Réaliser sur votre copie un \emph{schéma} sur lequel apparaissent l'allure des nuages de points traduisant la progression du nombre d'élèves connaissant la rumeur, aussi bien dans le cas de la question \ref{exe:2} que dans le cas de la question \ref{exe:3}.
+	Dans les deux cas, y faire figurer le jour où, dans chacun des cas, le lycée tout entier apprend la rumeur. 
+}{exe:1}{
+	todo
+}
+
+%%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions première partie}}
+
+
+\begin{enumerate}[label=\textbf{\arabic*.}]
+	\item a)
+	\item b)
+	\item c)
+	\item d)
+	\item a)
+	\item b)
+\end{enumerate}
+
+\newpage
+\fancyhead[C]{\textbf{Solutions deuxième partie}}
+
+\shipoutAnswer
+
+\end{document}
