@@ -1,0 +1,89 @@
+\input{../preamble.tex}
+
+\SetDate[03/12/2025]
+\reversemarginpar
+
+\setlength{\marginparsep}{.5cm}
+
+\renewcommand{\ExerciseHeader}{
+	\textbf{Exercice \theExercise.}
+	\ifnum\ExerciseDifficulty=0
+	\else
+		(\theExerciseDifficulty)
+	\fi
+}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Première}
+\fancyhead[C]{\textbf{Évaluation — Suites géométriques}}
+\fancyhead[R]{\today}
+
+\null\vspace{-30pt}
+Consignes particulières : 
+\begin{itemize}[label=$\bullet$]
+	\item 
+	La calculatrice est {autorisée}.
+	\item
+	L'évaluation fait 1 page.
+\end{itemize}
+
+\marginpar{[pts]}
+\hrule
+
+
+
+\exe{10}{
+	Après ingestion de 500mg de paracétamol, celui-ci est décomposé dans l'organisme au cours du temps.
+	Chaque heure, $10\%$ de la quantité de médicament encore présente dans l'organisme est absorbée, et il n'en reste donc que $90\%$.
+	\begin{center}
+\setlength\tabcolsep{20pt}
+	\begin{tabular}{|c|c|c|c|c|c|}\hline
+		Heure & 0 & 1 & 2 & 3 & 4 \\ \hline
+		Quantité de médicament restante (mg) & 500 & 450 & & & \\ \hline
+	\end{tabular}
+	\end{center}
+
+	\begin{enumerate}
+		\item Donner le coefficient multiplicateur correspondant à une diminution de 10\%.
+		\item Vérifier les premières valeurs du tableau ci-dessus et le compléter.
+		\item En notant $M(n)$ la quantité de médicament restante à l'heure $n$ en mg, écrire l'expression algébrique de $M(n)$.
+		\item Donner $M(24)$ en arrondissant à l'entier le plus proche.
+		Que représente cette quantité ? Décrire avec des mots.
+		\item Trouver le plus petit rang $N\in\N$ tel que
+			\[ M(N) \leq 250.\]
+		Interpréter le résultat : que représente ce rang $N$ ?
+	\end{enumerate}
+}{exe:paracetamol}{
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|c|c|}\hline
+		Heure & 0 & 1 & 2 & 3 & 4 \\ \hline
+		Quantité de médicament restante (mg) & 500 & 450 & 405 & 364,5 & 328,05 \\ \hline
+	\end{tabular}
+	\end{center}
+
+	\begin{enumerate}
+		\item
+		Un objet à 100€ passe à 90€ lors d'une diminution de 10\% : le coefficient multiplicateur est donc égal à $\frac{90}{100} = 0,9$.
+		En général, pour une diminution de $P\%$, il faut multiplier par $1 - \frac{P}{100}$.
+		\item
+		On multiplie par $0,9$ pour passer d'un terme à l'autre du tableau : c'est la raison $q$ de la suite géométrique.
+		\item 
+		D'après le théorème du cours,
+			\[ M(n) = M(0) \times q^n = 500 \times 0,9^n. \]
+		\item 
+			\[ M(24) = 500 \times 0,9^{24} \approx 40 \]
+		Il reste donc 40mg de médicament encore présents dans l'organisme après 24 heures.
+		\item 
+		On trouve $N = 7$, car $M(7) \approx 240 \leq 250$, et $M(6) \approx 265 > 250$.
+		$N$ représente l'heure à laquelle la moitié du médicament aura été absorbée.
+	\end{enumerate}
+}
+
+%%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}

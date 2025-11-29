@@ -1,0 +1,77 @@
+\input{../preamble.tex}
+
+\SetDate[05/12/2025]
+\reversemarginpar
+
+\setlength{\marginparsep}{.5cm}
+
+\renewcommand{\ExerciseHeader}{
+	\textbf{Exercice \theExercise.}
+	\ifnum\ExerciseDifficulty=0
+	\else
+		(\theExerciseDifficulty)
+	\fi
+}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Première}
+\fancyhead[C]{\textbf{Évaluation — Suites géométriques}}
+\fancyhead[R]{\today}
+
+\null\vspace{-30pt}
+Consignes particulières : 
+\begin{itemize}[label=$\bullet$]
+	\item 
+	La calculatrice est {autorisée}.
+	\item
+	L'évaluation fait 1 page.
+\end{itemize}
+
+\marginpar{[pts]}
+\hrule
+
+
+\exe{10}{
+	Une candidate au jeu télévisé \emph{Le Juste Prix} doit deviner le prix exact d'un téléviseur pour le gagner.
+	Pour chaque estimation, le présentateur du jeu lui dit si le prix recherché est inférieur ou supérieur.
+	
+	La candidate commence par donner l'estimation 768€, qui s'avère être trop élevée.
+	Elle en déduit que le prix du téléviseur se situe entre 0€ et 768€.
+	
+	À chaque étape, la candidate choisit une estimation moyenne qui lui permet de diviser en deux l'intervalle dans lequel le prix se trouve et de continuer avec une des deux moitiés.
+	
+%	Un étudiant souhaite étudier la vitesse de son algorithme de recherche par dichotomie.
+%	Il se demande, étant donné une suite géométrique $v$ positive et non constante et un seuil $M>0$ : en combien d'étapes puis-je trouver le plus petit entier naturel $N\in\N$ tel que
+%		\[ v(N) \geq M ?\]
+%	Il commence par évaluer $v(0)$ et $v(768)$ et déduit que le $N$ recherché appartient forcément à l'intervalle $[0 ; 768]$.
+%	A chaque étape, une évaluation de $v$ lui permet de diviser en deux l'intervalle dans lequel $N$ se trouve et de continuer avec une des deux moitiés.
+	\begin{center}
+\setlength\tabcolsep{20pt}
+	\begin{tabular}{|c|c|c|c|c|c|}\hline
+		Etape & 0 & 1 & 2 & 3 & 4 \\ \hline
+		Taille de l'intervalle & 768 & 384 & & & \\ \hline
+	\end{tabular}
+	\end{center}
+
+	\begin{enumerate}
+	 	\item Quel coefficient multiplicateur correspond à une division par 2 ?
+		\item Vérifier les premières valeurs du tableau ci-dessus et le compléter.
+		\item En notant par $T(n)$ la taille de l'intervalle à l'étape $n$, donner l'expression algébrique de $T(n)$.
+		\item Donner $T(15)$ en arrondissant au centième.
+		Que représente cette quantité ? Décrire avec des mots.
+		\item Donner le plus petit rang $N\in\N$ tel que
+			\[ T(N) < 1.\]
+		Interpréter le résultat : que représente ce rang $N$ ?
+	\end{enumerate}
+}{exe:2}{
+	todo
+}
+
+%%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}
