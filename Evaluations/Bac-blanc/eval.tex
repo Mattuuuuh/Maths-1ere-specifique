@@ -141,7 +141,121 @@ Consignes particulières :
 	\end{enumerate}
 	\end{multicols}
 	
+	\item 
+	Soit $E = \dfrac{2^3}{2^8}\times2^{-1}$.
+	Alors
+	\begin{multicols}{4}
+	\begin{enumerate}[label=\textbf{\alph*)}]
+		\item
+		$E = 2^{12}$
+		\item
+		$E = 2^{-6}$
+		\item
+		$E = 2^{10}$
+		\item
+		$E = 2^{-4}$
+	\end{enumerate}
+	\end{multicols}
+	
+	\item 
+	Le nombre $5^2 + 10^{-100}$ est environ égal à
+	\begin{multicols}{4}
+	\begin{enumerate}[label=\textbf{\alph*)}]
+		\item
+		$-1~000$
+		\item
+		$10$
+		\item
+		$25$
+		\item
+		$1~000$
+	\end{enumerate}
+	\end{multicols}
+	
+	\item 
+	L'ordonnée à l'origine de la fonction affine $f(x) = 3x - 4$ est égale à
+	\begin{multicols}{4}
+	\begin{enumerate}[label=\textbf{\alph*)}]
+		\item
+		$3$
+		\item
+		$-3$
+		\item
+		$4$
+		\item
+		$-4$
+	\end{enumerate}
+	\end{multicols}
 \end{enumerate}
+
+\begin{multicols}{2}
+	\begin{enumerate}[label=\textbf{\arabic*.}, resume]
+		\item 
+		Considérons la droite de la figure ci-contre.
+		La seule équation pouvant lui correspondre est
+		\begin{multicols}{2}
+		\begin{enumerate}[label=\textbf{\alph*)}]
+			\item $y=1-x$
+			\item $y=-x-1$
+			\item $y=1+x$
+			\item $y=x-1$
+		\end{enumerate}
+		\end{multicols}
+	\end{enumerate}
+	\vfill\null
+	\centering
+	\begin{tikzpicture}[scale=.7]
+	\begin{axis}[xmin = -2, xmax=2, ymin=-2, ymax=5, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=none, grid style = {opacity=.5}, clip=true, ticks = none]
+		\addplot[BLUE_E, very thick, domain =-2:4, samples=2] {1-x};% node[below right, pos=.6]{$\C_f$} ;
+	\end{axis}
+	\end{tikzpicture}
+\end{multicols}
+
+\begin{enumerate}[label=\textbf{\arabic*.}]\setcounter{enumi}{10}
+	
+	\item 
+	En 2019, les recettes fiscales recouvrées par les Finances publiques s'élèvent à 464 milliards d'euros.
+	En 2022, elles atteignent 544,4 milliards d'euros.
+	
+	Le calcul permettant d'obtenir le coefficient multiplicateur annuel moyen est
+	\begin{multicols}{4}
+	\begin{enumerate}[label=\textbf{\alph*)}]
+		\item
+		$\dfrac{544,4}{464}$
+		\item
+		$\left( \dfrac{464}{544,4} \right)^{1/3}$
+		\item
+		$\left( \dfrac{544,4}{464} \right)^{3}$
+		\item
+		$\left( \dfrac{544,4}{464} \right)^{1/3}$
+	\end{enumerate}
+	\end{multicols}
+		
+\end{enumerate}
+
+
+\begin{multicols}{2}
+	\begin{enumerate}[label=\textbf{\arabic*.}]\setcounter{enumi}{11}
+		\item 
+		Considérons la fonction exponentielle $f$ représentée ci-contre.
+		La seule expression algébrique pouvant lui correspondre est
+		\begin{multicols}{2}
+		\begin{enumerate}[label=\textbf{\alph*)}]
+			\item $f(x)=0,5 \times 2^x$
+			\item $f(x)=0,5x + 3$
+			\item $f(x)=2 \times 0,5^x$
+			\item $f(x)=3x + 0,5$
+		\end{enumerate}
+		\end{multicols}
+	\end{enumerate}
+	\vfill\null
+	\centering
+	\begin{tikzpicture}[scale=1]
+	\begin{axis}[xmin = -3, xmax=4, ymin=-3, ymax=7, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}, clip=true, xtick distance=1, ytick distance=1]
+		\addplot[RED_E, very thick, domain =-4:4, samples=50] {.5*2^x} node[right, pos=.7]{$\C_f$} ;
+	\end{axis}
+	\end{tikzpicture}
+\end{multicols}
 
 \newpage
 
@@ -168,7 +282,7 @@ Le but des questions suivantes est d'étudier deux propagations possibles de la 
 }
 
 \exe{4}{
-	Dans cette question, on suppose que le nombre d'élèves ayant appris la rumeur augmente de 20 chaque jour.
+	Dans cette question, on suppose que 20 nouveaux élèves apprennent la rumeur chaque jour.
 
 	\begin{enumerate}
 		\item
