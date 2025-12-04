@@ -34,7 +34,7 @@ Consignes particulières :
 
 \exe{10}{
 	Une candidate au jeu télévisé \emph{Le Juste Prix} doit deviner le prix exact d'un téléviseur pour le gagner.
-	Pour chaque estimation, le présentateur du jeu lui dit si le prix recherché est inférieur ou supérieur.
+	Pour chaque estimation, le présentateur du jeu révèle si le prix recherché est inférieur ou supérieur.
 	
 	La candidate commence par donner l'estimation 768€, qui s'avère être trop élevée.
 	Elle en déduit que le prix du téléviseur se situe entre 0€ et 768€.
@@ -65,7 +65,30 @@ Consignes particulières :
 		Interpréter le résultat : que représente ce rang $N$ ?
 	\end{enumerate}
 }{exe:2}{
-	todo
+	\begin{center}
+\setlength\tabcolsep{20pt}
+	\begin{tabular}{|c|c|c|c|c|c|}\hline
+		Etape & 0 & 1 & 2 & 3 & 4 \\ \hline
+		Taille de l'intervalle & 768 & 384 & 192 & 96 & 48 \\ \hline
+	\end{tabular}
+	\end{center}
+	\begin{enumerate}
+	 	\item
+	 	Diviser par 2 devient à multiplier par $\frac12 = 0,5$.
+		\item[]
+		\item 
+		$T(n) = T(0) \times q^n = 768 \times 0,5^n$.
+		\item 
+		$T(15) = 768 \times 0,5^{15} \approx 0,02$.
+		C'est la taille de l'intervalle après 15 estimations de la candidate.
+		Celle-ci connaît donc le prix exact à 2 centimes près.
+		\item
+		En calculant quelques valeurs, on trouve
+			\[ T(9) = 1,5  > 1 > 0,75 = T(10), \]
+		d'où $N=10$.
+		Ce rang représente le nombre d'estimations nécessaires à la candidate afin de connaître le prix à 1€ près.
+		Si le prix à deviner est un nombre entier, il suffit donc de 10 estimations pour le trouver à coup sûr.
+	\end{enumerate}
 }
 
 %%%%%%%%%%%%
