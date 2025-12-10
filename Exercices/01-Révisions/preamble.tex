@@ -22,14 +22,110 @@ margin=2cm,
 \newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
 
 % theorems
-\theoremstyle{theorem}
-\newtheorem{thm}{Théorème}
-\theoremstyle{plain}
-\newtheorem*{sol}{Solution}
 \theoremstyle{definition}
-\newtheorem{ex}{Exercice}
-\newtheorem{dfn}{Définition}
-\newtheorem*{dfn*}{Définition}
+
+\newtheorem{theorem}{Théorème}
+\newtheorem{corollaire}[theorem]{Corollaire}
+\newtheorem{lemme}[theorem]{Lemme}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{exercice}[theorem]{Exercice}
+\newtheorem{exemple}[theorem]{Exemple}
+\newtheorem{definition}[theorem]{Définition}
+\newtheorem*{question}{Question}
+\newtheorem*{preuve}{Preuve}
+\newtheorem*{remarque}{Remarque}
+\newtheorem*{strategie}{Stratégie}
+\newtheorem*{methode}{Méthode}
+\newtheorem*{notation}{Notation}
+\newtheorem*{nomenclature}{Nomenclature}
+\newtheorem{axiome}[theorem]{Axiome}
+\newtheorem*{heuristique}{Heuristique}
+
+\newtheorem*{definition*}{Définition}
+\newtheorem*{lemme*}{Lemme}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem*{theorem*}{Théorème}
+\newtheorem*{corollaire*}{Corollaire}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% MDFRAMED SURROUND
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[framemethod=pgf]{mdframed}
+% def
+\mdfdefinestyle{definition}{
+	hidealllines=true,
+	leftline=true,
+	linecolor=BLUE_E,
+	linewidth=2pt,
+	innertopmargin=-4pt,
+	innerrightmargin=0,
+	nobreak=true,
+}
+\surroundwithmdframed[
+	style=definition,
+]{definition}
+\surroundwithmdframed[
+	style=definition,
+]{definition*}
+
+% thm
+\mdfdefinestyle{theorem}{
+	linecolor=MAROON_C,
+	linewidth=2pt,
+	roundcorner=4pt,
+	innertopmargin=-4pt,
+	nobreak=true,
+}
+\surroundwithmdframed[
+	style=theorem,
+]{theorem}
+\surroundwithmdframed[
+	style=theorem,
+]{theorem*}
+
+% prop
+\mdfdefinestyle{proposition}{
+	linecolor=GREEN_E,
+	linewidth=2pt,
+	innertopmargin=-4pt,
+	nobreak=true,
+}
+\surroundwithmdframed[
+	style=proposition,
+]{proposition}
+\surroundwithmdframed[
+	style=proposition,
+]{proposition*}
+
+% lemme
+\mdfdefinestyle{lemme}{
+	linecolor=TEAL_E,
+	linewidth=1pt,
+	innertopmargin=-4pt,
+	nobreak=true,
+}
+\surroundwithmdframed[
+	style=lemme,
+]{lemme}
+\surroundwithmdframed[
+	style=lemme,
+]{lemme*}
+
+% corollaire
+\mdfdefinestyle{corollaire}{
+	linecolor=YELLOW_E,
+	linewidth=2pt,
+	roundcorner=4pt,
+	innertopmargin=-4pt,
+	nobreak=true,
+}
+\surroundwithmdframed[
+	style=corollaire,
+]{corollaire}
+\surroundwithmdframed[
+	style=corollaire,
+]{corollaire*}
 
 % exercices
 \usepackage[answerdelayed, lastexercise]{exercise}
@@ -69,10 +165,6 @@ margin=2cm,
 % date
 \usepackage{advdate}
 
-% vabs
-\newcommand{\vabs}[1]{
-	\left| #1 \right|
-}
 % plots
 \usepackage{pgfplots}
 \tikzset{

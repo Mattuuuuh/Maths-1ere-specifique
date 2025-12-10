@@ -1,0 +1,136 @@
+\input{../preamble.tex}
+
+\SetDate[11/12/2025]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Première spécifique}
+\fancyhead[C]{\textbf{Révisions chapitres 1-5}}
+\fancyhead[R]{\today}
+
+
+
+\exe{}{
+	Sans calculatrice, exprimer les nombres suivants sous la forme $q^n$, où $q \in \N$ et $n\in\Z$ sont des entiers.
+	\begin{multicols}{3}
+	\begin{enumerate}[label=\roman*)]
+		\item $10^3 \times 10^5$
+		\item $\left(4^5\right)^2$
+		\item $\dfrac{5^3}{5^3}$
+		\item $1$
+		\item $\dfrac{2^4}{2^7}$
+		\item $\left(2^{-1}\right)^3$
+		\item $\left(2^{3}\right)^{-1}$
+		\item $\left(\dfrac{1}{7^{2,5}}\right)^6$
+		\item $\dfrac{10^{12}}{10^{-12}}$
+		\item $\dfrac{10^{-5,2}}{10^{6,8}}$
+	\end{enumerate}
+	\end{multicols}
+}{exe:puissances}{
+	\begin{multicols}{3}
+	\begin{enumerate}[label=\roman*)]
+		\item $10^8$
+		\item $4^{10}$
+		\item $5^0 = 1^1 = 4^0 = q^0$ pour n'importe quel $q\neq0$
+		\item $1^1 = 2^0 = 100^0 = q^0$ pour n'importe quel $q\neq0$
+		\item $2^{-3}$
+		\item $2^{-3}$
+		\item $2^{-3}$
+		\item $7^{-15}$
+		\item $10^{24}$
+		\item $10^{-12}$
+	\end{enumerate}
+	\end{multicols}
+}
+
+\exe{}{
+	Tracer les courbes représentatives des fonctions $f(x) = x + 2$ et $g(x) = 5-x$ pour $x \in [-2 ; 3]$.
+	
+	En déduire la solution de $f(x) = g(x)$ graphiquement puis résoudre $x+2 = 5-x$ et comparer.
+}{exe:cfcg}{
+	todo
+}
+
+\exe{}{
+	Soit $u$ une suite arithmétique de raison $-2$ et de terme initial $u(0) = 10$.
+	Calculer les premiers termes de $u$. À partir de quel rang $u$ est-elle égale à 2 ?
+	
+	Exprimer $u(n)$ en fonction de $n$ et trouver $n$ vérifiant $u(n) = 2$. Comparer avec le résultat obtenu précédemment.
+}{exe:uartihm}{
+	todo
+}
+
+\exe{}{
+	Soit $v$ une suite géométrique de raison $1,4$ et de terme initial $v(0) = 12$.
+	Exprimer $v(n)$ en fonction de $n$.
+	
+	Calculer les premiers termes de $v$ et placer le nuage de points dans un repère.
+}{exe:vgeom-rep}{
+	todo
+}
+
+
+\exe{}{
+	Le nombre de nuitées de touristes étrangers au land de Thuringe (Allemagne) au cours des années $2010$ à $2013$ sont donnés ci-dessous. \footnote{Source : \href{https://statistik.thueringen.de/analysen/Aufsatz-06a-2021.pdf}{https://statistik.thueringen.de/analysen/Aufsatz-06a-2021.pdf}, Abbildung 16, page 47.}
+	
+	\begin{center}
+	\vspace{.5cm}
+	\begin{tikzpicture}[scale=.8]
+		% nodes
+		\draw (0,0) ellipse (2cm and .5cm) node {567 826};
+		
+		\draw (5,0) ellipse (2cm and .5cm) node {565 645};
+		
+		\draw (10,0) ellipse (2cm and .5cm) node {593 444 };
+		
+		\draw (15,0) ellipse (2cm and .5cm) node {563 236};
+		
+		% vertices
+		\draw[->, thick, myg] (1cm,.6cm) arc (105:75:7);
+		\draw[->, thick, myg] (6cm,.6cm) arc (105:75:7);
+		\draw[->, thick, myg] (11cm,.6cm) arc (105:75:7);
+		
+		\draw[->, thick, myr] (1cm,-.5cm) arc (-105:-75:25);
+	\end{tikzpicture}
+	\vspace{.5cm}
+	\end{center}
+
+	\begin{enumerate}
+		\item Compléter le schéma en ajoutant les coefficients multiplicateurs.
+		\item Calculer le coefficient multiplicateur moyen.
+		\item En déduire le taux d'évolution annuel moyen.
+	\end{enumerate}
+
+}{exe:3}{
+	todo
+}
+
+
+\exe{, difficulty=1}{
+	Le \emph{nombre de reproduction de base} d'un virus est le nombre moyen de personnes saines qu'un personne contagieuse infecte. Il permet de décrire l'évolution d'une maladie à ses débuts (avant que l'immunité collective fasse effet).
+	
+	On estime que le nombre de reproduction de base d'un virus est de $3$ : chaque semaine, le nombre de malades est multiplié par $3$.
+	On compte, au temps $0$, $M(0) = 18\ 347$ malades.
+
+	\begin{enumerate}
+		\item Écrire $M(n)$, le nombre de malades après $n$ semaines, où $n\in\N$ est un entier naturel.
+		\item Écrire $M(t)$, le nombre de malades au temps $t$ (en semaines). $t$ peut être négatif.
+		\item Combien de malades y aura-t-il après $2,5$ semaines ? Arrondir à $10^{-1}$.
+		\item Combien de malades y avait-t-il il y a $3$ semaines ? Arrondir à $10^{-1}$.
+		\item À partir de combien de semaines le nombre de malades dépassera $70$ millions ? Arrondir à  $10^{-1}$.
+		\item En combien de semaines le premier malade a-t-il infecté $18\ 347$ personnes ? On cherche le plus petit $t$ tel que $M(t) \geq 1$. Arrondir à  $10^{-1}$.
+	\end{enumerate}
+
+}{exe:4}{
+	todo
+}
+
+
+%%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+
+\end{document}
