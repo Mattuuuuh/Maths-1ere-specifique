@@ -11,7 +11,7 @@
 \newcommand{\hide}[1]{\quad\phantom{#1}\quad}
 % (un)comment below for completion
 % cannot renew phantom itself otherwise multicols environment shows a "p" in the right margin idk why
-%\renewcommand{\hide}[1]{{\color{RED_E}#1}}
+%\renewcommand{\hide}[1]{{\color{RED_E!80!BLACK}#1}}
 
 
 
@@ -19,7 +19,7 @@
 
 \begin{definition}[événement conditionnel]
 	Soient $A, B$ deux événements. L'événement \mbox{« $B$ sachant $A$ »}, aussi noté $B|A$
-	correspond à l'événement associé à $B$ dans le nouvel univers où \underline{on sait que $A$ se réalise.}
+	correspond à l'événement associé à $B$ dans le nouvel univers où \hide{\mbox{on sait que $A$ se réalise.}}
 \end{definition}
 
 
@@ -32,16 +32,16 @@
 	\begin{center}
 	\def\arraystretch{1.6}
 	\setlength\tabcolsep{25pt}
-	\tableaucroise{Dentiste & Pas dentiste & Total}{Enfant & 140 & 60 & 200}{Adulte & 260 & 40 & 300}{Total & 400 & 100 & 500}
+	\tableaucroise{Dentiste & Pas dentiste & Total}{Enfant & 140 & 60 & 200}{Adulte & 260 & \hide{40} & 300}{Total & \hide{400} & 100 & 500}
 	\end{center}
 	On choisit une personne uniformément au hasard
 	et on considère les événements $D$ : « la personne choisie est allée chez le dentiste » et $E$ : « la personne choisie est un enfant ».
 	\begin{align*}
-		P(D) = && && &&  P\left(\overline{D}\right) = && \\ P(E) = && && &&  P\left(\overline{E}\right) = && 
+		P(D) = \hide{\dfrac{400}{500} = 0,8} && && &&  P\left(\overline{D}\right) &= \hide{ 1 - P(D) = 1 - 0,8 = 0,2} && 
 		\\
-		P(D \cap E) = && && && P(E \cap D) = &&
+		P(E) = \hide{\dfrac{200}{500} = 0,4} && && &&  P(D \cap E) &= \hide{\dfrac{140}{500} = 0,28} && 
 		\\
-		P(D \sct E) = && && && P(E \sct D) = &&
+		P(D \sct E) = \hide{\dfrac{140}{200} = 0,7} && && && P(E \sct D) &= \hide{\dfrac{140}{400} = 0,35} &&
 	\end{align*}
 \end{exemple}
 
@@ -49,7 +49,7 @@
 
 	\begin{enumerate}[label=$\bullet$]
 		\item On voit la fréquence d'un événement comme sa probabilité.
-		\item Pour lire la fréquence conditionnelle, on se restreint à une colonne ou une ligne.
+		\item Pour lire la fréquence conditionnelle, \hide{on se restreint à une colonne ou une ligne.}
 	\end{enumerate}
 \end{proprietes}
 
@@ -73,35 +73,127 @@
 %\end{theorem}
 
 
-\begin{definition}[événements indépendants]
+\begin{definition}%[événements indépendants]
 	Les événements $A$ et $B$ sont \emph{indépendants} si
 		\begin{align*}
-			P(B \sct A) = P(B) && \iff && \hspace{3cm} && \iff && \hspace{3cm}
+			P(B \sct A) = P(B) && \iff && \hide{P(A \sct B) = P(A)} && \iff && \hide{P(A\cap B) = P(A)\times P(B)}
 		\end{align*}
-	On dira alors que $A$ et $B$ sont \emph{décorrélés}, ou de \emph{corrélation nulle}.
+	On dira aussi que $A$ et $B$ sont \hide{\emph{décorrélés}, ou de \emph{corrélation nulle}.}
 	
 \end{definition}
 
 \begin{remarque}[corrélation] \,
 
 	\begin{enumerate}[label=$\bullet$]
-		\item Si $P(B \sct A) > P(B)$, savoir que $A$ se réalise augmente la probabilité que $B$ se réalise. Les événements sont \underline{positivement corrélés}.
-		\item Si $P(B \sct A) < P(B)$, savoir que $A$ se réalise diminue la probabilité que $B$ se réalise. Les événements sont \underline{négativement corrélés}.
+		\item Si $P(B \sct A) > P(B)$, savoir que $A$ se réalise augmente la probabilité que $B$ se réalise. Les événements sont \hide{positivement corrélés.}
+		\item Si $P(B \sct A) < P(B)$, savoir que $A$ se réalise diminue la probabilité que $B$ se réalise. Les événements sont \hide{négativement corrélés.}·
 	\end{enumerate}
 \end{remarque}
 
 
 
 \begin{exemple}
-	Les événements $D$ et $E$ de l'exemple \ref{ex:2} sont négativement corrélés car
-		\[ 0,7 = P(D \sct E) < P(D) = 0,8 \]
+	Les événements $D$ et $E$ de l'exemple \ref{ex:2} sont \hide{négativement corrélés car}
+		\[ \hide{0,7} = P(D \sct E) \hide{\quad<\quad} P(D) = \hide{0,8} \]
 	%ou car
 	%	\[ 0,35 = P(E \sct D) < P(E) = 0,4. \]
 	Interprétations : 
 		\begin{itemize}
-			\item Savoir qu'on a choisit un enfant diminue la probabilité que la peronne choisie soit allée chez le dentiste.
-			\item Savoir que la personne choisie est allée chez le dentiste diminue la probabilité qu'elle soit un enfant.
+			\item \hide{Savoir qu'on a choisit un enfant diminue la probabilité que la peronne choisie soit allée chez le dentiste.}
+			\item \hide{Savoir que la personne choisie est allée chez le dentiste diminue la probabilité qu'elle soit un enfant.}
 		\end{itemize}
+\end{exemple}
+
+\newpage
+
+
+\subsection*{Arbres de probabilité}
+
+
+\begin{proprietes}\,
+
+	\begin{enumerate}[label=$\bullet$]
+		\item Les probabilités de l'arbre sont conditionnées par le chemin déjà parcouru.
+		\item Pour chaque nœud, la somme des probabilités des sous-branches vaut $1$.
+		\item Chaque feuille est une issue (et vice versa). Pour connaître la probabilité d'une issue, il faut multiplier les probabilités le long du chemin racine-feuille.
+		\item Un événement est un ensemble d'issues. Pour connaître la probabilité d'un événement, il faut sommer la probabilité de chaque feuille lui correspondant.
+	\end{enumerate}
+\end{proprietes}
+
+
+
+\begin{exemple}
+	%On considère un arbre modélisant une expérience aléatoire à deux épreuves.
+	%$A$ et $\overline{A}$ sont les deux issues de la première épreuve. Chaque feuille correspond à une issue finale.
+	L'arbre suivant modélise une expérience à deux épreuves. On sait que
+	\begin{multicols}{3}
+	\begin{enumerate}[label=$\bullet$]
+		\item $P(A) = 0,4$
+		\item $P(B \sct A) = 0,75$
+		\item $P(B \sct \overline{A}) = 0,7$
+	\end{enumerate}
+	\end{multicols}
+	\begin{center}
+	\begin{tikzpicture}
+		% depth 1
+		\foreach \i in {-3, 3}
+		\draw[-, thick, black] (0,0) node {$\bullet$} -- (\i,-2);
+		
+		\draw (0,0);% node[above] {racine};
+		\draw (-3,-2) node[above left] {$A$};
+		\draw (3,-2) node[above right] {$\overline{A}$};
+		% depth 2
+		\foreach \i in {-3, 3} \foreach \j in {-1, 1}
+			\draw[-, thick, black] (\i,-2) node {$\bullet$} -- (\i+\j,-4) node {$\bullet$};
+			
+		\draw (-4,-4) node[below] {$A\cap B$};
+		\draw (-2,-4) node[below] {$A\cap \overline{B}$};
+		\draw (2,-4) node[below] {$\overline{A}\cap B$};
+		\draw (4,-4) node[below] {$\overline{A}\cap \overline{B}$};
+		
+		% sols
+		\draw (1.5,-.5) node {\hide{$0,6$}};
+		\draw (-1.5,-.5) node {\hide{$0,4$}};
+		
+		\draw (4,-3) node {\hide{$0,3$}};
+		\draw (2,-3) node {\hide{$0,7$}};
+		
+		\draw (-2,-3) node {\hide{$0,25$}};
+		\draw (-4,-3) node {\hide{$0,75$}};
+		
+		
+		\draw (5,-3) node[right] {\thead{probabilités \\ conditionnelles \\ sachant $\overline{A}$}};
+		\draw (-7.5,-3) node[right] {\thead{probabilités \\ conditionnelles \\ sachant $A$}};
+		\draw[->, thick] (5,-3) -- (4.5,-3);
+		\draw[dashed] (1.55,-3.35) rectangle (4.45,-2.65);
+		\draw[->, thick] (-5,-3) -- (-4.5,-3);
+		\draw[dashed] (-4.45,-3.35) rectangle (-1.55,-2.65);
+	\end{tikzpicture}
+	\end{center}
+\end{exemple}
+
+\begin{exemple}
+
+	Un professeur décide de lancer une pièce bien équilibrée $8$ fois de suite :
+	« Si j'obtiens pile au moins une fois, alors Clémentine change de place ! »
+	
+	Les lancers sont supposés indépendants : un résultat n'influe pas les autres.
+	
+	\begin{enumerate}
+		\item Décrire l'événement complémentaire avec des mots.
+		\item Esquisser un arbre de probabilité (pas forcément complet) et donner la probabilité de chacune des issues de l'expérience.
+		\item En calculant d'abord la probabilité de l'événement complémentaire, donner la probabilité que Clémentine change de place.
+%		\item Calculer la probabilité de l'événement
+%		%
+%			\begin{center} « obtenir pile exactement 1 fois » \end{center}
+%			
+%		en comptant le nombre de chemins racine-feuille qui y correspondent.
+%		
+%		\item En déduire la probabilité de l'événement
+%			%
+%			\begin{center} « obtenir pile au moins 2 fois » \end{center}
+	\end{enumerate}
+	
 \end{exemple}
 
 
