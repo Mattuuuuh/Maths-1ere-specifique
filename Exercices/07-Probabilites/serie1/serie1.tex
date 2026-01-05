@@ -1,0 +1,108 @@
+\input{../preamble.tex}
+
+\SetDate[07/01/2026]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Première spécifique}
+\fancyhead[C]{\textbf{Probabilités 1 : tableaux croisés}}
+\fancyhead[R]{\today}
+
+\exe{}{
+	Un vendeur de voitures possède un stock de 1 000 voitures dont les caractéristiques sont résumées dans le tableau ci-dessous.
+	
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|c|}
+	\cline{2-5}
+	\multicolumn{1}{c|}{}	&	Blanche	&	Noire	&	Rouge	&	TOTAL \\ \hline
+	Française	&	150	&	$x$	&	400	&	750 \\ \hline
+	Étrangère	&	100	&	50	&	100	&	250 \\ \hline
+	TOTAL	&	250	&	250	&	500	&	1000 \\\hline
+	\end{tabular}
+	\end{center}
+	
+	\begin{enumerate}
+		\item Indiquer ce que représente $x$ et déterminer sa valeur.
+		\item Quel est le pourcentage de voitures noires parmi les voitures du stock ?
+		\item Quel est le pourcentage de voitures noires étrangères parmi les voitures du stock ?
+		\item Quel est le pourcentage de voitures blanches parmi les voitures françaises ?
+		\item Quel est le pourcentage de voitures françaises parmi les voitures blanches ?
+		\item Alice et Benoît jouent au jeu suivant.
+			\begin{enumerate}[label=--]
+				\item Alice choisit au harsard une voiture parmi les voitures françaises.
+				Elle remporte 1 euro si ce n'est pas une voiture rouge.
+				\item Benoît choisit au hasard une voiture parmi les voitures blanches.
+				Il remporte 1 euro si c'est une voiture étrangère.
+			\end{enumerate}
+		Lequel des deux a le plus de chance de remporter 1 euro ?
+	\end{enumerate}
+}{exe:tableau0-1}{
+	\begin{enumerate}
+		\item
+		$x$ est le nombre de voitures françaises et noires. 
+		Comme $150+x+400 = 750$, on a $x = 200$.
+		\item 
+		Le pourcentage est obtenu en divisant le nombre de voitures noires par le nombre de voitures au total.
+			\[ \dfrac{250}{1000} = 0,25 = 25\%. \]
+		\item Quel est le pourcentage de voitures noires étrangères parmi les voitures du stock ?
+		Le pourcentage est obtenu en divisant le nombre de voitures noires et étrangères par le nombre de voitures au total.
+			\[ \dfrac{50}{1000} = 0,05 = 5\%. \]
+		\item Quel est le pourcentage de voitures blanches parmi les voitures françaises ?
+		Le pourcentage est obtenu en divisant le nombre de voitures blanches et françaises par le nombre de voitures françaises.
+			\[ \dfrac{150}{750} = 0,2 = 20\%. \]
+		\item Quel est le pourcentage de voitures françaises parmi les voitures blanches ?
+		Le pourcentage est obtenu en divisant le nombre de voitures françaises et blanches par le nombre de voitures blanches.
+			\[ \dfrac{150}{250} = 0,6 = 60\%. \]
+		\item
+		Lorsqu'on choisit uniformément au hasard, la probabilité est égale à la proportion.
+		On compare donc, pour Alice,
+			\[ \dfrac{150+200}{750} = \dfrac{250}{750} = \dfrac13 \approx 33\%, \]
+		et, pour Benoît,
+			\[ \dfrac{100}{250} = 0,5 = 40\%. \]
+		Benoît a donc plus de chance de remporter 1 euro.
+	\end{enumerate}
+}
+
+
+\exe{}{
+	Une urne contient $49$ billes numérotées de $1$ à $49$.
+	La moitié des billes paires sont bleues, les $\frac25$ des billes impaires sont jaunes.
+	\begin{center}
+	\setlength\tabcolsep{20pt}
+	\tableaucroise{Paire & Impaire & Total}{Bleue & & &}{Jaune & & &}{Total &&&}
+	\end{center}
+	
+	On choisit une bille uniformément au hasard et on dénote
+		\begin{center}
+			$I$ : \og La bille a un numéro impair. \fg
+			\hspace{3cm}
+			$B$ : \og La bille est bleue. \fg
+		\end{center}
+	\begin{enumerate}
+		\item Compléter le tableau croisé d'effectifs.
+		\item Calculer $P(I)$ et $P(I \cap B)$ à l'aide du tableau. 
+		\item Décrire l'événement $\overline{I}$ avec des mots et calculer $P\left(\overline{I}\right)$.
+		\item Calculer $P(I \sct B)$ à l'aide du tableau.
+		\item Les événements $I$ et $B$ sont-ils indépendants ? corrélés positivement ? négativement ? Justifier.
+	\end{enumerate}
+}{exe:proba6}{
+	% TODO
+	\begin{center}
+	\setlength\tabcolsep{20pt}
+	\tableaucroise{Paire & Impaire & Total}{Bleue & 12 & 15 & 27}{Jaune & 12 & 10 & 22}{Total & 24 & 25 & 49}
+	\end{center}
+	\begin{align*}
+		P(I) &= \dfrac{25}{49} \\
+		P(I \sct B) &= \dfrac{15}{27}
+	\end{align*}
+	Comme $P(I\sct B) > P(I)$, les événements $I$ et $B$ sont positivement corrélés.
+}
+
+
+%%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}

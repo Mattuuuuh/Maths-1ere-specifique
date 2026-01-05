@@ -1,0 +1,108 @@
+\input{../preamble.tex}
+
+\SetDate[07/01/2026]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Première spécifique}
+\fancyhead[C]{\textbf{Chapitre 6 — Probabilités conditionnelles}}
+\fancyhead[R]{\today}
+
+\newcommand{\hide}[1]{\quad\phantom{#1}\quad}
+% (un)comment below for completion
+% cannot renew phantom itself otherwise multicols environment shows a "p" in the right margin idk why
+%\renewcommand{\hide}[1]{{\color{RED_E}#1}}
+
+
+
+%\section{Événements conditionnels}
+
+\begin{definition}[événement conditionnel]
+	Soient $A, B$ deux événements. L'événement \mbox{« $B$ sachant $A$ »}, aussi noté $B|A$
+	correspond à l'événement associé à $B$ dans le nouvel univers où \underline{on sait que $A$ se réalise.}
+\end{definition}
+
+
+
+\subsection*{Tableaux croisés}
+
+\begin{exemple}\label{ex:2}
+	On interroge $500$ personnes pour savoir si elles sont allées chez le dentiste en 2025. 
+	
+	\begin{center}
+	\def\arraystretch{1.6}
+	\setlength\tabcolsep{25pt}
+	\tableaucroise{Dentiste & Pas dentiste & Total}{Enfant & 140 & 60 & 200}{Adulte & 260 & 40 & 300}{Total & 400 & 100 & 500}
+	\end{center}
+	On choisit une personne uniformément au hasard
+	et on considère les événements $D$ : « la personne choisie est allée chez le dentiste » et $E$ : « la personne choisie est un enfant ».
+	\begin{align*}
+		P(D) = && && &&  P\left(\overline{D}\right) = && \\ P(E) = && && &&  P\left(\overline{E}\right) = && 
+		\\
+		P(D \cap E) = && && && P(E \cap D) = &&
+		\\
+		P(D \sct E) = && && && P(E \sct D) = &&
+	\end{align*}
+\end{exemple}
+
+\begin{proprietes}\,
+
+	\begin{enumerate}[label=$\bullet$]
+		\item On voit la fréquence d'un événement comme sa probabilité.
+		\item Pour lire la fréquence conditionnelle, on se restreint à une colonne ou une ligne.
+	\end{enumerate}
+\end{proprietes}
+
+
+\subsection*{Indépendance et corrélation}
+
+% même pas important lol
+% 
+%\begin{definition}[probabilité conditionnelle]
+%		%\[ P(B \sct A) = \dfrac{P(A \cap B)}{P(A)} \]
+%		\begin{align*}
+%			P(A \cap B) = P(B \sct A) \times P(A) && \iff && P(B \sct A) = \dfrac{P(A \cap B)}{P(A)} 
+%		\end{align*}
+%\end{definition}
+
+
+
+%\begin{theorem}[de Bayes]
+%	Soient $A, B$ deux événements. Alors
+%		\[ P(A \sct B) = \dfrac{P(A)}{P(B)} \times P(B \sct A). \]
+%\end{theorem}
+
+
+\begin{definition}[événements indépendants]
+	Les événements $A$ et $B$ sont \emph{indépendants} si
+		\begin{align*}
+			P(B \sct A) = P(B) && \iff && \hspace{3cm} && \iff && \hspace{3cm}
+		\end{align*}
+	On dira alors que $A$ et $B$ sont \emph{décorrélés}, ou de \emph{corrélation nulle}.
+	
+\end{definition}
+
+\begin{remarque}[corrélation] \,
+
+	\begin{enumerate}[label=$\bullet$]
+		\item Si $P(B \sct A) > P(B)$, savoir que $A$ se réalise augmente la probabilité que $B$ se réalise. Les événements sont \underline{positivement corrélés}.
+		\item Si $P(B \sct A) < P(B)$, savoir que $A$ se réalise diminue la probabilité que $B$ se réalise. Les événements sont \underline{négativement corrélés}.
+	\end{enumerate}
+\end{remarque}
+
+
+
+\begin{exemple}
+	Les événements $D$ et $E$ de l'exemple \ref{ex:2} sont négativement corrélés car
+		\[ 0,7 = P(D \sct E) < P(D) = 0,8 \]
+	%ou car
+	%	\[ 0,35 = P(E \sct D) < P(E) = 0,4. \]
+	Interprétations : 
+		\begin{itemize}
+			\item Savoir qu'on a choisit un enfant diminue la probabilité que la peronne choisie soit allée chez le dentiste.
+			\item Savoir que la personne choisie est allée chez le dentiste diminue la probabilité qu'elle soit un enfant.
+		\end{itemize}
+\end{exemple}
+
+
+\end{document}
