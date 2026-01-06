@@ -1,0 +1,129 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}          %type de codage des caractères
+\usepackage{amsmath}                 %base pour les théorèmes: American Maths Society
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+%%%%%%%%%%%%%%%%%%%%%%Des tas de packages pour faire de jolis titres et Ptés%%%%%%%%
+\usepackage{framed}                   \usepackage{tikz,tkz-tab}                                                %
+\usepackage{mdframed}                                                             %
+\usepackage{color}                                                                 %
+\usepackage[usenames,dvipsnames]{xcolor}                                           %
+
+\usepackage{tikz}  
+%
+
+
+\usepackage{cancel}                  %pour barrer lors des simplifications dans un calcul
+
+\usepackage{multicol}                %pour écrire du texte sur plusieurs colonnes
+\usepackage{enumerate}               % pour numéroter les questions de mathtom
+\usepackage{algorithm}  
+\usepackage{algorithmic} 
+\usepackage{algpseudocode}
+\usepackage{enumitem}
+\usepackage{color}   
+\usepackage{hyperref}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Commandes permettant d'écrire cm, dm, mm  %
+% et m en mode maths (sans italique)        %
+\newcommand{\m}{\ensuremath{\textrm{~m}}}   %
+\newcommand{\dm}{\ensuremath{\textrm{~dm}}} %
+\newcommand{\cm}{\ensuremath{\textrm{~cm}}} %
+\newcommand{\mm}{\ensuremath{\textrm{~mm}}} %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Commandes permettant d'écrire les noms    %
+% des ensembles, et les équivalences        % 
+\newcommand{\R}{\ensuremath{\mathbb{R}}}    %
+\newcommand{\N}{\ensuremath{\mathbb{N}}}    %
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}    %
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}  
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+
+\newcommand{\U}{\ensuremath{\mathbb{U}}}
+\newcommand{\K}{\ensuremath{\mathbb{K}}}
+\newcommand{\SSI}{\Longleftrightarrow}      %
+\newcommand{\ssi}{\Leftrightarrow}          %
+\newcommand{\Zp}[1]{\mathbb{Z}/p^{#1}\mathbb{Z}}
+\newcommand{\Zn}[1]{\mathbb{Z}/n^{#1}\mathbb{Z}}
+
+\usepackage{tikz}
+
+\newcommand{\titlebox}[2]{%
+\tikzstyle{titlebox}=[rectangle,inner sep=10pt,inner ysep=10pt,draw]%
+\tikzstyle{title}=[fill=white]%
+%
+\bigskip\noindent\begin{tikzpicture}
+\node[titlebox] (box){%
+    \begin{minipage}{0.94\textwidth}
+#2
+    \end{minipage}
+};
+%\draw (box.north west)--(box.north east);
+\node[title] at (box.north) {#1};
+\end{tikzpicture}\bigskip%
+}
+
+\date{}
+\title{Bac Blanc (proposition)}
+\begin{document}
+
+\maketitle
+
+\section*{Exercice 2 :}
+
+On étudie le trajet d'une voiture (voiture A) en fonction du temps. A l'instant $t = 2$ secondes, la voiture a parcouru 10 mètres. A l'instant $t = 5$ secondes, la voiture a parcouru 25 mètres. On considère que la voiture avance à vitesse constante et en ligne droite. \\
+On modélise la distance (en mètres) parcourue par la voiture à l'aide d'une fonction affine $f$. Ainsi, si $t$ représente le temps en secondes, on pose :
+$$f(t) = mt+p$$
+avec $m$ et $p$ des coefficients inconnus.
+
+\begin{enumerate}
+     \item A-t-on ici choisi un modèle discret ou continu ? Justifier.
+    \item Ce modèle est-il à croissance linéaire ou exponentielle ? Justifier la réponse.
+    \item Donner les valeurs de $f(2)$ et $f(5)$.
+    \item A l'aide d'un calcul, justifier que $m=5$.
+    \item A quelle vitesse va la voiture ? (donner le résultat en m/s puis en km/h)
+    \item A l'aide d'un calcul, justifier que $p=0$.
+    \item Une autre voiture (voiture B) démarre au même moment que la voiture A, mais avec 4 mètres d'avance. Par contre, elle ne roule qu'à 3 mètres/seconde. On utilise une fonction $g$ qui représente la distance parcourue par cette voiture B en fonction du temps $t$ (en secondes toujours).
+    \begin{enumerate}
+        \item On a tracé dans le repère suivant les fonctions $f$ et $g$. A laquelle de ces deux fonctions correspond la droite en pointillés ? \\[0.5cm]
+                    \includegraphics[width=0.5\linewidth]{courbes.png}
+          
+               
+
+        \item Résoudre graphiquement l'équation $f(t)=g(t)$.
+        \item A l'aide des questions précédentes, répondre à la problématique suivante : la voiture A va-t-elle rattraper la voiture B ? Si oui, au bout de combien de secondes ? Justifier les réponses.        
+    \end{enumerate}
+\end{enumerate}
+
+
+\section*{Correction}
+
+\begin{enumerate}
+    \item On a choisi un modèle continue car on utilise une fonction et non pas une suite pour modéliser la distance.
+    \item Ce modèle est à croissance linéaire car la fonction utilisée est affine.
+    \item D'après l'énoncé, $f(2) = 10$ et $f(4)=25$.
+    \item $m$ est le coefficient directeur de $f$, donc d'après la formule du cours :
+    $$m = \dfrac{f(5)-f(2)}{5-2}$$
+    $$ = \dfrac{25-10}{3}$$
+    $$ = 5$$
+    \item En 3 secondes, la voiture a parcouru 15 mètres. Donc, sa vitesse est :
+    $$v = \dfrac{distance}{temps}$$
+    $$ = \dfrac{15}{3}$$
+    $$ = 5m/s$$
+    Pour convertir en km/h, on multiplie par 3600 et on divise par 1000. On trouve $18$ km/h.
+    \item On sait que $f(2)=10$, donc $5 \times 2 +p = 10$, donc $p=0$.
+    \item 
+    \begin{enumerate}
+        \item La fonction en pointillés est $g$ car son ordonnée à l'origine est 4, ce qui représente les 4m d'avance qu'elle au démarrage. On peut aussi dire que son coefficient directeur est inférieur à celui de la droite en trait plein, or c'est bien la voiture B qui va moins vite que la voiture A.
+    \item Le point d'intersection des deux droites a pour abscisse 2, donc $S = \{2 \}$.
+    \item D'après la question précédente, on en déduit qu'au bout de 2 secondes, les voitures auront parcouru la même distance (en prenant en compte les 4m d'avance de la voiture B), donc la voiture A aura rattrapé la B au bout de deux secondes.
+    \end{enumerate}
+    
+\end{enumerate}
+
+\end{document}

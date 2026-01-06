@@ -6,14 +6,14 @@
 \setlength{\marginparsep}{.5cm}
 
 \renewcommand{\ExerciseHeader}{
-	\textbf{Question \theExercise.}
+	\textbf{Partie \Alph{Exercise}.}
 	\ifnum\ExerciseDifficulty=0
 	\else
 		(\theExerciseDifficulty)
 	\fi
 }
 \renewcommand{\AnswerHeader}{
-	\textbf{Question \theExercise.}
+	\textbf{Partie \Alph{Exercise}.}
 }
 
 \begin{document}
@@ -217,17 +217,17 @@ Consignes particulières :
 	En 2019, les recettes fiscales recouvrées par les Finances publiques s'élèvent à 464 milliards d'euros.
 	En 2022, elles atteignent 544,4 milliards d'euros.
 	
-	Le calcul permettant d'obtenir le coefficient multiplicateur annuel moyen est
-	\begin{multicols}{4}
+	Le calcul permettant d'obtenir le pourcentage d'augmentation annuel moyen est
+	\begin{multicols}{2}
 	\begin{enumerate}[label=\textbf{\alph*)}]
 		\item
-		$\dfrac{544,4}{464}$
+		$\left( \dfrac{544,4}{464} - 1\right)\times100$
 		\item
-		$\left( \dfrac{464}{544,4} \right)^{1/3}$
+		$\left( \dfrac{464}{544,4}- 1\right)^{1/3}\times100$
 		\item
-		$\left( \dfrac{544,4}{464} \right)^{3}$
+		$\left( \dfrac{544,4}{464} -1 \right)^{3}\times100$
 		\item
-		$\left( \dfrac{544,4}{464} \right)^{1/3}$
+		$\left( \dfrac{544,4}{464}-1 \right)^{1/3}\times100$
 	\end{enumerate}
 	\end{multicols}
 		
@@ -262,7 +262,9 @@ Consignes particulières :
 \begin{center}
 \subsection*{DEUXIÈME PARTIE (14pts)}
 \end{center}
-\marginpar{[pts]}
+%\marginpar{[pts]}
+
+\section*{Exercice 1 (8 points)}
 
 
 Un élève du lycée Marguerite Yourcenar a répandu une rumeur.
@@ -271,42 +273,68 @@ Chaque jour, la rumeur se propage jusqu'à inévitablement atteindre les 900 él
 Le but des questions suivantes est d'étudier deux propagations possibles de la rumeur.
 
 
-\exe{2}{
+\exe{}{
 	Le jour d'après, 20 nouveaux élèves ont appris la rumeur.
 	\begin{enumerate}
 		\item Combien d'élèves connaissent la rumeur au jour 1 ?
 		\item Quel pourcentage d'augmentation cela représente-t-il ?
 	\end{enumerate}
 }{exe:1}{
-	todo
-}
-
-\exe{4}{
-	Dans cette question, on suppose que 20 nouveaux élèves apprennent la rumeur chaque jour, tant que cela est possible.
-
 	\begin{enumerate}
 		\item
-		De quelle nature est la propagation ? Donner son terme initial et sa raison.
+		$100 + 20 = 120$ élèves connaissent la rumeur au jour 1.
+		\item 
+		Le coefficient multiplicateur est donné par $CM = \frac{120}{100} = 1,2$.
+		Comme $CM - 1 = 0,2 = 20\%$, l'augmentation est de 20\%.
+	\end{enumerate}
+}
+
+\exe{}{
+	Dans cette partie, on suppose que 20 nouveaux élèves apprennent la rumeur chaque jour, tant que cela est possible.
+
+	\begin{enumerate}
+		%\item
+		%De quelle nature est la propagation ? Donner son terme initial et sa raison.
 		\item
 		Combien d'élèves connaitront la rumeur au jour 10 ?
-		\item
-		Soit $n$ un entier naturel.
-		Déterminer, en fonction de $n$, le nombre d'élèves connaissant la rumeur au jour $n$.
+		%\item
+		%Soit $n$ un entier naturel.
+		%Déterminer, en fonction de $n$, le nombre d'élèves connaissant la rumeur au jour $n$.
 		\item
 		Est-il possible qu'un jour, 290 élèves connaissent la rumeur ?
 		\item
 		Au bout de combien de jours le lycée tout entier aura-t-il appris la rumeur ?
 	\end{enumerate}
 }{exe:2}{
-	todo
-}
-
-
-\exe{4}{
-	Dans cette question, on suppose que le nombre d'élèves ayant appris la rumeur augmente de 20\% chaque jour, tant que cela est possible.
 	\begin{enumerate}
 		\item
-		De quelle nature est la propagation ? Donner son terme initial et sa raison.
+		En partant de 100 élèves, et en ajoutant 20 dix fois, on obtient
+			\[ 100 + 10\times20 = 100 + 200 = 300. \]
+		Donc 300 élèves connaitront la rumeur au jour 10.
+		\item
+		Au jour 9, $300 - 20 = 280$ élèves connaitront la rumeur.
+		Dans notre modèle discret, il n'est pas possible que 290 élèves connaissent la rumeur, car le nombre d'élèves passe de 280 à 300 d'un jour à l'autre.
+		\item
+		Le nombre d'élèves connaissant la rumeur est une suite arithmétique de terme initial 100 et de raison 20.
+		Au jour $n$, il est donc égal à $100 + 20n$.
+		Posons $100 + 20n = 900$ et trouvons $n$.
+			\begin{align*}
+				100 + 20n &= 900 \\
+				20n &= 800 \\
+				n &= \dfrac{800}{20} = 40
+			\end{align*}
+		Par conséquent, le lycée tout entier aura appris la rumeur au jour 40.
+		On peut vérifier que $100 + 40\times20 = 900$.
+	\end{enumerate}
+}
+
+\exe{}{
+	Dans cette partie, on suppose que le nombre d'élèves ayant appris la rumeur augmente de 20\% chaque jour, tant que cela est possible.
+	
+	On pourra s'aider du tableau ci-dessous pour répondre aux questions suivantes.
+	\begin{enumerate}
+		%\item
+		%De quelle nature est la propagation ? Donner son terme initial et sa raison.
 		\item
 		Combien d'élèves connaitront la rumeur au jour 4 ?
 		\item
@@ -314,33 +342,82 @@ Le but des questions suivantes est d'étudier deux propagations possibles de la 
 		Déterminer, en fonction de $n$, le nombre d'élèves connaissant la rumeur au jour $n$.
 		\item
 		Au bout de combien de jours le lycée tout entier aura-t-il appris la rumeur ?
-		On pourra s'aider du tableau ci-dessous.
 	\end{enumerate}
 	
 	
 	\begin{center}
-\setlength\tabcolsep{15pt}
-	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}\hline
-		$n =$ & 0 & 1 & 2 & 5 & 10 & 12 & 13 & 14 & 15 \\ \hline
-		$1,2^n \approx$ & 1 & 1,2 & 1,44 & 2,49 & 6,19 & 8,92 & 10,70 & 12,84 & 15,40 \\ \hline
+\setlength\tabcolsep{12pt}
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}\hline
+		$n =$ & 0 & 1 & 2 & 4 & 5 & 10 & 12 & 13 & 14 & 15 \\ \hline
+		$1,2^n \approx$ & 1 & 1,2 & 1,44 & 2,07 & 2,49 & 6,19 & 8,92 & 10,70 & 12,84 & 15,40 \\ \hline
 	\end{tabular}
 	\end{center}
 	
 }{exe:3}{
-	todo
+	\begin{enumerate}
+		\item
+		Après quatre évolutions successives de $+20\%$, le nombre d'élèves connaissant la rumeur s'élève à 
+			\[ 100 \times 1,2^4 = 100 \times 2,07 = 207. \]
+		\item
+		Après $n$ évolutions successives de $+20\%$, le nombre d'élèves connaissant la rumeur s'élève à 
+			\[ 100 \times 1,2^n. \]
+		\item
+		Il s'agit de trouver le plus petit entier naturel $n\in\N$ vérifiant 
+			\begin{align*}
+				100 \times 1,2^n \geq 900 && \iff && 1,2^n \geq 9.
+			\end{align*}
+		D'après le tableau, $n=13$ est le premier $n$ vérifiant l'inégalité : le lycée tout entier aura appris la rumeur après 13 jours. 
+	\end{enumerate}
 }
 
 
-\exe{4}{
-	Réaliser sur votre copie un \emph{schéma} sur lequel apparaissent l'allure des nuages de points traduisant la progression du nombre d'élèves connaissant la rumeur, aussi bien dans le cas de la question \ref{exe:2} que dans le cas de la question \ref{exe:3}.
-	Dans chacun des cas, y faire figurer le jour où le lycée tout entier apprend la rumeur. 
-}{exe:4}{
-	todo
-}
+%\exe{4}{
+%	Réaliser sur votre copie un \emph{schéma} sur lequel apparaissent l'allure des nuages de points traduisant la progression du nombre d'élèves connaissant la rumeur, aussi bien dans le cas de la question \ref{exe:2} que dans le cas de la question \ref{exe:3}.
+%	Dans chacun des cas, y faire figurer le jour où le lycée tout entier apprend la rumeur. 
+%}{exe:4}{
+%	todo
+%}
 
-\label{final-page}
+\newpage
+
+\section*{Exercice 2 (6 points)}
+
+On étudie le trajet d'une voiture (voiture A) en fonction du temps. A l'instant $t = 2$ secondes, la voiture a parcouru 10 mètres. A l'instant $t = 5$ secondes, la voiture a parcouru 25 mètres. On considère que la voiture avance à vitesse constante et en ligne droite. 
+
+On modélise la distance (en mètres) parcourue par la voiture à l'aide d'une fonction affine $f$. Ainsi, si $t$ représente le temps en secondes, on pose :
+$$f(t) = mt+p$$
+avec $m$ et $p$ des coefficients inconnus.
+
+\begin{enumerate}
+    %\item A-t-on ici choisi un modèle discret ou continu ? Justifier.
+    %\item Ce modèle est-il à croissance linéaire ou exponentielle ? Justifier la réponse.
+    \item Donner les valeurs de $f(2)$ et $f(5)$.
+    \item A l'aide d'un calcul, justifier que $m=5$.
+    \item A quelle vitesse va la voiture ? (donner le résultat en m/s puis en km/h)
+    \item A l'aide d'un calcul, justifier que $p=0$.
+    \item Une voiture B démarre au même moment que la voiture A, mais avec 4 mètres d'avance. Par contre, elle ne roule qu'à 3 mètres/seconde. On utilise une fonction $g$ qui représente la distance parcourue par cette voiture B en fonction du temps $t$ (toujours en secondes).
+    \begin{enumerate}
+        \item On a tracé dans le repère suivant les fonctions $f$ et $g$. A laquelle de ces deux fonctions correspond la droite en pointillés ?
+		\begin{center}
+		\begin{tikzpicture}[>=stealth, scale=1.2]
+		\begin{axis}[xmin = -.5, xmax=3.9, ymin=-.5, ymax=17, axis x line=middle, axis y line=middle, axis line style=->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}, ytick distance = 5, xtick distance = 1, extra x ticks = {0}, extra y ticks = {0}, clip=true, xlabel = temps $t$ (secondes), ylabel = distance (mètres), ylabel near ticks, xlabel near ticks]
+		
+			\addplot[BLUE_E, very thick, domain =-1:4, samples=2, dashed] {4+3*x}  node[pos = .8, below right] {$\C_g$};	
+			\addplot[PURPLE_E, very thick, domain =-1:4, samples=2] {5*x}  node[pos = .8, above left] {$\C_f$};			
+		\end{axis}
+		\end{tikzpicture}
+		\end{center}
+			
+          
+               
+
+        \item Résoudre graphiquement l'équation $f(t)=g(t)$.
+        \item A l'aide des questions précédentes, répondre à la problématique suivante : la voiture A va-t-elle rattraper la voiture B ? Si oui, au bout de combien de secondes ? Justifier les réponses.        
+    \end{enumerate}
+\end{enumerate}
 
 %%%%%%%%%%%%
+\label{final-page}
 
 \newpage
 \fancyhead[C]{\textbf{Solutions première partie}}
@@ -353,12 +430,47 @@ Le but des questions suivantes est d'étudier deux propagations possibles de la 
 	\item d)
 	\item a)
 	\item b)
+	\item b)
+	\item c)
+	\item d)
+	\item a)
+	\item d)
+	\item a)
 \end{enumerate}
-TODO
 
 \newpage
 \fancyhead[C]{\textbf{Solutions deuxième partie}}
 
+\subsection*{Exercice 1}
+
 \shipoutAnswer
+
+\newpage
+
+\subsection*{Exercice 2}
+
+
+\begin{enumerate}
+    %\item On a choisi un modèle continue car on utilise une fonction et non pas une suite pour modéliser la distance.
+    %\item Ce modèle est à croissance linéaire car la fonction utilisée est affine.
+    \item D'après l'énoncé, $f(2) = 10$ et $f(4)=25$.
+    \item $m$ est le coefficient directeur de $f$, donc d'après la formule du cours :
+    $$m = \dfrac{f(5)-f(2)}{5-2}$$
+    $$ = \dfrac{25-10}{3}$$
+    $$ = 5$$
+    \item En 3 secondes, la voiture a parcouru 15 mètres. Donc, sa vitesse est :
+    $$v = \dfrac{\text{distance}}{\text{temps}}$$
+    $$ = \dfrac{15}{3}$$
+    $$ = 5\text{m/s}$$
+    Pour convertir en km/h, on multiplie par 3600 et on divise par 1000. On trouve $18$ km/h.
+    \item On sait que $f(2)=10$, donc $5 \times 2 +p = 10$, donc $p=0$.
+    \item 
+    \begin{enumerate}
+        \item La fonction en pointillés est $g$ car son ordonnée à l'origine est 4, ce qui représente les 4m d'avance qu'elle au démarrage. On peut aussi dire que son coefficient directeur est inférieur à celui de la droite en trait plein, or c'est bien la voiture B qui va moins vite que la voiture A.
+    \item Le point d'intersection des deux droites a pour abscisse 2, donc $S = \{2 \}$.
+    \item D'après la question précédente, on en déduit qu'au bout de 2 secondes, les voitures auront parcouru la même distance (en prenant en compte les 4m d'avance de la voiture B), donc la voiture A aura rattrapé la B au bout de deux secondes.
+    \end{enumerate}
+    
+\end{enumerate}
 
 \end{document}
