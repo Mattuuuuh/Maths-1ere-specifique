@@ -13,6 +13,9 @@ margin=2cm,
 %virgules
 \usepackage{icomma}
 
+% roman numerals for \section
+\renewcommand{\thesection}{\Roman{section}} 
+
 % HEADER, ARRAY, ENUM, MULTIOCL
 \usepackage{fancyhdr}
 \usepackage{array}
@@ -28,6 +31,7 @@ margin=2cm,
 \newtheorem{corollaire}[theorem]{Corollaire}
 \newtheorem{lemme}[theorem]{Lemme}
 \newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{proprietes}[theorem]{Propriétés}
 \newtheorem{exercice}[theorem]{Exercice}
 \newtheorem{exemple}[theorem]{Exemple}
 \newtheorem{definition}[theorem]{Définition}
@@ -98,6 +102,20 @@ margin=2cm,
 	style=proposition,
 ]{proposition*}
 
+% propr
+\mdfdefinestyle{proprietes}{
+	linecolor=GREEN_E,
+	linewidth=2pt,
+	innertopmargin=-4pt,
+	nobreak=true,
+}
+\surroundwithmdframed[
+	style=proprietes,
+]{proprietes}
+\surroundwithmdframed[
+	style=proprietes,
+]{proprietes*}
+
 % lemme
 \mdfdefinestyle{lemme}{
 	linecolor=TEAL_E,
@@ -131,7 +149,7 @@ margin=2cm,
 \usepackage[answerdelayed, lastexercise]{exercise}
 \usepackage{ifthen}
 \renewcommand{\ExerciseHeader}{
-	\tikz[baseline=(R.base)]\node[draw,rectangle, thick, inner sep=2pt](R) {\textbf{\theExercise.}};\!
+	\tikz[baseline=(R.base)]\node[draw,rectangle, thick, inner sep=2pt](R) {\textbf{\ref{\ExerciseLabel-Answer}.}};\!
 	\ifnum\ExerciseDifficulty=0
 	\else
 		(\theExerciseDifficulty)
@@ -143,6 +161,11 @@ margin=2cm,
 }
 \newcommand{\exe}[4]{
 	\begin{Exercise}[title=#1, label=#3]
+		\if\relax\detokenize\expandafter{\ExerciseTitle}\relax
+		%\marginpar{[Bonus]}
+		\else
+		\marginpar{\mbox{[\ExerciseTitle]}}
+		\fi
 		#2
 	\end{Exercise}
 	\begin{Answer}[ref=#3]
@@ -152,6 +175,11 @@ margin=2cm,
 \newcommand{\exemulticols}[5]{
 	\begin{multicols}{2}
 	\begin{Exercise}[title=#1, label=#4]
+		\if\relax\detokenize\expandafter{\ExerciseTitle}\relax
+		%\marginnote{[Bonus]}
+		\else
+		\marginnote{\mbox{[\ExerciseTitle]\qquad}}
+		\fi
 		#2
 	\end{Exercise}
 	\columnbreak
@@ -165,10 +193,6 @@ margin=2cm,
 % date
 \usepackage{advdate}
 
-% vabs
-\newcommand{\vabs}[1]{
-	\left| #1 \right|
-}
 % plots
 \usepackage{pgfplots}
 \tikzset{
