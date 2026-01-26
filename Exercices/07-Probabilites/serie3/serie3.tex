@@ -1,0 +1,82 @@
+\input{../preamble.tex}
+
+\SetDate[28/01/2026]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Première spécifique}
+\fancyhead[C]{\textbf{Évaluation blanche — Probabilités}}
+\fancyhead[R]{\today}
+
+\exe{}{
+	Dans cet exercice, exprimer les probabilités sous forme de fractions qu'il n'est pas nécessaire de simplifier.
+
+	Dans un lycée comptant 2000 élèves, on donne la répartition des effectifs suivant le sexe et le choix de la LV1.
+	
+	\begin{center}
+	\begin{tabular}{|c|c|c|}
+	\cline{2-3}
+	\multicolumn{1}{c|}{}	 & Fille & Garçon \\ \hline
+	Anglais & 712 & 728 \\ \hline
+	Autre LV1 & 288 & 272 \\ \hline
+	\end{tabular}
+	\end{center}
+	
+	\begin{enumerate}
+		\item 
+		Un élève affirme : « Dans ce lycée, il y a autant de filles que de garçons ».
+		A-t-il raison ? Justifier.
+	\end{enumerate}
+	
+	On choisit au hasard, de manière équiprobable, un élève dans ce lycée.
+	On considère les événements suivants :
+	\begin{center}
+		F : « l'élève est une fille » ; et
+		\hspace{2cm}
+		A : « l'élève a choisi Anglais pour LV1 ». 
+	\end{center}
+	
+	\begin{enumerate}[resume]
+		\item
+		Décrire l'événement $A\cap F$ avec des mots puis déterminer sa probabilité.
+		\item
+		Déterminer la probabilité de l'événement $A$ sachant que l'événement $F$ est réalisé.
+		\item
+		Les événements $A$ et $F$ sont-ils indépendants ? Justifier.
+		\item
+		On sait que l'élève choisi est un garçon.
+		L'affirmation suivante est-elle vraie ? Justifier.
+		
+		« La probabilité qu'il ait choisi Anglais pour LV1 est plus de trois fois plus grande que la probabilité qu'il n'ait pas choisi Anglais pour LV1 »
+	\end{enumerate}
+}{exe:tableau0-2}{
+
+}
+
+\exe{}{
+	Un employé reçoit des appels téléphoniques.
+	On estime que la probabilité qu'un appel dure plus de cinq minutes est égale à $0,3$.
+	On suppose que les durées des différents appels sont indépendantes.
+	
+	Ce matin, l'employé reçoit deux appels.
+	\begin{enumerate}
+		\item
+		Quelle est la probabilité que le deuxième appel dure plus de cinq minutes sachant que le premier a duré moins de cinq minutes ? Justifier.
+		\item
+		Quelle est la probabilité que le deuxième appel dure moins de cinq minutes sachant que le premier a duré plus de cinq minutes ? Justifier.
+		\item
+		Calculer la probabilité que les deux appels durent tous les deux plus de cinq minutes.
+		\item
+		Calculer la probabilité qu'exactement un appel sur les deux dure plus de cinq minutes.
+	\end{enumerate}
+}{exe:arbre0-3}{
+
+}
+
+%%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}
