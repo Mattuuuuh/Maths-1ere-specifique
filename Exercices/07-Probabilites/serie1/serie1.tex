@@ -55,11 +55,14 @@
 			\[ \dfrac{150}{250} = 0,6 = 60\%. \]
 		\item
 		Lorsqu'on choisit uniformément au hasard, la probabilité est égale à la proportion.
-		On compare donc, pour Alice,
-			\[ \dfrac{150+200}{750} = \dfrac{250}{750} = \dfrac13 \approx 33\%, \]
+		On calcule donc, pour Alice, sa probabilité de gagner 1 euro :
+			\[ \dfrac{150+200}{750} = \dfrac{350}{750} = \dfrac{35}{75} = \dfrac{7}{15}, \]
 		et, pour Benoît,
-			\[ \dfrac{100}{250} = 0,5 = 40\%. \]
-		Benoît a donc plus de chance de remporter 1 euro.
+			\[ \dfrac{100}{250} = \dfrac{10}{25} = \dfrac{2}{5}. \]
+		Il s'agit désormais de comparer les fractions $\frac{7}{15}$ et $\frac25$.
+		Pour cela, on met la deuxième au même dénominateur que la première :
+			\[ \dfrac25 = \dfrac{2\times3}{5\times3} = \dfrac{6}{15} < \dfrac{7}{15}. \]
+		Alice a donc plus de chance de remporter 1 euro.
 	\end{enumerate}
 }
 
@@ -86,16 +89,33 @@
 		\item Les événements $I$ et $B$ sont-ils indépendants ? corrélés positivement ? négativement ? Justifier.
 	\end{enumerate}
 }{exe:proba6}{
-	% TODO
 	\begin{center}
 	\setlength\tabcolsep{20pt}
 	\tableaucroise{Paire & Impaire & Total}{Bleue & 12 & 15 & 27}{Jaune & 12 & 10 & 22}{Total & 24 & 25 & 49}
 	\end{center}
-	\begin{align*}
-		P(I) &= \dfrac{25}{49} \\
-		P(I \sct B) &= \dfrac{15}{27}
-	\end{align*}
-	Comme $P(I\sct B) > P(I)$, les événements $I$ et $B$ sont positivement corrélés.
+	\begin{enumerate}[start=2]
+		\item 
+		$P(I) = \dfrac{25}{49}$ et $P(I \cap B) = \dfrac{15}{49}$.
+		\item
+		L'événement $\overline{I}$ est l'événement complémentaire (ou contraire) à $I$.
+		C'est donc $\overline{I}$ : « La bille n'a pas un numéro impair. » ou « La bille a un numéro pair. »
+		
+		Comme $P\left(\overline{I}\right)+ P(I) = 1$, par propriété des événements complémentaires, 
+			\[ P\left(\overline{I}\right) = 1 - P(I) = 1 - \dfrac{25}{49} = \dfrac{49-25}{49} = \dfrac{24}{49}. \]
+		\item 
+		$P(I \sct B) = \dfrac{15}{27}$.
+		\item 
+		Il s'agit ici de comparer $P(I)$ et $P(I \sct B)$ à l'aide des valeurs calculées.
+		Le dénominateur commun des deux fractions est $49\times27$, qu'il est inutile de calculer.
+		D'une part,
+			\[ P(I) = \dfrac{25}{49} = \dfrac{25\times27}{49\times27} = \dfrac{675}{49\times27}, \]
+		où on a calculé $25\times27 = 20\times27 + 5\times27 = 540 + 135 = 675$.
+		D'autre part,
+			\[ P(I \sct B) = \dfrac{15}{27} =\dfrac{15\times49}{27\times49} = \dfrac{735}{27\times49}, \]
+		où on a calculé $15\times49 = 15\times50 - 15 = 750 - 15 = 735$.
+		
+		Finalement, comme $P(I\sct B) > P(I)$, les événements $I$ et $B$ sont positivement corrélés.
+	\end{enumerate}
 }
 
 

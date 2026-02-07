@@ -1,6 +1,6 @@
 \input{../preamble.tex}
 
-\SetDate[07/01/2026]
+\SetDate[22/01/2026]
 
 \begin{document}
 \pagestyle{fancy}
@@ -178,7 +178,86 @@
 		\end{enumerate}
 	\end{enumerate}
 }{exe:sujet2-0}{
-	todo
+	\begin{enumerate}
+		\item
+		Les deux seules issues sont « pile » et « face ».
+		Or, la somme des probabilités des issues vaut toujours 1.
+		Donc la probabilité d'obtenir « face » est égale à $1-\frac14 = \frac34$.
+		\item
+		\begin{enumerate}[label=\alph*)]
+			\item
+			L'arbre est dessiné ci-dessous.
+			Depuis la racine, les deux premières branches correspondent au premier lancer.
+			Ensuite, chaque issue (« pile » ou « face ») se prolonge en deux nouvelles branches correspondant au deuxième lancer.
+			Idem pour le troisième lancer. Au total, on distingue 8 issues des trois lancers, correspondant au 8 feuilles de l'arbre.
+			
+			L'hypothèse d'indépendance des lancers permet de compléter les probabilités de l'arbre (toujours $\frac14$ et $\frac34$).
+			\item
+			Pour obtenir exactement une fois pile, il y a trois chemins possible qui peuvent être parcourus.
+			Ils sont tracés en bleu dans l'arbre ci-dessous.
+			
+			Chaque chemin a probabilité $\frac14\times\frac34\times34$ d'après le cours.
+			En sommant la probabilité de chaque chemin, la probabilité totale est donc de
+				\[ 3 \times \dfrac14\times\dfrac34\times34 = \dfrac{3\times3\times3}{4\times4\times4} = \dfrac{27}{64}. \]
+			\item
+			Seul le chemin en rouge correspond à l'issue recherchée, sa probabilité étant donc de
+				\[ \dfrac34\times\dfrac34\times34 = \dfrac{27}{64}. \]
+		\end{enumerate}
+	\end{enumerate}
+	
+	
+	\begin{center}
+	\begin{tikzpicture}
+		% depth 1
+		\foreach \i in {-3, 3}
+		\draw[-, thick, black] (0,0) node {$\bullet$} -- (\i,-2);
+		
+		\draw (-3,-2) node[above left] {Pile};
+		\draw (3,-2) node[above right] {Face};
+		\draw (-1.5,-.5) node {$\frac14$};
+		\draw (1.5,-.5) node {$\frac34$};
+		% depth 2
+		\foreach \i in {-3, 3} \foreach \j in {-1.5, 1.5}
+			\draw[-, thick, black] (\i,-2) node {$\bullet$} -- (\i+\j,-4) node {$\bullet$};
+			
+		\draw (-4.5,-4) node[above left] {Pile};
+		\draw (-1.5,-4) node[above right] {Face};
+		\draw (1.5,-4) node[above left] {Pile};
+		\draw (4.5,-4) node[above right] {Face};
+		\draw (-4.5,-3) node {$\frac14$};
+		\draw (-1.5,-3) node {$\frac34$};
+		\draw (1.5,-3) node {$\frac14$};
+		\draw (4.5,-3) node {$\frac34$};
+		% depth 3
+		\foreach \i in {-3, 3} \foreach \j in {-1.5, 1.5} \foreach \k in {-1, 1}
+			\draw[-, thick, black] (\i+\j,-4) node {$\bullet$} -- (\i+\j+\k,-6) node {$\bullet$};
+
+		\draw (-5.5,-6) node[below] {Pile};
+		\draw (-3.5,-6) node[below] {Face};
+		\draw (-2.5,-6) node[below] {Pile};
+		\draw (-.5,-6) node[below] {Face};
+		\draw (.5,-6) node[below] {Pile};
+		\draw (2.5,-6) node[below] {Face};
+		\draw (3.5,-6) node[below] {Pile};
+		\draw (5.5,-6) node[below] {Face};
+		\draw (-5.5,-5) node {$\frac14$};
+		\draw (-3.5,-5) node {$\frac34$};
+		\draw (-2.5,-5) node {$\frac14$};
+		\draw (-.5,-5) node {$\frac34$};
+		\draw (.5,-5) node {$\frac14$};
+		\draw (2.5,-5) node {$\frac34$};
+		\draw (3.5,-5) node {$\frac14$};
+		\draw (5.5,-5) node {$\frac34$};
+		
+		% chemins bleu question b)
+		\draw[-, thick, BLUE_E, shift={(.1,0)}] (0,0) -- (-3, -2) -- (-1.5, -4) -- (-.5, -6);
+		\draw[-, thick, BLUE_E, shift={(.1,0)}] (0,0) -- (3, -2) -- (1.5, -4) -- (2.5, -6);
+		\draw[-, thick, BLUE_E, shift={(.1,0)}] (0,0) -- (3, -2) -- (4.5, -4) -- (3.5, -6);
+		
+		% chemin rouge question c)
+		\draw[-, thick, RED_E, shift={(-.1,0)}] (0,0) -- (3, -2) -- (4.5, -4) -- (5.5, -6);
+	\end{tikzpicture}
+	\end{center}
 }
 
 

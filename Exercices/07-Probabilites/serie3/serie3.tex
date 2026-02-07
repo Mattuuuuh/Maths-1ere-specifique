@@ -50,7 +50,32 @@
 		« La probabilité qu'il ait choisi Anglais pour LV1 est plus de trois fois plus grande que la probabilité qu'il n'ait pas choisi Anglais pour LV1 »
 	\end{enumerate}
 }{exe:tableau0-2}{
-
+	\begin{enumerate}
+		\item
+		Le nombre de filles et de garçons est calculé en sommant les effectifs des colonnes correspondantes.
+		Il y a 1 000 filles et 1 000 garçons ; l'élève a donc raison.
+		\item
+		$A\cap F$ : « l'élève a choisi Anglais pour LV1 \textbf{et} est une fille ».
+			\[ P(A\cap F) = \dfrac{712}{2000} \]
+		\item
+			\[ P(A \sct F) = \dfrac{712}{1000} \]
+		\item
+		On se demande si $P(A \sct F) = P(A)$, condition à remplir pour pouvoir affirmer que $A$ et $F$ sont indépendants.
+		Or
+			\[ P(A) = \dfrac{712 + 728}{2000} = \dfrac{1440}{2000}, \]
+		et $P(A \sct F) = \frac{712}{1000} = \frac{1414}{2000} \neq P(A)$.
+		
+		Les événements $A$ et $F$ ne sont donc pas indépendants : le résultat de l'un influe le résultat de l'autre (même si légèrement).
+		\item
+		D'une part, la probabilité que l'élève ait choisi Anglais sachant que c'est un garçon est de
+			\[ P\left(A \sct \overline{F}\right) = \dfrac{728}{1000}. \]
+		D'autre part, la probabilité que l'élève n'ait pas choisi Anglais sachant que c'est un garçon est de
+			\[ P\left(\overline{A} \sct \overline{F}\right) = \dfrac{272}{1000}. \]
+		Il s'agit de décider si la première probabilité est plus de trois fois plus grande que la seconde.
+		Calculons le triple de la seconde :
+			\[ 3 \times \dfrac{272}{1000} = \dfrac{3\times272}{1000} = \dfrac{816}{1000}. \]
+		L'affirmation est donc fausse.
+	\end{enumerate}
 }
 
 \exe{}{
@@ -70,6 +95,177 @@
 		Calculer la probabilité qu'exactement un appel sur les deux dure plus de cinq minutes.
 	\end{enumerate}
 }{exe:arbre0-3}{
+	L'exercice appelle un arbre de probabilités : une même expérience est répétée deux fois.
+	La nouvelle expérience aléatoire est donc la somme des deux épreuves, l'une après l'autre.
+
+	Notons $A$ l'événement « L'appel dure plus de 5 minutes. »
+	Les durées des différents appels étant indépendantes, on remplit l'arbre comme suit.
+	\begin{center}
+	\begin{tikzpicture}
+		% depth 1
+		\foreach \i in {-3, 3}
+		\draw[-, thick, black] (0,0) node {$\bullet$} -- (\i,-2);
+		% depth 2
+		\foreach \i in {-3, 3} \foreach \j in {-1, 1}
+			\draw[-, thick, black] (\i,-2) node {$\bullet$} -- (\i+\j,-4) node {$\bullet$};
+			
+		\draw (-3,-2) node[above left] {$A$};
+		\draw (3,-2) node[above right] {$\overline{A}$};
+			
+		\draw (-4,-4) node[below] {$A$};
+		\draw (2,-4) node[below] {$A$};
+		\draw (-2,-4) node[below] {$\overline{A}$};
+		\draw (4,-4) node[below] {$\overline{A}$};
+		
+		% sols
+		\draw (1.5,-.5) node {$0,7$};
+		\draw (-1.5,-.5) node {$0,3$};
+		
+		\draw (4,-2.5) node {$0,7$};
+		\draw (2,-2.5) node {$0,3$};
+		
+		\draw (-2,-2.5) node {$0,7$};
+		\draw (-4,-2.5) node {$0,3$};
+	\end{tikzpicture}
+	\end{center}
+	Il y a donc quatre issues à l'expérience, correspondant aux quatre feuilles de l'arbre. 
+	La probabilité de chaque issue est calculée en faisant le produit des probabilités rencontrées sur le chemin racine-feuille correspondant.
+	
+	\begin{enumerate}
+		\item
+		Par indépendance, la probabilité que le deuxième appel dure plus de cinq minutes sachant que le premier a duré moins de cinq minutes est égale à la probabilité que le deuxième appel dure plus de cinq minutes sans condition, soit $0,3$.
+		\item
+		Par indépendance, la probabilité que le deuxième appel dure moins de cinq minutes sachant que le premier a duré plus de cinq minutes est égale à la probabilité que le deuxième appel dure moins de cinq minutes sans condition, soit $0,7$.
+		\item
+		L'événement correspond au chemin $A$ puis $A$ dans l'arbre, de probabilité
+			\[ 0,3 \times 0,3 = \dfrac3{10}\times \dfrac3{10} = \dfrac{3\times3}{10\times10} = \dfrac{9}{100} = 0,09. \]
+		\item
+		L'événement correspond aux deux chemins distincts : $A$ puis $\overline{A}$, et $\overline{A}$ puis $A$.
+		Sa probabilité est donc donnée par
+			\[ 2\times0,3\times0,7 = 2\times\dfrac3{10}\times \dfrac7{10} =\dfrac{2\times3\times7}{10\times10} = \dfrac{42}{100} = 0,42. \]
+	\end{enumerate}
+}
+
+\newpage
+
+\exe{}{
+	Un village propose aux participants de la fête du sport deux épreuves : une
+	randonnée et un cross. Il n’est pas possible de s’inscrire aux deux épreuves à la fois.
+	On dispose des informations suivantes :
+	\begin{itemize}
+		\item 90\% des participants ont choisi la randonnée et, parmi eux, 5\% sont licenciés dans un
+club.
+		\item 10\% des participants ont choisi le cross et, parmi eux, 40\% sont licenciés dans un
+club.
+	\end{itemize}
+	Un journaliste interroge un participant au hasard.
+	On considère les événements suivants :
+	\begin{center}
+	$R$ : « Le participant a choisi la randonnée » 
+	\hspace{1cm}
+	$L$ : « Le participant est licencié dans un club ».
+	\end{center}
+	
+	\begin{enumerate}
+		\item Par simple lecture de l’énoncé, indiquer :
+		\begin{enumerate}
+			\item
+			La probabilité que le participant interrogé soit licencié dans un club sachant qu’il a choisi la randonnée.
+			\item
+			La probabilité que le participant interrogé soit licencié dans un club sachant qu’il a choisi le cross.
+		\end{enumerate}
+	\end{enumerate}
+	En prenant connaissance de ces deux probabilités, le journaliste estime que s’il choisit un participant parmi ceux qui sont licenciés dans un club, la probabilité qu’il ait effectué le cross sera largement supérieure à 50\%. 
+	L’objectif des questions suivantes est de vérifier si cette intuition est correcte.
+	
+	\begin{enumerate}[resume]
+		\item 
+		Représenter la situation par un arbre de probabilité.
+		\item
+		\begin{enumerate}
+			\item Déterminer la probabilité que le participant interrogé ait choisi le cross et soit licencié dans un club.
+			\item
+			Vérifier que la probabilité que le participant interrogé soit licencié dans un club est égale à $\frac{850}{10~000}$, soit $8,5\%$.
+		\end{enumerate}
+		\item Le journaliste interroge un participant licencié dans un club. Déterminer la probabilité que ce participant ait choisi le cross.
+		
+		L’intuition du journaliste est-elle correcte ?
+	\end{enumerate}
+}{exe:proba0-3}{
+	
+	\begin{enumerate}
+		\item Par simple lecture de l’énoncé, indiquer :
+		\begin{enumerate}
+			\item
+			Elle est donnée par 5\%, soit $0,05$.
+			\item
+			Elle est donnée par 40\%, soit $0,4$.
+		\end{enumerate}
+	\end{enumerate}
+	En prenant connaissance de ces deux probabilités, le journaliste estime que s’il choisit un participant parmi ceux qui sont licenciés dans un club, la probabilité qu’il ait effectué le cross sera largement supérieure à 50\%. 
+	L’objectif des questions suivantes est de vérifier si cette intuition est correcte.
+	
+	\begin{enumerate}[resume]
+		\item 
+		Voir ci-après.
+		\item
+		\begin{enumerate}
+			\item
+			On multiplie les probabilités du chemin correspondant :
+			$P\left(\overline{R} \cap L\right) = 0,1 \times 0,4 = \dfrac{4}{100} = 0,04$.
+			\item
+			On ajoute les probabilités des deux chemins correspondant :
+				\begin{align*}
+					P(L) &= P\left(\overline{R} \cap L\right) + P\left(R \cap L\right) \\
+						&= 0,04 + 0,9\times0,05 \\
+						&= 0,04 + \dfrac{45}{1000} \\
+						&= 0,04 + 0,045 \\
+						&= 0,085 = 8,5\%
+				\end{align*}
+		\end{enumerate}
+		\item
+		Il s'agit ici d'utiliser la formule
+			\[ P\left( \overline{R} \sct L \right) = \dfrac{P\left( \overline{R} \cap L \right)}{P(L)}. \]
+		Le numérateur est donné par $0,04$ et le dénominateur $0,085$ d'après les questions précédentes.
+		Donc
+			\[ P\left( \overline{R} \sct L \right) = \dfrac{0,04}{0,085} = \dfrac{40}{85}. \]
+		Il s'agit désormais de comparer $\frac{40}{85}$ à 50\%, soit $0,5$ ou $\frac12$.
+		Ici, le dénominateur est plus du double du numérateur, donc on s'attend à ce que la fraction soit inférieure à $\frac12$.
+		C'est bien le cas :
+			\[ P\left( \overline{R} \sct L \right) = \dfrac{40}{85} < \dfrac{42,5}{85} = \dfrac12 = 50\%. \]
+		L'intuition du journaliste est donc erronée.
+	\end{enumerate}
+	
+	
+	
+	\begin{center}
+	\begin{tikzpicture}
+		% depth 1
+		\foreach \i in {-3, 3}
+		\draw[-, thick, black] (0,0) node {$\bullet$} -- (\i,-2);
+		% depth 2
+		\foreach \i in {-3, 3} \foreach \j in {-1, 1}
+			\draw[-, thick, black] (\i,-2) node {$\bullet$} -- (\i+\j,-4) node {$\bullet$};
+			
+		\draw (-3,-2) node[above left] {Randonnée};
+		\draw (3,-2) node[above right] {Cross};
+			
+		\draw (-4,-4) node[below] {Licencé};
+		\draw (2,-4) node[below] {Licencé};
+		\draw (-2,-4) node[below] {Non licencé};
+		\draw (4,-4) node[below] {Non licencé};
+		
+		% sols
+		\draw (-1.5,-.5) node {$0,9$};
+		\draw (1.5,-.5) node {$0,1$};
+		
+		\draw (-4,-3) node {$0,05$};
+		\draw (-2,-3) node {$0,95$};
+		
+		\draw (2,-3) node {$0,4$};
+		\draw (4,-3) node {$0,6$};
+	\end{tikzpicture}
+	\end{center}
 
 }
 
