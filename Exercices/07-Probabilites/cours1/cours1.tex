@@ -11,7 +11,7 @@
 \newcommand{\hide}[1]{\quad\phantom{#1}\quad}
 % (un)comment below for completion
 % cannot renew phantom itself otherwise multicols environment shows a "p" in the right margin idk why
-%\renewcommand{\hide}[1]{{\color{RED_E!80!BLACK}#1}}
+\renewcommand{\hide}[1]{{\color{RED_E!80!BLACK}#1}}
 
 
 
@@ -194,6 +194,19 @@
 %			\begin{center} « obtenir pile au moins 2 fois » \end{center}
 	\end{enumerate}
 	
+	\hide{
+	\begin{enumerate}
+		\item 
+		L'événement complémentaire (ou contraire) est donné par : « ne jamais obtenir pile en 8 lancers. »
+		\item 
+		Il n'est utile que de considérer le chemin de l'arbre correspondant à 8 « face » d'affilé.
+		\item 
+		En notant $E$ l'événement « obtenir pile au moins une fois », alors
+			\[ P\bigl(\overline{E}\bigr) = \left(\dfrac12\right)^8, \]
+		et donc
+			\[ P(E) = 1 - \left(\dfrac12\right)^8. \]
+	\end{enumerate}
+	}
 \end{exemple}
 
 
