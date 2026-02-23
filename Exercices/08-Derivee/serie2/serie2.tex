@@ -1,0 +1,138 @@
+\input{../preamble.tex}
+
+\SetDate[07/01/2026]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Première spécifique}
+\fancyhead[C]{\textbf{Probabilités 1 : tableaux croisés}}
+\fancyhead[R]{\today}
+
+
+\begin{theorem}[label=thm:der-mono]{Dérivée des monômes usuels}{}
+	
+	Pour chaque monôme suivant, on donne sa dérivée formelle.
+
+\centering
+	\begin{tabular}{|c|c|c|c|c|}\hline
+		Monôme & 1 & $x$ & $x^2$ & $x^3$ \\ \hline
+		Dérivée & 0 & 1 & $2x$ & $3x^2$ \\ \hline
+	\end{tabular}
+\end{theorem}
+
+\begin{theorem}[label=thm:lin-der]{Linéarité de la dérivée}{}
+	Soient $f, g$ deux fonctions dérivables sur $\R$, et $c\in\R$ un nombre réel quelconque. 
+	Alors
+		\begin{enumerate}
+			\item $(f+g)' = f' + g'$ ; et
+			\item $(c \times f)' = c \times f'$.
+		\end{enumerate}
+\end{theorem}
+
+\exe{
+	En utilisant les théorèmes \ref{thm:der-mono} et \ref{thm:lin-der}, donner la fonction dérivée de chaque fonction suivante.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $f(x) = 3x$
+		\item $g(x) = -x^2$
+		\item $h(x) = 2x^3+4$
+		\item $F(x) = 1-x+x^2$
+		\item $G(x) = x^3 + 3x - 6$
+		\item $H(x) = 2x^2 - x^3$
+	\end{enumerate}
+	\end{multicols}
+}{}
+
+
+\exe{
+	On considère la fonction $f$ du troisième degré définie sur le domaine $\D=\left[\frac12;5\right]$ :
+		\[ f(x) = x^3 - 6x^2 + 9x-5. \]
+	%On connait $f'$, la dérivée de $f$, donnée par
+	%	\[ f'(x) = 3x^2 - 12x + 9. \]
+	
+	\begin{enumerate}
+        \item Donner $f'(x)$.
+		\item Montrer que $f'(x) = 3(x-1)(x-3)$.
+		\item Remplir le tableau de signes et de variations de la figure \ref{fig:var-signe}.
+		\item Compléter les variations avec les images de $f$ aux bornes de $\D$ ainsi qu'aux extrema locaux.
+		\item En déduire le maximum et le minimum de $f$ sur $\D$.
+		\item Utiliser le tableau pour esquisser $\C_f$ dans le repère figure \ref{fig:Cf} (au verso).
+	\end{enumerate}
+}{}
+
+
+\begin{figure}[h]
+	\centering	
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1 , Signe de $x-1$ / 1, Signe de $x-3$ / 1, Signe de $f'(x)$ / 1, Variation de $f(x)$ / 2}
+	       		{{0,5},,,,5}
+	\end{tikzpicture}
+	\caption{Tableau de variations de $f$ et de signes de $f'$.}
+	\label{fig:var-signe}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}[scale=1]
+	\begin{axis}[
+	xmin = .5, xmax=5.5,
+	ymin=-5.5, ymax=15.5,
+	grid = none,  xlabel={$x$}, ylabel={$f(x)$},
+	%xtick = {0, 0.2, ..., 1.4},
+	%ytick = {-1, -0.5, 0, .5, 1.5},
+	]
+	%\addplot[domain=.5:5, myb] {x^3 - 6*x^2 + 9*x-5};
+	\end{axis}
+	\end{tikzpicture}
+	\caption{Graphe de $\C_f$.}
+	\label{fig:Cf}
+\end{figure}
+
+\newpage
+
+\exe{
+	On considère la fonction $f$ du troisième degré définie sur $\R$ :
+		\[ f(x) = 3 - 6x - 3x^2 - x^3. \]
+	%On connait $f'$, la dérivée de $f$, donnée par
+	%	\[ f'(x) = -3x^2 - 6x - 6. \]
+
+	\begin{enumerate}
+		\item Montrer que $f'(x) = -3 - 3(x+1)^2$.
+		\item En déduire que $f$ est décroissante sur $\R$.
+		\item Donner le minimum et le maximum de $f$ sur $[-3 ; 10]$.
+	\end{enumerate}
+
+}{}
+
+
+\exe{
+	On considère un objet de position $f(t)$ et de vitesse $f'(t)$ aux temps $t \in \D = [0;3]$.
+	La courbe représentative de $f'$ est donnée ci-dessous.
+
+	\begin{enumerate}
+		\item Créer le tableau de signes de $f'$ et le compléter en un tableau de variations de $f$.
+		\item Peut-on déduire le maximum et le minimum de $f$ sur $\D$ uniquement à l'aide de ses variations ?
+	\end{enumerate}
+
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+	\begin{axis}[xmin =0, xmax=3, ymin=-4, ymax=4, axis x line=middle, axis y line=middle, axis line style=<->, grid=both]
+		
+		% (f')
+		%\addplot[myr, very thick, domain =-2:3, samples=50] {(x+1)*x*(x-2)+.5}  node[pos = .77, right=2pt] {$\C_{f'}$};
+		\addplot[myr, very thick, domain =0:3, samples=50] {3*(x-1.5)^2 - 3}  node[pos = .23, above=15pt] {$\C_{f'}$};
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}{}
+
+
+%%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}
