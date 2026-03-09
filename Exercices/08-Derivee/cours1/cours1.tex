@@ -1,6 +1,6 @@
 \input{../preamble.tex}
 
-\SetDate[07/01/2026]
+\SetDate[11/03/2026]
 
 \begin{document}
 \pagestyle{fancy}
@@ -8,192 +8,263 @@
 \fancyhead[C]{\textbf{Chapitre 7 — Dérivation}}
 \fancyhead[R]{\today}
 
-\newcommand{\hide}[1]{\quad\phantom{#1}\quad}
+\newcommand{\hide}[1]{\phantom{#1}}
 % (un)comment below for completion
 % cannot renew phantom itself otherwise multicols environment shows a "p" in the right margin idk why
 \renewcommand{\hide}[1]{{\color{RED_E!80!BLACK}#1}}
 
-
-
-
-\begin{questions*}{}{}
-	
-	 \begin{enumerate}[label=\roman*)]
-	 	\item Quelles sont les variations de $x^2 - 2x + 3$ sur $\R$ ?
-	 	\item Quel est le maximum, le minimum de $x^3 - 6x + 9x - 5$ sur un intervalle donné ?
-		\item Pour quel $x \in [0;2]$ la valeur $x \sqrt{4-x^2}$ est-elle maximale ?
-	\end{enumerate}
-\end{questions*}
-
-
-\begin{but*}{}{}
-	\begin{enumerate}
-		\item Comprendre le sens de variations d'une fonction par analyse locale.
-		\item En déduire les extrema (maximum, minimum) d'une fonction par analyse globale.
-	\end{enumerate}
-\end{but*}
+\section{Fonctions affines}
 
 \begin{figure}[h]
 	\centering
+%\def\arraystretch{2}
+%\setlength\tabcolsep{10pt}
 	\begin{tabular}{|c|c|c|c|c|c|c|c|}\hline
 		$x$ & $-3$ & $-2$ & $-1$ & $0$ &  1 & 2 & 3 \\ \hline
-		$f(x) = -2x+1$ &&&&&&& \\ \hline
+		$f(x) = -2x+1$ & \hide{7} & \hide{5} & \hide{3} & \hide{1} & \hide{-1} & \hide{-3} & \hide{-5} \\ \hline
 	\end{tabular}
 	\caption{Tableau de valeurs de $f(x) = -2x+1$.}
 	\label{fig:f(t)}
 \end{figure}
 
-\begin{figure}[h]
-	\centering
+
+\begin{multicols}{2}
+\begin{definition*}
+	Une fonction $f$ est \emph{affine} si elle s'écrit
+		\[ f(x) = \hide{ax+b,} \]
+	où $a$ est \hide{le coefficient directeur.}
+	
+	La courbe représentative de $f$ est une \hide{droite de pente $a$.}
+\end{definition*}
+
 	\begin{tikzpicture}[scale=.9]
 	\begin{axis}[
 	xmin = -3, xmax=3, ymin=-5, ymax=7, 
-	grid = both,  xlabel={$x$}, ylabel={$f(x) = -2x+1$},
-	xtick = {-3, ..., 3},
-	ytick = {-5, ..., 7},
+	grid = both,
+	%label={$x$}, ylabel={$f(x) = -2x+1$},
+	xtick distance = 1,
+	ytick distance = 1,
 	]
-	\end{axis}
-	\end{tikzpicture}
-	\caption{Graphe de $\C_f$ où $f(x) = -2x+1$.}
-	\label{fig:Cf}
-\end{figure}
-
-\begin{rappel*}{fonctions affines}{}
-	
-	Une fonction $f$ est \emph{affine} si elle s'écrit
-		\[ f(x) = \qquad\qquad\qquad, \]
-	où %$a$ est le coefficient directeur.
-	
-	La courbe représentative de $f$ est une % droite de pente $a$.
-\end{rappel*}
-
-\begin{propriete}{}{}
-	Soit $f$ une fonction affine et $a$ son coefficient directeur.
-		\begin{enumerate}	
-			\item si $a > 0$, alors $f$ est
-			\item si $a < 0$, alors $f$ est
-			\item si $a = 0$, alors $f$ est
-		\end{enumerate}
-\end{propriete}
-
-\begin{outil*}{théorème du coefficient directeur}{}
-	Soient $x, y\in\R$ deux nombres distincts, et $f$ une fonction affine de coefficient directeur $a$.
-	Alors
-	
-\begin{multicols}{2}
-		%\[ a = \dfrac{f(y) - f(x)}{y-x}. \]
-		\[ a = \qquad\qquad\qquad \]
-		\vfill
-		\,
-		
-	\begin{tikzpicture}[scale=.8]
-	\begin{axis}[xmin = -2, xmax=2, ymin=-5, ymax=3, grid = none,  xlabel={$x$}, ylabel={$f(x)$}]
-		\addplot[domain=-2:2, samples=2, myb, thick] {2*x-1};
-		
-		\addplot[black, thick, mark=*, mark size = 1] (-1,-3) node[right=5pt] {$A(x; f(x))$};
-		\addplot[black, thick, mark=*, mark size = 1] (1,1) node[above left] {$B(y; f(y))$};
 	\end{axis}
 	\end{tikzpicture}
 \end{multicols}
 
-\end{outil*}
 
-\begin{exemple*}{étude de $\mathbf{f(x) = \dfrac12(x^3 + 2x^2 - x - 2)}$ autour de $\mathbf{x=-0,5}$}{}
 
-\begin{center}
-\begin{tikzpicture}[scale=.8]
-\begin{axis}[xmin = -3, xmax=2, ymin=-5, ymax=6, grid = none,  xlabel={$x$}, ylabel={$f(x)$}]
-	\addplot[domain=-3:2, samples=500, myb, thick] {.5*(x+2)*(x+1)*(x-1)};
-	
-	% zoom square A to B
-	\newcommand\xA{-2}
-	\newcommand\yA{-2}
-	\newcommand\xB{1}
-	\newcommand\yB{2}
-	\draw[black, thick] (axis cs:\xA,\yA) -- (axis cs:\xA,\yB);
-	\draw[black, thick] (axis cs:\xB,\yA) -- (axis cs:\xB, \yB);
-	\draw[black, thick] (axis cs:\xA,\yB) -- (axis cs:\xB,\yB);
-	\draw[black, thick] (axis cs:\xA,\yA) -- (axis cs:\xB,\yA);
-\end{axis}
-\end{tikzpicture}
-\begin{tikzpicture}[scale=.8]
-\begin{axis}[xmin = -2, xmax=1, ymin=-2, ymax=2, grid = none,  xlabel={$x$}, ylabel={$f(x)$}]
-	\addplot[domain=-2:1, samples=500, myb, thick] {.5*(x+2)*(x+1)*(x-1)};
-	
-	% zoom square A to B
-	\newcommand\xA{-1}
-	\newcommand\yA{-1.5}
-	\newcommand\xB{0}
-	\newcommand\yB{0.5}
-	\draw[black, thick] (axis cs:\xA,\yA) -- (axis cs:\xA,\yB);
-	\draw[black, thick] (axis cs:\xB,\yA) -- (axis cs:\xB, \yB);
-	\draw[black, thick] (axis cs:\xA,\yB) -- (axis cs:\xB,\yB);
-	\draw[black, thick] (axis cs:\xA,\yA) -- (axis cs:\xB,\yA);
-\end{axis}
-\end{tikzpicture}
+\subsection{Coefficient directeur et variation}
 
-\begin{tikzpicture}[scale=.8]
-\begin{axis}[xmin = -1, xmax=0, ymin=-1.5, ymax=.5, grid = none,  xlabel={$x$}, ylabel={$f(x)$}]
-	\addplot[domain=-1:0, samples=500, myb, thick] {.5*(x+2)*(x+1)*(x-1)};
-	
-	% zoom square A to B
-	\newcommand\xA{-.75}
-	\newcommand\yA{-1}
-	\newcommand\xB{-.25}
-	\newcommand\yB{0}
-	\draw[black, thick] (axis cs:\xA,\yA) -- (axis cs:\xA,\yB);
-	\draw[black, thick] (axis cs:\xB,\yA) -- (axis cs:\xB, \yB);
-	\draw[black, thick] (axis cs:\xA,\yB) -- (axis cs:\xB,\yB);
-	\draw[black, thick] (axis cs:\xA,\yA) -- (axis cs:\xB,\yA);
-\end{axis}
-\end{tikzpicture}
-\begin{tikzpicture}[scale=.8]
-\begin{axis}[xmin = -.75, xmax=-.25, ymin=-1, ymax=0, grid = none,  xlabel={$x$}, ylabel={$f(x)$}]
-	\addplot[domain=-1:0, samples=500, myb, thick] {.5*(x+2)*(x+1)*(x-1)};
-	
-	\addplot[black, thick, mark=*, mark size = 1] (-.5,-.5625) node[right=5pt] {$A(x; f(x))$};
-	\addplot[black, thick, mark=*, mark size = 1] (-.6,-.448) ;
-	\addplot[black] (-.5,-.388) node{$B(x-h; f(x-h))$};
-	\addplot[black, thick, mark=*, mark size = 1] (-.4,-.672);
-	\addplot[black] (-.4,-.75) node{$C(x+h; f(x+h))$};
-\end{axis}
-\end{tikzpicture}
-\end{center}
 
-La pente de la droite $(AC)$ est
-	\[ a_h = \qquad\qquad\qquad\qquad\qquad\qquad. \]
-La pente de la droite $(AB)$ est
-	\[ a_h = \qquad\qquad\qquad\qquad\qquad\qquad. \]
+\begin{theorem}
+	Soient $f(x) = ax+b$ une fonction affine et $A(x_A ; y_A), B(x_B ; y_B)$ deux points appartenant à la droite $\C_f$.
+	Alors
+	\[ a = \hide{\dfrac{\text{différence des $y$}}{\text{différence des $x$}} = \dfrac{y_B - y_A}{x_B-x_A}.} \]
+\end{theorem}
+
+\begin{theorem}
+	Soit $f$ une fonction affine et $a$ son coefficient directeur.
+		\begin{enumerate}	
+			\item si $a > 0$, alors $f$ est \hide{croissante sur $\R$.}
+			\item si $a < 0$, alors $f$ est \hide{décroissante sur $\R$.}
+			\item si $a = 0$, alors $f$ est \hide{constante sur $\R$.}
+		\end{enumerate}
+\end{theorem}
+
+
+\subsection{Signe affine et signe de produit}
+
+	Pour étudier le signe de $ax+b$, il faut
+	\begin{enumerate}
+		\item résoudre $ax+b = 0$ pour savoir en quel $x$ elle s'annule ;
+		\item reconnaitre si $ax+b$ est croissante, décroissante, ou constante ;
+		\item en déduire le signe de $ax+b$ de part et d'autre du zéro à l'aide d'un croquis.
+	\end{enumerate}
+
+\begin{exemple*}
+	Étudions le signe du produit $(-2x+1)(3x+4)$.
+	
+	\hide{
+	$-2x + 1 = 0 \iff x = \frac12$ et la fonction est décroissante car $-2<0$.
+	
+	$3x + 4 = 0 \iff x = -\frac43$ et la fonction est croissante car $3>0$.
+	
+	On place donc $\minfty, -\frac43, \frac12,$ et $\pinfty$ dans la ligne des $x$ importants, dans l'ordre croissant.
+	
+	En remplissant le signe de chaque fonction affine, on déduit le signe du produit avec les règles usuelles $(-)\times(-) = (+)$, et $(-)\times(+) = (-)$, et $(+)\times(+) = (+)$.
+	}
+	
+	\begin{center}
+	\begin{tikzpicture}
+		\tkzTabInit
+		[lgt=4,]
+       	{$x$ / 1, Signe de $-2x+1$ / 1, Signe de $3x+4$ / 1, Signe de $(-2x+1)(3x+4)$ / 1}
+       	{\hide{$\minfty$},\hide{$-\frac43$},\hide{$\frac12$},\hide{$\pinfty$}}
+		\hide{
+		\tkzTabLine
+       	{,-,,-,0,+,}
+		\tkzTabLine
+       	{,-,0,+,,+,}
+		\tkzTabLine
+       	{,+,0,-,0,+,}
+		}
+	\end{tikzpicture}
+	\end{center}
 
 \end{exemple*}
 
+\section{Nombre dérivé}
 
-\begin{definition*}{nombre dérivé}{}
+\subsection{Vitesse instantanée}
+
+On cherche à déterminer la vitesse d'une voiture au temps $t=1$ à l'aide des mesures suivantes.
+
+\begin{tabular}{|*{6}{c|}}\hline
+	Temps $t$ & 1 & 2 & 1,5 & 1,2 & 0,9
+	\\\hline
+	Distance parcourue $f(t)$ & a 
+	\\\hline
+\end{tabular}
+
+La formule de la vitesse est 
+	\[ v = \dfrac{\text{différence de distance}}{\text{différence de temps}} = \dfrac{f(t+h)-f(t)}{h}. \]
+
+\begin{enumerate}
+	\item
+	En utilisant $t=1$ et $t=2$, on obtient une vitesse de
+	
+	\item
+	En utilisant $t=1$ et $t=1,5$, on obtient une vitesse de
+	
+	\item
+	En utilisant $t=1$ et $t=1,2$, on obtient une vitesse de
+	
+	\item
+	En utilisant $t=1$ et $t=0,9$, on obtient une vitesse de
+	
+\end{enumerate}
+
+La vitesse instantanée de la voiture au temps $t=1$ est donc proche de $10$.
+
+\subsection{Définition et propriétés}
+
+%\begin{outil*}
+%	Soient $x, y\in\R$ deux nombres distincts, et $f$ une fonction affine de coefficient directeur $a$.
+%	Alors
+%	
+%\begin{multicols}{2}
+%		%\[ a = \dfrac{f(y) - f(x)}{y-x}. \]
+%		\[ a = \qquad\qquad\qquad \]
+%		\vfill
+%		\,
+%		
+%	\begin{tikzpicture}[scale=.8]
+%	\begin{axis}[xmin = -2, xmax=2, ymin=-5, ymax=3, grid = none,  xlabel={$x$}, ylabel={$f(x)$}]
+%		\addplot[domain=-2:2, samples=2, myb, thick] {2*x-1};
+%		
+%		\addplot[black, thick, mark=*, mark size = 1] (-1,-3) node[right=5pt] {$A(x; f(x))$};
+%		\addplot[black, thick, mark=*, mark size = 1] (1,1) node[above left] {$B(y; f(y))$};
+%	\end{axis}
+%	\end{tikzpicture}
+%\end{multicols}
+%
+%\end{outil*}
+
+
+
+%\begin{exemple*}{étude de $\mathbf{f(x) = \dfrac12(x^3 + 2x^2 - x - 2)}$ autour de $\mathbf{x=-0,5}$}{}
+%
+%\begin{center}
+%\begin{tikzpicture}[scale=.8]
+%\begin{axis}[xmin = -3, xmax=2, ymin=-5, ymax=6, grid = none,  xlabel={$x$}, ylabel={$f(x)$}]
+%	\addplot[domain=-3:2, samples=500, myb, thick] {.5*(x+2)*(x+1)*(x-1)};
+%	
+%	% zoom square A to B
+%	\newcommand\xA{-2}
+%	\newcommand\yA{-2}
+%	\newcommand\xB{1}
+%	\newcommand\yB{2}
+%	\draw[black, thick] (axis cs:\xA,\yA) -- (axis cs:\xA,\yB);
+%	\draw[black, thick] (axis cs:\xB,\yA) -- (axis cs:\xB, \yB);
+%	\draw[black, thick] (axis cs:\xA,\yB) -- (axis cs:\xB,\yB);
+%	\draw[black, thick] (axis cs:\xA,\yA) -- (axis cs:\xB,\yA);
+%\end{axis}
+%\end{tikzpicture}
+%\begin{tikzpicture}[scale=.8]
+%\begin{axis}[xmin = -2, xmax=1, ymin=-2, ymax=2, grid = none,  xlabel={$x$}, ylabel={$f(x)$}]
+%	\addplot[domain=-2:1, samples=500, myb, thick] {.5*(x+2)*(x+1)*(x-1)};
+%	
+%	% zoom square A to B
+%	\newcommand\xA{-1}
+%	\newcommand\yA{-1.5}
+%	\newcommand\xB{0}
+%	\newcommand\yB{0.5}
+%	\draw[black, thick] (axis cs:\xA,\yA) -- (axis cs:\xA,\yB);
+%	\draw[black, thick] (axis cs:\xB,\yA) -- (axis cs:\xB, \yB);
+%	\draw[black, thick] (axis cs:\xA,\yB) -- (axis cs:\xB,\yB);
+%	\draw[black, thick] (axis cs:\xA,\yA) -- (axis cs:\xB,\yA);
+%\end{axis}
+%\end{tikzpicture}
+%
+%\begin{tikzpicture}[scale=.8]
+%\begin{axis}[xmin = -1, xmax=0, ymin=-1.5, ymax=.5, grid = none,  xlabel={$x$}, ylabel={$f(x)$}]
+%	\addplot[domain=-1:0, samples=500, myb, thick] {.5*(x+2)*(x+1)*(x-1)};
+%	
+%	% zoom square A to B
+%	\newcommand\xA{-.75}
+%	\newcommand\yA{-1}
+%	\newcommand\xB{-.25}
+%	\newcommand\yB{0}
+%	\draw[black, thick] (axis cs:\xA,\yA) -- (axis cs:\xA,\yB);
+%	\draw[black, thick] (axis cs:\xB,\yA) -- (axis cs:\xB, \yB);
+%	\draw[black, thick] (axis cs:\xA,\yB) -- (axis cs:\xB,\yB);
+%	\draw[black, thick] (axis cs:\xA,\yA) -- (axis cs:\xB,\yA);
+%\end{axis}
+%\end{tikzpicture}
+%\begin{tikzpicture}[scale=.8]
+%\begin{axis}[xmin = -.75, xmax=-.25, ymin=-1, ymax=0, grid = none,  xlabel={$x$}, ylabel={$f(x)$}]
+%	\addplot[domain=-1:0, samples=500, myb, thick] {.5*(x+2)*(x+1)*(x-1)};
+%	
+%	\addplot[black, thick, mark=*, mark size = 1] (-.5,-.5625) node[right=5pt] {$A(x; f(x))$};
+%	\addplot[black, thick, mark=*, mark size = 1] (-.6,-.448) ;
+%	\addplot[black] (-.5,-.388) node{$B(x-h; f(x-h))$};
+%	\addplot[black, thick, mark=*, mark size = 1] (-.4,-.672);
+%	\addplot[black] (-.4,-.75) node{$C(x+h; f(x+h))$};
+%\end{axis}
+%\end{tikzpicture}
+%\end{center}
+%
+%La pente de la droite $(AC)$ est
+%	\[ a_h = \qquad\qquad\qquad\qquad\qquad\qquad. \]
+%La pente de la droite $(AB)$ est
+%	\[ a_h = \qquad\qquad\qquad\qquad\qquad\qquad. \]
+%
+%\end{exemple*}
+
+
+\begin{definition*}
 	On considère les coefficients directeurs
-		\begin{align}
-			a_h = \dfrac{f(x+h) - f(x)}h, \label{eq:ah}
-		\end{align}
+		\begin{align*}
+			\dfrac{f(x+h) - f(x)}h, \label{eq:ah}
+		\end{align*}
 	où $h$ est de plus en plus petit.
 
-	Si $f$ est suffisamment lisse, on admet que $a_h$ converge vers une valeur qu'on écrit
+	Lorsque $h$ tend vers 0, on admet que qu'ils convergent vers une valeur qu'on note
 		\[ f'(x). \]
 	C'est le \emph{nombre dérivé} de $f$ en $x$.
 \end{definition*}
 
-\begin{definition*}{tangente à un courbe}{}
+\begin{definition*}
 	La droite approximant $\C_f$ localement autour de $x$ est la \emph{tangente} à $\C_f$ en $x$.
 	
 	Son coefficient directeur est $f'(x)$ et elle passe par $(x; f(x))$.
 	
 \end{definition*}
 
-\begin{exemple*}{tangente à $\mathbf{f(x) = \dfrac12(x^3 + 2x^2 - x - 2)}$ en $\mathbf{x=-0,5}$}{}
-
-On pose $x=-0,5$ et on prend $h$ de plus en plus petit dans l'équation \eqref{eq:ah} pour remplir le tableau figure \ref{fig:3}.
+\begin{exemple*}
+	On pose $x=-0,5$ et on prend $h$ de plus en plus petit dans l'équation \eqref{eq:ah} pour remplir le tableau figure \ref{fig:3}.
 	%\[ a_h = \dfrac{f(-0,5+h)-f(-0,5)}{h}. \]
 	\[ a_h = \hspace{5cm} \]
 	
-On trace la droite de pente \hspace{2cm} passant par $(-0,5 ; f(-0,5))$ ci-dessous.
+	On trace la droite de pente \hspace{2cm} passant par $(-0,5 ; f(-0,5))$ ci-dessous.
 \end{exemple*}
 
 \begin{figure}[h!]
@@ -228,11 +299,11 @@ On trace la droite de pente \hspace{2cm} passant par $(-0,5 ; f(-0,5))$ ci-desso
 \end{figure}
 
 
-%\begin{propriete}{}{}
+%\begin{propriete}
 %	$f'(x)$ est le coefficient directeur de la tangente à $f$ en $x$.
 %\end{propriete}
 
-\begin{propriete}{}{}
+\begin{theorem}
 	Le signe de $f'(x)$ donne la variation de $f$ en $x$ et inversement :
 		\begin{enumerate}
 			\item si $f'(x) > 0$, alors 
@@ -240,9 +311,10 @@ On trace la droite de pente \hspace{2cm} passant par $(-0,5 ; f(-0,5))$ ci-desso
 			\item si $f'(x) < 0$, alors 
 			\item si $f$ est décroissante autour de $x$, alors
 		\end{enumerate}
-\end{propriete}
+\end{theorem}
 
-\begin{exemple*}{variations de $\mathbf{f(x) = \dfrac12(x^3 + 2x^2 - x - 2)}$, signe de $\mathbf{f'(x)}$}{}
+\begin{exemple*}
+
 	\begin{center}
 	\begin{tikzpicture}
 		\tkzTabInit
@@ -265,18 +337,13 @@ On trace la droite de pente \hspace{2cm} passant par $(-0,5 ; f(-0,5))$ ci-desso
 	\end{enumerate}
 \end{strategie*}
 
-\begin{rappel*}{}{}
-	Un extremum local (maximum ou minimum) de $f$ survient lorsque $f$ change de variations.
-\end{rappel*}
+\begin{theorem}
+	Comme un extremum local de $f$ survient lorsque $f$ change de \hide{variations.}
 
-\begin{propriete}{}{}
-		\begin{center}
-			Un extremum local de $f$ survient lorsque $f'$ change de \qquad\qquad\qquad\qquad
-		\end{center}
-		\begin{center}
-			Si un extremum local de $f$ survient en $x$, on a nécessairement \qquad\qquad\qquad\qquad
-		\end{center}
-\end{propriete}
+	Alors un extremum local de $f$ survient lorsque $f'$ change de \hide{signe.}
+	
+	Donc, si un extremum local de $f$ survient en $x$, on a nécessairement \hide{$f'(x) = 0$.}
+\end{theorem}
 %\begin{strategie*}{déterminer les extrema de $f$}{}
 %	\begin{enumerate}
 %		\item On calcule $f'(x)$ comme précédemment.
@@ -285,7 +352,50 @@ On trace la droite de pente \hspace{2cm} passant par $(-0,5 ; f(-0,5))$ ci-desso
 %	\end{enumerate}
 %\end{strategie*}
 
+\section{Étude de polynôme}
+
+\begin{definition}
+	Un \emph{polynôme} de degré 3 est une fonction de la forme
+		\[ ax^3+ bx^2 + cx + d, \]
+	avec $a, b, c, d$ des nombres appelés \emph{coefficients}.
+\end{definition}
+
+\begin{theorem}
+	Soient $f, g$ deux fonctions dérivables, et $c\in\R$ un nombre réel quelconque. 
+	Alors
+		\begin{multicols}{2}
+		\begin{enumerate}
+			\item $(f+g)' = f' + g'$ ; et
+			\item $(c \times f)' = c \times f'$.
+		\end{enumerate}
+		\end{multicols}
+\end{theorem}
 
 
+\begin{theorem}
+	
+	Pour chaque monôme suivant, on donne sa dérivée formelle.
+
+\centering
+	\begin{tabular}{|c|c|c|c|c|}\hline
+		Monôme & 1 & $x$ & $x^2$ & $x^3$ \\ \hline
+		Dérivée & 0 & 1 & $2x$ & $3x^2$ \\ \hline
+	\end{tabular}
+\end{theorem}
+
+\begin{exemple*}
+	Considérons la fonction $f(x) = 2x^3 + 2x + 3$ qu'on étudie pour $-2 \leq x \leq 10$.
+	Pour quel(s) $x$ est-ce que $f(x)$ est maximale ? et minimale ?
+	\begin{enumerate}
+		\item
+		La dérivée est de $f$ est 
+			\[ f'(x) = .\]
+		\item
+		On montre que $f'(x) = $ en développant la forme factorisée donnée.
+		\item
+		On crée un tableau de signe de $f'(x)$ qu'on complète en un tableau de variations de $f(x)$.
+	\end{enumerate}
+
+\end{exemple*}
 
 \end{document}
