@@ -34,7 +34,7 @@ Consignes particulières :
 		\item 
 		Quel est le signe de $f'(2)$ ?
 		\item 
-		Donner approximativement la valeur de $f'(1)$.
+		Donner approximativement la valeur de $f'(3)$.
 		\item
 		La tangente à $\C_f$ en $x=1$ a pour équation $y=8,3-4,4x$.
 		En déduire la valeur de $f'(1)$.
@@ -50,6 +50,26 @@ Consignes particulières :
 	\end{center}
 
 }{exe:tangente-graphique}{
+	\begin{enumerate}
+		\item 
+		En se plaçant en $x=2$, on lit $f(2) \approx -1,5$ et donc que
+		$f(2)$ est négatif.
+		\item 
+		En $x=2$, la courbe descend et $f$ est décroissante.
+		D'après le cours, $f'(2) < 0$.
+		\item 
+		En $x=3$, la tangente à la courbe est horizontale, son coefficient directeur est donc nul.
+		On en déduit que $f'(3) \approx 0$.
+		
+		Une autre façon d'obtenir le résultat est de la façon suivante :
+		autour de $x=3$, la fonction $f$ passe de décroissante à croissante.
+		Le signe de $f'(x)$ est donc négatif puis positif, et passe donc nécessairement par 0.
+		\item
+		$f'(1)$ est, par définition, le coefficient directeur de la tangente à $\C_f$ en $x=1$.
+		Cette tangente a pour équation $y=8,3-4,4x = -4,4 \times x + 8,3 = ax+b$, avec $a=-4,4$ et $b=8,3$.
+		Seul $a=-4,4$, le coefficient directeur, nous intéresse ici :
+			\[ f'(1) = -4,4. \]
+	\end{enumerate}
 }
 
 \exe{3,difficulty=0}{
@@ -76,6 +96,21 @@ Consignes particulières :
 	\vfill\null
 	\end{multicols}
 }{exe:lecture-graphique}{
+	Lorsque $\C_f$ est au-dessus de l'axe des abscisses, $f(x)$ est positif.
+	Lorsque $\C_f$ est en-dessous, $f(x)$ est négatif.
+	
+	On obtient donc environ le tableau suivant.
+	Les $x$ importants auxquels $f(x)$ change de signe sont ceux pour lesquels $f(x) = 0$ : les intersections entre $\C_f$ et l'axe des abscisses.
+	\begin{center}
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1 , Signe de $f(x)$ / 2}
+	       		{0, {0,6}, 2,3}
+		\tkzTabLine
+			{z,+,z,-,z,+}
+	\end{tikzpicture}
+	\end{center}
 }
 
 
@@ -93,6 +128,32 @@ Consignes particulières :
 	\end{enumerate}
 	\end{multicols}
 }{exe:derivation}{
+	On utilise d'un part que $(f+g)' = f'+g'$ et que $(c\times f)' = c\times f'$ pour $f, g$ deux fonctions et $c$ un nombre.
+	D'autre part, le tableau suivant permet de dériver les monômes de degré inférieurs à 3.
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|c|}\hline
+		Monôme & 1 & $x$ & $x^2$ & $x^3$ \\ \hline
+		Dérivée & {0} & {1} & {$2x$} & {$3x^2$} \\ \hline
+	\end{tabular}
+	\end{center}
+	Moyen mnémotechnique : $(x^n)' = n\times x^{n-1}$.
+	La puissance sort en multiple et est diminuée de 1.
+	\begin{enumerate}
+		\item 
+			\begin{align*}
+				f'(x) &= (x^3 + 2x^2 + 6x + 10)' \\
+						&= (x^3)' + (2x^2)' + (6x)' + (10)' \\
+						&= (x^3)' + 2(x^2)' + 6(x)' + 10(1)' \\
+						&= 3x^2 + 2\times2x + 6\times1 + 10\times 0 \\
+						&= 3x^2 + 4x + 6
+			\end{align*}
+		\item 
+			\begin{align*}
+				g'(x) &= (-x^2 + 7x - 1)' \\
+						&= -(x^2)' + 7(x)' - 1' \\
+						&= -2x + 7
+			\end{align*}
+	\end{enumerate}
 }
 
 \exe{4}{
@@ -104,7 +165,31 @@ Consignes particulières :
 		\item $h(x) = 3(x+1)(x-4)$
 	\end{enumerate}
 	\end{multicols}
-}{exe:derivation}{
+}{exe:dev-red}{
+	On utilise la double distributivité classique
+		\[ (a+b)(c+d) = ac+ad+bc+bd. \]
+	\begin{enumerate}
+		\item 
+			\begin{align*}
+				f(x) &= (x+1)(x+2) \\
+						&= x^2 + x + 2x + 2 \\
+						&= x^2 + 3x + 2
+			\end{align*}
+		\item
+			\begin{align*}
+				g(x) &= (2x-3)(x+2) \\
+						&= 2x^2 + 4x - 3x - 6 \\
+						&= 2x^2 + x - 6
+			\end{align*}
+		\item 
+			\begin{align*}
+				h(x) &= 3(x+1)(x-4) \\
+						&= 3\bigl[(x+1)(x-4)\bigr] \\
+						&= 3\bigl[x^2 + x - 4x - 4\bigr] \\
+						&= 3\bigl[x^2 - 3x - 4\bigr] \\
+						&= 3x^2 - 9x - 12
+			\end{align*}
+	\end{enumerate}
 }
 
 \exe{6,difficulty=1}{
@@ -133,6 +218,64 @@ Consignes particulières :
 		\item Utiliser le tableau de variations pour esquisser $\C_f$ dans le repère figure \ref{fig:Cf}.
 	\end{enumerate}
 }{exe:variations-d3}{
+	Pour étudier le signe de $ax+b$, on trouve le $x$ pour lequel la fonction s'annule en posant $ax+b=0 \iff x = \frac{-b}a$.
+	
+	Ensuite, soit en testant des valeurs de $x$, soit en regardant le signe du coefficient directeur $a$ de la fonction, on décide des signes de part et d'autre du zéro.
+	
+	Ici, pour $2x+3$, nous trouvons
+		\begin{align*}
+			2x+3 &= 0 \\
+			2x &= -3 \\
+			x &= \frac{-3}2 \\
+			x &= -1,5
+		\end{align*}
+	De plus, avant $-1,5$ la fonction $2x+5$ est négative.
+	En $x=-3$ par exemple, $2x+5 = 2\times(-3) + 5 = -6+5 = -1 < 0$.
+	Enfin, après $-1,5$ la fonction $2x+5$ est positive.
+	En $x=2$ par exemple, $2x+5 = 2\times2+5 = 9 > 0$.
+	
+	On fait idem avec la fonction $x-1$ puis $f'(x)$, le produit des deux, pour obtenir le tableau suivant.
+	\begin{center}
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1 , Signe de $2x+3$ / 1, Signe de $x-1$ / 1, Signe de $f'(x)$ / 1, Variation de $f(x)$ / 2}
+	       		{$-3$,{-1,5},1,2}
+		\tkzTabLine
+			{,-,z,,,+,}
+		\tkzTabLine
+			{,,-,,z,+,}
+		\tkzTabLine
+			{,+,z,-,z,+,}
+		\tkzTabVar
+			{-/{-4,6},+/{3,2},-/{-2},+/{1,2}}
+	\end{tikzpicture}
+	\end{center}
+	
+	La courbe représentative de la fonction $f$ ressemble à ceci.
+	
+	Le maximum de $f$ est $f(-1,5) \approx 3,2$.
+	Le minimum de $f$ est $f(-3) \approx -4,6$.
+	Ce sont respectivement la plus grande et la plus petite valeur du tableau de variations.
+	
+	\begin{center}
+	\begin{tikzpicture}[scale=1.2]
+	\begin{axis}[
+		xmin = -3, xmax=2,
+		ymin=-5, ymax=5,
+		axis x line=middle, 
+		axis y line=middle, 
+		axis line style=-,
+		grid = both, % xlabel={$x$}, ylabel={$f(x)$},
+		minor tick num = 1,
+	%xtick = {0, 0.2, ..., 1.4},
+	%ytick = {-1, -0.5, 0, .5, 1.5},
+	]
+	\addplot[domain=-3:2, BLUE_E, thick, samples=100] {2*x^3/3 + x^2/2 - 3*x-1/6} node[right]{$\C_f$};
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+
 }
 
 
