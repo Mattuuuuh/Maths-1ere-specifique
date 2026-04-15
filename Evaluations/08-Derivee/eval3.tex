@@ -1,6 +1,6 @@
 \input{../preamble.tex}
 
-\SetDate[16/04/2026]
+\SetDate[17/04/2026]
 \reversemarginpar
 \setlength{\marginparsep}{.5cm}
 
@@ -198,88 +198,89 @@ Consignes particulières :
 }
 
 \exe{6,difficulty=1}{
-	Nous étudions une fonction $f$ pour des antécédents $x$ situés entre $-3$ et $2$.
+	% f(x) = 4x³-9x²-12x+10
+	Nous étudions une fonction $f$ pour des antécédents $x$ situés entre $-2$ et 3.
 	
 	Nous disposons des informations suivantes sur $f$.
 	\begin{multicols}{2}
 	\begin{itemize}
 		\item
-		Sa dérivée est 
-			$ f'(x) = (2x+3)(x-1). $
+		Sa dérivée est
+			$ f'(x) = 6(2x+1)(x-2). $
 		\item
-		L'image de $-3$ est $f(-3) \approx -4,6$
+		L'image de $-2$ est $f(-2) = -34$
 		\item
-		L'image de $-1,5$ est $f(-1,5) \approx 3,2$
+		L'image de $-0,5$ est $f(-0,5) = 13,25$
 		\item
-		L'image de 1 est $f(1) = -2$
+		L'image de 2 est $f(2) = -18$
 		\item
-		L'image de 2 est $f(2) \approx 1,2$
+		L'image de 3 est $f(3) = 1$
 	\end{itemize}
 	\end{multicols}
 	\begin{enumerate}
 		\item Remplir le tableau de signes et de variations de la figure \ref{fig:var-signe}.
 		\item Compléter les variations avec les images connues de $f$.
-		\item En déduire le maximum et le minimum de $f$ sur le domaine d'étude.
+		\item En déduire le maximum et le minimum de $f(x)$ lorsque $x$ est situé entre $-2$ et 3.
 		\item Utiliser le tableau de variations pour esquisser $\C_f$ dans le repère figure \ref{fig:Cf}.
 	\end{enumerate}
 }{exe:variations-d3}{
 	Pour étudier le signe de $ax+b$, on trouve le $x$ pour lequel la fonction s'annule en posant $ax+b=0 \iff x = \frac{-b}a$.
 	
 	Ensuite, soit en testant des valeurs de $x$, soit en regardant le signe du coefficient directeur $a$ de la fonction, on décide des signes de part et d'autre du zéro.
-	
-	Ici, pour $2x+3$, nous trouvons
-		\begin{align*}
-			2x+3 &= 0 \\
-			2x &= -3 \\
-			x &= \frac{-3}2 \\
-			x &= -1,5
-		\end{align*}
-	De plus, avant $-1,5$ la fonction $2x+5$ est négative.
-	En $x=-3$ par exemple, $2x+5 = 2\times(-3) + 5 = -6+5 = -1 < 0$.
-	Enfin, après $-1,5$ la fonction $2x+5$ est positive.
-	En $x=2$ par exemple, $2x+5 = 2\times2+5 = 9 > 0$.
-	
-	On fait idem avec la fonction $x-1$ puis $f'(x)$, le produit des deux, pour obtenir le tableau suivant.
-	\begin{center}
-	\begin{tikzpicture}
-		\tkzTabInit
-		 %[lgt=3,espcl=1.5]
-	       		{$x$ / 1 , Signe de $2x+3$ / 1, Signe de $x-1$ / 1, Signe de $f'(x)$ / 1, Variation de $f(x)$ / 2}
-	       		{$-3$,{-1,5},1,2}
-		\tkzTabLine
-			{,-,z,,,+,}
-		\tkzTabLine
-			{,,-,,z,+,}
-		\tkzTabLine
-			{,+,z,-,z,+,}
-		\tkzTabVar
-			{-/{-4,6},+/{3,2},-/{-2},+/{1,2}}
-	\end{tikzpicture}
-	\end{center}
-	
-	La courbe représentative de la fonction $f$ ressemble à ceci.
-	
-	Le maximum de $f$ est $f(-1,5) \approx 3,2$.
-	Le minimum de $f$ est $f(-3) \approx -4,6$.
-	Ce sont respectivement la plus grande et la plus petite valeur du tableau de variations.
-	
-	\begin{center}
-	\begin{tikzpicture}[scale=1.2]
-	\begin{axis}[
-		xmin = -3, xmax=2,
-		ymin=-5, ymax=5,
-		axis x line=middle, 
-		axis y line=middle, 
-		axis line style=-,
-		grid = both, % xlabel={$x$}, ylabel={$f(x)$},
-		minor tick num = 1,
-	%xtick = {0, 0.2, ..., 1.4},
-	%ytick = {-1, -0.5, 0, .5, 1.5},
-	]
-	\addplot[domain=-3:2, BLUE_E, thick, samples=100] {2*x^3/3 + x^2/2 - 3*x-1/6} node[right]{$\C_f$};
-	\end{axis}
-	\end{tikzpicture}
-	\end{center}
+%	
+%	Ici, pour $2x+3$, nous trouvons
+%		\begin{align*}
+%			2x+3 &= 0 \\
+%			2x &= -3 \\
+%			x &= \frac{-3}2 \\
+%			x &= -1,5
+%		\end{align*}
+%	De plus, avant $-1,5$ la fonction $2x+5$ est négative.
+%	En $x=-3$ par exemple, $2x+5 = 2\times(-3) + 5 = -6+5 = -1 < 0$.
+%	Enfin, après $-1,5$ la fonction $2x+5$ est positive.
+%	En $x=2$ par exemple, $2x+5 = 2\times2+5 = 9 > 0$.
+%	
+%	On fait idem avec la fonction $x-1$ puis $f'(x)$, le produit des deux, pour obtenir le tableau suivant.
+%	\begin{center}
+%	\begin{tikzpicture}
+%		\tkzTabInit
+%		 %[lgt=3,espcl=1.5]
+%	       		{$x$ / 1 , Signe de $2x+3$ / 1, Signe de $x-1$ / 1, Signe de $f'(x)$ / 1, Variation de $f(x)$ / 2}
+%	       		{$-3$,{-1,5},1,2}
+%		\tkzTabLine
+%			{,-,z,,,+,}
+%		\tkzTabLine
+%			{,,-,,z,+,}
+%		\tkzTabLine
+%			{,+,z,-,z,+,}
+%		\tkzTabVar
+%			{-/{-4,6},+/{3,2},-/{-2},+/{1,2}}
+%	\end{tikzpicture}
+%	\end{center}
+%	
+%	La courbe représentative de la fonction $f$ ressemble à ceci.
+%	
+%	Le maximum de $f$ est $f(-1,5) \approx 3,2$.
+%	Le minimum de $f$ est $f(-3) \approx -4,6$.
+%	Ce sont respectivement la plus grande et la plus petite valeur du tableau de variations.
+%	
+%	\begin{center}
+%	\begin{tikzpicture}[scale=1.2]
+%	\begin{axis}[
+%		xmin = -3, xmax=2,
+%		ymin=-5, ymax=5,
+%		axis x line=middle, 
+%		axis y line=middle, 
+%		axis line style=-,
+%		grid = both, % xlabel={$x$}, ylabel={$f(x)$},
+%		minor tick num = 1,
+%	%xtick = {0, 0.2, ..., 1.4},
+%	%ytick = {-1, -0.5, 0, .5, 1.5},
+%	]
+%	\addplot[domain=-3:2, BLUE_E, thick, samples=100] {2*x^3/3 + x^2/2 - 3*x-1/6} node[right]{$\C_f$};
+%	\end{axis}
+%	\end{tikzpicture}
+%	\end{center}
 
 }
 
@@ -289,8 +290,8 @@ Consignes particulières :
 	\begin{tikzpicture}
 		\tkzTabInit
 		 %[lgt=3,espcl=1.5]
-	       		{$x$ / 1 , Signe de $2x+3$ / 1, Signe de $x-1$ / 1, Signe de $f'(x)$ / 1, Variation de $f(x)$ / 2}
-	       		{$-3$,,,,2}
+	       		{$x$ / 1 , Signe de $2x+1$ / 1, Signe de $x-2$ / 1, Signe de $f'(x)$ / 1, Variation de $f(x)$ / 2}
+	       		{$-2$,,,,3}
 	\end{tikzpicture}
 	\caption{Tableau de variations de $f$ et de signes de $f'$.}
 	\label{fig:var-signe}
@@ -300,17 +301,15 @@ Consignes particulières :
 	\centering
 	\begin{tikzpicture}[scale=1.2]
 	\begin{axis}[
-		xmin = -3, xmax=2,
-		ymin=-5, ymax=5,
+		xmin = -2, xmax=3,
+		ymin=-40, ymax=20,
 		axis x line=middle, 
 		axis y line=middle, 
 		axis line style=-,
-		grid = both, % xlabel={$x$}, ylabel={$f(x)$},
+		grid = both, 
 		minor tick num = 1,
-	%xtick = {0, 0.2, ..., 1.4},
-	%ytick = {-1, -0.5, 0, .5, 1.5},
 	]
-	\addplot[domain=-3:2, transparent, thick, samples=100] {2*x^3/3 + x^2/2 - 3*x-1/6} node[right]{$\C_f$};
+	\addplot[domain=-2:3, transparent, thick, samples=100] {4*x^3 - 9*x^2 - 12*x + 10} node[right]{$\C_f$};
 	\end{axis}
 	\end{tikzpicture}
 	\caption{Graphe approximatif de $\C_f$.}
