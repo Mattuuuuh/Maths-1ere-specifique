@@ -8,15 +8,121 @@
 \fancyhead[C]{\textbf{Informations chiffrées}}
 \fancyhead[R]{\today}
 
+\framebox(450,110){
+	
+}
+
+\exe{}{
+	Voici deux séries de valeurs.
+	Série A : 1 ; 2 ; 3 et série B : 0,5 ; 2 ; 100.
+	
+	Quelles propositions sont vraies ?
+	\begin{enumerate}[label=\textbf{\alph*.}]
+		\item Les deux séries ont la même moyenne et la même médiane.
+		\item Les deux séries ont la même moyenne mais pas la même médiane.
+		\item Les deux séries ont la même médiane mais pas la même moyenne.
+		\item Les deux séries n'ont ni la même moyenne ni la même médiane.
+	\end{enumerate}
+}{exe:aut0-1-12}{
+	TODO
+}
+
+\exe{}{
+	On considère les deux séries ci-dessous.
+	Série A : 9 ; 10 ; 10 ; 11
+	et
+	série B : 7 ; 10 ; 10 ; 13.
+	
+	Quelles propositions sont vraies ?
+	\begin{enumerate}[label=\textbf{\alph*.}]
+		\item La moyenne de la série A est strictement supérieure à la moyenne de la série B.
+		\item La moyenne de la série B est strictement supérieure à la moyenne de la série A.
+		\item L'écart-type de la série A est strictement supérieur à l'écart-type de la série B.
+		\item L'écart-type de la série B est strictement supérieur à l'écart-type de la série A.
+	\end{enumerate}
+}{exe:aut0-2-12}{
+	TODO
+}
 
 
 
 
-\begin{figure}[h!]
-  \centering
-  \begin{subfigure}[b]{.45\textwidth}
-    \centering
-  \begin{tikzpicture}[scale=1]
+
+\exemulticols{}{
+	Une chanteuse analyse en détails ses revenus.
+	Elle constate qu'un tiers proviennent des ventes de CD et vinyles, un quart des droits d'auteurs, 10\% des concerts, et le reste du streaming en ligne.
+	
+	Compléter le tableau ci-dessous et représenter les données avec un diagramme circulaire.
+	
+	
+	\begin{center}
+\def\arraystretch{1.5}
+\setlength\tabcolsep{10pt}
+		\begin{tabular}{|c|c|c|c|c|}\hline
+		Catégorie & CD et vinyles & Droits d'auteur & Concerts & Streaming \\\hline
+		Proportion (en \% arrondi à $10^{-1}$) & & & & \\\hline
+		Angle (en °) & & & & \\\hline
+		\end{tabular}
+		%
+	\end{center}
+}{
+	\begin{center}
+\def\radius{2}
+  \begin{tikzpicture}
+        \draw (0,0)-- (0:2) arc (0:360:2);
+  \end{tikzpicture}
+  \end{center}
+}{exe:diag-circ}{
+	\begin{center}
+\def\angle{150}
+\def\radius{2}
+\def\cyclelist{{"GREEN_E","GOLD_E","RED_E","BLUE_E"}}
+\newcount\cyclecount \cyclecount=-1
+\newcount\ind \ind=-1
+  \begin{tikzpicture}
+      \foreach \percent/\name in {
+        33.3/{CD/Vinyles},
+        25/{Droits d'auteur},
+        10/{Concerts},
+        31.7/{Streaming}
+    } {
+      \ifx\percent\empty\else               % If \percent is empty, do nothing
+        \global\advance\cyclecount by 1     % Advance cyclecount
+        \global\advance\ind by 1            % Advance list index
+        \ifnum3<\cyclecount                 % If cyclecount is larger than list
+          \global\cyclecount=0              %   reset cyclecount and
+          \global\ind=0                     %   reset list index
+        \fi
+        \pgfmathparse{\cyclelist[\the\ind]} % Get color from cycle list
+        \edef\color{\pgfmathresult}         %   and store as \color
+        % Draw angle and set labels
+        \draw[fill={\color!50},draw={\color}] (0,0) -- (\angle:\radius)
+          arc (\angle:\angle+\percent*3.6:\radius) -- cycle;
+        \node at (\angle+0.5*\percent*3.6:0.7*\radius) {\percent\,\%};
+        \node[pin=\angle+0.5*\percent*3.6:\name]
+          at (\angle+0.5*\percent*3.6:\radius) {};
+        \pgfmathparse{\angle+\percent*3.6}  % Advance angle
+        \xdef\angle{\pgfmathresult}         %   and store in \angle
+      \fi
+    };
+  \end{tikzpicture}
+  \end{center}
+}
+
+
+\exemulticols{}{
+	Pour la série statistiques décrite par le diagramme à barres ci-contre, donner
+		\begin{enumerate}[label=\roman*)]
+			\item l'effectif total ;
+			\item la moyenne ; et
+			\item la médiane.
+		\end{enumerate}
+	Sans connaître la valeur exacte de chaque note, on assignera la valeur moyenne à chaque intervalle.
+	Par exemple, du diagramme, on lit 5 notes de valeur 11,5 car situées entre 11 et 12.
+	\vfill\null
+}{
+\begin{center}
+  \begin{tikzpicture}[scale=.9]
     \begin{axis}[
         ymin=0, ymax=5,
         xmin=0, xmax=20,
@@ -52,68 +158,11 @@
       };
     \end{axis} 
   \end{tikzpicture}
-  \caption{Automatismes 15 à 20.}
-  \label{fig:1a}
-  \end{subfigure}
-  \hfill
-  % NOT LINE BREAK!!
-	\begin{subfigure}[b]{.45\textwidth}
-    \centering
-  \begin{tikzpicture}[scale=1]
-    \begin{axis}[
-        ymin=0, ymax=3,
-        xmin=0, xmax=20,
-        minor x tick num = 1,
-        %minor y tick num=1,
-        axis line style = -,
-        xtick distance=2,
-        area style,
-        xlabel = {Note sur $20$},
-        ylabel = {Effectif},
-        xlabel near ticks,
-        ylabel near ticks,
-		extra x ticks={0},
-		extra y ticks={0},
-		x=10pt,
-		ybar,
-		bar width=8pt,
-      ]
-      \addplot+[bar shift=4pt,draw=BLACK,thick, fill=GREEN_E!50] plot coordinates {
-        (2,1)
-        (3,1)
-        (5,2)
-        (6,3)
-        (7,1)
-        (8,1)
-        (9,1)
-        (10,2)
-        (11,1)
-        (12,3)
-        (13,2)
-        (14,2)
-        (15,2)
-        (16,2)
-        (17,1)
-        (18,1)
-        (19,1)
-      };
-    \end{axis} 
-  \end{tikzpicture}
-  \caption{Évaluation ``Vecteurs''.}
-  \label{fig:1b}
-  \end{subfigure}
-  
-  
-  \caption{Histogrammes de notes. Les classes sont de la forme $[k;k+1[$ avec $k$ un entier. 
-  %La colonne entre $12$ et $13$ compte donc toutes les notes appartenant à $[12;13[$.
-  \\
-  \underline{Lecture} : 3 notes de l'évaluation ``Vecteurs'' appartiennent à l'intervalle $[12;13[$.
-  }
-  \label{fig:hist}
-\end{figure}
+\end{center}
 
+}{exe:7}{
+}
 
-\newpage
 
 \exemulticols{, difficulty=0}{
 	Soient $f(x) = ax+b$ et $g(x) = a'x+b'$ deux fonctions affines données graphiquement pour $3,2 \leq x \leq 3,7$ ci-contre.
@@ -241,11 +290,12 @@
 	\begin{enumerate}
 		\item
 		Représenter les données du tableau dans le repère ci-dessus.
+		Tracer une droite d'ajustement passant approximativement par les points.
 		\item 
-		Déterminer l'équation d'une droite $(d)$ d'ajustement affine liant le nombre de ventes $y$ et le prix $x$ sous la forme $y=ax+b$.
+		Déterminer l'équation de la droite tracée liant le nombre de ventes $y$ et le prix $x$ sous la forme $y=ax+b$.
 		Arrondir les paramètres $a$ et $b$ à l'unité.
 		\item 
-		À l'aide de cet ajustement affine, remplir la colonne « Ventes » du tableau.
+		À l'aide de cette droite, remplir la colonne « Ventes » du tableau.
 		\item 
 		Selon vous, quel est le prix permettant à l'entreprise de réaliser le plus grand chiffre d'affaire ?
 		Remplir la colonne « Recettes » du tableau pour répondre à la question.
@@ -276,71 +326,6 @@
 	\end{axis}
 	\end{tikzpicture}
 	\end{center}
-}
-
-\newpage
-
-
-\exemulticols{}{
-	Une chanteuse analyse en détails ses revenus.
-	Elle constate qu'un tiers proviennent des ventes de CD et vinyles, un quart des droits d'auteurs, 10\% des concerts, et le reste du streaming en ligne.
-	
-	Compléter le tableau ci-dessous et représenter les données avec un diagramme circulaire.
-	
-	
-	\begin{center}
-\def\arraystretch{1.5}
-\setlength\tabcolsep{10pt}
-		\begin{tabular}{|c|c|c|c|c|}\hline
-		Catégorie & CD et vinyles & Droits d'auteur & Concerts & Streaming \\\hline
-		Proportion (en \% arrondi à $10^{-1}$) & & & & \\\hline
-		Angle (en °) & & & & \\\hline
-		\end{tabular}
-		%
-	\end{center}
-}{
-	\begin{center}
-\def\radius{2}
-  \begin{tikzpicture}
-        \draw (0,0)-- (0:2) arc (0:360:2);
-  \end{tikzpicture}
-  \end{center}
-}{exe:diag-circ}{
-	\begin{center}
-\def\angle{150}
-\def\radius{2}
-\def\cyclelist{{"GREEN_E","GOLD_E","RED_E","BLUE_E"}}
-\newcount\cyclecount \cyclecount=-1
-\newcount\ind \ind=-1
-  \begin{tikzpicture}
-      \foreach \percent/\name in {
-        33.3/{CD/Vinyles},
-        25/{Droits d'auteur},
-        10/{Concerts},
-        31.7/{Streaming}
-    } {
-      \ifx\percent\empty\else               % If \percent is empty, do nothing
-        \global\advance\cyclecount by 1     % Advance cyclecount
-        \global\advance\ind by 1            % Advance list index
-        \ifnum3<\cyclecount                 % If cyclecount is larger than list
-          \global\cyclecount=0              %   reset cyclecount and
-          \global\ind=0                     %   reset list index
-        \fi
-        \pgfmathparse{\cyclelist[\the\ind]} % Get color from cycle list
-        \edef\color{\pgfmathresult}         %   and store as \color
-        % Draw angle and set labels
-        \draw[fill={\color!50},draw={\color}] (0,0) -- (\angle:\radius)
-          arc (\angle:\angle+\percent*3.6:\radius) -- cycle;
-        \node at (\angle+0.5*\percent*3.6:0.7*\radius) {\percent\,\%};
-        \node[pin=\angle+0.5*\percent*3.6:\name]
-          at (\angle+0.5*\percent*3.6:\radius) {};
-        \pgfmathparse{\angle+\percent*3.6}  % Advance angle
-        \xdef\angle{\pgfmathresult}         %   and store in \angle
-      \fi
-    };
-  \end{tikzpicture}
-  \end{center}
-
 }
 
 
